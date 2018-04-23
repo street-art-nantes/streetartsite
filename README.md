@@ -31,6 +31,13 @@ Delete obsolete translation messages
 translation:delete-obsolete
 ```
 
+Usefull routes
+---
+
 Show emails
 
 Go to `http://localhost:1080`
+
+Show API documentation
+
+Go to `http://localhost/api`
