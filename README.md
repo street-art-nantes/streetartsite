@@ -13,6 +13,24 @@ Add `-d`options to demonize command
 
 Now you can go to `http://localhost/api`
 
+
+Create .env file
+```shell
+cp .env.dist .env
+```
+
+Install node dependencies
+
+```shell
+npm install
+```
+
+Install run dev server 
+
+```shell
+npm run dev-server
+```
+
 Utils
 --- 
 
