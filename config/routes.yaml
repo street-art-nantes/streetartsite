@@ -1,6 +1,6 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+index:
+    path: /index/{name}
+    controller: App\Controller\MapController
 
 home:
     path:         /
