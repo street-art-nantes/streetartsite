@@ -2,9 +2,11 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ApiResource
  * @ORM\Entity(repositoryClass="App\Repository\DocumentRepository")
  */
 class Document
@@ -19,12 +21,12 @@ class Document
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $File;
+    private $file;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Oeuvre", inversedBy="Documents")
+     * @ORM\ManyToOne(targetEntity="Artwork", inversedBy="Documents")
      */
-    private $Oeuvre;
+    private $artwork;
 
     public function getId()
     {
@@ -33,12 +35,12 @@ class Document
 
     public function getFile(): ?string
     {
-        return $this->File;
+        return $this->file;
     }
 
-    public function setFile(string $File): self
+    public function setFile(string $file): self
     {
-        $this->File = $File;
+        $this->file = $file;
 
         return $this;
     }
@@ -46,18 +48,18 @@ class Document
     /**
      * @return mixed
      */
-    public function getOeuvre()
+    public function getArtwork()
     {
-        return $this->Oeuvre;
+        return $this->artwork;
     }
 
     /**
-     * @param mixed $Oeuvre
+     * @param mixed $artwork
      * @return Document
      */
-    public function setOeuvre($Oeuvre)
+    public function setArtwork($artwork)
     {
-        $this->Oeuvre = $Oeuvre;
+        $this->artwork = $artwork;
         return $this;
     }
 }

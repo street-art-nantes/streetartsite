@@ -13,9 +13,6 @@
             <link rel="stylesheet" href="{{ asset('assets/css/Leaflet.Photo.css') }}" />
             <link rel="stylesheet" href="{{ asset('assets/css/map.css') }}" />
         {% endblock %}
-        <script src="{{ asset('assets/lib/leaflet/leaflet.js') }}"></script>
-        <script src="{{ asset('assets/lib/cluster/leaflet.markercluster.js') }}"></script>
-        <script src="{{ asset('assets/lib/Leaflet.Photo.js') }}"></script>
     </head>
     <body onload="showImages()">
         {% include 'layout/header.html.twig' %}
@@ -27,6 +24,10 @@
         {% include 'layout/footer.html.twig' %}
 
         {% block javascripts %}
+            <script src="{{ asset('build/js/app.js') }}"></script>
+            <script src="{{ asset('assets/lib/leaflet/leaflet.js') }}"></script>
+            <script src="{{ asset('assets/lib/cluster/leaflet.markercluster.js') }}"></script>
+            <script src="{{ asset('assets/lib/Leaflet.Photo.js') }}"></script>
             <script type="application/javascript">
                 var map = L.map('map').setView([47.2096141132971, -1.5327856003723355], 12);
 
@@ -69,9 +70,7 @@
                     photoLayer.add(photos).addTo(map);
                     map.fitBounds(photoLayer.getBounds());
                 }
-
             </script>
-            <script src="{{ asset('build/js/app.js') }}"></script>
         {% endblock %}
     </body>
 </html>

@@ -2,13 +2,15 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ApiResource
  * @ORM\Entity(repositoryClass="App\Repository\OeuvreRepository")
  */
-class Oeuvre
+class Artwork
 {
     /**
      * @ORM\Id()
@@ -20,53 +22,53 @@ class Oeuvre
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Title;
+    private $title;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $Status;
+    private $status;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $CreatedAt;
+    private $createdAt;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $EndedAt;
+    private $endedAt;
 
     /**
      * @ORM\Column(type="array", nullable=true)
      */
-    private $Tags;
+    private $tags;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Type;
+    private $type;
 
     /**
      * @ORM\ManyToOne(targetEntity="Poi", inversedBy="oeuvres")
      */
-    private $Poi;
+    private $poi;
 
     /**
      * @ORM\OneToMany(targetEntity="Document", mappedBy="oeuvre")
      */
-    private $Documents;
+    private $documents;
 
     /**
      * @ORM\OneToOne(targetEntity="Author", mappedBy="oeuvre")
      */
-    private $Author;
+    private $author;
 
     /**
-     * Oeuvre constructor.
+     * Artwork constructor.
      */
     public function __construct() {
-        $this->Documents = new ArrayCollection();
+        $this->documents = new ArrayCollection();
     }
 
     public function getId()
@@ -76,72 +78,72 @@ class Oeuvre
 
     public function getTitle(): ?string
     {
-        return $this->Title;
+        return $this->title;
     }
 
-    public function setTitle(string $Title): self
+    public function setTitle(string $title): self
     {
-        $this->Title = $Title;
+        $this->title = $title;
 
         return $this;
     }
 
     public function getStatus(): ?bool
     {
-        return $this->Status;
+        return $this->status;
     }
 
-    public function setStatus(bool $Status): self
+    public function setStatus(bool $status): self
     {
-        $this->Status = $Status;
+        $this->status = $status;
 
         return $this;
     }
 
     public function getCreatedAt(): ?\DateTimeInterface
     {
-        return $this->CreatedAt;
+        return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeInterface $CreatedAt): self
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
-        $this->CreatedAt = $CreatedAt;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
 
     public function getEndedAt(): ?\DateTimeInterface
     {
-        return $this->EndedAt;
+        return $this->endedAt;
     }
 
-    public function setEndedAt(\DateTimeInterface $EndedAt): self
+    public function setEndedAt(\DateTimeInterface $endedAt): self
     {
-        $this->EndedAt = $EndedAt;
+        $this->endedAt = $endedAt;
 
         return $this;
     }
 
     public function getTags(): ?array
     {
-        return $this->Tags;
+        return $this->tags;
     }
 
-    public function setTags(?array $Tags): self
+    public function setTags(?array $tags): self
     {
-        $this->Tags = $Tags;
+        $this->tags = $tags;
 
         return $this;
     }
 
     public function getType(): ?string
     {
-        return $this->Type;
+        return $this->type;
     }
 
-    public function setType(string $Type): self
+    public function setType(string $type): self
     {
-        $this->Type = $Type;
+        $this->type = $type;
 
         return $this;
     }
@@ -151,16 +153,16 @@ class Oeuvre
      */
     public function getPoi()
     {
-        return $this->Poi;
+        return $this->poi;
     }
 
     /**
-     * @param mixed $Poi
-     * @return Oeuvre
+     * @param mixed $poi
+     * @return Artwork
      */
-    public function setPoi($Poi)
+    public function setPoi($poi)
     {
-        $this->Poi = $Poi;
+        $this->poi = $poi;
         return $this;
     }
 
@@ -169,16 +171,16 @@ class Oeuvre
      */
     public function getDocuments()
     {
-        return $this->Documents;
+        return $this->documents;
     }
 
     /**
-     * @param mixed $Documents
-     * @return Oeuvre
+     * @param mixed $documents
+     * @return Artwork
      */
-    public function setDocuments($Documents)
+    public function setDocuments($documents)
     {
-        $this->Documents = $Documents;
+        $this->documents = $documents;
         return $this;
     }
 
@@ -187,16 +189,16 @@ class Oeuvre
      */
     public function getAuthor()
     {
-        return $this->Author;
+        return $this->author;
     }
 
     /**
-     * @param mixed $Author
-     * @return Oeuvre
+     * @param mixed $author
+     * @return Artwork
      */
-    public function setAuthor($Author)
+    public function setAuthor($author)
     {
-        $this->Author = $Author;
+        $this->author = $author;
         return $this;
     }
 }

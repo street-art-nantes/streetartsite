@@ -2,10 +2,12 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ApiResource
  * @ORM\Entity(repositoryClass="App\Repository\PoiRepository")
  */
 class Poi
@@ -20,30 +22,30 @@ class Poi
     /**
      * @ORM\Column(type="point")
      */
-    private $Coordinates;
+    private $coordinates;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Country;
+    private $country;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $City;
+    private $city;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Address;
+    private $address;
 
     /**
-     * @ORM\OneToMany(targetEntity="Oeuvre", mappedBy="poi")
+     * @ORM\OneToMany(targetEntity="Artwork", mappedBy="poi")
      */
-    private $oeuvres;
+    private $artworks;
 
     public function __construct() {
-        $this->oeuvres = new ArrayCollection();
+        $this->artworks = new ArrayCollection();
     }
 
     public function getId()
@@ -53,48 +55,48 @@ class Poi
 
     public function getCoordinates()
     {
-        return $this->Coordinates;
+        return $this->coordinates;
     }
 
-    public function setCoordinates($Coordinates): self
+    public function setCoordinates($coordinates): self
     {
-        $this->Coordinates = $Coordinates;
+        $this->coordinates = $coordinates;
 
         return $this;
     }
 
     public function getCountry(): ?string
     {
-        return $this->Country;
+        return $this->country;
     }
 
-    public function setCountry(string $Country): self
+    public function setCountry(string $country): self
     {
-        $this->Country = $Country;
+        $this->country = $country;
 
         return $this;
     }
 
     public function getCity(): ?string
     {
-        return $this->City;
+        return $this->city;
     }
 
-    public function setCity(string $City): self
+    public function setCity(string $city): self
     {
-        $this->City = $City;
+        $this->city = $city;
 
         return $this;
     }
 
     public function getAddress(): ?string
     {
-        return $this->Address;
+        return $this->address;
     }
 
-    public function setAddress(string $Address): self
+    public function setAddress(string $address): self
     {
-        $this->Address = $Address;
+        $this->address = $address;
 
         return $this;
     }
@@ -102,18 +104,18 @@ class Poi
     /**
      * @return mixed
      */
-    public function getOeuvres()
+    public function getArtworks()
     {
-        return $this->oeuvres;
+        return $this->artworks;
     }
 
     /**
-     * @param mixed $oeuvres
+     * @param mixed $artworks
      * @return Poi
      */
-    public function setOeuvres($oeuvres)
+    public function setArtworks($artworks)
     {
-        $this->oeuvres = $oeuvres;
+        $this->artworks = $artworks;
         return $this;
     }
 }

@@ -2,9 +2,11 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ApiResource
  * @ORM\Entity(repositoryClass="App\Repository\AuthorRepository")
  */
 class Author
@@ -19,17 +21,17 @@ class Author
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Name;
+    private $name;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $Biography;
+    private $biography;
 
     /**
-     * @ORM\OneToOne(targetEntity="Oeuvre", mappedBy="author")
+     * @ORM\OneToOne(targetEntity="Artwork", mappedBy="author")
      */
-    private $Oeuvre;
+    private $artwork;
 
     public function getId()
     {
@@ -38,24 +40,24 @@ class Author
 
     public function getName(): ?string
     {
-        return $this->Name;
+        return $this->name;
     }
 
-    public function setName(string $Name): self
+    public function setName(string $name): self
     {
-        $this->Name = $Name;
+        $this->name = $name;
 
         return $this;
     }
 
     public function getBiography(): ?string
     {
-        return $this->Biography;
+        return $this->biography;
     }
 
-    public function setBiography(?string $Biography): self
+    public function setBiography(?string $biography): self
     {
-        $this->Biography = $Biography;
+        $this->biography = $biography;
 
         return $this;
     }
@@ -63,18 +65,18 @@ class Author
     /**
      * @return mixed
      */
-    public function getOeuvre()
+    public function getArtwork()
     {
-        return $this->Oeuvre;
+        return $this->artwork;
     }
 
     /**
-     * @param mixed $Oeuvre
+     * @param mixed $artwork
      * @return Author
      */
-    public function setOeuvre($Oeuvre)
+    public function setArtwork($artwork)
     {
-        $this->Oeuvre = $Oeuvre;
+        $this->artwork = $artwork;
         return $this;
     }
 }
