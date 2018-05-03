@@ -22,6 +22,12 @@ yarn-error.log
 /.web-server-pid
 ###< symfony/web-server-bundle ###
 
-### mac & co
+### mac & co ###
 .DS_Store
 .idea
+### mac & co ###
+
+###> friendsofphp/php-cs-fixer ###
+/.php_cs
+/.php_cs.cache
+###< friendsofphp/php-cs-fixer ###
