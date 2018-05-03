@@ -5,12 +5,11 @@ machine:
 
 jobs:
   build:
-    working_directory: ~/app
-        docker:
-          - image: circleci/python:3.6.1
-        steps:
-          - checkout
-          - run: ls -al
+      docker:
+        - image: circleci/python:3.6.1
+      steps:
+        - checkout
+        - run: ls -al
 
 dependencies:
   pre:
