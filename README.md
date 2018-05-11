@@ -34,9 +34,9 @@ npm run dev-server
 Utils
 --- 
 
-Re-sync database
+Load fixtures 
 ```
-docker-compose exec -T php bin/console doctrine:schema:update 
+docker-compose exec -T php bin/console hautelook:fixtures:load
 ```
 
 Extract translation messages

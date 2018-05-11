@@ -45,16 +45,19 @@ class Poi
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"poi_read"})
      */
     private $country;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"poi_read"})
      */
     private $city;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"poi_read"})
      */
     private $address;
 
