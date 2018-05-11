@@ -2,19 +2,11 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ApiResource(attributes={
- *     "filters"={LocationFilter::class},
- *     "normalization_context"={"groups"={"poi_read"}},
- *     "denormalization_context"={"groups"={"poi_write"},
- *     "pagination_enabled"=false
- * }
- * })
  * @ORM\Entity(repositoryClass="App\Repository\PoiRepository")
  */
 class Poi
