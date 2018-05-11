@@ -2,12 +2,11 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ApiResource
  * @ORM\Entity(repositoryClass="App\Repository\PoiRepository")
  */
 class Poi
@@ -20,22 +19,37 @@ class Poi
     private $id;
 
     /**
-     * @ORM\Column(type="point")
+     * @ORM\Column(type="decimal", precision=8, scale=6, nullable=true)
+     * @Groups({"poi_read"})
      */
-    private $coordinates;
+    private $latitude;
+
+    /**
+     * @ORM\Column(type="decimal", precision=9, scale=6, nullable=true)
+     * @Groups({"poi_read"})
+     */
+    private $longitude;
+
+    /**
+     * @ORM\Column(type="geometry", options={"geometry_type"="POINT"}, nullable=true)
+     */
+    private $point;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"poi_read"})
      */
     private $country;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"poi_read"})
      */
     private $city;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"poi_read"})
      */
     private $address;
 
@@ -44,32 +58,34 @@ class Poi
      */
     private $artworks;
 
-    public function __construct() {
+    /**
+     * Poi constructor.
+     */
+    public function __construct()
+    {
         $this->artworks = new ArrayCollection();
     }
 
+    /**
+     * @return mixed
+     */
     public function getId()
     {
         return $this->id;
     }
 
-    public function getCoordinates()
-    {
-        return $this->coordinates;
-    }
-
-    public function setCoordinates($coordinates): self
-    {
-        $this->coordinates = $coordinates;
-
-        return $this;
-    }
-
+    /**
+     * @return null|string
+     */
     public function getCountry(): ?string
     {
         return $this->country;
     }
 
+    /**
+     * @param string $country
+     * @return Poi
+     */
     public function setCountry(string $country): self
     {
         $this->country = $country;
@@ -77,11 +93,18 @@ class Poi
         return $this;
     }
 
+    /**
+     * @return null|string
+     */
     public function getCity(): ?string
     {
         return $this->city;
     }
 
+    /**
+     * @param string $city
+     * @return Poi
+     */
     public function setCity(string $city): self
     {
         $this->city = $city;
@@ -89,11 +112,18 @@ class Poi
         return $this;
     }
 
+    /**
+     * @return null|string
+     */
     public function getAddress(): ?string
     {
         return $this->address;
     }
 
+    /**
+     * @param string $address
+     * @return Poi
+     */
     public function setAddress(string $address): self
     {
         $this->address = $address;
@@ -116,6 +146,71 @@ class Poi
     public function setArtworks($artworks)
     {
         $this->artworks = $artworks;
+        return $this;
+    }
+
+    protected function updatePoint()
+    {
+        $this->point = sprintf(
+            'POINT(%f %f)',
+            (string)$this->longitude,
+            (string)$this->latitude
+        );
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLatitude()
+    {
+        return $this->latitude;
+    }
+
+    /**
+     * @param mixed $latitude
+     * @return Poi
+     */
+    public function setLatitude($latitude)
+    {
+        $this->latitude = $latitude;
+        $this->updatePoint();
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLongitude()
+    {
+        return $this->longitude;
+    }
+
+    /**
+     * @param mixed $longitude
+     * @return Poi
+     */
+    public function setLongitude($longitude)
+    {
+        $this->longitude = $longitude;
+        $this->updatePoint();
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPoint()
+    {
+        return $this->point;
+    }
+
+    /**
+     * @param mixed $point
+     * @return Poi
+     */
+    public function setPoint($point)
+    {
+        $this->point = $point;
         return $this;
     }
 }

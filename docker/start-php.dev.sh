@@ -16,8 +16,8 @@ chmod -R 777 var/cache var/log
 # Install assets
 php bin/console asset:install
 
-# Sync database
-php bin/console doctrine:schema:update --force --dump-sql
+php bin/console doctrine:query:sql 'CREATE EXTENSION IF NOT EXISTS postgis;'
+php bin/console doctrine:query:sql 'CREATE EXTENSION IF NOT EXISTS postgis_topology;'
 
 # Start php-fpm
 php-fpm

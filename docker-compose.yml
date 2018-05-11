@@ -27,7 +27,7 @@ services:
             - .:/app:delegated
 
     db:
-        image: mdillon/postgis:9.6
+        image: mdillon/postgis:10
         volumes:
             - db-data:/usr/local/var/postgres
         networks:
