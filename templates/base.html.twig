@@ -17,6 +17,8 @@
     <body onload="showImages()">
         {% include 'layout/header.html.twig' %}
 
+        {% include 'layout/flash_messages.html.twig' %}
+
         <div class="content">
             {% block body %}{% endblock %}
         </div>
