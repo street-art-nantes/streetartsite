@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="fr" trgLang="fr">
+  <file id="messages.fr">
+    <unit id="WD.KTE9" name="page.logout.link">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:18</note>
+      </notes>
+      <segment>
+        <source>page.logout.link</source>
+        <target>Se déconnecter</target>
+      </segment>
+    </unit>
+    <unit id="UpOSnoA" name="page.login.link">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:23</note>
+      </notes>
+      <segment>
+        <source>page.login.link</source>
+        <target>Se connecter</target>
+      </segment>
+    </unit>
+    <unit id="6YApBxD" name="page.login.title">
+      <notes>
+        <note category="file-source" priority="1">templates/bundles/FOSUserBundle/Security/login_content.html.twig:5</note>
+      </notes>
+      <segment>
+        <source>page.login.title</source>
+        <target>Connexion</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

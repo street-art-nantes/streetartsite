@@ -1,0 +1,56 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="card mt-5">
+    <article class="card-body p-5">
+        <h2 class="card-title mb-4 mt-1 text-center">{{ 'page.login.title'|trans({}, 'messages') }}</h2>
+
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        <hr>
+        <form action="{{ path("fos_user_security_check") }}" method="post">
+            {% if csrf_token %}
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
+            {% endif %}
+
+            <div class="form-group">
+                <label for="username">{{ 'security.login.username'|trans }}</label>
+                <input type="text"
+                       id="username"
+                       name="_username"
+                       value="{{ last_username }}"
+                       required="required"
+                       class="form-control"
+                       autocomplete="username"/>
+            </div>
+
+            <div class="form-group">
+                <label for="password">{{ 'security.login.password'|trans }}</label>
+                <input type="password"
+                       id="password"
+                       name="_password"
+                       required="required"
+                       class="form-control"
+                       autocomplete="current-password"/>
+            </div>
+
+            <div class="form-group form-check">
+                <input type="checkbox"
+                       id="remember_me"
+                       name="_remember_me"
+                       class="form-check-input"
+                       value="on"/>
+                <label for="remember_me" class="form-check-label">{{ 'security.login.remember_me'|trans }}</label>
+            </div>
+
+            <div class="text-center">
+                <input type="submit"
+                       id="_submit"
+                       name="_submit"
+                       class="btn btn-block btn-primary mt-5"
+                       value="{{ 'security.login.submit'|trans }}"/>
+            </div>
+        </form>
+    </article>
+</div>
