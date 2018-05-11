@@ -107,6 +107,9 @@
     "jms/metadata": {
         "version": "1.6.0"
     },
+    "jsor/doctrine-postgis": {
+        "version": "v1.5.0"
+    },
     "monolog/monolog": {
         "version": "1.23.0"
     },

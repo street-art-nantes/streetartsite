@@ -7,20 +7,26 @@ parameters:
 
 doctrine:
     dbal:
-        # configure these for your database server
-        driver: 'pdo_mysql'
-        server_version: '5.7'
-        charset: utf8
-        default_table_options:
-            charset: utf8
-            collate: utf8_unicode_ci
+        driver: 'pdo_pgsql'
+        server_version: '10'
 
+        schema_filter: /^(?!tiger|topology).*$/
+
+
+        # With Symfony 3.3, remove the `resolve:` prefix
         url: '%env(resolve:DATABASE_URL)%'
         types:
-            geometry: CrEOF\Spatial\DBAL\Types\GeometryType
-            point: CrEOF\Spatial\DBAL\Types\Geometry\PointType
-            polygon: CrEOF\Spatial\DBAL\Types\Geometry\PolygonType
-            linestring: CrEOF\Spatial\DBAL\Types\Geometry\LineStringType
+            geography:
+                class: 'Jsor\Doctrine\PostGIS\Types\GeographyType'
+                commented: false
+            geometry:
+                class: 'Jsor\Doctrine\PostGIS\Types\GeometryType'
+                commented: false
+            raster:
+                class: 'Jsor\Doctrine\PostGIS\Types\RasterType'
+                commented: false
+        mapping_types:
+          _text: string
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
         naming_strategy: doctrine.orm.naming_strategy.underscore
@@ -33,11 +39,15 @@ doctrine:
                 prefix: 'App\Entity'
                 alias: App
         dql:
-            numeric_functions:
-                st_contains: CrEOF\Spatial\ORM\Query\AST\Functions\MySql\STContains
-                contains: CrEOF\Spatial\ORM\Query\AST\Functions\MySql\Contains
-                st_area: CrEOF\Spatial\ORM\Query\AST\Functions\MySql\Area
-                st_geomfromtext: CrEOF\Spatial\ORM\Query\AST\Functions\MySql\GeomFromText
-                st_intersects: CrEOF\Spatial\ORM\Query\AST\Functions\MySql\STIntersects
-                st_buffer: CrEOF\Spatial\ORM\Query\AST\Functions\MySql\STBuffer
-                point: CrEOF\Spatial\ORM\Query\AST\Functions\MySql\Point
+            string_functions:
+                Geometry:             Jsor\Doctrine\PostGIS\Functions\Geometry
+                Geography:            Jsor\Doctrine\PostGIS\Functions\Geography
+                ST_Distance:          Jsor\Doctrine\PostGIS\Functions\ST_Distance
+                ST_Distance_Sphere:   Jsor\Doctrine\PostGIS\Functions\ST_Distance_Sphere
+                ST_DWithin:           Jsor\Doctrine\PostGIS\Functions\ST_DWithin
+                ST_GeomFromText:      Jsor\Doctrine\PostGIS\Functions\ST_GeomFromText
+                ST_GeographyFromText: Jsor\Doctrine\PostGIS\Functions\ST_GeographyFromText
+                ST_Transform:         Jsor\Doctrine\PostGIS\Functions\ST_Transform
+                ST_Point:             Jsor\Doctrine\PostGIS\Functions\ST_Point
+                ST_SetSRID:           Jsor\Doctrine\PostGIS\Functions\ST_SetSRID
+                ST_AsEWKT:            Jsor\Doctrine\PostGIS\Functions\ST_AsEWKT
