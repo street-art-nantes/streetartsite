@@ -28,5 +28,15 @@
         <target>Sign in</target>
       </segment>
     </unit>
+    <unit id="jJ6Jtkf" name="page.register.title">
+      <notes>
+        <note category="file-source" priority="1">templates/bundles/FOSUserBundle/Registration/register_content.html.twig:5</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>page.register.title</source>
+        <target>Register</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
