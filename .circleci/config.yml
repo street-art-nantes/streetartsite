@@ -68,8 +68,8 @@ jobs:
           keys:
             - composer-v1-{{ checksum "composer.lock" }}
             - composer-v1-
-      - run: ls -lah vendor
       - run: composer install --prefer-dist
+      - run: ls -lah
       - run: phpstan analyse --level 2 -c .circleci/tools/phpstan.neon src
 
   php-metrics:
