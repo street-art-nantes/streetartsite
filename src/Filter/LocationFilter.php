@@ -7,18 +7,17 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Util\QueryNameGeneratorInterface;
 use Doctrine\ORM\QueryBuilder;
 
 /**
- * Class LocationFilter
- * @package App\Filter
+ * Class LocationFilter.
  */
 final class LocationFilter extends AbstractFilter
 {
     /**
      * @param string $property
      * @param $value
-     * @param QueryBuilder $queryBuilder
+     * @param QueryBuilder                $queryBuilder
      * @param QueryNameGeneratorInterface $queryNameGenerator
-     * @param string $resourceClass
-     * @param string|null $operationName
+     * @param string                      $resourceClass
+     * @param string|null                 $operationName
      */
     protected function filterProperty(string $property, $value, QueryBuilder $queryBuilder, QueryNameGeneratorInterface $queryNameGenerator, string $resourceClass, string $operationName = null)
     {
@@ -35,18 +34,19 @@ final class LocationFilter extends AbstractFilter
             ->setParameter('latitude', $latitude)
             ->setParameter('longitude', $longitude)
             ->setParameter('distance_in_meters', $distanceInMeters)
-            ->orderBy("distance", 'ASC');
+            ->orderBy('distance', 'ASC');
     }
 
     /**
      * @param string $resourceClass
+     *
      * @return array
      */
     public function getDescription(string $resourceClass): array
     {
         $description = [];
         foreach ($this->properties as $property => $strategy) {
-            $description['regexp_' . $property] = [
+            $description['regexp_'.$property] = [
                 'property' => $property,
                 'type' => 'string',
                 'required' => false,

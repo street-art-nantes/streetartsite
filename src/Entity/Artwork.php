@@ -65,7 +65,8 @@ class Artwork
     /**
      * Artwork constructor.
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->documents = new ArrayCollection();
     }
 
@@ -156,11 +157,13 @@ class Artwork
 
     /**
      * @param mixed $poi
+     *
      * @return Artwork
      */
     public function setPoi($poi)
     {
         $this->poi = $poi;
+
         return $this;
     }
 
@@ -174,11 +177,13 @@ class Artwork
 
     /**
      * @param mixed $documents
+     *
      * @return Artwork
      */
     public function setDocuments($documents)
     {
         $this->documents = $documents;
+
         return $this;
     }
 
@@ -192,11 +197,13 @@ class Artwork
 
     /**
      * @param mixed $author
+     *
      * @return Artwork
      */
     public function setAuthor($author)
     {
         $this->author = $author;
+
         return $this;
     }
 }

@@ -44,6 +44,7 @@ class Document
 
     /**
      * @param string $file
+     *
      * @return Document
      */
     public function setFile(string $file): self
@@ -63,11 +64,13 @@ class Document
 
     /**
      * @param mixed $artwork
+     *
      * @return Document
      */
     public function setArtwork($artwork)
     {
         $this->artwork = $artwork;
+
         return $this;
     }
 }

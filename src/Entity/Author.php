@@ -70,11 +70,13 @@ class Author
 
     /**
      * @param mixed $artwork
+     *
      * @return Author
      */
     public function setArtwork($artwork)
     {
         $this->artwork = $artwork;
+
         return $this;
     }
 }
