@@ -1,0 +1,6 @@
+parameters:
+    excludes_analyse:
+        - src/Migrations
+
+    autoload_directories:
+        - %currentWorkingDirectory%

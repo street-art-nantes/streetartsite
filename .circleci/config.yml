@@ -4,14 +4,65 @@ workflows:
   version: 2
   build:
     jobs:
-      - phpstan
+      - build
+      - phpstan:
+          requires:
+            - build
       - php-metrics
-#      - php-phpmd
-#      - php-deprecation-detector
-#      - php-cs-fixer
-
+      - php-phpmd
+      - php-cs-fixer
 
 jobs:
+
+  build:
+    working_directory: ~/street-art
+    # The primary container is an instance of the first list image listed. Your {% comment %} TODO: Job {% endcomment %}build commands run in this container.
+    docker:
+      - image: circleci/php:7.1-node
+
+    steps:
+      - checkout
+      - save_cache:
+          key: dependency-cache
+          paths:
+            - ~/.composer/cache
+
+      # setup initial tools
+      - run:
+          name: Init system dependencies
+          command: |
+            sudo apt-get update -y \
+              && sudo apt-get install -y libxml2-dev zlib1g-dev libpng12-dev libjpeg62-turbo-dev \
+              && sudo apt-get clean -y
+            sudo docker-php-ext-install soap zip pdo mbstring gd exif calendar
+            sudo composer self-update
+            cp .env.dist .env
+
+      # install composer dependencies
+      - restore_cache:
+          keys:
+            - composer-v1-{{ checksum "composer.lock" }}
+            - composer-v1-
+      - run: composer install --prefer-dist
+      - save_cache:
+          key: composer-v1-{{ checksum "composer.lock" }}
+          paths:
+            - vendor
+
+      # install npm dependencies
+      - run:
+          name: Update npm
+          command: 'sudo npm install -g npm@latest'
+
+      - restore_cache:
+          keys:
+            - node-v1-{{ checksum "package.json" }}
+            - node-v1-
+      - run: npm install
+      - save_cache:
+          key: node-v1-{{ checksum "package.json" }}
+          paths:
+            - node_modules
 
   phpstan:
     working_directory: ~/street-art
@@ -19,7 +70,12 @@ jobs:
       - image: jakzal/phpqa
     steps:
       - checkout
-      - run: phpstan analyse --level 2 -c ./ci/phpstan.neon src
+      - restore_cache:
+          keys:
+            - composer-v1-{{ checksum "composer.lock" }}
+            - composer-v1-
+      - run: composer install --prefer-dist
+      - run: phpstan analyse --level 2 -c .circleci/tools/phpstan.neon src
 
 
   php-metrics:
@@ -31,90 +87,26 @@ jobs:
       - run: phpmetrics --report-html=var/php-metrics src
       - store_artifacts:
           path: "var/php-metrics/"
-#
-#  php-phpmd:
-#    docker:
-#      - image: jakzal/phpqa
-#    steps:
-#      - checkout
-#      - run: phpmd src text ./ci/phpmd.xml
-#      - store_artifacts:
-#          path: "var/phpmd.html"
-#
-#  php-deprecation-detector:
-#    docker:
-#      - image: jakzal/phpqa
-#    steps:
-#      - checkout
-#      - run: deprecation-detector check src vendor
-#
-#  php-cs-fixer:
-#    docker:
-#      - image: jakzal/phpqa
-#    steps:
-#      - checkout
-#      - run: ci/php-cs-fixer.sh
-#      - store_artifacts:
-#          path: "var/patch.diff"
+
+  php-phpmd:
+    working_directory: ~/street-art
+    docker:
+      - image: jakzal/phpqa
+    steps:
+      - checkout
+      - run: phpmd src text .circleci/tools/phpmd.xml
+      - store_artifacts:
+          path: "var/phpmd.html"
+
+  php-cs-fixer:
+    working_directory: ~/street-art
+    docker:
+      - image: jakzal/phpqa
+    steps:
+      - checkout
+      - run: .circleci/tools/php-cs-fixer.sh
+      - store_artifacts:
+          path: "var/patch.diff"
 
 
-#workflows:
-#  version: 2
-#  build:
-#    jobs:
-#      - phpstan
-#      - php-metrics
-#      - php-phpmd
-#      - php-deprecation-detector
-#      - php-cs-fixer
-#
 
-#  build:
-#    working_directory: ~/street-art
-#    # The primary container is an instance of the first list image listed. Your {% comment %} TODO: Job {% endcomment %}build commands run in this container.
-#    docker:
-#      - image: circleci/php:7.1-node
-#
-#    steps:
-#      - checkout
-#      - save_cache:
-#          key: dependency-cache
-#          paths:
-#            - ~/.composer/cache
-#
-#      # setup initial tools
-#      - run:
-#          name: Init system dependencies
-#          command: |
-#            sudo apt-get update -y \
-#              && sudo apt-get install -y libxml2-dev zlib1g-dev libpng12-dev libjpeg62-turbo-dev \
-#              && sudo apt-get clean -y
-#            sudo docker-php-ext-install soap zip pdo mbstring gd exif calendar
-#            sudo composer self-update
-#            cp .env.dist .env
-#
-#      # install composer dependencies
-#      - restore_cache:
-#          keys:
-#            - composer-v1-{{ checksum "composer.lock" }}
-#            - composer-v1-
-#      - run: composer install --prefer-dist
-#      - save_cache:
-#          key: composer-v1-{{ checksum "composer.lock" }}
-#          paths:
-#            - vendor
-#
-#      # install npm dependencies
-#      - run:
-#          name: Update npm
-#          command: 'sudo npm install -g npm@latest'
-#
-#      - restore_cache:
-#          keys:
-#            - node-v1-{{ checksum "package.json" }}
-#            - node-v1-
-#      - run: npm install
-#      - save_cache:
-#          key: node-v1-{{ checksum "package.json" }}
-#          paths:
-#            - node_modules
