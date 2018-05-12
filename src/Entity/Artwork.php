@@ -6,7 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\OeuvreRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\ArtworkRepository")
  */
 class Artwork
 {
@@ -48,17 +48,17 @@ class Artwork
     private $type;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Poi", inversedBy="oeuvres")
+     * @ORM\ManyToOne(targetEntity="Poi", inversedBy="artworks")
      */
     private $poi;
 
     /**
-     * @ORM\OneToMany(targetEntity="Document", mappedBy="oeuvre")
+     * @ORM\OneToMany(targetEntity="Document", mappedBy="artwork")
      */
     private $documents;
 
     /**
-     * @ORM\OneToOne(targetEntity="Author", mappedBy="oeuvre")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Author", inversedBy="artwork")
      */
     private $author;
 

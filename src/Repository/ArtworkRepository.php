@@ -12,7 +12,7 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  * @method Artwork[]    findAll()
  * @method Artwork[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class OeuvreRepository extends ServiceEntityRepository
+class ArtworkRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {

@@ -27,7 +27,7 @@ class Author
     private $biography;
 
     /**
-     * @ORM\OneToOne(targetEntity="Artwork", mappedBy="author")
+     * @ORM\OneToMany(targetEntity="Artwork", mappedBy="author")
      */
     private $artwork;
 
