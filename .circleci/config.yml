@@ -18,7 +18,7 @@ jobs:
     working_directory: ~/street-art
     # The primary container is an instance of the first list image listed. Your {% comment %} TODO: Job {% endcomment %}build commands run in this container.
     docker:
-      - image: circleci/php:7.1-node
+      - image: myprod/php:7.2
 
     steps:
       - checkout
@@ -30,13 +30,7 @@ jobs:
       # setup initial tools
       - run:
           name: Init system dependencies
-          command: |
-            sudo apt-get update -y \
-              && sudo apt-get install -y libxml2-dev zlib1g-dev libpng12-dev libjpeg62-turbo-dev \
-              && sudo apt-get clean -y
-            sudo docker-php-ext-install soap zip pdo mbstring gd exif calendar
-            sudo composer self-update
-            cp .env.dist .env
+          command: cp .env.dist .env
 
       # install composer dependencies
       - restore_cache:
@@ -49,20 +43,20 @@ jobs:
           paths:
             - vendor
 
-      # install npm dependencies
-      - run:
-          name: Update npm
-          command: 'sudo npm install -g npm@latest'
-
-      - restore_cache:
-          keys:
-            - node-v1-{{ checksum "package.json" }}
-            - node-v1-
-      - run: npm install
-      - save_cache:
-          key: node-v1-{{ checksum "package.json" }}
-          paths:
-            - node_modules
+#      # install npm dependencies
+#      - run:
+#          name: Update npm
+#          command: 'sudo npm install -g npm@latest'
+#
+#      - restore_cache:
+#          keys:
+#            - node-v1-{{ checksum "package.json" }}
+#            - node-v1-
+#      - run: npm install
+#      - save_cache:
+#          key: node-v1-{{ checksum "package.json" }}
+#          paths:
+#            - node_modules
 
   phpstan:
     working_directory: ~/street-art
@@ -74,9 +68,9 @@ jobs:
           keys:
             - composer-v1-{{ checksum "composer.lock" }}
             - composer-v1-
+      - run: ls -lah vendor
       - run: composer install --prefer-dist
       - run: phpstan analyse --level 2 -c .circleci/tools/phpstan.neon src
-
 
   php-metrics:
     working_directory: ~/street-art
