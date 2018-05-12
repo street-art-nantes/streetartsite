@@ -1,0 +1,8 @@
+App\Entity\User:
+    user_admin:
+        username: komlan
+        email: komlan.comeback@streetart.com
+        plainPassword: azerty
+        enabled: true
+        roles:
+            ROLE_ADMIN: ROLE_ADMIN
