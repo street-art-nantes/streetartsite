@@ -13,7 +13,7 @@ class Poi
 {
     /**
      * @ORM\Id()
-     * @ORM\GeneratedValue()
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      * @ORM\Column(type="integer")
      */
     private $id;
@@ -84,6 +84,7 @@ class Poi
 
     /**
      * @param string $country
+     *
      * @return Poi
      */
     public function setCountry(string $country): self
@@ -103,6 +104,7 @@ class Poi
 
     /**
      * @param string $city
+     *
      * @return Poi
      */
     public function setCity(string $city): self
@@ -122,6 +124,7 @@ class Poi
 
     /**
      * @param string $address
+     *
      * @return Poi
      */
     public function setAddress(string $address): self
@@ -141,11 +144,13 @@ class Poi
 
     /**
      * @param mixed $artworks
+     *
      * @return Poi
      */
     public function setArtworks($artworks)
     {
         $this->artworks = $artworks;
+
         return $this;
     }
 
@@ -153,8 +158,8 @@ class Poi
     {
         $this->point = sprintf(
             'POINT(%f %f)',
-            (string)$this->longitude,
-            (string)$this->latitude
+            (string) $this->longitude,
+            (string) $this->latitude
         );
     }
 
@@ -168,12 +173,14 @@ class Poi
 
     /**
      * @param mixed $latitude
+     *
      * @return Poi
      */
     public function setLatitude($latitude)
     {
         $this->latitude = $latitude;
         $this->updatePoint();
+
         return $this;
     }
 
@@ -187,12 +194,14 @@ class Poi
 
     /**
      * @param mixed $longitude
+     *
      * @return Poi
      */
     public function setLongitude($longitude)
     {
         $this->longitude = $longitude;
         $this->updatePoint();
+
         return $this;
     }
 
@@ -206,11 +215,13 @@ class Poi
 
     /**
      * @param mixed $point
+     *
      * @return Poi
      */
     public function setPoint($point)
     {
         $this->point = $point;
+
         return $this;
     }
 }

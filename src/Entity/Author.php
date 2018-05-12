@@ -11,7 +11,7 @@ class Author
 {
     /**
      * @ORM\Id()
-     * @ORM\GeneratedValue()
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      * @ORM\Column(type="integer")
      */
     private $id;
@@ -70,11 +70,13 @@ class Author
 
     /**
      * @param mixed $artwork
+     *
      * @return Author
      */
     public function setArtwork($artwork)
     {
         $this->artwork = $artwork;
+
         return $this;
     }
 }
