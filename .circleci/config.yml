@@ -1,58 +1,4 @@
 version: 2
-jobs:
-
-  phpstan:
-    docker:
-      - image: jakzal/phpqa
-    steps:
-      - checkout
-      - run: phpstan analyse --level 2 -c ./ci/phpstan.neon src
-
-  php-metrics:
-    docker:
-      - image: jakzal/phpqa
-    steps:
-      - checkout
-      - run: phpmetrics --report-html=var/php-metrics src
-      - store_artifacts:
-          path: "var/php-metrics/"
-
-  php-phpmd:
-    docker:
-      - image: jakzal/phpqa
-    steps:
-      - checkout
-      - run: phpmd src text ./ci/phpmd.xml
-      - store_artifacts:
-          path: "var/phpmd.html"
-
-  php-deprecation-detector:
-    docker:
-      - image: jakzal/phpqa
-    steps:
-      - checkout
-      - run: deprecation-detector check src vendor
-
-  php-cs-fixer:
-    docker:
-      - image: jakzal/phpqa
-    steps:
-      - checkout
-      - run: ci/php-cs-fixer.sh
-      - store_artifacts:
-          path: "var/patch.diff"
-
-
-#      - run:
-#          name: Generate code coverage
-#          command: './node_modules/.bin/nyc report --reporter=text-lcov'
-#      - store_artifacts:
-#          path: test-results.xml
-#          prefix: tests
-#      - store_artifacts:
-#          path: coverage
-#          prefix: coverage
-
 
 workflows:
   version: 2
@@ -60,10 +6,68 @@ workflows:
     jobs:
       - phpstan
       - php-metrics
-      - php-phpmd
-      - php-deprecation-detector
-      - php-cs-fixer
+#      - php-phpmd
+#      - php-deprecation-detector
+#      - php-cs-fixer
 
+
+jobs:
+
+  phpstan:
+    working_directory: ~/street-art
+    docker:
+      - image: jakzal/phpqa
+    steps:
+      - checkout
+      - run: phpstan analyse --level 2 -c ./ci/phpstan.neon src
+
+
+  php-metrics:
+    working_directory: ~/street-art
+    docker:
+      - image: jakzal/phpqa
+    steps:
+      - checkout
+      - run: phpmetrics --report-html=var/php-metrics src
+      - store_artifacts:
+          path: "var/php-metrics/"
+#
+#  php-phpmd:
+#    docker:
+#      - image: jakzal/phpqa
+#    steps:
+#      - checkout
+#      - run: phpmd src text ./ci/phpmd.xml
+#      - store_artifacts:
+#          path: "var/phpmd.html"
+#
+#  php-deprecation-detector:
+#    docker:
+#      - image: jakzal/phpqa
+#    steps:
+#      - checkout
+#      - run: deprecation-detector check src vendor
+#
+#  php-cs-fixer:
+#    docker:
+#      - image: jakzal/phpqa
+#    steps:
+#      - checkout
+#      - run: ci/php-cs-fixer.sh
+#      - store_artifacts:
+#          path: "var/patch.diff"
+
+
+#workflows:
+#  version: 2
+#  build:
+#    jobs:
+#      - phpstan
+#      - php-metrics
+#      - php-phpmd
+#      - php-deprecation-detector
+#      - php-cs-fixer
+#
 
 #  build:
 #    working_directory: ~/street-art

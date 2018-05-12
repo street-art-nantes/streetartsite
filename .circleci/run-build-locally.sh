@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 curl --user ${CIRCLE_TOKEN}: \
     --request POST \
-    --form revision=d40c1b7da8ef86e4a7befd0b95df4d39b85cb7a6\
+    --form revision=b65aa6c138aa30d436548d8f0159bd73d3cba6ff\
     --form config=@config.yml \
     --form notify=false \
-        https://circleci.com/api/v1.1/project/github/street-art-nantes/streetartsite/tree/feature/ci
+      q  https://circleci.com/api/v1.1/project/github/street-art-nantes/streetartsite/tree/feature/ci
