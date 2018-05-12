@@ -22,20 +22,30 @@ class Document
     private $file;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Artwork", inversedBy="Documents")
+     * @ORM\ManyToOne(targetEntity="Artwork", inversedBy="documents")
      */
     private $artwork;
 
+    /**
+     * @return mixed
+     */
     public function getId()
     {
         return $this->id;
     }
 
+    /**
+     * @return null|string
+     */
     public function getFile(): ?string
     {
         return $this->file;
     }
 
+    /**
+     * @param string $file
+     * @return Document
+     */
     public function setFile(string $file): self
     {
         $this->file = $file;

@@ -1,4 +1,5 @@
 App\Entity\Poi:
+
     attributes:
         normalization_context:
             groups: ['poi_read']
@@ -10,3 +11,4 @@ App\Entity\Poi:
     collectionOperations:
          get:
             method: 'GET'
+            filters: [App\Filter\LocationFilter]
