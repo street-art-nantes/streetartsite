@@ -1,7 +1,7 @@
 App\Entity\Poi:
     poi_{1..300}:
         country: <fr_FR:country()>
-        city: <fr_FR:city()>
+        city: "France"
         address: <fr_FR:streetAddress()>
         latitude: <latitude(42, 49)>
         longitude: <longitude(-2, 8)>
