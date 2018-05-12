@@ -1,0 +1,8 @@
+easy_admin:
+    site_name: 'Street Art'
+
+    entities:
+        # List the entity class name you want to manage
+        - App\Entity\Artwork
+        - App\Entity\Poi
+        - App\Entity\User
