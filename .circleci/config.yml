@@ -5,7 +5,7 @@ workflows:
   build:
     jobs:
       - phpstan
-#      - doctrine-schema-validate
+      - doctrine-schema-validate
       - php-metrics
       - php-phpmd
       - php-cs-fixer
