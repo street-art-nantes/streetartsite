@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="fr" trgLang="en">
+  <file id="messages.en">
+    <unit id="WD.KTE9" name="page.logout.link">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:18</note>
+      </notes>
+      <segment>
+        <source>page.logout.link</source>
+        <target>Logout</target>
+      </segment>
+    </unit>
+    <unit id="UpOSnoA" name="page.login.link">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:23</note>
+      </notes>
+      <segment>
+        <source>page.login.link</source>
+        <target>Login</target>
+      </segment>
+    </unit>
+    <unit id="6YApBxD" name="page.login.title">
+      <notes>
+        <note category="file-source" priority="1">templates/bundles/FOSUserBundle/Security/login_content.html.twig:5</note>
+      </notes>
+      <segment>
+        <source>page.login.title</source>
+        <target>Sign in</target>
+      </segment>
+    </unit>
+    <unit id="jJ6Jtkf" name="page.register.title">
+      <notes>
+        <note category="file-source" priority="1">templates/bundles/FOSUserBundle/Registration/register_content.html.twig:5</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>page.register.title</source>
+        <target>Register</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

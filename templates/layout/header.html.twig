@@ -15,12 +15,12 @@
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('fos_user_security_logout') }}">
-                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                            {{ 'page.logout.link'|trans({}) }}
                         </a>
                     </li>
                 {% else %}
                     <li class="nav-item {% if app.request.get('_route') == 'fos_user_security_login' %}active{% endif %}">
-                        <a class="nav-link" href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                        <a class="nav-link" href="{{ path('fos_user_security_login') }}">{{ 'page.login.link'|trans({}) }}</a>
                     </li>
                 {% endif %}
             </ul>
