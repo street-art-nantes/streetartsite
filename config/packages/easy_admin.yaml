@@ -6,3 +6,5 @@ easy_admin:
         - App\Entity\Artwork
         - App\Entity\Poi
         - App\Entity\User
+        - App\Entity\Document
+        - App\Entity\Author

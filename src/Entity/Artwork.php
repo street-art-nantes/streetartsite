@@ -206,4 +206,12 @@ class Artwork
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function __toString()
+    {
+        return $this->id.' - '.$this->title.' - '.$this->type;
+    }
 }

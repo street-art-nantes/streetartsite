@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\DocumentRepository")
@@ -17,9 +19,18 @@ class Document
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @Vich\UploadableField(mapping="document_image", fileNameProperty="imageName")
+     *
+     * @var File
      */
-    private $file;
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @var string
+     */
+    private $imageName;
 
     /**
      * @ORM\ManyToOne(targetEntity="Artwork", inversedBy="documents")
@@ -35,22 +46,38 @@ class Document
     }
 
     /**
-     * @return null|string
+     * @return File
      */
-    public function getFile(): ?string
+    public function getImageFile(): File
     {
-        return $this->file;
+        return $this->imageFile;
     }
 
     /**
-     * @param string $file
-     *
+     * @param File $imageFile
      * @return Document
      */
-    public function setFile(string $file): self
+    public function setImageFile(File $imageFile): Document
     {
-        $this->file = $file;
+        $this->imageFile = $imageFile;
+        return $this;
+    }
 
+    /**
+     * @return string
+     */
+    public function getImageName(): string
+    {
+        return $this->imageName;
+    }
+
+    /**
+     * @param string $imageName
+     * @return Document
+     */
+    public function setImageName(string $imageName): Document
+    {
+        $this->imageName = $imageName;
         return $this;
     }
 
