@@ -13,7 +13,7 @@ use Symfony\Component\Serializer\Serializer;
 
 class ImportPoi extends Command
 {
-    const PATH = '/../public/';
+    const PATH = '/../var/assets/';
 
     private $poiManager;
     private $kernel;
