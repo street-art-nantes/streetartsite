@@ -3,7 +3,7 @@
   <file id="messages.en">
     <unit id="WD.KTE9" name="page.logout.link">
       <notes>
-        <note category="file-source" priority="1">templates/layout/header.html.twig:18</note>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:21</note>
       </notes>
       <segment>
         <source>page.logout.link</source>
@@ -12,7 +12,7 @@
     </unit>
     <unit id="UpOSnoA" name="page.login.link">
       <notes>
-        <note category="file-source" priority="1">templates/layout/header.html.twig:23</note>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:26</note>
       </notes>
       <segment>
         <source>page.login.link</source>
@@ -31,11 +31,41 @@
     <unit id="jJ6Jtkf" name="page.register.title">
       <notes>
         <note category="file-source" priority="1">templates/bundles/FOSUserBundle/Registration/register_content.html.twig:5</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>page.register.title</source>
         <target>Register</target>
+      </segment>
+    </unit>
+    <unit id="pIWZu.m" name="header.menu.home">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:12</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>header.menu.home</source>
+        <target>Home</target>
+      </segment>
+    </unit>
+    <unit id="S2W3kLv" name="header.menu.map">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:15</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>header.menu.map</source>
+        <target>Map</target>
+      </segment>
+    </unit>
+    <unit id="gD8Twxc" name="home.description">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:5</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>home.description</source>
+        <target>          Welcome on street-artwork, the website gathering street artworks from around the world geolocated. Find beautiful artworks all around you.
+        </target>
       </segment>
     </unit>
   </file>
