@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
+
 {% block stylesheets %}
+    {{ parent() }}
     <link rel="stylesheet" href="{{ asset('assets/lib/leaflet/leaflet.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/lib/cluster/MarkerCluster.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/Leaflet.Photo.css') }}" />
@@ -17,6 +19,8 @@
 {% endblock %}
 
 {% block javascripts %}
+    {{ parent() }}
+
     <script src="{{ asset('assets/lib/leaflet/leaflet.js') }}"></script>
     <script src="{{ asset('assets/lib/cluster/leaflet.markercluster.js') }}"></script>
     <script src="{{ asset('assets/lib/Leaflet.Photo.js') }}"></script>
