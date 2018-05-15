@@ -25,7 +25,7 @@ class Artwork
     /**
      * @ORM\Column(type="boolean")
      */
-    private $status;
+    private $enabled;
 
     /**
      * @ORM\Column(type="datetime")
@@ -33,7 +33,7 @@ class Artwork
     private $createdAt;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $endedAt;
 
@@ -68,18 +68,29 @@ class Artwork
     public function __construct()
     {
         $this->documents = new ArrayCollection();
+        $this->createdAt = new \DateTime();
     }
 
+    /**
+     * @return mixed
+     */
     public function getId()
     {
         return $this->id;
     }
 
+    /**
+     * @return null|string
+     */
     public function getTitle(): ?string
     {
         return $this->title;
     }
 
+    /**
+     * @param string $title
+     * @return Artwork
+     */
     public function setTitle(string $title): self
     {
         $this->title = $title;
@@ -87,23 +98,37 @@ class Artwork
         return $this;
     }
 
-    public function getStatus(): ?bool
+    /**
+     * @return mixed
+     */
+    public function isEnabled()
     {
-        return $this->status;
+        return $this->enabled;
     }
 
-    public function setStatus(bool $status): self
+    /**
+     * @param mixed $enabled
+     * @return Artwork
+     */
+    public function setEnabled($enabled)
     {
-        $this->status = $status;
+        $this->enabled = $enabled;
 
         return $this;
     }
 
+    /**
+     * @return \DateTimeInterface|null
+     */
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
     }
 
+    /**
+     * @param \DateTimeInterface $createdAt
+     * @return Artwork
+     */
     public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -111,11 +136,19 @@ class Artwork
         return $this;
     }
 
+
+    /**
+     * @return \DateTimeInterface|null
+     */
     public function getEndedAt(): ?\DateTimeInterface
     {
         return $this->endedAt;
     }
 
+    /**
+     * @param \DateTimeInterface $endedAt
+     * @return Artwork
+     */
     public function setEndedAt(\DateTimeInterface $endedAt): self
     {
         $this->endedAt = $endedAt;
@@ -123,11 +156,18 @@ class Artwork
         return $this;
     }
 
+    /**
+     * @return array|null
+     */
     public function getTags(): ?array
     {
         return $this->tags;
     }
 
+    /**
+     * @param array|null $tags
+     * @return Artwork
+     */
     public function setTags(?array $tags): self
     {
         $this->tags = $tags;
@@ -135,11 +175,18 @@ class Artwork
         return $this;
     }
 
+    /**
+     * @return null|string
+     */
     public function getType(): ?string
     {
         return $this->type;
     }
 
+    /**
+     * @param string $type
+     * @return Artwork
+     */
     public function setType(string $type): self
     {
         $this->type = $type;
@@ -173,6 +220,24 @@ class Artwork
     public function getDocuments()
     {
         return $this->documents;
+    }
+
+    /**
+     * @param Document $document
+     */
+    public function addDocument(Document $document)
+    {
+        if (!$this->documents->contains($document)) {
+            $this->documents->add($document);
+        }
+    }
+
+    /**
+     * @param Document $document
+     */
+    public function removeDocument(Document $document)
+    {
+        $this->documents->removeElement($document);
     }
 
     /**
