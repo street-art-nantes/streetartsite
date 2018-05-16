@@ -40,7 +40,6 @@
     <unit id="pIWZu.m" name="header.menu.home">
       <notes>
         <note category="file-source" priority="1">templates/layout/header.html.twig:12</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>header.menu.home</source>
@@ -50,23 +49,43 @@
     <unit id="S2W3kLv" name="header.menu.map">
       <notes>
         <note category="file-source" priority="1">templates/layout/header.html.twig:15</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>header.menu.map</source>
         <target>Carte</target>
       </segment>
     </unit>
-    <unit id="gD8Twxc" name="home.description">
+    <unit id="9nqU7RQ" name="home.description.first">
       <notes>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:5</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:10</note>
         <note category="state" priority="1">new</note>
       </notes>
       <segment>
-        <source>home.description</source>
+        <source>home.description.first</source>
         <target>Bienvenue sur street-artwork, le site regroupant les oeuvres de street art du monde entier géolocalisées. Trouvez de magnifiques oeuvres tout autour de vous.
-
-          Ce projet est né de l’envie de faire découvrir aux gens cet art qui n’est pas assez mis en lumière et qui bien souvent se trouve dans des endroits éloignés des monuments ou attractions touristiques plus conventionnels.
+        </target>
+      </segment>
+    </unit>
+    <unit id="e_qvnqh" name="home.description.second">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:11</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>home.description.second</source>
+        <target>Ce projet est né de l’envie de faire découvrir aux gens cet art qui n’est pas assez mis en lumière, et qui bien souvent se trouve dans des endroits éloignés des monuments ou attractions touristiques dit conventionnels.
+          Ne loupez plus de petites merveilles à 2 pas de chez vous.
+        </target>
+      </segment>
+    </unit>
+    <unit id="NXSzUYf" name="home.needyou">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:20</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>home.needyou</source>
+        <target>We need you ! Ce projet est collaboratif. Nous ne pouvons pas visiter les villes du monde entier pour prendre en photo tous les tags (même si ça serait vraiment cool), nous avons donc besoin de vous pour contribuer à faire connaître le street art de votre ville.
         </target>
       </segment>
     </unit>

@@ -60,6 +60,7 @@ class ImportPoi extends Command
             try {
                 $this->poiManager->create($data);
             } catch (\Exception $e) {
+                $output->writeln($e->getMessage());
                 $output->writeln('Error: '.json_encode($data));
             }
         }

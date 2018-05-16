@@ -6,30 +6,56 @@
 
         <section class="jumbotron text-center">
             <div class="container">
-                <h1 class="jumbotron-heading">Album example</h1>
-                <p class="lead text-muted">{{ 'home.description'|trans({})}}</p>
-                <p>
-                    <a href="#" class="btn btn-primary my-2">Main call to action</a>
-                    <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-                </p>
+                <div class="row">
+                    <div class="col-md-5">
+                        <p>
+                            <img src="/assets/img/elephant.png" alt="elephant" style="width: 75%" />
+                        </p>
+                    </div>
+                    <div class="col-md-7">
+                        <br />
+                        <h1 class="jumbotron-heading">street-artwork.com</h1>
+                        <br />
+                        <p class="lead text-muted">{{ 'home.description.first'|trans({})}}</p>
+                        <p class="lead text-muted">{{ 'home.description.second'|trans({})}}</p>
+                    </div>
+                    <div class="col-md-12">
+                        <hr />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <br />
+                        <p class="lead text-muted">{{ 'home.needyou'|trans({})}}</p>
+                        <a href="#" class="btn btn-primary my-2">Soumettre une photo</a>
+                    </div>
+                    <div class="col-md-6">
+                        <p>
+                            <img src="/assets/img/needyou.png" alt="needyou" style="width: 70%" />
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <div class="album py-5 bg-light">
             <div class="container">
                 <div class="row">
-                    {% for data in datas %}
+                    {% for poi in pois %}
+                        {% set artwork = poi.artworks.first %}
+                        {% set document = artwork.documents.first %}
                         <div class="col-md-4">
                             <div class="card mb-4 box-shadow">
-                                <img class="card-img-top" src="{{ data.url }}" alt="{{ data.caption }}">
+                                <img class="card-img-top" src="/img/{{ document.imageName }}" alt="{{ artwork.title }}">
                                 <div class="card-body">
-                                    <p class="card-text">{{ data.caption }}</p>
+                                    <p class="card-text">{{ artwork.title }}{{ poi.id }}</p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                                             <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                                         </div>
-                                        <small class="text-muted">{{ data.timestamp|date("d/m/Y") }}</small>
+                                        <small class="text-muted">{{ poi.city }}, {{ poi.country }}</small>
+                                        <small class="text-muted">{{ artwork.createdAt|date("d/m/Y") }}</small>
                                     </div>
                                 </div>
                             </div>

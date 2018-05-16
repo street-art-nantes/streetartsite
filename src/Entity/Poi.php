@@ -54,6 +54,12 @@ class Poi
     private $address;
 
     /**
+     * @ORM\Column(type="boolean")
+     * @Groups({"poi_read"})
+     */
+    private $highlight;
+
+    /**
      * @ORM\OneToMany(targetEntity="Artwork", mappedBy="poi")
      */
     private $artworks;
@@ -231,5 +237,23 @@ class Poi
     public function __toString()
     {
         return $this->address;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getHighlight()
+    {
+        return $this->highlight;
+    }
+
+    /**
+     * @param mixed $highlight
+     * @return Poi
+     */
+    public function setHighlight($highlight)
+    {
+        $this->highlight = $highlight;
+        return $this;
     }
 }

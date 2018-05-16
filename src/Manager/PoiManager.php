@@ -30,6 +30,7 @@ class PoiManager
         $poi->setCountry($data['country']);
         $poi->setLatitude($data['lat']);
         $poi->setLongitude($data['lng']);
+        $poi->setHighlight($data['highlight']);
         $this->manager->persist($poi);
 
         $artwork->setCreatedAt(new \DateTime($data['created_date']));
