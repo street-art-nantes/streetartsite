@@ -39,30 +39,63 @@
         </section>
 
         <div class="album py-5 bg-light">
+            {#<div class="container">#}
+                {#<div class="row">#}
+                    {#{% for poi in pois %}#}
+                        {#{% set artwork = poi.artworks.first %}#}
+                        {#{% set document = artwork.documents.first %}#}
+                        {#<div class="col-md-4">#}
+                            {#<div class="card mb-4 box-shadow">#}
+                                {#<img class="card-img-top" src="/img/{{ document.imageName }}" alt="{{ artwork.title }}">#}
+                                {#<div class="card-body">#}
+                                    {#<p class="card-text">{{ artwork.title }}{{ poi.id }}</p>#}
+                                    {#<div class="d-flex justify-content-between align-items-center">#}
+                                        {#<div class="btn-group">#}
+                                            {#<button type="button" class="btn btn-sm btn-outline-secondary">View</button>#}
+                                            {#<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>#}
+                                        {#</div>#}
+                                        {#<small class="text-muted">{{ poi.city }}, {{ poi.country }}</small>#}
+                                        {#<small class="text-muted">{{ artwork.createdAt|date("d/m/Y") }}</small>#}
+                                    {#</div>#}
+                                {#</div>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#{% endfor %}#}
+                {#</div>#}
+            {#</div>#}
             <div class="container">
                 <div class="row">
-                    {% for poi in pois %}
-                        {% set artwork = poi.artworks.first %}
-                        {% set document = artwork.documents.first %}
-                        <div class="col-md-4">
-                            <div class="card mb-4 box-shadow">
-                                <img class="card-img-top" src="/img/{{ document.imageName }}" alt="{{ artwork.title }}">
-                                <div class="card-body">
-                                    <p class="card-text">{{ artwork.title }}{{ poi.id }}</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    <div class="dw">
+                        {% for poi in pois %}
+                            {% set artwork = poi.artworks.first %}
+                            {% set document = artwork.documents.first %}
+                            <div class="dw-panel dw-panel--focus dw-panel--pulse">
+                                <div class="dw-panel__content ">
+                                    <div class="card box-shadow">
+                                        <img class="card-img-top" src="/img/{{ document.imageName }}"
+                                             alt="{{ artwork.title }}">
+                                        <div class="card-body">
+                                            <p class="card-text">{{ artwork.title }}{{ poi.id }}</p>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-sm btn-outline-secondary">
+                                                        View
+                                                    </button>
+                                                    <button type="button" class="btn btn-sm btn-outline-secondary">
+                                                        Edit
+                                                    </button>
+                                                </div>
+                                                <small class="text-muted">{{ poi.city }}, {{ poi.country }}</small>
+                                                <small class="text-muted">{{ artwork.createdAt|date("d/m/Y") }}</small>
+                                            </div>
                                         </div>
-                                        <small class="text-muted">{{ poi.city }}, {{ poi.country }}</small>
-                                        <small class="text-muted">{{ artwork.createdAt|date("d/m/Y") }}</small>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    {% endfor %}
+                        {% endfor %}
+                        <div class="dw__focus-curtain"></div>
+                    </div>
                 </div>
-
             </div>
         </div>
     </main>
