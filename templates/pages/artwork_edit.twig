@@ -1,32 +1,39 @@
 {% extends 'base.html.twig' %}
 
+{% set isCreateForm = form.vars.data.id|default(false) ? false : true %}
+
 {% block body %}
     <div class="page-artwork-edit">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-6 col-12">
+                <div class="col-md-8 col-12">
                     <div class="card mt-5">
                         <article class="card-body p-5">
-                            <h2 class="card-title mb-4 mt-1 text-center">{{ 'page.artwork_create.title'|trans({}, 'messages') }}</h2>
+                            <h2 class="card-title mb-4 mt-1 text-center">
+                                {% if isCreateForm %}
+                                    {{ 'artwork.title.create'|trans({}, 'messages') }}
+                                {% else %}
+                                    {{ 'artwork.title.edit'|trans({}, 'messages') }}
+                                {% endif %}
+                            </h2>
 
-                            {{ form_start(form) }}
+                            {{ form_start(form, { attr: { novalidate: 'novalidate' }}) }}
+                            {{ form_errors(form) }}
 
                             {{ form_row(form.title) }}
                             {{ form_row(form.poi) }}
 
-                            {{ form_label(form.documents) }}
-                            <ul class="documents" data-prototype="{{ form_widget(form.documents.vars.prototype)|e('html_attr') }}">
-                                    {# iterate over each existing tag and render its only field: name #}
-                                    {% for document in form.documents %}
-                                        <li>{{ form_row(document) }}</li>
-                                    {% endfor %}
-                            </ul>
-                            <a href="#" class="add_document_link">Add a document</a>
+                            <div class="documents"
+                                 data-prototype="{{ form_widget(form.documents.vars.prototype)|e('html_attr') }}">
+                                {{ form_row(form.documents) }}
+                            </div>
+
+                            <a href="#" class="add_document_link">{{ 'artwork.link.add_a_document'|trans({}, 'messages') }}</a>
 
                             {{ form_rest(form) }}
 
                             <div class="text-center">
-                                <button type="submit" class="btn btn-block btn-primary">Enregistrer</button>
+                                <button type="submit" class="btn btn-block btn-primary">{{ 'artwork.button.save'|trans({}, 'messages') }}</button>
                             </div>
 
                             {{ form_end(form) }}
@@ -40,6 +47,5 @@
 
 {% block javascripts %}
     {{ parent() }}
-
     <script src="{{ asset('build/js/artwork-edit.js') }}"></script>
 {% endblock %}

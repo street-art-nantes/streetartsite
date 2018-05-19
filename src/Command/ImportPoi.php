@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Command;
 
 use App\Manager\PoiManager;
@@ -42,7 +43,6 @@ class ImportPoi extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-
         $output->writeln([
             'Import POI',
             '============',

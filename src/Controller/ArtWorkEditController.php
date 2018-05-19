@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Artwork;
+use App\Entity\Document;
+use App\Entity\User;
 use App\Form\Type\ArtworkType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -21,6 +23,7 @@ class ArtWorkEditController extends Controller
 
     /**
      * ArtWorkEditController constructor.
+     *
      * @param EntityManagerInterface $entityManager
      */
     public function __construct(EntityManagerInterface $entityManager)
@@ -45,11 +48,19 @@ class ArtWorkEditController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
             $artwork = $form->getData();
 
-            $this->entityManager->persist($artwork);
-            $this->entityManager->flush();
+            if (!$artwork->getId()) {
+                $this->entityManager->persist($artwork);
+            }
+
+            try {
+                $this->entityManager->flush();
+
+                $this->addFlash('success', 'artwork.flash.success.saved');
+            } catch (\Exception $e) {
+                $this->addFlash('danger', 'artwork.flash.danger.error');
+            }
 
             return $this->redirectToRoute('app_artwork_edit', [
                 'id' => $artwork->getId(),
@@ -71,6 +82,12 @@ class ArtWorkEditController extends Controller
         if (!$artwork) {
             $artwork = new Artwork();
             $artwork->setEnabled(false);
+            $artwork->setType('test');
+            $artwork->addDocument(new Document());
+        }
+
+        if (!$artwork->getContributor() && $this->getUser() instanceof User) {
+            $artwork->setContributor($this->getUser());
         }
 
         return $artwork;

@@ -9,18 +9,20 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichFileType;
 
 /**
- * Class DocumentType
- * @package App\Form\Type
+ * Class DocumentType.
  */
 class DocumentType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('imageFile', VichFileType::class);
+        $builder->add('imageFile', VichFileType::class, [
+            'label' => 'artwork.label.image_file',
+            'translation_domain' => 'messages',
+        ]);
     }
 
     /**

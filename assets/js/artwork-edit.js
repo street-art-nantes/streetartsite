@@ -4,7 +4,7 @@ var $collectionHolder;
 
 jQuery(document).ready(function() {
   // Get the ul that holds the collection of tags
-  $collectionHolder = $('ul.documents');
+  $collectionHolder = $('div.documents');
   var $addTagLink = $('.add_document_link');
 
   // count the current form inputs we have (e.g. 2), use that as the new
@@ -19,7 +19,7 @@ jQuery(document).ready(function() {
     addTagForm($collectionHolder);
   });
 
-  $collectionHolder.find('li').each(function() {
+  $collectionHolder.find('div.form-collection-item').each(function() {
     addTagFormDeleteLink($(this));
   });
 });
@@ -45,14 +45,14 @@ function addTagForm($collectionHolder) {
   $collectionHolder.data('index', index + 1);
 
   // Display the form in the page in an li, before the "Add a tag" link li
-  var $newFormLi = $('<li></li>').append(newForm);
+  var $newFormLi = $('<div class="form-collection-item"></div>').append(newForm);
   $collectionHolder.append($newFormLi);
 
   addTagFormDeleteLink($newFormLi);
 }
 
 function addTagFormDeleteLink($tagFormLi) {
-  var $removeFormA = $('<a href="#">delete this document</a>');
+  var $removeFormA = $('<a href="#">Supprimer</a>'); // Todo change this by an icon
   $tagFormLi.append($removeFormA);
 
   $removeFormA.on('click', function(e) {

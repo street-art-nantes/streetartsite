@@ -5,31 +5,39 @@ namespace App\Form\Type;
 use App\Entity\Artwork;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * Class ArtworkType
- * @package App\Form\Type
+ * Class ArtworkType.
  */
 class ArtworkType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('title');
+        $builder->add('title', TextType::class, [
+            'label' => 'artwork.label.title',
+        ]);
         $builder->add('poi', PoiType::class, [
             'label' => false,
         ]);
         $builder->add('documents', CollectionType::class, [
             'entry_type' => DocumentType::class,
-            'entry_options' => [],
+            'entry_options' => [
+                'label' => false,
+                'attr' => [
+                    'class' => 'form-collection-item',
+                ],
+            ],
             'allow_add' => true,
             'allow_delete' => true,
             'by_reference' => false,
+            'label' => 'artwork.label.documents',
         ]);
     }
 

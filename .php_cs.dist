@@ -4,6 +4,7 @@ $finder = PhpCsFixer\Finder::create()
     ->in(__DIR__)
     ->exclude('var')
     ->exclude('public')
+    ->exclude('src/Migrations')
     ->notPath('public/index.php')
 ;
 

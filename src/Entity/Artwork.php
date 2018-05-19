@@ -4,12 +4,16 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArtworkRepository")
  */
 class Artwork
 {
+    use TimestampableEntity;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -19,6 +23,7 @@ class Artwork
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $title;
 
@@ -26,11 +31,6 @@ class Artwork
      * @ORM\Column(type="boolean")
      */
     private $enabled;
-
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private $createdAt;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
@@ -44,23 +44,36 @@ class Artwork
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $type;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Poi", inversedBy="artworks")
+     * @ORM\ManyToOne(targetEntity="Poi", inversedBy="artworks", cascade={"persist", "remove"})
+     * @Assert\Valid()
      */
     private $poi;
 
     /**
-     * @ORM\OneToMany(targetEntity="Document", mappedBy="artwork")
+     * @ORM\OneToMany(targetEntity="Document", mappedBy="artwork", cascade={"persist", "remove"})
+     * @Assert\Valid()
+     * @Assert\Count(min="1")
      */
     private $documents;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Author", inversedBy="artwork")
+     * @Assert\Valid()
      */
     private $author;
+
+    /**
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @Assert\Valid()
+     */
+    private $contributor;
 
     /**
      * Artwork constructor.
@@ -69,6 +82,7 @@ class Artwork
     {
         $this->documents = new ArrayCollection();
         $this->createdAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
     }
 
     /**
@@ -89,9 +103,10 @@ class Artwork
 
     /**
      * @param string $title
+     *
      * @return Artwork
      */
-    public function setTitle(string $title): self
+    public function setTitle(?string $title): self
     {
         $this->title = $title;
 
@@ -108,6 +123,7 @@ class Artwork
 
     /**
      * @param mixed $enabled
+     *
      * @return Artwork
      */
     public function setEnabled($enabled)
@@ -120,26 +136,6 @@ class Artwork
     /**
      * @return \DateTimeInterface|null
      */
-    public function getCreatedAt(): ?\DateTimeInterface
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @param \DateTimeInterface $createdAt
-     * @return Artwork
-     */
-    public function setCreatedAt(\DateTimeInterface $createdAt): self
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-
-    /**
-     * @return \DateTimeInterface|null
-     */
     public function getEndedAt(): ?\DateTimeInterface
     {
         return $this->endedAt;
@@ -147,6 +143,7 @@ class Artwork
 
     /**
      * @param \DateTimeInterface $endedAt
+     *
      * @return Artwork
      */
     public function setEndedAt(\DateTimeInterface $endedAt): self
@@ -166,6 +163,7 @@ class Artwork
 
     /**
      * @param array|null $tags
+     *
      * @return Artwork
      */
     public function setTags(?array $tags): self
@@ -185,6 +183,7 @@ class Artwork
 
     /**
      * @param string $type
+     *
      * @return Artwork
      */
     public function setType(string $type): self
@@ -229,6 +228,7 @@ class Artwork
     {
         if (!$this->documents->contains($document)) {
             $this->documents->add($document);
+            $document->setArtwork($this);
         }
     }
 
@@ -238,18 +238,6 @@ class Artwork
     public function removeDocument(Document $document)
     {
         $this->documents->removeElement($document);
-    }
-
-    /**
-     * @param mixed $documents
-     *
-     * @return Artwork
-     */
-    public function setDocuments($documents)
-    {
-        $this->documents = $documents;
-
-        return $this;
     }
 
     /**
@@ -278,5 +266,25 @@ class Artwork
     public function __toString()
     {
         return $this->id.' - '.$this->title.' - '.$this->type;
+    }
+
+    /**
+     * @return User
+     */
+    public function getContributor(): ?User
+    {
+        return $this->contributor;
+    }
+
+    /**
+     * @param User $contributor
+     *
+     * @return Artwork
+     */
+    public function setContributor(?User $contributor): self
+    {
+        $this->contributor = $contributor;
+
+        return $this;
     }
 }
