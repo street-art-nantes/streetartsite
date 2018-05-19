@@ -2,6 +2,8 @@
 
 {% set isCreateForm = form.vars.data.id|default(false) ? false : true %}
 
+{% form_theme form _self %}
+
 {% block body %}
     <div class="page-artwork-edit">
         <div class="container">
@@ -23,10 +25,7 @@
                             {{ form_row(form.title) }}
                             {{ form_row(form.poi) }}
 
-                            <div class="documents"
-                                 data-prototype="{{ form_widget(form.documents.vars.prototype)|e('html_attr') }}">
-                                {{ form_row(form.documents) }}
-                            </div>
+                            {{ form_row(form.documents, { attr: { class: 'row' }}) }}
 
                             <a href="#" class="add_document_link">{{ 'artwork.link.add_a_document'|trans({}, 'messages') }}</a>
 
@@ -42,6 +41,14 @@
                 </div>
             </div>
         </div>
+    </div>
+{% endblock %}
+
+{% block _artwork_documents_entry_row %}
+    {% set document = form.vars.data %}
+
+    <div class="item-document col-6">
+        {{ form(form) }}
     </div>
 {% endblock %}
 
