@@ -19,9 +19,10 @@
 .dw__focus-curtain {
   background-color: #000;
   bottom: 0;
-  display: none;
+  /*display: none;*/
+    opacity: 0;
+    visibility: hidden;
   left: 0;
-  opacity: 0.75;
   position: fixed;
   right: 0;
   top: 0;
@@ -59,7 +60,10 @@
   z-index: 3;
 }
 .dw-panel--focus:hover ~ .dw__focus-curtain {
-  display: block;
+    visibility: visible;
+    opacity: 0.35;
+    -webkit-transition: opacity 600ms, visibility 600ms;
+    transition: opacity 600ms, visibility 600ms;
 }
 .dw-panel--pulse {
   -webkit-transform-style: preserve-3d;
@@ -72,9 +76,9 @@
   transition: transform 0.25s ease 0s, -webkit-transform 0.25s ease 0s;
 }
 .dw-panel--pulse:hover {
-  -webkit-transform: scale(1.02);
-      -ms-transform: scale(1.02);
-          transform: scale(1.02);
+  -webkit-transform: scale(1.08);
+      -ms-transform: scale(1.08);
+          transform: scale(1.08);
 }
 .dw-panel__content {
   border-radius: 20px;
