@@ -14,9 +14,12 @@
     onload="showImages()"
 {% endblock body_attributes %}
 
+{% block body_classes %}content-map{% endblock body_classes %}
+{% block content_classes %}content-map{% endblock content_classes %}
+
 {% block body %}
-    <div class="page-home">
-        <div id="map" style="width: 800px; height: 600px;"></div>
+    <div class="page-home content-map">
+        <div id="map" class="content-map"></div>
     </div>
 {% endblock %}
 

@@ -15,7 +15,7 @@
 
         {% include 'layout/flash_messages.html.twig' %}
 
-        <div class="content">
+        <div class="content {% block content_classes %}{% endblock content_classes %}">
             {% block body %}{% endblock %}
         </div>
 
