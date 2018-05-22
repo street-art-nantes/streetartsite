@@ -23,18 +23,39 @@
                             {{ form_errors(form) }}
 
                             {{ form_row(form.title) }}
-                            {{ form_row(form.poi) }}
+                            {{ form_row(form.poi.address) }}
 
-                            {{ form_row(form.documents, { attr: { class: 'row' }}) }}
-
-                            <a href="#" class="add_document_link">{{ 'artwork.link.add_a_document'|trans({}, 'messages') }}</a>
-
-                            {{ form_rest(form) }}
-
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-block btn-primary">{{ 'artwork.button.save'|trans({}, 'messages') }}</button>
+                            <div class="row">
+                                <div class="col-6">
+                                    {{ form_row(form.poi.city) }}
+                                </div>
+                                <div class="col-6">
+                                    {{ form_row(form.poi.country) }}
+                                </div>
                             </div>
 
+                            <div class="row">
+                                <div class="col-6">
+                                    {{ form_row(form.poi.latitude) }}
+                                </div>
+                                <div class="col-6">
+                                    {{ form_row(form.poi.longitude) }}
+                                </div>
+                            </div>
+
+                            <label class="d-flex justify-content-between align-items-center">
+                                {{ form.documents.vars.label|trans }}
+                                <a href="#"
+                                   class="add-document-link btn btn-sm btn-info">{{ 'artwork.link.add_a_document'|trans({}, 'messages') }}</a>
+                            </label>
+                            {{ form_widget(form.documents) }}
+
+                            <div class="text-center">
+                                <button type="submit"
+                                        class="btn btn-lg btn-primary mt-3">{{ 'artwork.button.save'|trans({}, 'messages') }}</button>
+                            </div>
+
+                            {{ form_rest(form) }}
                             {{ form_end(form) }}
                         </article>
                     </div>
@@ -47,8 +68,8 @@
 {% block _artwork_documents_entry_row %}
     {% set document = form.vars.data %}
 
-    <div class="item-document col-6">
-        {{ form(form) }}
+    <div class="item-document">
+        {{ form_widget(form) }}
     </div>
 {% endblock %}
 

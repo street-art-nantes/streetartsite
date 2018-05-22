@@ -6,7 +6,7 @@ use App\Entity\Document;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Vich\UploaderBundle\Form\Type\VichFileType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 /**
  * Class DocumentType.
@@ -19,9 +19,10 @@ class DocumentType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('imageFile', VichFileType::class, [
-            'label' => 'artwork.label.image_file',
+        $builder->add('imageFile', VichImageType::class, [
+            'label' => false,
             'translation_domain' => 'messages',
+            'allow_delete' => false,
         ]);
     }
 

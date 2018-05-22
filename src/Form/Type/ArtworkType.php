@@ -30,9 +30,6 @@ class ArtworkType extends AbstractType
             'entry_type' => DocumentType::class,
             'entry_options' => [
                 'label' => false,
-                'attr' => [
-                    'class' => 'form-collection-item',
-                ],
             ],
             'allow_add' => true,
             'allow_delete' => true,

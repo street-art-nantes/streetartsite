@@ -5,7 +5,7 @@ var $collectionHolder;
 jQuery(document).ready(function() {
   // Get the ul that holds the collection of tags
   $collectionHolder = $('#artwork_documents');
-  var $addTagLink = $('.add_document_link');
+  var $addTagLink = $('.add-document-link');
 
   // count the current form inputs we have (e.g. 2), use that as the new
   // index when inserting a new item (e.g. 2)
@@ -52,8 +52,8 @@ function addTagForm($collectionHolder) {
 }
 
 function addTagFormDeleteLink($tagFormLi) {
-  var $removeFormA = $('<a href="#">Supprimer</a>'); // Todo change this by an icon
-  $tagFormLi.append($removeFormA);
+  var $removeFormA = $('<button class="btn btn-danger btn-sm">Supprimer</button>'); // Todo change this by an icon
+  $tagFormLi.find('label .field-image-actions').append($removeFormA);
 
   $removeFormA.on('click', function(e) {
     // prevent the link from creating a "#" on the URL

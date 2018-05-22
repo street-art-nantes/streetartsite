@@ -6,6 +6,7 @@ use App\Entity\Artwork;
 use App\Entity\Document;
 use App\Entity\User;
 use App\Form\Type\ArtworkType;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -35,7 +36,7 @@ class ArtWorkEditController extends Controller
      * @Route("/artwork/new", name="app_artwork_new")
      * @Route("/artwork/{id}/edit", name="app_artwork_edit")
      *
-     * @param Request      $request
+     * @param Request $request
      * @param Artwork|null $artwork
      *
      * @return \Symfony\Component\HttpFoundation\Response
@@ -44,14 +45,27 @@ class ArtWorkEditController extends Controller
     {
         $artwork = $this->initializePoi($artwork);
 
+        $originalDocuments = new ArrayCollection();
+
+        foreach ($artwork->getDocuments() as $document) {
+            $originalDocuments->add($document);
+        }
+
         $form = $this->createForm(ArtworkType::class, $artwork);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            /** @var Artwork $artwork */
             $artwork = $form->getData();
 
             if (!$artwork->getId()) {
                 $this->entityManager->persist($artwork);
+            }
+
+            foreach ($originalDocuments as $document) {
+                if (false === $artwork->getDocuments()->contains($document)) {
+                    $this->entityManager->remove($document);
+                }
             }
 
             try {

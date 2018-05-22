@@ -1,0 +1,35 @@
+.field-image {
+
+  border-radius: $border-radius;
+  border: solid $border-width $border-color;
+
+  button {
+    margin-left: 10px;
+  }
+
+  & label {
+    padding: 10px;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  & input:hover {
+    cursor: pointer;
+  }
+
+  .field-image-link-img {
+    margin-right: 10px;
+    width: 40px;
+    height: auto;
+    border-radius: 3px;
+  }
+
+  .field-image-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
