@@ -36,7 +36,7 @@ class ArtWorkEditController extends Controller
      * @Route("/artwork/new", name="app_artwork_new")
      * @Route("/artwork/{id}/edit", name="app_artwork_edit")
      *
-     * @param Request $request
+     * @param Request      $request
      * @param Artwork|null $artwork
      *
      * @return \Symfony\Component\HttpFoundation\Response
@@ -54,11 +54,13 @@ class ArtWorkEditController extends Controller
         $form = $this->createForm(ArtworkType::class, $artwork);
         $form->handleRequest($request);
 
+        $isCreateForm = !$artwork->getId();
+
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var Artwork $artwork */
             $artwork = $form->getData();
 
-            if (!$artwork->getId()) {
+            if ($isCreateForm) {
                 $this->entityManager->persist($artwork);
             }
 
@@ -71,14 +73,14 @@ class ArtWorkEditController extends Controller
             try {
                 $this->entityManager->flush();
 
-                $this->addFlash('success', 'artwork.flash.success.saved');
+                if ($isCreateForm) {
+                    return $this->redirectToRoute('app_artwork_new', [
+                        'success' => true,
+                    ]);
+                }
             } catch (\Exception $e) {
                 $this->addFlash('danger', 'artwork.flash.danger.error');
             }
-
-            return $this->redirectToRoute('app_artwork_edit', [
-                'id' => $artwork->getId(),
-            ]);
         }
 
         return $this->render('/pages/artwork_edit.twig', [
