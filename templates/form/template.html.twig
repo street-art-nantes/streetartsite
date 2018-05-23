@@ -41,9 +41,11 @@
     {% spaceless %}
         <div class="field-image">
             <label for="{{ form.file.vars.id }}">
-                {% if image_uri %}
-                    <a href="{{ image_uri }}" class="field-image-link"><img src="{{ image_uri }}" alt="" class="field-image-link-img"/></a>
-                {% endif %}
+                <div class="field-image-link-wrapper">
+                    {% if image_uri %}
+                        <a href="{{ image_uri }}" class="field-image-link"><img src="{{ image_uri }}" alt="" class="field-image-link-img"/></a>
+                    {% endif %}
+                </div>
 
                 {{ form_widget(form.file) }}
 
