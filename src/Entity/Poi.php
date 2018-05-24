@@ -255,11 +255,13 @@ class Poi
 
     /**
      * @param mixed $highlight
+     *
      * @return Poi
      */
     public function setHighlight($highlight)
     {
         $this->highlight = $highlight;
+
         return $this;
     }
 }
