@@ -36,11 +36,11 @@ $grays: map-merge((
         "900": $gray-900
 ), $grays);
 
-$blue: #0022ff !default;
+$blue: #132d63 !default;
 $indigo:  #6610f2 !default;
 $purple:  #6f42c1 !default;
 $pink: #e876d6 !default;
-$red:     #dc3545 !default;
+$red:     #fd3a1f !default;
 $orange:  #fd7e14 !default;
 $yellow:  #ffc107 !default;
 $green: #74a712 !default;
@@ -325,7 +325,7 @@ $table-dark-color:            $body-bg !default;
 // Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
 
 $input-btn-padding-y:         .375rem !default;
-$input-btn-padding-x:         .75rem !default;
+$input-btn-padding-x:         0.5rem !default;
 $input-btn-line-height:       $line-height-base !default;
 
 $input-btn-focus-width:       .2rem !default;
@@ -337,7 +337,7 @@ $input-btn-padding-x-sm:      .5rem !default;
 $input-btn-line-height-sm:    $line-height-sm !default;
 
 $input-btn-padding-y-lg:      .5rem !default;
-$input-btn-padding-x-lg:      1rem !default;
+$input-btn-padding-x-lg:      0.75rem !default;
 $input-btn-line-height-lg:    $line-height-lg !default;
 
 $input-btn-border-width:      $border-width !default;
@@ -348,7 +348,7 @@ $input-btn-border-width:      $border-width !default;
 // For each of Bootstrap's buttons, define text, background, and border color.
 
 $btn-padding-y:               $input-btn-padding-y !default;
-$btn-padding-x:               $input-btn-padding-x !default;
+$btn-padding-x:               1.125rem !default;
 $btn-line-height:             $input-btn-line-height !default;
 
 $btn-padding-y-sm:            $input-btn-padding-y-sm !default;
@@ -356,7 +356,7 @@ $btn-padding-x-sm:            $input-btn-padding-x-sm !default;
 $btn-line-height-sm:          $input-btn-line-height-sm !default;
 
 $btn-padding-y-lg:            $input-btn-padding-y-lg !default;
-$btn-padding-x-lg:            $input-btn-padding-x-lg !default;
+$btn-padding-x-lg:            1.135rem !default;
 $btn-line-height-lg:          $input-btn-line-height-lg !default;
 
 $btn-border-width:            $input-btn-border-width !default;

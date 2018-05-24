@@ -34,7 +34,7 @@ class PoiManager
 
         $artwork->setCreatedAt(new \DateTime($data['created_date']));
         $artwork->setEndedAt(new \DateTime($data['created_date']));
-        $artwork->setStatus(1);
+        $artwork->setEnabled(true);
         $artwork->setTitle($data['title']);
         $artwork->setType($data['type']);
         $artwork->setPoi($poi);

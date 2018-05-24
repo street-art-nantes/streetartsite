@@ -12,12 +12,12 @@ use Doctrine\ORM\QueryBuilder;
 final class LocationFilter extends AbstractFilter
 {
     /**
-     * @param string $property
-     * @param string|array $value
-     * @param QueryBuilder $queryBuilder
+     * @param string                      $property
+     * @param string|array                $value
+     * @param QueryBuilder                $queryBuilder
      * @param QueryNameGeneratorInterface $queryNameGenerator
-     * @param string $resourceClass
-     * @param string|null $operationName
+     * @param string                      $resourceClass
+     * @param string|null                 $operationName
      */
     protected function filterProperty(string $property, $value, QueryBuilder $queryBuilder, QueryNameGeneratorInterface $queryNameGenerator, string $resourceClass, string $operationName = null)
     {
@@ -39,6 +39,7 @@ final class LocationFilter extends AbstractFilter
 
     /**
      * @param string $resourceClass
+     *
      * @return array
      */
     public function getDescription(string $resourceClass): array
