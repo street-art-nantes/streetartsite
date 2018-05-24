@@ -91,12 +91,7 @@
         <target></target>
       </segment>
     </unit>
-    <unit id="gD8Twxc" name="home.description">
-        <source>home.description</source>
-        <target>          Welcome on street-artwork, the website gathering street artworks from around the world geolocated. Find beautiful artworks all around you.
-        </target>
-      </segment>
-    </unit>
+
     <unit id="9nqU7RQ" name="home.description.first">
       <notes>
         <note category="file-source" priority="1">templates/pages/home.html.twig:10</note>
@@ -104,7 +99,8 @@
       </notes>
       <segment>
         <source>home.description.first</source>
-        <target></target>
+        <target>          Welcome on street-artwork, the website gathering street artworks from around the world geolocated. Find beautiful artworks all around you.
+        </target>
       </segment>
     </unit>
     <unit id="e_qvnqh" name="home.description.second">
