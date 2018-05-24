@@ -2,9 +2,18 @@
 @import "~bootstrap/scss/bootstrap";
 
 @import "_common";
+
 @import "layout/footer";
 @import "layout/header";
 @import "layout/content";
+
 @import "pages/home";
 @import "pages/map";
 @import "pages/driveway";
+@import "pages/artwork-edit";
+
+@import "components/field-image";
+@import "components/buttons";
+
+$fa-font-path:"~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";

@@ -4,12 +4,16 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArtworkRepository")
  */
 class Artwork
 {
+    use TimestampableEntity;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -19,21 +23,17 @@ class Artwork
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $title;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $status;
+    private $enabled;
 
     /**
-     * @ORM\Column(type="datetime")
-     */
-    private $createdAt;
-
-    /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $endedAt;
 
@@ -44,23 +44,36 @@ class Artwork
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $type;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Poi", inversedBy="artworks")
+     * @ORM\ManyToOne(targetEntity="Poi", inversedBy="artworks", cascade={"persist", "remove"})
+     * @Assert\Valid()
      */
     private $poi;
 
     /**
-     * @ORM\OneToMany(targetEntity="Document", mappedBy="artwork")
+     * @ORM\OneToMany(targetEntity="Document", mappedBy="artwork", cascade={"persist", "remove"})
+     * @Assert\Valid()
+     * @Assert\Count(min="1")
      */
     private $documents;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Author", inversedBy="artwork")
+     * @Assert\Valid()
      */
     private $author;
+
+    /**
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @Assert\Valid()
+     */
+    private $contributor;
 
     /**
      * Artwork constructor.
@@ -68,54 +81,71 @@ class Artwork
     public function __construct()
     {
         $this->documents = new ArrayCollection();
+        $this->createdAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
     }
 
+    /**
+     * @return mixed
+     */
     public function getId()
     {
         return $this->id;
     }
 
+    /**
+     * @return null|string
+     */
     public function getTitle(): ?string
     {
         return $this->title;
     }
 
-    public function setTitle(string $title): self
+    /**
+     * @param string $title
+     *
+     * @return Artwork
+     */
+    public function setTitle(?string $title): self
     {
         $this->title = $title;
 
         return $this;
     }
 
-    public function getStatus(): ?bool
+    /**
+     * @return mixed
+     */
+    public function isEnabled()
     {
-        return $this->status;
+        return $this->enabled;
     }
 
-    public function setStatus(bool $status): self
+    /**
+     * @param mixed $enabled
+     *
+     * @return Artwork
+     */
+    public function setEnabled($enabled)
     {
-        $this->status = $status;
+        $this->enabled = $enabled;
 
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeInterface
-    {
-        return $this->createdAt;
-    }
-
-    public function setCreatedAt(\DateTimeInterface $createdAt): self
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
+    /**
+     * @return \DateTimeInterface|null
+     */
     public function getEndedAt(): ?\DateTimeInterface
     {
         return $this->endedAt;
     }
 
+    /**
+     * @param \DateTimeInterface $endedAt
+     *
+     * @return Artwork
+     */
     public function setEndedAt(\DateTimeInterface $endedAt): self
     {
         $this->endedAt = $endedAt;
@@ -123,11 +153,19 @@ class Artwork
         return $this;
     }
 
+    /**
+     * @return array|null
+     */
     public function getTags(): ?array
     {
         return $this->tags;
     }
 
+    /**
+     * @param array|null $tags
+     *
+     * @return Artwork
+     */
     public function setTags(?array $tags): self
     {
         $this->tags = $tags;
@@ -135,11 +173,19 @@ class Artwork
         return $this;
     }
 
+    /**
+     * @return null|string
+     */
     public function getType(): ?string
     {
         return $this->type;
     }
 
+    /**
+     * @param string $type
+     *
+     * @return Artwork
+     */
     public function setType(string $type): self
     {
         $this->type = $type;
@@ -176,15 +222,22 @@ class Artwork
     }
 
     /**
-     * @param mixed $documents
-     *
-     * @return Artwork
+     * @param Document $document
      */
-    public function setDocuments($documents)
+    public function addDocument(Document $document)
     {
-        $this->documents = $documents;
+        if (!$this->documents->contains($document)) {
+            $this->documents->add($document);
+            $document->setArtwork($this);
+        }
+    }
 
-        return $this;
+    /**
+     * @param Document $document
+     */
+    public function removeDocument(Document $document)
+    {
+        $this->documents->removeElement($document);
     }
 
     /**
@@ -213,5 +266,25 @@ class Artwork
     public function __toString()
     {
         return $this->id.' - '.$this->title.' - '.$this->type;
+    }
+
+    /**
+     * @return User
+     */
+    public function getContributor(): ?User
+    {
+        return $this->contributor;
+    }
+
+    /**
+     * @param User $contributor
+     *
+     * @return Artwork
+     */
+    public function setContributor(?User $contributor): self
+    {
+        $this->contributor = $contributor;
+
+        return $this;
     }
 }

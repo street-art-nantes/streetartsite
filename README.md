@@ -49,6 +49,12 @@ Delete obsolete translation messages
 translation:delete-obsolete
 ```
 
+Fix PHP CS
+``` bash
+vendor/friendsofphp/php-cs-fixer/php-cs-fixer fix --config=.php_cs.dist
+```
+
+
 Usefull routes
 ---
 

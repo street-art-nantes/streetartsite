@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+
+{% set isCreateForm = form.vars.data.id|default(false) ? false : true %}
+
+{% form_theme form _self %}
+
+{% block success %}
+    <div class="content-success text-center mt-5">
+
+        <figure class="">
+            <i class="far fa-check-circle content-success-icon"></i>
+        </figure>
+
+        <h2 class="card-title">
+            {{ 'artwork.message.wording_success'|trans }}
+        </h2>
+
+        <a href="{{ path('app_artwork_new') }}"
+           class="btn btn-lg btn-primary mt-4">{{ 'artwork.button.add_new'|trans({}, 'messages') }}</a>
+    </div>
+{% endblock %}
+
+{% block form %}
+    <h2 class="card-title mb-4 text-center">
+        {% if isCreateForm %}
+            {{ 'artwork.title.create'|trans({}, 'messages') }}
+        {% else %}
+            {{ 'artwork.title.edit'|trans({}, 'messages') }}
+        {% endif %}
+    </h2>
+
+    {{ form_start(form, { attr: { novalidate: 'novalidate' }}) }}
+    {{ form_errors(form) }}
+
+    {{ form_row(form.title) }}
+    {{ form_row(form.poi.address) }}
+
+    <div class="row">
+        <div class="col-6">
+            {{ form_row(form.poi.city) }}
+        </div>
+        <div class="col-6">
+            {{ form_row(form.poi.country) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            {{ form_row(form.poi.latitude) }}
+        </div>
+        <div class="col-6">
+            {{ form_row(form.poi.longitude) }}
+        </div>
+    </div>
+
+    <label class="d-flex justify-content-between align-items-center">
+        {{ form.documents.vars.label|trans }}
+        <a href="#"
+           class="add-document-link btn btn-sm btn-info">{{ 'artwork.link.add_a_document'|trans({}, 'messages') }}</a>
+    </label>
+    {{ form_widget(form.documents) }}
+
+    <div class="text-center mt-5">
+        <a href="{{ app.request.uri }}"
+           class="btn btn-lg btn btn-outline-dark mr-2">{{ 'artwork.button.cancel'|trans({}, 'messages') }}</a>
+
+        <button type="submit"
+                class="btn btn-lg btn-primary">{{ 'artwork.button.save'|trans({}, 'messages') }}</button>
+    </div>
+
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block body %}
+    <div class="page-artwork-edit">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-12">
+                    <div class="card mt-5">
+                        <article class="card-body p-5">
+                            {% if app.request.get('success', false) %}
+                                {{ block('success') }}
+                            {% else %}
+                                {{ block('form') }}
+                            {% endif %}
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block _artwork_documents_entry_row %}
+    {% set document = form.vars.data %}
+
+    <div class="item-document">
+        {{ form_widget(form) }}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('build/js/artwork-edit.js') }}"></script>
+{% endblock %}

@@ -33,11 +33,14 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          keys:
-            - composer-v1-{{ checksum "composer.lock" }}
-            - composer-v1-
+         keys:
+           - composer-v1-{{ checksum "composer.lock" }}
+           - composer-v1-
       - run: composer install --prefer-dist
-      - run: ls -lah
+      - save_cache:
+           key: composer-v1-{{ checksum "composer.lock" }}
+           paths:
+             - vendor
       - run: phpstan analyse --level 2 -c .circleci/tools/phpstan.neon src
 
   php-metrics:
@@ -66,6 +69,15 @@ jobs:
       - image: jakzal/phpqa
     steps:
       - checkout
+      - restore_cache:
+         keys:
+           - composer-v1-{{ checksum "composer.lock" }}
+           - composer-v1-
+      - run: composer install --prefer-dist
+      - save_cache:
+           key: composer-v1-{{ checksum "composer.lock" }}
+           paths:
+             - vendor
       - run: .circleci/tools/php-cs-fixer.sh
       - store_artifacts:
           path: "var/patch.diff"

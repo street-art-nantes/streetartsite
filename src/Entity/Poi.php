@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PoiRepository")
@@ -21,12 +22,14 @@ class Poi
     /**
      * @ORM\Column(type="decimal", precision=8, scale=6, nullable=true)
      * @Groups({"poi_read"})
+     * @Assert\NotBlank()
      */
     private $latitude;
 
     /**
      * @ORM\Column(type="decimal", precision=9, scale=6, nullable=true)
      * @Groups({"poi_read"})
+     * @Assert\NotBlank()
      */
     private $longitude;
 
@@ -38,18 +41,21 @@ class Poi
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups({"poi_read"})
+     * @Assert\NotBlank()
      */
     private $country;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups({"poi_read"})
+     * @Assert\NotBlank()
      */
     private $city;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups({"poi_read"})
+     * @Assert\NotBlank()
      */
     private $address;
 
@@ -236,7 +242,7 @@ class Poi
      */
     public function __toString()
     {
-        return $this->address;
+        return sprintf('%s, %s;%s', $this->address, $this->getLatitude(), $this->getLongitude());
     }
 
     /**

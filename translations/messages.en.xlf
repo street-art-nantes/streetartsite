@@ -55,11 +55,43 @@
         <target>Map</target>
       </segment>
     </unit>
-    <unit id="gD8Twxc" name="home.description">
+    <unit id="tMH.AuE" name="artwork.title.create">
       <notes>
-        <note category="state" priority="1">obsolete</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:26</note>
       </notes>
       <segment>
+        <source>artwork.title.create</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="AM5GsPW" name="artwork.title.edit">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:28</note>
+      </notes>
+      <segment>
+        <source>artwork.title.edit</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="Jn.7hg4" name="artwork.link.add_a_document">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:59</note>
+      </notes>
+      <segment>
+        <source>artwork.link.add_a_document</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="asKIZV9" name="artwork.button.save">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:68</note>
+      </notes>
+      <segment>
+        <source>artwork.button.save</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="gD8Twxc" name="home.description">
         <source>home.description</source>
         <target>          Welcome on street-artwork, the website gathering street artworks from around the world geolocated. Find beautiful artworks all around you.
         </target>
@@ -92,6 +124,205 @@
       </notes>
       <segment>
         <source>home.needyou</source>
+<target></target>
+      </segment>
+    </unit>
+        <unit id="WMn2oya" name="artwork.label.image_file">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
+      <segment>
+        <source>artwork.label.image_file</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="wt0Gj6K" name="artwork.label.title">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:23</note>
+      </notes>
+      <segment>
+        <source>artwork.label.title</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="qvIyBkY" name="title">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
+      <segment>
+        <source>title</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="mxa0TQ4" name="documents">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
+      <segment>
+        <source>documents</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="HiArTFm" name="artwork.label.latitude">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/PoiType.php:22</note>
+      </notes>
+      <segment>
+        <source>artwork.label.latitude</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="8eqK2ln" name="artwork.label.longitude">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/PoiType.php:25</note>
+      </notes>
+      <segment>
+        <source>artwork.label.longitude</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="B91XroD" name="artwork.label.address">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/PoiType.php:28</note>
+      </notes>
+      <segment>
+        <source>artwork.label.address</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="7kQJetd" name="artwork.label.country">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/PoiType.php:31</note>
+      </notes>
+      <segment>
+        <source>artwork.label.country</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="5LLD2XU" name="artwork.label.city">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/PoiType.php:34</note>
+      </notes>
+      <segment>
+        <source>artwork.label.city</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="f.h.a0H" name="latitude">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
+      <segment>
+        <source>latitude</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="fdDIXJR" name="longitude">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
+      <segment>
+        <source>longitude</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="2Ayb_RD" name="address">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
+      <segment>
+        <source>address</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="r.ZOT9U" name="country">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
+      <segment>
+        <source>country</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="EaYsI0E" name="city">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
+      <segment>
+        <source>city</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="hDovvQA" name="The Artwork has been successfully saved">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
+      <segment>
+        <source>The Artwork has been successfully saved</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="UrEtpG1" name="An error occurred while saving changes.">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
+      <segment>
+        <source>An error occurred while saving changes.</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="3YXWeHz" name="artwork.label.documents">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:29</note>
+      </notes>
+      <segment>
+        <source>artwork.label.documents</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="ZnLz_nL" name="artwork.flash.success.saved">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
+      <segment>
+        <source>artwork.flash.success.saved</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="9uLIsJG" name="artwork.flash.danger.error">
+      <notes>
+        <note category="file-source" priority="1">src/Controller/ArtWorkEditController.php:83</note>
+      </notes>
+      <segment>
+        <source>artwork.flash.danger.error</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="xqBfcOp" name="artwork.button.cancel">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:65</note>
+      </notes>
+      <segment>
+        <source>artwork.button.cancel</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="N8UWZOy" name="artwork.button.add_new">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:19</note>
+      </notes>
+      <segment>
+        <source>artwork.button.add_new</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="toykNtT" name="artwork.message.wording_success">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:15</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artwork.message.wording_success</source>
         <target></target>
       </segment>
     </unit>

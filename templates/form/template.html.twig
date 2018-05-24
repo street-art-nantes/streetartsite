@@ -1,0 +1,65 @@
+{% extends "bootstrap_4_layout.html.twig" %}
+
+{% block form_errors -%}
+    {%- if errors|length > 0 -%}
+        <div class="{% if form is not rootform %}invalid-feedback d-block{% else %}alert alert-danger{% endif %}">
+            {%- for error in errors -%}
+                <span class="mb-0 d-block">
+                    <span class="initialism form-error-icon badge badge-danger">{{ 'Error'|trans({}, 'validators') }}</span> <span class="form-error-message">{{ error.message }}</span>
+                </span>
+            {%- endfor -%}
+        </div>
+    {%- endif %}
+{%- endblock form_errors %}
+
+{% block vich_file_row -%}
+    {% set force_error = true %}
+    {{- block('form_row') }}
+{%- endblock %}
+
+{% block vich_file_widget %}
+    {% spaceless %}
+        <div class="vich-file">
+            {{ form_widget(form.file) }}
+            {% if form.delete is defined %}
+                {{ form_row(form.delete) }}
+            {% endif %}
+
+            {% if download_uri %}
+                <a href="{{ download_uri }}">{{ translation_domain is same as(false) ? download_label : download_label|trans({}, translation_domain) }}</a>
+            {% endif %}
+        </div>
+    {% endspaceless %}
+{% endblock %}
+
+{% block vich_image_row -%}
+    {% set force_error = true %}
+    {{- block('form_row') }}
+{%- endblock %}
+
+{% block vich_image_widget %}
+    {% spaceless %}
+        <div class="field-image">
+            <label for="{{ form.file.vars.id }}">
+                <div class="field-image-link-wrapper">
+                    {% if image_uri %}
+                        <a href="{{ image_uri }}" class="field-image-link"><img src="{{ image_uri }}" alt="" class="field-image-link-img"/></a>
+                    {% endif %}
+                </div>
+
+                {{ form_widget(form.file) }}
+
+                <div class="field-image-actions">
+                    {% if download_uri %}
+                        <a href="{{ download_uri }}" class="btn btn-sm btn-default btn-link">{{ translation_domain is same as(false) ? download_label : download_label|trans({}, translation_domain) }}</a>
+                    {% endif %}
+                </div>
+            </label>
+
+            {% if form.delete is defined %}
+                {{ form_row(form.delete) }}
+            {% endif %}
+
+        </div>
+    {% endspaceless %}
+{% endblock %}
