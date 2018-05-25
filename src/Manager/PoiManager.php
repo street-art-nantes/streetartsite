@@ -35,6 +35,7 @@ class PoiManager
 
         $artwork->setCreatedAt(new \DateTime($data['created_date']));
         $artwork->setEndedAt(new \DateTime($data['created_date']));
+        $artwork->setUpdatedAt(new \DateTime($data['created_date']));
         $artwork->setEnabled(true);
         $artwork->setTitle($data['title']);
         $artwork->setType($data['type']);
@@ -43,6 +44,7 @@ class PoiManager
 
         $document->setImageName($data['file']);
         $document->setArtwork($artwork);
+        $document->setUpdatedAt(new \DateTime($data['created_date']));
         $this->manager->persist($document);
 
         $this->manager->flush();
