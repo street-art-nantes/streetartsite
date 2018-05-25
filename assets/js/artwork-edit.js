@@ -22,6 +22,16 @@ jQuery(document).ready(function() {
   $collectionHolder.find('.item-document').each(function() {
     addTagFormDeleteLink($(this));
   });
+
+  $('body').on('click', '.field-image-btn-gps', function(e) {
+    const lat = $(e.currentTarget).data('lat')
+    const long = $(e.currentTarget).data('long')
+
+    if (lat && long) {
+      $('#artwork_poi_latitude').val(lat);
+      $('#artwork_poi_longitude').val(long);
+    }
+  })
 });
 
 function addTagForm($collectionHolder) {

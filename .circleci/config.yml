@@ -108,3 +108,4 @@ jobs:
 
       - run: .circleci/run-php.sh
       - run: bin/console doctrine:schema:validate
+      - run: bin/console doctrine:schema:update --dump-sql
