@@ -1,13 +1,22 @@
 import $ from "jquery"
+import exif from 'exif-js'
 
 $(document).ready(function () {
 
+  const rational64uToDecimal = (n) => {
+    const degrees = parseFloat(n[0]);
+    const minutes = parseFloat(n[1]);
+    const seconds = parseFloat(n[2]);
+
+    return degrees + minutes/60 + seconds/3600
+  }
+
   $('body').on('change', '.field-image input[type=file]', function (e) {
+    let $containerImg = $(e.currentTarget).closest('.field-image').find('.field-image-link-wrapper')
+    let $containerBtn = $(e.currentTarget).closest('.field-image').find('.field-image-actions')
 
-    let $container = $(e.currentTarget).closest('.field-image').find('.field-image-link-wrapper')
-
-    console.log($(e.currentTarget).closest('.field-image'));
-    console.log($container[0]);
+    $containerImg.empty()
+    $containerBtn.find('.field-image-btn-gps').remove();
 
     const file = e.currentTarget.files[0];
     const reader = new FileReader();
@@ -16,14 +25,32 @@ $(document).ready(function () {
       const $img = $('<img />');
       $img.addClass('field-image-link-img')
       $img.attr('src', reader.result)
-      $container.html($img)
+      $containerImg.html($img)
     }
 
-    if (file) {
-      reader.readAsDataURL(file);
-    } else {
-      $container.empty()
+    if (!file) {
+      return;
     }
+
+    reader.readAsDataURL(file);
+
+    // Parse lat long exif metadata from image
+    // and create a button with data-lat and data-long into it
+    exif.getData(file, function() {
+      const latRational64u = exif.getTag(this, "GPSLatitude");
+      const longRational64u = exif.getTag(this, "GPSLongitude");
+
+      if (latRational64u && longRational64u) {
+        const $btnLocation = $('<button type="button" class="btn btn-sm btn-dark" data-placement="top" title="Use GPS location"><i class="fa fa-globe"></i></button>');
+        $btnLocation.addClass('btn btn-sm field-image-btn-gps');
+        $btnLocation.attr('data-lat', rational64uToDecimal(latRational64u));
+        $btnLocation.attr('data-long', rational64uToDecimal(longRational64u));
+
+        $containerBtn.prepend($btnLocation);
+        $btnLocation.tooltip();
+      }
+    });
+
   })
 
 })
