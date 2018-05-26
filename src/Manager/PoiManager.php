@@ -49,4 +49,33 @@ class PoiManager
 
         $this->manager->flush();
     }
+
+    /**
+     * Temporary function for beta version
+     * @param $pois
+     * @return string
+     */
+    public function convertPoisForMap($pois)
+    {
+        $convertedPois = [];
+        /** @var Poi $poi */
+        foreach ($pois as $poi) {
+            /** @var Artwork $artwork */
+            $artwork = $poi->getArtworks()->first();
+            /** @var Document $document */
+            $document = $artwork->getDocuments()->first();
+            $convertedPois[] = [
+                'id' => $poi->getId(),
+                'timestamp' => $artwork->getCreatedAt()->getTimestamp(),
+                'lat' => $poi->getLatitude(),
+                'lng' => $poi->getLongitude(),
+                'url' => 'img/'.$document->getImageName(),
+                'caption' => $artwork->getTitle(),
+                'iconUrl' => 'img/'.$document->getImageName(),
+                'thumbnail' => 'img/'.$document->getImageName(),
+            ];
+        }
+
+        return json_encode($convertedPois);
+    }
 }

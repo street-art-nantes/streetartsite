@@ -9,9 +9,9 @@ home:
         template: pages/home.html.twig
 
 map:
-    path:         /{_locale}/map
-    controller:   Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+    path:         /map
+    controller:   App\Controller\MapController
     defaults:
         template: pages/map.html.twig
-    requirements:
-        _locale:  en|fr
+#    requirements:
+#        _locale:  en|fr
