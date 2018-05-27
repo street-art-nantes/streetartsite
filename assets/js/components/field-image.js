@@ -42,9 +42,12 @@ $(document).ready(function () {
 
       if (latRational64u && longRational64u) {
         const $btnLocation = $('<button type="button" class="btn btn-sm btn-dark" data-placement="top" title="Use GPS location"><i class="fa fa-globe"></i></button>');
+        var latRef = (exif.getTag(this, "GPSLatitudeRef") == 'S') ? '-' : '';
+        var longRef = (exif.getTag(this, "GPSLongitudeRef") == 'W') ? '-' : '';
+
         $btnLocation.addClass('btn btn-sm field-image-btn-gps');
-        $btnLocation.attr('data-lat', rational64uToDecimal(latRational64u));
-        $btnLocation.attr('data-long', rational64uToDecimal(longRational64u));
+        $btnLocation.attr('data-lat', latRef + rational64uToDecimal(latRational64u));
+        $btnLocation.attr('data-long', longRef + rational64uToDecimal(longRational64u));
 
         $containerBtn.prepend($btnLocation);
         $btnLocation.tooltip();

@@ -75,7 +75,7 @@
     </unit>
     <unit id="Jn.7hg4" name="artwork.link.add_a_document">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:59</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:44</note>
       </notes>
       <segment>
         <source>artwork.link.add_a_document</source>
@@ -84,18 +84,16 @@
     </unit>
     <unit id="asKIZV9" name="artwork.button.save">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:68</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:76</note>
       </notes>
       <segment>
         <source>artwork.button.save</source>
         <target></target>
       </segment>
     </unit>
-
     <unit id="9nqU7RQ" name="home.description.first">
       <notes>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:10</note>
-        <note category="state" priority="1">new</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:16</note>
       </notes>
       <segment>
         <source>home.description.first</source>
@@ -105,8 +103,7 @@
     </unit>
     <unit id="e_qvnqh" name="home.description.second">
       <notes>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:11</note>
-        <note category="state" priority="1">new</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:17</note>
       </notes>
       <segment>
         <source>home.description.second</source>
@@ -115,15 +112,14 @@
     </unit>
     <unit id="NXSzUYf" name="home.needyou">
       <notes>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:20</note>
-        <note category="state" priority="1">new</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:26</note>
       </notes>
       <segment>
         <source>home.needyou</source>
-<target></target>
+        <target></target>
       </segment>
     </unit>
-        <unit id="WMn2oya" name="artwork.label.image_file">
+    <unit id="WMn2oya" name="artwork.label.image_file">
       <notes>
         <note category="state" priority="1">obsolete</note>
       </notes>
@@ -287,7 +283,7 @@
     </unit>
     <unit id="9uLIsJG" name="artwork.flash.danger.error">
       <notes>
-        <note category="file-source" priority="1">src/Controller/ArtWorkEditController.php:83</note>
+        <note category="file-source" priority="1">src/Controller/ArtWorkEditController.php:82</note>
       </notes>
       <segment>
         <source>artwork.flash.danger.error</source>
@@ -296,7 +292,7 @@
     </unit>
     <unit id="xqBfcOp" name="artwork.button.cancel">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:65</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:73</note>
       </notes>
       <segment>
         <source>artwork.button.cancel</source>
@@ -315,10 +311,19 @@
     <unit id="toykNtT" name="artwork.message.wording_success">
       <notes>
         <note category="file-source" priority="1">templates/pages/artwork_edit.twig:15</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>artwork.message.wording_success</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="dCADRrf" name="artwork.introduction">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:33</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artwork.introduction</source>
         <target></target>
       </segment>
     </unit>
