@@ -35,3 +35,9 @@ services:
     App\Filter\LocationFilter:
         arguments: [ '@doctrine', '@request_stack', '@?logger', { region: ~ } ]
         tags: [ 'api_platform.filter' ]
+
+    App\Manager\PoiManager:
+        public: false
+    poi.manager:
+        alias: App\Manager\PoiManager
+        public: true

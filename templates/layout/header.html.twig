@@ -1,6 +1,6 @@
 <header id="header">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Street art Nantes</a>
+        <a class="navbar-brand" href="#">Street Artwork .com</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -9,7 +9,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item {% if app.request.get('_route') == 'home' %}active{% endif %}">
-                    <a class="nav-link" href="{{ path('home') }}">Accueil <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ path('home') }}">{{ 'header.menu.home'|trans({}) }} <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item {% if app.request.get('_route') == 'map' %}active{% endif %}">
+                    <a class="nav-link" href="{{ path('map') }}">{{ 'header.menu.map'|trans({}) }} <span class="sr-only">(current)</span></a>
                 </li>
 
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
@@ -26,6 +29,7 @@
             </ul>
         </div>
     </nav>
+    <img src="/assets/img/beta_ribbon.png" id="beta_ribbon">
 </header>
 
 

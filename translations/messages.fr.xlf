@@ -3,7 +3,7 @@
   <file id="messages.fr">
     <unit id="WD.KTE9" name="page.logout.link">
       <notes>
-        <note category="file-source" priority="1">templates/layout/header.html.twig:18</note>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:21</note>
       </notes>
       <segment>
         <source>page.logout.link</source>
@@ -12,7 +12,7 @@
     </unit>
     <unit id="UpOSnoA" name="page.login.link">
       <notes>
-        <note category="file-source" priority="1">templates/layout/header.html.twig:23</note>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:26</note>
       </notes>
       <segment>
         <source>page.login.link</source>
@@ -37,6 +37,55 @@
         <target>Créer un compte</target>
       </segment>
     </unit>
+    <unit id="pIWZu.m" name="header.menu.home">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:12</note>
+      </notes>
+      <segment>
+        <source>header.menu.home</source>
+        <target>Accueil</target>
+      </segment>
+    </unit>
+    <unit id="S2W3kLv" name="header.menu.map">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:15</note>
+      </notes>
+      <segment>
+        <source>header.menu.map</source>
+        <target>Carte</target>
+      </segment>
+    </unit>
+    <unit id="9nqU7RQ" name="home.description.first">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:16</note>
+      </notes>
+      <segment>
+        <source>home.description.first</source>
+        <target>Bienvenue sur street-artwork, le site regroupant les oeuvres de street art du monde entier géolocalisées. Trouvez de magnifiques oeuvres tout autour de vous.
+        </target>
+      </segment>
+    </unit>
+    <unit id="e_qvnqh" name="home.description.second">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:17</note>
+      </notes>
+      <segment>
+        <source>home.description.second</source>
+        <target>Ce projet est né de l’envie de faire découvrir aux gens cet art qui n’est pas assez mis en lumière, et qui bien souvent se trouve dans des endroits éloignés des monuments ou attractions touristiques dit conventionnels.
+          Ne loupez plus de petites merveilles à 2 pas de chez vous.
+        </target>
+      </segment>
+    </unit>
+    <unit id="NXSzUYf" name="home.needyou">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:26</note>
+      </notes>
+      <segment>
+        <source>home.needyou</source>
+        <target>We need you ! Ce projet est collaboratif. Nous ne pouvons pas visiter les villes du monde entier pour prendre en photo tous les tags (même si ça serait vraiment cool), nous avons donc besoin de vous pour contribuer à faire connaître le street art de votre ville.
+        </target>
+      </segment>
+    </unit>
     <unit id="tMH.AuE" name="artwork.title.create">
       <notes>
         <note category="file-source" priority="1">templates/pages/artwork_edit.twig:26</note>
@@ -57,7 +106,7 @@
     </unit>
     <unit id="Jn.7hg4" name="artwork.link.add_a_document">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:59</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:44</note>
       </notes>
       <segment>
         <source>artwork.link.add_a_document</source>
@@ -66,7 +115,7 @@
     </unit>
     <unit id="asKIZV9" name="artwork.button.save">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:68</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:76</note>
       </notes>
       <segment>
         <source>artwork.button.save</source>
@@ -156,7 +205,7 @@
     </unit>
     <unit id="9uLIsJG" name="artwork.flash.danger.error">
       <notes>
-        <note category="file-source" priority="1">src/Controller/ArtWorkEditController.php:83</note>
+        <note category="file-source" priority="1">src/Controller/ArtWorkEditController.php:82</note>
       </notes>
       <segment>
         <source>artwork.flash.danger.error</source>
@@ -165,7 +214,7 @@
     </unit>
     <unit id="xqBfcOp" name="artwork.button.cancel">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:65</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:73</note>
       </notes>
       <segment>
         <source>artwork.button.cancel</source>
@@ -184,11 +233,22 @@
     <unit id="toykNtT" name="artwork.message.wording_success">
       <notes>
         <note category="file-source" priority="1">templates/pages/artwork_edit.twig:15</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>artwork.message.wording_success</source>
         <target>Merci !</target>
+      </segment>
+    </unit>
+    <unit id="dCADRrf" name="artwork.introduction">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:33</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artwork.introduction</source>
+        <target>1/ Ajouter une photo en cliquant sur « Parcourir ». Vous pouvez en ajouter plusieurs d’une même oeuvre en cliquant sur « Ajouter un document »
+          &lt;br&gt;2/ Si votre photo contient des coordonnées GPS, cliquez sur la petite mappemonde à gauche du bouton « supprimer » pour remplir automatiquement les champs.
+          &lt;br&gt;3/ Donner lui un titre puis enregistrer</target>
       </segment>
     </unit>
   </file>

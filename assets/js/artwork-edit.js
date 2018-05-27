@@ -30,9 +30,34 @@ jQuery(document).ready(function() {
     if (lat && long) {
       $('#artwork_poi_latitude').val(lat);
       $('#artwork_poi_longitude').val(long);
+      getAddressFromCoordinates();
     }
   })
 });
+
+function getAddressFromCoordinates() {
+    var lat = $('#artwork_poi_latitude').val();
+    var long = $('#artwork_poi_longitude').val();
+    const key = 'AIzaSyAW-nTdgEOCmpA9z7mblXxh8jh4bm0yV-A';
+    $.ajax({
+        url : 'https://maps.googleapis.com/maps/api/geocode/json',
+        type : 'GET',
+        dataType : 'json',
+        data : 'latlng=' + lat + ',' + long + '&key=' + key,
+        success : function(data){
+            var result = data.results.shift();
+            $.each(result['address_components'], function( key, value ) {
+                if (value.types.indexOf('locality')) {
+                    $('#artwork_poi_city').val(value.long_name);
+                } else if (value.types.indexOf('country')) {
+                    $('#artwork_poi_country').val(value.long_name);
+                }
+            });
+
+            $('#artwork_poi_address').val(result['formatted_address']);
+        }
+    });
+}
 
 function addTagForm($collectionHolder) {
   // Get the data-prototype explained earlier

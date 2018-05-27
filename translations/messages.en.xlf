@@ -3,7 +3,7 @@
   <file id="messages.en">
     <unit id="WD.KTE9" name="page.logout.link">
       <notes>
-        <note category="file-source" priority="1">templates/layout/header.html.twig:18</note>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:21</note>
       </notes>
       <segment>
         <source>page.logout.link</source>
@@ -12,7 +12,7 @@
     </unit>
     <unit id="UpOSnoA" name="page.login.link">
       <notes>
-        <note category="file-source" priority="1">templates/layout/header.html.twig:23</note>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:26</note>
       </notes>
       <segment>
         <source>page.login.link</source>
@@ -37,6 +37,24 @@
         <target>Register</target>
       </segment>
     </unit>
+    <unit id="pIWZu.m" name="header.menu.home">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:12</note>
+      </notes>
+      <segment>
+        <source>header.menu.home</source>
+        <target>Home</target>
+      </segment>
+    </unit>
+    <unit id="S2W3kLv" name="header.menu.map">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:15</note>
+      </notes>
+      <segment>
+        <source>header.menu.map</source>
+        <target>Map</target>
+      </segment>
+    </unit>
     <unit id="tMH.AuE" name="artwork.title.create">
       <notes>
         <note category="file-source" priority="1">templates/pages/artwork_edit.twig:26</note>
@@ -57,7 +75,7 @@
     </unit>
     <unit id="Jn.7hg4" name="artwork.link.add_a_document">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:59</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:44</note>
       </notes>
       <segment>
         <source>artwork.link.add_a_document</source>
@@ -66,10 +84,38 @@
     </unit>
     <unit id="asKIZV9" name="artwork.button.save">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:68</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:76</note>
       </notes>
       <segment>
         <source>artwork.button.save</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="9nqU7RQ" name="home.description.first">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:16</note>
+      </notes>
+      <segment>
+        <source>home.description.first</source>
+        <target>          Welcome on street-artwork, the website gathering street artworks from around the world geolocated. Find beautiful artworks all around you.
+        </target>
+      </segment>
+    </unit>
+    <unit id="e_qvnqh" name="home.description.second">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:17</note>
+      </notes>
+      <segment>
+        <source>home.description.second</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="NXSzUYf" name="home.needyou">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:26</note>
+      </notes>
+      <segment>
+        <source>home.needyou</source>
         <target></target>
       </segment>
     </unit>
@@ -237,7 +283,7 @@
     </unit>
     <unit id="9uLIsJG" name="artwork.flash.danger.error">
       <notes>
-        <note category="file-source" priority="1">src/Controller/ArtWorkEditController.php:83</note>
+        <note category="file-source" priority="1">src/Controller/ArtWorkEditController.php:82</note>
       </notes>
       <segment>
         <source>artwork.flash.danger.error</source>
@@ -246,7 +292,7 @@
     </unit>
     <unit id="xqBfcOp" name="artwork.button.cancel">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:65</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:73</note>
       </notes>
       <segment>
         <source>artwork.button.cancel</source>
@@ -265,10 +311,19 @@
     <unit id="toykNtT" name="artwork.message.wording_success">
       <notes>
         <note category="file-source" priority="1">templates/pages/artwork_edit.twig:15</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>artwork.message.wording_success</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="dCADRrf" name="artwork.introduction">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:33</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artwork.introduction</source>
         <target></target>
       </segment>
     </unit>

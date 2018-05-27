@@ -4,6 +4,14 @@
 
 home:
     path:         /
-    controller:   Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+    controller:   App\Controller\IndexController
     defaults:
         template: pages/home.html.twig
+
+map:
+    path:         /map
+    controller:   App\Controller\MapController
+    defaults:
+        template: pages/map.html.twig
+#    requirements:
+#        _locale:  en|fr

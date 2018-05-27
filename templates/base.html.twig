@@ -4,22 +4,20 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title>{% block title %}Street Art{% endblock %}</title>
+        <title>{% block title %}Accueil{% endblock %} - Street Artwork</title>
         {% block stylesheets %}
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
             <link rel="stylesheet" href="{{ asset('build/css/app.css') }}">
-            <link rel="stylesheet" href="{{ asset('assets/lib/leaflet/leaflet.css') }}" />
-            <link rel="stylesheet" href="{{ asset('assets/lib/cluster/MarkerCluster.css') }}" />
-            <link rel="stylesheet" href="{{ asset('assets/css/Leaflet.Photo.css') }}" />
-            <link rel="stylesheet" href="{{ asset('assets/css/map.css') }}" />
         {% endblock %}
     </head>
-    <body>
+
+    <body class="{% block body_classes %}{% endblock body_classes %}" {% block body_attributes %}{% endblock body_attributes %}>
+
         {% include 'layout/header.html.twig' %}
 
         {% include 'layout/flash_messages.html.twig' %}
 
-        <div class="content">
+        <div class="content {% block content_classes %}{% endblock content_classes %}">
             {% block body %}{% endblock %}
         </div>
 
