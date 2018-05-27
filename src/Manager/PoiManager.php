@@ -51,11 +51,13 @@ class PoiManager
     }
 
     /**
-     * Temporary function for beta version
-     * @param $pois
+     * Temporary function for beta version.
+     *
+     * @param array $pois
+     *
      * @return string
      */
-    public function convertPoisForMap($pois)
+    public function convertPoisForMap(array $pois)
     {
         $convertedPois = [];
         /** @var Poi $poi */
