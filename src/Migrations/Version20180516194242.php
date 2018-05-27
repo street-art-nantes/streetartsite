@@ -15,7 +15,7 @@ class Version20180516194242 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'postgresql', 'Migration can only be executed safely on \'postgresql\'.');
 
-        $this->addSql('ALTER TABLE poi ADD highlight BOOLEAN NOT NULL DEFAULT FALSE');
+        $this->addSql('ALTER TABLE poi ADD highlight BOOLEAN NOT NULL');
     }
 
     public function down(Schema $schema)
