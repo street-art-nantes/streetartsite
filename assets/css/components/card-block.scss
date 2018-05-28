@@ -1,0 +1,18 @@
+.card-block {
+  @extend .shadow;
+
+  padding: 15px;
+  background-color: white;
+
+  .card-block-img {
+    width: 100%;
+  }
+
+  .card-block-content {
+
+    .card-block-title {
+      font-size: 1.6rem;
+      padding: 20px 0;
+    }
+  }
+}

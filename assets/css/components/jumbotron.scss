@@ -5,11 +5,12 @@
 
   .sa-jumbotron-inner {
     background-color: rgba(0, 0, 0, 0.7);
+    padding-bottom: 10rem;
   }
 
   /* Carousel base class */
   .carousel {
-    margin-bottom: 4rem;
+    margin-bottom: 0;
   }
   /* Since positioning the image, we need to help out the caption */
   .carousel-caption {
@@ -20,13 +21,6 @@
   /* Declare heights because of positioning of img element */
   .carousel-item {
     height: 24rem;
-  }
-  .carousel-item > img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-width: 100%;
-    height: 32rem;
   }
 
   @media (min-width: 40em) {
