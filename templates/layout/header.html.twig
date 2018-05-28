@@ -1,35 +1,45 @@
 <header id="header">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Street Artwork .com</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="{{ asset('assets/img/logo.png') }}" alt="Street artwork logo" class="header-logo-img">
+                Street Artwork
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item {% if app.request.get('_route') == 'home' %}active{% endif %}">
-                    <a class="nav-link" href="{{ path('home') }}">{{ 'header.menu.home'|trans({}) }} <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item {% if app.request.get('_route') == 'map' %}active{% endif %}">
-                    <a class="nav-link" href="{{ path('map') }}">{{ 'header.menu.map'|trans({}) }} <span class="sr-only">(current)</span></a>
-                </li>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item {% if app.request.get('_route') == 'home' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path('home') }}">{{ 'header.menu.home'|trans({}) }} <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item {% if app.request.get('_route') == 'map' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path('map') }}">{{ 'header.menu.map'|trans({}) }} <span class="sr-only">(current)</span></a>
+                    </li>
 
-                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('fos_user_security_logout') }}">
-                            {{ 'page.logout.link'|trans({}) }}
-                        </a>
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('fos_user_security_logout') }}">
+                                {{ 'page.logout.link'|trans({}) }}
+                            </a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item {% if app.request.get('_route') == 'fos_user_security_login' %}active{% endif %}">
+                            <a class="nav-link" href="{{ path('fos_user_security_login') }}">{{ 'page.login.link'|trans({}) }}</a>
+                        </li>
+                    {% endif %}
+                    <li class="nav-item nav-socials ml-2">
+                        <a href="https://www.facebook.com/streetartwork44/" class="fab fa-facebook-f fa-2x facebook" target="_blank"></a>
+                        <a href="https://twitter.com/StreetArtwork44" class="fab fa-twitter fa-2x twitter" target="_blank"></a>
+                        <a href="https://www.instagram.com/streetartwork44/" class="fab fa-instagram fa-2x instagram" target="_blank"></a>
                     </li>
-                {% else %}
-                    <li class="nav-item {% if app.request.get('_route') == 'fos_user_security_login' %}active{% endif %}">
-                        <a class="nav-link" href="{{ path('fos_user_security_login') }}">{{ 'page.login.link'|trans({}) }}</a>
-                    </li>
-                {% endif %}
-            </ul>
+                </ul>
+            </div>
         </div>
     </nav>
-    <img src="/assets/img/beta_ribbon.png" id="beta_ribbon">
+    {#<img src="/assets/img/beta_ribbon.png" id="beta_ribbon">#}
 </header>
 
 
