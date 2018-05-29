@@ -1,3 +1,27 @@
 .footer {
 
+  background-color: darken($primary, 10);
+  color: white;
+
+  hr {
+    background-color: $gray-600;
+    margin: .5rem;
+  }
+
+  .navbar {
+    padding: 0;
+    padding-bottom: .5rem;
+  }
+
+  .nav-item {
+    height: 60px;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-socials {
+    a {
+      color: $gray-500;
+    }
+  }
 }

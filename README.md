@@ -9,7 +9,7 @@ Start the server
 docker-compose up
 ```
 
-Add `-d`options to demonize command
+Add `-d` options to demonize command
 
 Now you can go to `http://localhost/api`
 

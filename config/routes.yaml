@@ -4,7 +4,7 @@
 
 home:
     path:         /
-    controller:   App\Controller\IndexController
+    controller:   App\Controller\HomeController
     defaults:
         template: pages/home.html.twig
 
