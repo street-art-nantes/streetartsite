@@ -53,10 +53,10 @@
                                 {% set document = artwork.documents.first %}
 
                                 {% include "components/card-artwork.twig" with {
-                                imgSrc: vich_uploader_asset(document, 'imageFile'),
-                                title: artwork.title,
-                                textLeft: poi.city ~ ', ' ~ poi.country,
-                                textRight: artwork.createdAt|date("d/m/Y"),
+                                    imgSrc: vich_uploader_asset(document, 'imageFile'),
+                                    title: artwork.title,
+                                    textLeft: poi.city ~ ', ' ~ poi.country,
+                                    textRight: artwork.createdAt|date("d/m/Y"),
                                 } %}
                             {% endfor %}
                         </div>
