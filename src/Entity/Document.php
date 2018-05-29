@@ -26,7 +26,7 @@ class Document
     /**
      * @Vich\UploadableField(mapping="document_image", fileNameProperty="imageName")
      * @Assert\File(
-     *     maxSize = "1024k",
+     *     maxSize = "3M",
      *     mimeTypes = {"image/jpeg"},
      *     mimeTypesMessage = "Please upload a valid JPG"
      * )
