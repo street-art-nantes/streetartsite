@@ -12,6 +12,7 @@ use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Translation\TranslatorInterface;
 
 /**
  * Class ArtWorkEditController.
@@ -29,15 +30,22 @@ class ArtWorkEditController extends Controller
     private $logger;
 
     /**
+     * @var TranslatorInterface
+     */
+    private $translator;
+
+    /**
      * ArtWorkEditController constructor.
      *
      * @param EntityManagerInterface $entityManager
      * @param LoggerInterface        $logger
+     * @param TranslatorInterface    $translator
      */
-    public function __construct(EntityManagerInterface $entityManager, LoggerInterface $logger)
+    public function __construct(EntityManagerInterface $entityManager, LoggerInterface $logger, TranslatorInterface $translator)
     {
         $this->entityManager = $entityManager;
         $this->logger = $logger;
+        $this->translator = $translator;
     }
 
     /**
@@ -88,7 +96,7 @@ class ArtWorkEditController extends Controller
                 }
             } catch (\Exception $e) {
                 $this->logger->error($e->getMessage());
-                $this->addFlash('danger', 'artwork.flash.danger.error');
+                $this->addFlash('danger', $this->translator->trans('artwork.flash.danger.error'));
             }
         }
 

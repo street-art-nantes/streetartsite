@@ -76,6 +76,7 @@ class Poi
     public function __construct()
     {
         $this->artworks = new ArrayCollection();
+        $this->highlight = false;
     }
 
     /**
