@@ -9,6 +9,7 @@
 @import "components/beta-ribbon";
 @import "components/jumbotron";
 @import "components/card-block";
+@import "components/card-artwork";
 @import "components/logo";
 
 @import "layout/footer";
@@ -18,7 +19,6 @@
 
 @import "pages/home";
 @import "pages/map";
-@import "pages/driveway";
 @import "pages/artwork-edit";
 
 $fa-font-path:"~font-awesome/fonts";
