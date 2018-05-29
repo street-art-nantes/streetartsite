@@ -9,8 +9,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
 
 /**
- * Class PoiManager
- * @package App\Manager
+ * Class PoiManager.
  */
 class PoiManager
 {
@@ -26,8 +25,9 @@ class PoiManager
 
     /**
      * PoiManager constructor.
+     *
      * @param EntityManagerInterface $manager
-     * @param UploaderHelper $helper
+     * @param UploaderHelper         $helper
      */
     public function __construct(EntityManagerInterface $manager, UploaderHelper $helper)
     {

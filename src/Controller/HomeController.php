@@ -6,8 +6,7 @@ use App\Entity\Poi;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
- * Class HomeController
- * @package App\Controller
+ * Class HomeController.
  */
 class HomeController extends Controller
 {
