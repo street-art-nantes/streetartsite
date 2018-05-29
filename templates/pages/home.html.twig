@@ -47,7 +47,7 @@
                 <h2 class="mb-5 text-center">Preview de la base de données des oeuvres</h2>
                 <div class="row">
                     {% for pois in colPois %}
-                        <div class="col-4">
+                        <div class="col-12 col-sm-4">
                             {% for poi in pois %}
                                 {% set artwork = poi.artworks.first %}
                                 {% set document = artwork.documents.first %}
