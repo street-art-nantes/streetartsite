@@ -1,12 +1,27 @@
-#beta_ribbon {
-  width: 150px;
-  height: 173px;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: 10000;
-}
+@import url('https://fonts.googleapis.com/css?family=Sedgwick+Ave');
 
-#navbarSupportedContent {
-  margin-right: 10%;
+.nav-socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    margin: 0.8rem;
+
+    &:hover {
+      text-decoration: none;
+
+      &.facebook {
+        color: $color-facebook;
+      }
+
+      &.twitter {
+        color: $color-twitter;
+      }
+
+      &.instagram {
+        color: $color-instagram;
+      }
+    }
+  }
 }

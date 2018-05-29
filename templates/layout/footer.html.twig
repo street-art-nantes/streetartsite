@@ -1,20 +1,37 @@
-<div class="footer">
+<div class="footer" id="footer">
     <div class="container">
-        <div class="row">
-            <div class="col">
+
+        {#{% include "components/logo.twig" with { class: 'navbar-brand' } %}#}
+
+        {#<hr>#}
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Mentions légales</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Plan du site</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Nous contacter</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item nav-socials ml-2">
+                        <a href="https://www.facebook.com/streetartwork44/" class="fab fa-facebook-f fa-2x facebook" target="_blank"></a>
+                        <a href="https://twitter.com/StreetArtwork44" class="fab fa-twitter fa-2x twitter" target="_blank"></a>
+                        <a href="https://www.instagram.com/streetartwork44/" class="fab fa-instagram fa-2x instagram" target="_blank"></a>
+                    </li>
+                </ul>
             </div>
-            <div class="col">
-                <p class="footer-socials text-md-center">
-                    <a href="https://www.facebook.com/streetartwork44/" class="fab fa-facebook-f fa-4x" target="_blank"></a>
-                    <a href="https://twitter.com/StreetArtwork44" class="fab fa-twitter fa-4x" target="_blank"></a>
-                    <a href="https://www.instagram.com/streetartwork44/" class="fab fa-instagram fa-4x" target="_blank"></a>
-                </p>
-                <p class="footer-credits text-md-center">
-                    © Street Artwork
-                </p>
-            </div>
-            <div class="col">
-            </div>
-        </div>
+        </nav>
     </div>
 </div>

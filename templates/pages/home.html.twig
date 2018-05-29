@@ -1,79 +1,68 @@
 {% extends 'base.html.twig' %}
 
+{% block body_classes %}page-home{% endblock body_classes %}
+
 {% block body %}
 
     <main role="main">
 
+        {% include "components/jumbotron.html.twig" %}
+
+        <section class="section section-lg section-places">
+            <div class="container">
+                <div class="row">
+                    <div class="col-4">
+                        {% include "components/card-block.twig" with { title: 'Nantes', imgSrc: asset('assets/img/hangar-bananes.png'), link: '', linkTitle: 'En savoir plus'} %}
+                    </div>
+                    <div class="col-4">
+                        {% include "components/card-block.twig" with { title: 'Berlin', imgSrc: asset('assets/img/berlin.png'), link: '', linkTitle: 'En savoir plus'} %}
+                    </div>
+                    <div class="col-4">
+                        {% include "components/card-block.twig" with { title: 'Bordeaux', imgSrc: asset('assets/img/bdx.png'), link: '', linkTitle: 'En savoir plus'} %}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
         <section class="jumbotron text-center">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-5">
-                        <p>
-                            <img src="/assets/img/hangar-bananes.png" alt="hangar à bananes" style="width: 90%" />
-                        </p>
-                    </div>
-                    <div class="col-md-7">
-                        <p class="lead text-muted">{{ 'home.description.first'|trans({})}}</p>
-                        <p class="lead text-muted">{{ 'home.description.second'|trans({})}}</p>
-                    </div>
-                    <div class="col-md-12">
-                        <br /><hr /><br />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <br />
-                        <p class="lead text-muted">{{ 'home.needyou'|trans({})}}</p>
+                    <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
+                        <h2>We need you !</h2>
+                        <p class="lead text-muted">{{ 'home.needyou'|trans({}) }}</p>
                         <a href="{{ path('app_artwork_new') }}" class="btn btn-primary my-2">Soumettre une photo</a>
                     </div>
                     <div class="col-md-6">
                         <p>
-                            <img src="/assets/img/needyou.png" alt="needyou" style="width: 70%" />
+                            <img src="/assets/img/needyou.png" alt="needyou" style="width: 70%"/>
                         </p>
-                    </div>
-                    <div class="col-md-12">
-                        <br /><hr /><br />
                     </div>
                 </div>
             </div>
+        </section>
+
+        <section class="section">
             <div class="container">
+                <h2 class="mb-5 text-center">Preview de la base de données des oeuvres</h2>
                 <div class="row">
-                    <div class="col-md-12">
-                        <h2>Preview de la base de données des oeuvres</h2>
-                    </div>
+                    {% for pois in colPois %}
+                        <div class="col-12 col-sm-4">
+                            {% for poi in pois %}
+                                {% set artwork = poi.artworks.first %}
+                                {% set document = artwork.documents.first %}
+
+                                {% include "components/card-artwork.twig" with {
+                                    imgSrc: vich_uploader_asset(document, 'imageFile'),
+                                    title: artwork.title,
+                                    textLeft: poi.city ~ ', ' ~ poi.country,
+                                    textRight: artwork.createdAt|date("d/m/Y"),
+                                } %}
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
                 </div>
-                <div class="row">
-                    <div class="dw">
-                        {% for poi in pois %}
-                            {% set artwork = poi.artworks.first %}
-                            {% set document = artwork.documents.first %}
-                            <div class="dw-panel dw-panel--focus dw-panel--pulse">
-                                <div class="dw-panel__content ">
-                                    <div class="card box-shadow">
-                                        <img class="card-img-top" src="/img/{{ document.imageName }}"
-                                             alt="{{ artwork.title }}">
-                                        <div class="card-body">
-                                            <p class="card-text">{{ artwork.title }}</p>
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                {#<div class="btn-group">#}
-                                                    {#<button type="button" class="btn btn-sm btn-outline-secondary">#}
-                                                        {#View#}
-                                                    {#</button>#}
-                                                    {#<button type="button" class="btn btn-sm btn-outline-secondary">#}
-                                                        {#Edit#}
-                                                    {#</button>#}
-                                                {#</div>#}
-                                                <small class="text-muted">{{ poi.city }}, {{ poi.country }}</small>
-                                                <small class="text-muted">{{ artwork.createdAt|date("d/m/Y") }}</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        {% endfor %}
-                        <div class="dw__focus-curtain"></div>
-                    </div>
-                </div>
+            </div>
             </div>
         </section>
     </main>
