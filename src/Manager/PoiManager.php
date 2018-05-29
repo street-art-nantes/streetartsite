@@ -6,14 +6,33 @@ use App\Entity\Artwork;
 use App\Entity\Document;
 use App\Entity\Poi;
 use Doctrine\ORM\EntityManagerInterface;
+use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
 
+/**
+ * Class PoiManager
+ * @package App\Manager
+ */
 class PoiManager
 {
+    /**
+     * @var EntityManagerInterface
+     */
     private $manager;
 
-    public function __construct(EntityManagerInterface $manager)
+    /**
+     * @var UploaderHelper
+     */
+    private $helper;
+
+    /**
+     * PoiManager constructor.
+     * @param EntityManagerInterface $manager
+     * @param UploaderHelper $helper
+     */
+    public function __construct(EntityManagerInterface $manager, UploaderHelper $helper)
     {
         $this->manager = $manager;
+        $this->helper = $helper;
     }
 
     /**
@@ -71,10 +90,10 @@ class PoiManager
                 'timestamp' => $artwork->getCreatedAt()->getTimestamp(),
                 'lat' => $poi->getLatitude(),
                 'lng' => $poi->getLongitude(),
-                'url' => 'img/'.$document->getImageName(),
+                'url' => $this->helper->asset($document, 'imageFile'),
                 'caption' => $artwork->getTitle(),
-                'iconUrl' => 'img/'.$document->getImageName(),
-                'thumbnail' => 'img/'.$document->getImageName(),
+                'iconUrl' => $this->helper->asset($document, 'imageFile'),
+                'thumbnail' => $this->helper->asset($document, 'imageFile'),
             ];
         }
 
