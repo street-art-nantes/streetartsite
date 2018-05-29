@@ -11,7 +11,7 @@ class MapController extends Controller
     {
         $poiRepository = $this->get('doctrine')->getRepository(Poi::class);
 
-        $pois = $poiRepository->findByHighlight(true);
+        $pois = $poiRepository->findAll();
 
         $convertedPois = $this->get('poi.manager')->convertPoisForMap($pois);
 
