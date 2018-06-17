@@ -19,11 +19,20 @@ class HomeController extends Controller
 
         $pois = $poiRepository->findByHighlight(true);
 
+        $totalPois = $poiRepository->createQueryBuilder('u')
+            ->select('count(u.id)')
+            ->getQuery()
+            ->getSingleScalarResult();
+
+        $countriesFromPoi = $poiRepository->getAllCountries();
+
         $columnCount = 3;
         $colPois = array_chunk($pois, ceil(count($pois) / $columnCount));
 
         return $this->render('pages/home.html.twig', [
             'colPois' => $colPois,
+            'totalPois' => $totalPois,
+            'totalCountry' => count($countriesFromPoi),
         ]);
     }
 }

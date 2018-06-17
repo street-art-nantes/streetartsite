@@ -19,32 +19,16 @@ class PoiRepository extends ServiceEntityRepository
         parent::__construct($registry, Poi::class);
     }
 
-//    /**
-//     * @return Poi[] Returns an array of Poi objects
-//     */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @return mixed
+     */
+    public function getAllCountries()
     {
         return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
+            ->select('p.country')
+            ->distinct()
             ->getQuery()
             ->getResult()
-        ;
+            ;
     }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Poi
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

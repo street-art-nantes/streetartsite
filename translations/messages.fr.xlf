@@ -3,7 +3,7 @@
   <file id="messages.fr">
     <unit id="WD.KTE9" name="page.logout.link">
       <notes>
-        <note category="file-source" priority="1">templates/layout/header.html.twig:21</note>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:25</note>
       </notes>
       <segment>
         <source>page.logout.link</source>
@@ -12,7 +12,7 @@
     </unit>
     <unit id="UpOSnoA" name="page.login.link">
       <notes>
-        <note category="file-source" priority="1">templates/layout/header.html.twig:26</note>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:30</note>
       </notes>
       <segment>
         <source>page.login.link</source>
@@ -39,7 +39,7 @@
     </unit>
     <unit id="pIWZu.m" name="header.menu.home">
       <notes>
-        <note category="file-source" priority="1">templates/layout/header.html.twig:12</note>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:13</note>
       </notes>
       <segment>
         <source>header.menu.home</source>
@@ -48,7 +48,7 @@
     </unit>
     <unit id="S2W3kLv" name="header.menu.map">
       <notes>
-        <note category="file-source" priority="1">templates/layout/header.html.twig:15</note>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:16</note>
       </notes>
       <segment>
         <source>header.menu.map</source>
@@ -57,7 +57,7 @@
     </unit>
     <unit id="9nqU7RQ" name="home.description.first">
       <notes>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:16</note>
+        <note category="file-source" priority="1">templates/components/jumbotron.html.twig:15</note>
       </notes>
       <segment>
         <source>home.description.first</source>
@@ -67,7 +67,7 @@
     </unit>
     <unit id="e_qvnqh" name="home.description.second">
       <notes>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:17</note>
+        <note category="file-source" priority="1">templates/components/jumbotron.html.twig:21</note>
       </notes>
       <segment>
         <source>home.description.second</source>
@@ -78,7 +78,7 @@
     </unit>
     <unit id="NXSzUYf" name="home.needyou">
       <notes>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:26</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:32</note>
       </notes>
       <segment>
         <source>home.needyou</source>
@@ -205,7 +205,7 @@
     </unit>
     <unit id="9uLIsJG" name="artwork.flash.danger.error">
       <notes>
-        <note category="file-source" priority="1">src/Controller/ArtWorkEditController.php:82</note>
+        <note category="file-source" priority="1">src/Controller/ArtWorkEditController.php:99</note>
       </notes>
       <segment>
         <source>artwork.flash.danger.error</source>
@@ -242,13 +242,32 @@
     <unit id="dCADRrf" name="artwork.introduction">
       <notes>
         <note category="file-source" priority="1">templates/pages/artwork_edit.twig:33</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>artwork.introduction</source>
-        <target>1/ Ajouter une photo en cliquant sur « Parcourir ». Vous pouvez en ajouter plusieurs d’une même oeuvre en cliquant sur « Ajouter un document »
-          &lt;br&gt;2/ Si votre photo contient des coordonnées GPS, cliquez sur la petite mappemonde à gauche du bouton « supprimer » pour remplir automatiquement les champs.
-          &lt;br&gt;3/ Donner lui un titre puis enregistrer</target>
+        <target><![CDATA[1/ Ajouter une photo en cliquant sur « Parcourir ». Vous pouvez en ajouter plusieurs d’une même oeuvre en cliquant sur « Ajouter un document »
+          <br>2/ Si votre photo contient des coordonnées GPS, cliquez sur la petite mappemonde à gauche du bouton « supprimer » pour remplir automatiquement les champs.
+          <br>3/ Donner lui un titre puis enregistrer]]></target>
+      </segment>
+    </unit>
+    <unit id="ownf56y" name="header.menu.submit">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:19</note>
+      </notes>
+      <segment>
+        <source>header.menu.submit</source>
+        <target>Soumettre une photo</target>
+      </segment>
+    </unit>
+    <unit id="V2YvCwD" name="map.description">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/map.html.twig:11</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>map.description</source>
+        <target><![CDATA[Voici un aperçu des oeuvres affichées sur une carte.
+          <br>Vous aurez par la suite accès à une recherche détaillée, des filtres, votre géolocalisation pour vous proposer les pépites autour de vous, des paramétrages... et plein de bonnes choses encore à savourer sans modération !]]></target>
       </segment>
     </unit>
   </file>
