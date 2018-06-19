@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body_classes %}page-home{% endblock body_classes %}
+
+{% block body %}
+
+<main role="main">
+    <section class="section">
+        <div class="container">
+            {% for entryElement in entries %}
+                <div class="row">
+                    <div class="col-12">
+                        <h4>{{ entryElement.get('question') }}</h4>
+                        <p>{{ entryElement.get('answer') }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+</main>
+{% endblock %}

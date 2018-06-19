@@ -24,4 +24,5 @@ return [
     Hautelook\AliceBundle\HautelookAliceBundle::class => ['dev' => true, 'test' => true],
     FOS\UserBundle\FOSUserBundle::class => ['all' => true],
     EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle::class => ['all' => true],
+    Contentful\ContentfulBundle\ContentfulBundle::class => ['all' => true],
 ];

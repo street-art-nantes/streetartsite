@@ -15,3 +15,9 @@ map:
         template: pages/map.html.twig
 #    requirements:
 #        _locale:  en|fr
+
+faq:
+    path:         /faq
+    controller:   App\Controller\FaqController
+    defaults:
+        template: pages/content.html.twig

@@ -14,8 +14,29 @@
     "behat/transliterator": {
         "version": "v1.2.0"
     },
+    "cache/adapter-common": {
+        "version": "1.0.0"
+    },
+    "cache/hierarchical-cache": {
+        "version": "1.0.0"
+    },
+    "cache/tag-interop": {
+        "version": "1.0.0"
+    },
+    "cache/void-adapter": {
+        "version": "1.0.0"
+    },
     "composer/semver": {
         "version": "1.4.2"
+    },
+    "contentful/contentful": {
+        "version": "3.3.0"
+    },
+    "contentful/contentful-bundle": {
+        "version": "3.0.0"
+    },
+    "contentful/core": {
+        "version": "1.1.0"
     },
     "doctrine/annotations": {
         "version": "1.0",
@@ -119,6 +140,15 @@
     "gedmo/doctrine-extensions": {
         "version": "v2.4.34"
     },
+    "guzzlehttp/guzzle": {
+        "version": "6.3.3"
+    },
+    "guzzlehttp/promises": {
+        "version": "v1.3.1"
+    },
+    "guzzlehttp/psr7": {
+        "version": "1.4.2"
+    },
     "hautelook/alice-bundle": {
         "version": "1.4",
         "recipe": {
@@ -217,6 +247,9 @@
     },
     "psr/container": {
         "version": "1.0.0"
+    },
+    "psr/http-message": {
+        "version": "1.0.1"
     },
     "psr/link": {
         "version": "1.0.0"
