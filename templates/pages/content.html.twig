@@ -7,14 +7,24 @@
 <main role="main">
     <section class="section">
         <div class="container">
-            {% for entryElement in entries %}
-                <div class="row">
-                    <div class="col-12">
-                        <h4>{{ entryElement.get('question') }}</h4>
-                        <p>{{ entryElement.get('answer') }}</p>
+            {% if entries is defined %}
+                {% for entryElement in entries %}
+                    <div class="row">
+                        <div class="col-12">
+                            {# TODO generalise #}
+                            <h4>{{ entryElement.get('question') }}</h4>
+                            <p>{{ entryElement.get('answer') }}</p>
+                        </div>
                     </div>
+                {% endfor %}
+            {% elseif entry is defined %}
+            <div class="row">
+                <div class="col-12">
+                    <h4>{{ entry.get('title') }}</h4>
+                    <p>{{ entry.get('content')|raw }}</p>
                 </div>
-            {% endfor %}
+            </div>
+            {% endif %}
         </div>
     </section>
 </main>

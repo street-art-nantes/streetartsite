@@ -21,3 +21,15 @@ faq:
     controller:   App\Controller\FaqController
     defaults:
         template: pages/content.html.twig
+
+sitemap:
+    path:         /sitemap
+    controller:   App\Controller\SitemapController
+    defaults:
+        template: pages/content.html.twig
+
+legals:
+    path:         /legals
+    controller:   App\Controller\LegalsController
+    defaults:
+        template: pages/content.html.twig
