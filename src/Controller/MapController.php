@@ -19,8 +19,10 @@ class MapController extends Controller
 
         $pois = $poiRepository->findBy(['Highlight' => true]);
 
+        /** @var PoiManager $poiManager */
+        $poiManager = $this->get('poi.manager');
         /** @var PoiManager $convertedPois */
-        $convertedPois = $this->get('poi.manager')->convertPoisForMap($pois);
+        $convertedPois = $poiManager->convertPoisForMap($pois);
 
         return $this->render('pages/map.html.twig', [
             'pois' => $convertedPois,
