@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Poi;
+use App\Repository\PoiRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
@@ -11,10 +12,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class HomeController extends Controller
 {
     /**
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function __invoke()
     {
+        /** @var PoiRepository $poiRepository */
         $poiRepository = $this->get('doctrine')->getRepository(Poi::class);
 
         $pois = $poiRepository->findByHighlight(true);

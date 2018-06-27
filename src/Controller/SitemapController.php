@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class SitemapController.
@@ -15,15 +14,31 @@ class SitemapController extends Controller
      */
     public function __invoke()
     {
-        $client = $this->get('contentful.delivery');
-        $entry = $client->getEntry('5o9QHWZhTyouo2oIiGEOkw');
-
-        if (!$entry) {
-            throw new NotFoundHttpException();
-        }
+        $routes = [
+            [
+                'title' => '<a href="/map">Carte</a>',
+                'content' => '',
+            ],
+            [
+                'title' => '<a href="/faq">FAQ</a>',
+                'content' => '',
+            ],
+            [
+                'title' => '<a href="/sitemap">Sitemap</a>',
+                'content' => '',
+            ],
+            [
+                'title' => '<a href="/legals">Mentions légales</a>',
+                'content' => '',
+            ],
+            [
+                'title' => '<a href="/artwork/new">Soumettre une photo</a>',
+                'content' => '',
+            ],
+        ];
 
         return $this->render('pages/content.html.twig', [
-            'entry' => $entry,
+            'entries' => $routes,
         ]);
     }
 }

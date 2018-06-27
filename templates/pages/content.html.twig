@@ -11,16 +11,15 @@
                 {% for entryElement in entries %}
                     <div class="row">
                         <div class="col-12">
-                            {# TODO generalise #}
-                            <h4>{{ entryElement.get('question') }}</h4>
-                            <p>{{ entryElement.get('answer') }}</p>
+                            <h4>{{ entryElement.title|raw }}</h4>
+                            <p>{{ entryElement.content|raw }}</p>
                         </div>
                     </div>
                 {% endfor %}
             {% elseif entry is defined %}
             <div class="row">
                 <div class="col-12">
-                    <h4>{{ entry.get('title') }}</h4>
+                    <h4>{{ entry.get('title')|raw }}</h4>
                     <p>{{ entry.get('content')|raw }}</p>
                 </div>
             </div>
