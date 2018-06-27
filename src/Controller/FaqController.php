@@ -32,8 +32,10 @@ class FaqController extends Controller
 
         $entriesTransform = [];
         foreach ($entries as $entryContent) {
-            $entriesTransform['title'] = $entryContent->get('question');
-            $entriesTransform['content'] = $entryContent->get('answer');
+            $entriesTransform[] = [
+                'title' => $entryContent->get('question'),
+                'content' => $entryContent->get('answer'),
+            ];
         }
 
         return $this->render('pages/content.html.twig', [

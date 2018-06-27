@@ -14,6 +14,7 @@ class SitemapController extends Controller
      */
     public function __invoke()
     {
+        // TODO generate or config file
         $routes = [
             [
                 'title' => '<a href="/map">Carte</a>',
