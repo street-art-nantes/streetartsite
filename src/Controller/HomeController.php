@@ -19,9 +19,9 @@ class HomeController extends Controller
     public function __invoke()
     {
         /** @var PoiRepository $poiRepository */
-        $poiRepository = $this->get('doctrine')->getRepository(Poi::class);
+        $poiRepository = $this->getDoctrine()->getRepository(Poi::class);
 
-        $pois = $poiRepository->findByHighlight(true);
+        $pois = $poiRepository->findBy(['Highlight' => true]);
 
         $totalPois = $poiRepository->createQueryBuilder('u')
             ->select('count(u.id)')
