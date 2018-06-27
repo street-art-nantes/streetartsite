@@ -23,6 +23,21 @@
                     <p>{{ entry.get('content')|raw }}</p>
                 </div>
             </div>
+            {% elseif blog is defined %}
+                <div class="row">
+                    <div class="col-12">
+                        <h4>{{ blog.get('title')|raw }}</h4>
+                    </div>
+                    {#<div class="col-md-6">#}
+                        {#<p>{{ blog.get('introductionImage')|raw }}</p>#}
+                    {#</div>#}
+                    <div class="col-12">
+                        <h6>{{ blog.get('introduction')|raw }}</h6>
+                    </div>
+                    <div class="col-12">
+                        <p>{{ blog.get('content')|raw }}</p>
+                    </div>
+                </div>
             {% endif %}
         </div>
     </section>

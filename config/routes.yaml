@@ -33,3 +33,11 @@ legals:
     controller:   App\Controller\LegalsController
     defaults:
         template: pages/content.html.twig
+
+blog:
+    path:         /blog/{id}
+    controller:   App\Controller\BlogController
+    defaults:
+        template: pages/content.html.twig
+    requirements:
+        id:  "[a-zA-Z0-9-]+"

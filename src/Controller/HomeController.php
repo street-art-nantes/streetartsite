@@ -21,7 +21,7 @@ class HomeController extends Controller
         /** @var PoiRepository $poiRepository */
         $poiRepository = $this->getDoctrine()->getRepository(Poi::class);
 
-        $pois = $poiRepository->findBy(['Highlight' => true]);
+        $pois = $poiRepository->findBy(['highlight' => true]);
 
         $totalPois = $poiRepository->createQueryBuilder('u')
             ->select('count(u.id)')
