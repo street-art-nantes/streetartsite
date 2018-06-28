@@ -1,6 +1,27 @@
+.page-map section {
+  padding: 20px 0;
+}
+
 .content-map {
   height: 100%;
   width: 100vw;
+}
+
+.bubble-img {
+  width: 223px;
+  height: 256px;
+  position: relative;
+}
+.map-bubble {
+  position: absolute;
+  background: white;
+  width: 63px;
+  height: 35px;
+  top:14px;
+  right: 2px;
+  font-family: 'Sedgwick Ave', cursive;
+  line-height: 18px;
+  font-size: 18px;
 }
 
 /* photo/video popup */

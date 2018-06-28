@@ -23,6 +23,7 @@ class Poi
      * @ORM\Column(type="decimal", precision=8, scale=6, nullable=true)
      * @Groups({"poi_read"})
      * @Assert\NotBlank()
+     * @Assert\Regex("/^(\+|-)?(?:90(?:(?:\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\.[0-9]{1,6})?))$/")
      */
     private $latitude;
 
@@ -30,6 +31,7 @@ class Poi
      * @ORM\Column(type="decimal", precision=9, scale=6, nullable=true)
      * @Groups({"poi_read"})
      * @Assert\NotBlank()
+     * @Assert\Regex("/^(\+|-)?(?:180(?:(?:\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\.[0-9]{1,6})?))$/")
      */
     private $longitude;
 

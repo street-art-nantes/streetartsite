@@ -15,6 +15,9 @@
                     <li class="nav-item {% if app.request.get('_route') == 'map' %}active{% endif %}">
                         <a class="nav-link" href="{{ path('map') }}">{{ 'header.menu.map'|trans({}) }} <span class="sr-only">(current)</span></a>
                     </li>
+                    <li class="nav-item {% if app.request.get('_route') == 'app_artwork_new' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path('app_artwork_new') }}">{{ 'header.menu.submit'|trans({}) }} <span class="sr-only">(current)</span></a>
+                    </li>
 
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                         <li class="nav-item">

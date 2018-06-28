@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body_classes %}page-home{% endblock body_classes %}
+
+{% block body %}
+
+<main role="main">
+    <section class="section">
+        <div class="container">
+            {% if entries is defined %}
+                {% for entryElement in entries %}
+                    <div class="row">
+                        <div class="col-12">
+                            <h4>{{ entryElement.title|raw }}</h4>
+                            <p>{{ entryElement.content|raw }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% elseif entry is defined %}
+            <div class="row">
+                <div class="col-12">
+                    <h4>{{ entry.get('title')|raw }}</h4>
+                    <p>{{ entry.get('content')|raw }}</p>
+                </div>
+            </div>
+            {% elseif blog is defined %}
+                <div class="row">
+                    <div class="col-12">
+                        <h4>{{ blog.get('title')|raw }}</h4>
+                    </div>
+                    {#<div class="col-md-6">#}
+                        {#<p>{{ blog.get('introductionImage')|raw }}</p>#}
+                    {#</div>#}
+                    <div class="col-12">
+                        <h6>{{ blog.get('introduction')|raw }}</h6>
+                    </div>
+                    <div class="col-12">
+                        <p>{{ blog.get('content')|raw }}</p>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </section>
+</main>
+{% endblock %}

@@ -1,11 +1,27 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Carte{% endblock %}
+{% block body_classes %}page-map{% endblock body_classes %}
 
 {% block body %}
-    <div class="page-map">
+    <main role="main">
+        <section class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 d-flex flex-column justify-content-center align-items-center">
+                        <p class="lead text-muted">{{ 'map.description'|trans({})|raw }}</p>
+                    </div>
+                    <div class="col-md-4 d-flex flex-column justify-content-center align-items-center">
+                        <div class="bubble-img">
+                            <img src="{{ asset('assets/img/logo.png') }}" alt="Stay tuned !" class="logo-img">
+                            <span class="map-bubble">Stay <br>tuned !</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <div id="map" class="content-map"></div>
-    </div>
+    </main>
 {% endblock %}
 
 {% block javascripts %}

@@ -2,9 +2,14 @@
     <img src="{{ imgSrc }}" alt="{{ title }}" class="card-block-img">
 
     <div class="card-block-content">
-        <h2 class="card-block-title">
+        <h5 class="card-block-title">
             {{ title }}
-        </h2>
-        <a href="{{ link }}" class="btn btn-sm btn-outline-primary" title="Go to {{ linkTitle }}">{{ linkTitle }}</a>
+        </h5>
+        <h6>
+            {{ introduction }}
+        </h6>
+        {% if link is not empty and linkDisplay is not empty %}
+            <a href="{{ link }}" class="btn btn-sm btn-outline-primary" title="Go to {{ title }} {{ introduction }}">{{ linkDisplay }}</a>
+        {% endif %}
     </div>
 </div>

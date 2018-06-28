@@ -47,24 +47,24 @@
 
     <hr />
 
-    {{ form_row(form.title) }}
-    {{ form_row(form.poi.address) }}
+    {{ form_row(form.title, { 'attr': {'placeholder' : 'La Fabrique'}}) }}
+    {{ form_row(form.poi.address, { 'attr': {'placeholder' : '8 Boulevard Léon Bureau, 44200 Nantes, France'}}) }}
 
     <div class="row">
         <div class="col-6">
-            {{ form_row(form.poi.city) }}
+            {{ form_row(form.poi.city, { 'attr': {'placeholder' : 'Nantes'}}) }}
         </div>
         <div class="col-6">
-            {{ form_row(form.poi.country) }}
+            {{ form_row(form.poi.country, { 'attr': {'placeholder' : 'France'}}) }}
         </div>
     </div>
 
     <div class="row">
         <div class="col-6">
-            {{ form_row(form.poi.latitude) }}
+            {{ form_row(form.poi.latitude, { 'attr': {'placeholder' : '47.204696'}}) }}
         </div>
         <div class="col-6">
-            {{ form_row(form.poi.longitude) }}
+            {{ form_row(form.poi.longitude, { 'attr': {'placeholder' : '-1.562808'}}) }}
         </div>
     </div>
 

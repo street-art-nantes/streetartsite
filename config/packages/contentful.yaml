@@ -1,0 +1,11 @@
+contentful:
+    delivery:
+        default_client: streetartapi
+        clients:
+            streetartapi:
+                space: 7brj2e6fvxx4
+                token: 525b40eaf5d0a19b84b6cf9b917f468352e83dd0cabecb0a3c56697bd731e765
+            streetartapi_preview:
+                space: 7brj2e6fvxx4
+                token: b5fadad13fb6f206d9fbfc4dfd13cea3de0d36c9479657f2f894998177a80a06
+                preview: true

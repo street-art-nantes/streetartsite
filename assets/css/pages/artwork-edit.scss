@@ -1,11 +1,20 @@
 
 .page-artwork-edit {
 
+  .form-group label.required:after {
+    content:"*";
+    color:red;
+  }
+
   .content-success {
-
-
     .content-success-icon {
       font-size: 80px;
     }
   }
+
+  .form-control::-webkit-input-placeholder,
+  .form-control:-moz-placeholder,
+  .form-control::-moz-placeholder,
+  .form-control:-ms-input-placeholder,
+  .form-control::-ms-input-placeholder { color: gainsboro; font-style: italic }
 }

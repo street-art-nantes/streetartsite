@@ -115,7 +115,7 @@ class ArtWorkEditController extends Controller
         if (!$artwork) {
             $artwork = new Artwork();
             $artwork->setEnabled(false);
-            $artwork->setType('test');
+            $artwork->setType('graffiti');
             $artwork->addDocument(new Document());
         }
 

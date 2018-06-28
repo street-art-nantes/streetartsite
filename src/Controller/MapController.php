@@ -3,17 +3,26 @@
 namespace App\Controller;
 
 use App\Entity\Poi;
+use App\Manager\PoiManager;
+use App\Repository\PoiRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class MapController extends Controller
 {
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function __invoke()
     {
-        $poiRepository = $this->get('doctrine')->getRepository(Poi::class);
+        /** @var PoiRepository $poiRepository */
+        $poiRepository = $this->getDoctrine()->getRepository(Poi::class);
 
-        $pois = $poiRepository->findByHighlight(true);
+        $pois = $poiRepository->findBy(['highlight' => true]);
 
-        $convertedPois = $this->get('poi.manager')->convertPoisForMap($pois);
+        /** @var PoiManager $poiManager */
+        $poiManager = $this->get('poi.manager');
+        /** @var PoiManager $convertedPois */
+        $convertedPois = $poiManager->convertPoisForMap($pois);
 
         return $this->render('pages/map.html.twig', [
             'pois' => $convertedPois,
