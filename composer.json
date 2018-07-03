@@ -9,6 +9,7 @@
         "easycorp/easyadmin-bundle": "^1.17",
         "friendsofsymfony/user-bundle": "^2.1",
         "jsor/doctrine-postgis": "^1.5",
+        "liip/imagine-bundle": "^2.0",
         "php-translation/symfony-bundle": "^0.7.0",
         "phpmd/phpmd": "^2.6",
         "sensio/framework-extra-bundle": "^5.1",

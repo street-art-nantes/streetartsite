@@ -1,5 +1,5 @@
 <div class="card-artwork">
-    <img src="{{ imgSrc }}" alt="{{ title }}" class="card-artwork-img">
+    <img src="{{ imgSrc | imagine_filter('thumb_350_260') }}" alt="{{ title }}" class="card-artwork-img">
 
     <div class="card-artwork-body">
         <h2 class="card-artwork-title">

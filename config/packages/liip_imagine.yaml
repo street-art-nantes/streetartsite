@@ -1,0 +1,20 @@
+liip_imagine:
+    loaders:
+        default:
+            filesystem:
+                bundle_resources:
+                    enabled: true
+                data_root: "%kernel.project_dir%/public"
+    resolvers:
+        default:
+            web_path:
+                web_root: "%kernel.project_dir%/public"
+                cache_prefix: "/img/cache"
+
+    filter_sets :
+        cache : ~
+
+        thumb_350_260 :
+            quality : 75
+            filters :
+                thumbnail  : { size : [350, 260], mode : outbound }
