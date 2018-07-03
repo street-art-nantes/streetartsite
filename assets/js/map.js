@@ -29,13 +29,13 @@ const initMap = () => {
     const photo = evt.layer.photo,
       template = '<img src="{url}"/></a><p>{caption}</p>';
 
-    evt.layer.bindPopup(L.Util.template(template, evt.layer.photo), {
+    evt.layer.bindPopup(L.Util.template(template, photo), {
       className: 'leaflet-popup-photo',
       minWidth: 400
     }).openPopup();
   });
 
-  const datas = window.datas
+  const datas = window.datas;
   let photos = [];
   const data = JSON.parse(datas);
   for (let i = 0; i < data.length; i++) {

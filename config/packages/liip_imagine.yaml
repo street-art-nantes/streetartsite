@@ -9,7 +9,6 @@ liip_imagine:
         default:
             web_path:
                 web_root: "%kernel.project_dir%/public"
-                cache_prefix: "/img/cache"
 
     filter_sets :
         cache : ~
