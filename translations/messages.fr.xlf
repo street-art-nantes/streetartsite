@@ -3,7 +3,7 @@
   <file id="messages.fr">
     <unit id="WD.KTE9" name="page.logout.link">
       <notes>
-        <note category="file-source" priority="1">templates/layout/header.html.twig:25</note>
+        <note category="file-source" priority="1">templates/layout/footer.html.twig:31</note>
       </notes>
       <segment>
         <source>page.logout.link</source>
@@ -12,7 +12,7 @@
     </unit>
     <unit id="UpOSnoA" name="page.login.link">
       <notes>
-        <note category="file-source" priority="1">templates/layout/header.html.twig:30</note>
+        <note category="file-source" priority="1">templates/layout/footer.html.twig:37</note>
       </notes>
       <segment>
         <source>page.login.link</source>
@@ -252,7 +252,7 @@
     </unit>
     <unit id="ownf56y" name="header.menu.submit">
       <notes>
-        <note category="file-source" priority="1">templates/layout/header.html.twig:19</note>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:22</note>
       </notes>
       <segment>
         <source>header.menu.submit</source>
@@ -261,13 +261,22 @@
     </unit>
     <unit id="V2YvCwD" name="map.description">
       <notes>
-        <note category="file-source" priority="1">templates/pages/map.html.twig:11</note>
-        <note category="state" priority="1">new</note>
+        <note category="file-source" priority="1">templates/pages/map.html.twig:12</note>
       </notes>
       <segment>
         <source>map.description</source>
         <target><![CDATA[Voici un aperçu des oeuvres affichées sur une carte.
           <br>Vous aurez par la suite accès à une recherche détaillée, des filtres, votre géolocalisation pour vous proposer les pépites autour de vous, des paramétrages... et plein de bonnes choses encore à savourer sans modération !]]></target>
+      </segment>
+    </unit>
+    <unit id="REXtE1v" name="header.menu.list">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:19</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>header.menu.list</source>
+        <target>Liste</target>
       </segment>
     </unit>
   </file>

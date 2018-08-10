@@ -16,6 +16,12 @@ map:
 #    requirements:
 #        _locale:  en|fr
 
+list:
+    path:         /list
+    controller:   App\Controller\ListController
+    defaults:
+        template: pages/list.html.twig
+
 faq:
     path:         /faq
     controller:   App\Controller\FaqController
@@ -41,3 +47,11 @@ blog:
         template: pages/content.html.twig
     requirements:
         id:  "[a-zA-Z0-9-]+"
+
+artwork:
+    path:         /artwork/{id}
+    controller:   App\Controller\ArtworkController
+    defaults:
+        template: pages/artwork.html.twig
+    requirements:
+        id:  "[0-9]+"

@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste{% endblock %}
+{% block body_classes %}page-list{% endblock body_classes %}
+
+{% block body %}
+
+    <main role="main">
+        <section class="section">
+            <div class="container">
+                <h3 class="mb-5 text-center">La base contient {{ totalPois }} oeuvres provenant de {{ totalCountry }} pays</h3>
+                <div class="row">
+                    {% for pois in colPois %}
+                        <div class="col-12 col-sm-3">
+                            {% for poi in pois %}
+                                {% set artwork = poi.artworks.first %}
+                                {% set document = artwork.documents.first %}
+
+                                <a href="{{ path('artwork', {'id': poi.id}) }}">
+                                {% include "components/card-artwork.twig" with {
+                                    imgSrc: vich_uploader_asset(document, 'imageFile'),
+                                    title: artwork.title,
+                                    textLeft: poi.city ~ ', ' ~ poi.country,
+                                    textRight: artwork.createdAt|date("d/m/Y"),
+                                } %}
+                                </a>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}
