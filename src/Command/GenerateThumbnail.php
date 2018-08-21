@@ -78,12 +78,15 @@ class GenerateThumbnail extends Command
     }
 
     /**
-     * @param $path
+     * @param string $path
      *
      * @return string
      */
     protected function generateThumbail($path)
     {
+        // You can use NullOutput() if you don't need the output
+        $output = new BufferedOutput();
+
         try {
             $application = new Application($this->kernel);
             $application->setAutoExit(false);
@@ -94,8 +97,6 @@ class GenerateThumbnail extends Command
                 '--filters' => [$this->thumbnailname],
             ]);
 
-            // You can use NullOutput() if you don't need the output
-            $output = new BufferedOutput();
             $application->run($input, $output);
 
             $content = $output->fetch();

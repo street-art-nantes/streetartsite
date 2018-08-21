@@ -9,7 +9,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class BlogController extends Controller
 {
     /**
-     * @param $id
+     * @param string $id
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */

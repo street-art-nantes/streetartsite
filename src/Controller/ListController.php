@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class ListController extends Controller
 {
     /**
-     * @param $page
+     * @param int $page
      *
      * @throws \Doctrine\ORM\NonUniqueResultException
      *

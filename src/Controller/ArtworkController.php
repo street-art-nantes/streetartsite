@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class ArtworkController extends Controller
 {
     /**
-     * @param $id
+     * @param int $id
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
