@@ -10,6 +10,7 @@ class BlogController extends Controller
 {
     /**
      * @param $id
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function __invoke($id)

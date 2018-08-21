@@ -17,10 +17,11 @@ map:
 #        _locale:  en|fr
 
 list:
-    path:         /list
+    path:         /list/{page}
     controller:   App\Controller\ListController
     defaults:
         template: pages/list.html.twig
+        page:     1
 
 faq:
     path:         /faq

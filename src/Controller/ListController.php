@@ -9,20 +9,30 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class ListController extends Controller
 {
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @param $page
+     *
      * @throws \Doctrine\ORM\NonUniqueResultException
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function __invoke()
+    public function __invoke($page)
     {
         /** @var PoiRepository $poiRepository */
         $poiRepository = $this->getDoctrine()->getRepository(Poi::class);
 
-        $pois = $poiRepository->findAll();
+        $pois = $poiRepository->getList($page);
 
         $totalPois = $poiRepository->createQueryBuilder('u')
             ->select('count(u.id)')
             ->getQuery()
             ->getSingleScalarResult();
+
+        $pagination = [
+            'page' => $page,
+            'route' => 'list',
+            'pages_count' => ceil($totalPois / 40),
+            'route_params' => [],
+        ];
 
         $countriesFromPoi = $poiRepository->getAllCountries();
 
@@ -33,6 +43,7 @@ class ListController extends Controller
             'colPois' => $colPois,
             'totalPois' => $totalPois,
             'totalCountry' => count($countriesFromPoi),
+            'pagination' => $pagination,
         ]);
     }
 }

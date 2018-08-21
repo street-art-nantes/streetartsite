@@ -33,8 +33,8 @@ class PoiManager
      * PoiManager constructor.
      *
      * @param EntityManagerInterface $manager
-     * @param UploaderHelper $helper
-     * @param FilterService $filterService
+     * @param UploaderHelper         $helper
+     * @param FilterService          $filterService
      */
     public function __construct(EntityManagerInterface $manager, UploaderHelper $helper, FilterService $filterService)
     {

@@ -9,6 +9,7 @@
         <section class="section">
             <div class="container">
                 <h3 class="mb-5 text-center">La base contient {{ totalPois }} oeuvres provenant de {{ totalCountry }} pays</h3>
+                {% include 'layout/pagination.html.twig' %}
                 <div class="row">
                     {% for pois in colPois %}
                         <div class="col-12 col-sm-3">
@@ -28,6 +29,7 @@
                         </div>
                     {% endfor %}
                 </div>
+                {% include 'layout/pagination.html.twig' %}
             </div>
         </section>
     </main>
