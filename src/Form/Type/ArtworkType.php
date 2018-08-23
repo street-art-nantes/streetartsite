@@ -42,7 +42,7 @@ class ArtworkType extends AbstractType
         $builder->addEventListener(FormEvents::PRE_SUBMIT, function (FormEvent $event) {
             $poi = $event->getData();
             $alterDatas = [];
-            if ($poi['title'] == '') {
+            if ('' === $poi['title']) {
                 $alterDatas = [
                     'title' => '-',
                 ];
