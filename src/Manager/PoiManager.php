@@ -6,6 +6,7 @@ use App\Entity\Artwork;
 use App\Entity\Document;
 use App\Entity\Poi;
 use Doctrine\ORM\EntityManagerInterface;
+use Liip\ImagineBundle\Service\FilterService;
 use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
 
 /**
@@ -24,15 +25,22 @@ class PoiManager
     private $helper;
 
     /**
+     * @var FilterService
+     */
+    private $filterService;
+
+    /**
      * PoiManager constructor.
      *
      * @param EntityManagerInterface $manager
      * @param UploaderHelper         $helper
+     * @param FilterService          $filterService
      */
-    public function __construct(EntityManagerInterface $manager, UploaderHelper $helper)
+    public function __construct(EntityManagerInterface $manager, UploaderHelper $helper, FilterService $filterService)
     {
         $this->manager = $manager;
         $this->helper = $helper;
+        $this->filterService = $filterService;
     }
 
     /**
@@ -85,15 +93,16 @@ class PoiManager
             $artwork = $poi->getArtworks()->first();
             /** @var Document $document */
             $document = $artwork->getDocuments()->first();
+            $urlImg = $this->filterService->getUrlOfFilteredImage($this->helper->asset($document, 'imageFile'), 'thumb_350_260');
             $convertedPois[] = [
                 'id' => $poi->getId(),
                 'timestamp' => $artwork->getCreatedAt()->getTimestamp(),
                 'lat' => $poi->getLatitude(),
                 'lng' => $poi->getLongitude(),
-                'url' => $this->helper->asset($document, 'imageFile'),
+                'url' => $urlImg,
                 'caption' => $artwork->getTitle(),
-                'iconUrl' => $this->helper->asset($document, 'imageFile'),
-                'thumbnail' => $this->helper->asset($document, 'imageFile'),
+                'iconUrl' => $urlImg,
+                'thumbnail' => $urlImg,
             ];
         }
 

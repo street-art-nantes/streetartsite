@@ -7,26 +7,28 @@ use App\Manager\PoiManager;
 use App\Repository\PoiRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class MapController extends Controller
+class ArtworkController extends Controller
 {
     /**
+     * @param int $id
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function __invoke()
+    public function __invoke($id)
     {
         /** @var PoiRepository $poiRepository */
         $poiRepository = $this->getDoctrine()->getRepository(Poi::class);
 
-//        $pois = $poiRepository->findBy(['highlight' => true]);
-        $pois = $poiRepository->findAll();
+        $poi = $poiRepository->find($id);
 
         /** @var PoiManager $poiManager */
         $poiManager = $this->get('poi.manager');
         /** @var PoiManager $convertedPois */
-        $convertedPois = $poiManager->convertPoisForMap($pois);
+        $convertedPoi = $poiManager->convertPoisForMap([$poi]);
 
-        return $this->render('pages/map.html.twig', [
-            'pois' => $convertedPois,
+        return $this->render('pages/artwork.html.twig', [
+            'convertedPoi' => $convertedPoi,
+            'poi' => $poi,
         ]);
     }
 }

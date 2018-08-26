@@ -15,21 +15,12 @@
                     <li class="nav-item {% if app.request.get('_route') == 'map' %}active{% endif %}">
                         <a class="nav-link" href="{{ path('map') }}">{{ 'header.menu.map'|trans({}) }} <span class="sr-only">(current)</span></a>
                     </li>
+                    <li class="nav-item {% if app.request.get('_route') == 'list' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path('list') }}">{{ 'header.menu.list'|trans({}) }} <span class="sr-only">(current)</span></a>
+                    </li>
                     <li class="nav-item {% if app.request.get('_route') == 'app_artwork_new' %}active{% endif %}">
                         <a class="nav-link" href="{{ path('app_artwork_new') }}">{{ 'header.menu.submit'|trans({}) }} <span class="sr-only">(current)</span></a>
                     </li>
-
-                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ path('fos_user_security_logout') }}">
-                                {{ 'page.logout.link'|trans({}) }}
-                            </a>
-                        </li>
-                    {% else %}
-                        <li class="nav-item {% if app.request.get('_route') == 'fos_user_security_login' %}active{% endif %}">
-                            <a class="nav-link" href="{{ path('fos_user_security_login') }}">{{ 'page.login.link'|trans({}) }}</a>
-                        </li>
-                    {% endif %}
                     <li class="nav-item nav-socials ml-2">
                         <a href="https://www.facebook.com/streetartwork44/" class="fab fa-facebook-f fa-2x facebook" target="_blank"></a>
                         <a href="https://twitter.com/StreetArtwork44" class="fab fa-twitter fa-2x twitter" target="_blank"></a>

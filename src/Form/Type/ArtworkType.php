@@ -22,6 +22,7 @@ class ArtworkType extends AbstractType
     {
         $builder->add('title', TextType::class, [
             'label' => 'artwork.label.title',
+            'required' => false,
         ]);
         $builder->add('poi', PoiType::class, [
             'label' => false,

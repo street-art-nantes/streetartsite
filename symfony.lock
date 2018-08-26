@@ -29,6 +29,9 @@
     "composer/semver": {
         "version": "1.4.2"
     },
+    "composer/xdebug-handler": {
+        "version": "1.2.0"
+    },
     "contentful/contentful": {
         "version": "3.3.0"
     },
@@ -83,6 +86,9 @@
             "ref": "c1431086fec31f17fbcfe6d6d7e92059458facc1"
         }
     },
+    "doctrine/event-manager": {
+        "version": "v1.0.0"
+    },
     "doctrine/inflector": {
         "version": "v1.3.0"
     },
@@ -97,6 +103,12 @@
     },
     "doctrine/orm": {
         "version": "v2.6.1"
+    },
+    "doctrine/persistence": {
+        "version": "v1.0.0"
+    },
+    "doctrine/reflection": {
+        "version": "v1.0.0"
     },
     "easycorp/easy-log-handler": {
         "version": "1.0",
@@ -158,6 +170,9 @@
             "ref": "3447d538661064626c782b1122a14defa48dc0b1"
         }
     },
+    "imagine/imagine": {
+        "version": "v0.7.1"
+    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
@@ -166,6 +181,15 @@
     },
     "jsor/doctrine-postgis": {
         "version": "v1.5.0"
+    },
+    "liip/imagine-bundle": {
+        "version": "1.8",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.8",
+            "ref": "d2a601ea5ccad81de2a131ed68481d012ed4667c"
+        }
     },
     "monolog/monolog": {
         "version": "1.23.0"
@@ -415,6 +439,9 @@
             "version": "3.3",
             "ref": "179470cb6492db92dffee208cfdb436f175c93b4"
         }
+    },
+    "symfony/polyfill-ctype": {
+        "version": "v1.9.0"
     },
     "symfony/polyfill-intl-icu": {
         "version": "v1.7.0"

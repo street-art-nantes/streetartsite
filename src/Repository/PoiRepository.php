@@ -31,4 +31,23 @@ class PoiRepository extends ServiceEntityRepository
             ->getResult()
             ;
     }
+
+    /**
+     * @param int $page
+     * @param int $maxperpage
+     *
+     * @return mixed
+     */
+    public function getList($page = 1, $maxperpage = 40)
+    {
+        $query = $this->createQueryBuilder('p')
+            ->select('p')
+        ;
+
+        $query->setFirstResult(($page - 1) * $maxperpage)
+            ->setMaxResults($maxperpage)
+            ;
+
+        return $query->getQuery()->getResult();
+    }
 }

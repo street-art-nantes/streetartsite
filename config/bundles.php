@@ -25,4 +25,5 @@ return [
     FOS\UserBundle\FOSUserBundle::class => ['all' => true],
     EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle::class => ['all' => true],
     Contentful\ContentfulBundle\ContentfulBundle::class => ['all' => true],
+    Liip\ImagineBundle\LiipImagineBundle::class => ['all' => true],
 ];
