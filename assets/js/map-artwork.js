@@ -31,7 +31,7 @@ const initMap = () => {
         iconUrl: photo.iconUrl
     });
 
-  var map = L.map('map', { scrollWheelZoom:false }).setView([photo.lat, photo.lng], 13);
+  var map = L.map('map', { scrollWheelZoom:false }).setView([photo.lat, photo.lng], 14);
 
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
     maxZoom: 18,
@@ -40,17 +40,7 @@ const initMap = () => {
     id: 'mapbox.streets'
   }).addTo(map);
 
-  const photoLayer = L.photo.cluster().on('click', function (evt) {
-    const photo = evt.layer.photo,
-      template = '<img src="{url}"/></a><p>{caption}</p>';
-
-    evt.layer.bindPopup(L.Util.template(template, photo), {
-      className: 'leaflet-popup-photo',
-      minWidth: 400
-    }).openPopup();
-  });
-  photoLayer.add(photos).addTo(map);
-  // map.fitBounds(photoLayer.getBounds());
+    L.photo.cluster().add(photos).addTo(map);
 }
 
 $(function () {
