@@ -12,6 +12,7 @@ Encore
 
     // uncomment to define the assets of the project
     .addEntry('js/app', './assets/js/app.js')
+    .addEntry('js/map', './assets/js/map.js')
     .addEntry('js/map-artwork', './assets/js/map-artwork.js')
     .addEntry('js/artwork-edit', './assets/js/artwork-edit.js')
     .addStyleEntry('css/app', './assets/css/app.scss')

@@ -2,7 +2,9 @@
 {% set artwork = poi.artworks.first %}
 {% set document = artwork.documents.first %}
 
-{% block title %}Artwork - {{ poi.address }} - {{ poi.city }} - {{ poi.country }}{% endblock %}
+{% block title %}Artwork - {{ poi.address }} - {{ poi.city }} - {{ poi.country }}
+{% if artwork.title %} - {{ artwork.title }}{% endif %}
+{% endblock %}
 {% block body_classes %}page-map{% endblock body_classes %}
 
 {% block body %}
@@ -18,6 +20,7 @@
                                 <li>Adresse : {{ poi.address }}</li>
                                 <li>Latitude : {{ poi.latitude }}</li>
                                 <li>Longitude : {{ poi.longitude }}</li>
+                                <li>Titre : {{ artwork.title }}</li>
                                 <li>Type : {{ artwork.type }}</li>
                                 <li>Auteur : {{ artwork.author }}</li>
                                 <li>Actif : {{ artwork.enabled }}</li>
@@ -32,8 +35,8 @@
                 <div class="row">
                     <div class="col-md-12 d-flex flex-column justify-content-center align-items-center">
                         <div class="card-artwork">
-                            <img src="{{ vich_uploader_asset(document, 'imageFile') }}" alt="{{ artwork.title }}"
-                                 width="100%" class="card-artwork-img"/>
+                            <a href="{{ vich_uploader_asset(document, 'imageFile') }}" target="_blank"><img src="{{ vich_uploader_asset(document, 'imageFile') }}" alt="{{ artwork.title }}"
+                                 width="100%" class="card-artwork-img"/></a>
                         </div>
                     </div>
                 </div>
