@@ -34,7 +34,6 @@
             {% elseif blog is defined %}
                 <div class="row">
                     <div class="col-12">
-                        {{ dump(entry) }}
                         <h4>{{ entry.get('title')|raw }}</h4>
                         <p>{{ entry.get('content')|raw|nl2br }}</p>
                     </div>
