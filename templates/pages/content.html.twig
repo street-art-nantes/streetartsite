@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block body_classes %}page-home{% endblock body_classes %}
+{% block body_classes %}page-content{% endblock body_classes %}
 
 {% block body %}
 
@@ -12,30 +12,31 @@
                     <div class="row">
                         <div class="col-12">
                             <h4>{{ entryElement.title|raw }}</h4>
-                            <p>{{ entryElement.content|raw }}</p>
+                            <p>{{ entryElement.content|raw|nl2br }}</p>
                         </div>
                     </div>
                 {% endfor %}
             {% elseif entry is defined %}
-            <div class="row">
-                <div class="col-12">
-                    <h4>{{ entry.get('title')|raw }}</h4>
-                    <p>{{ entry.get('content')|raw }}</p>
+                <div class="row">
+                    <div class="col-12 title">
+                        <h1>{{ entry.get('title')|raw }}</h1>
+                    </div>
+                    {#<div class="col-md-6">#}
+                    {#<p>{{ blog.get('introductionImage')|raw }}</p>#}
+                    {#</div>#}
+                    <div class="col-12 introduction">
+                        <h6>{{ entry.get('introduction')|raw|nl2br }}</h6>
+                    </div>
+                    <div class="col-12 content">
+                        <p>{{ entry.get('content')|raw|nl2br }}</p>
+                    </div>
                 </div>
-            </div>
             {% elseif blog is defined %}
                 <div class="row">
                     <div class="col-12">
-                        <h4>{{ blog.get('title')|raw }}</h4>
-                    </div>
-                    {#<div class="col-md-6">#}
-                        {#<p>{{ blog.get('introductionImage')|raw }}</p>#}
-                    {#</div>#}
-                    <div class="col-12">
-                        <h6>{{ blog.get('introduction')|raw }}</h6>
-                    </div>
-                    <div class="col-12">
-                        <p>{{ blog.get('content')|raw }}</p>
+                        {{ dump(entry) }}
+                        <h4>{{ entry.get('title')|raw }}</h4>
+                        <p>{{ entry.get('content')|raw|nl2br }}</p>
                     </div>
                 </div>
             {% endif %}

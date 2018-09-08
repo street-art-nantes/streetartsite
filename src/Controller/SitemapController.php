@@ -21,6 +21,10 @@ class SitemapController extends Controller
                 'content' => '',
             ],
             [
+                'title' => '<a href="/list">Liste</a>',
+                'content' => '',
+            ],
+            [
                 'title' => '<a href="/faq">FAQ</a>',
                 'content' => '',
             ],
