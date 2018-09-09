@@ -46,13 +46,38 @@ function getAddressFromCoordinates() {
         data : 'latlng=' + lat + ',' + long + '&key=' + key,
         success : function(data){
             var result = data.results.shift();
+            // TODO bug for city and country for some files
+            var addressData = [];
+            console.log(result);
             $.each(result['address_components'], function( key, value ) {
-                if (value.types.indexOf('locality')) {
-                    $('#artwork_poi_city').val(value.long_name);
-                } else if (value.types.indexOf('country')) {
-                    $('#artwork_poi_country').val(value.long_name);
-                }
+                addressData.push(
+                    {
+                        'types': value.types, 'value': value.long_name
+                    }
+                );
+                // console.log(value.types);
+                // if (value.types.indexOf('administrative_area_level_1')) {
+                //     console.log('1');
+                //     console.log(value);
+                //     $('#artwork_poi_city').val(value.long_name);
+                // } else if (value.types.indexOf('country')) {
+                //     console.log('2');
+                //     console.log(value);
+                //     $('#artwork_poi_country').val(value.long_name);
+                // }
             });
+            console.log(addressData);
+            for (var i = 0; i < addressData.length; i++) {
+                if (addressData[i].types.indexOf('administrative_area_level_1')) {
+                    console.log('1');
+                    console.log(addressData[i]['value']);
+                    $('#artwork_poi_city').val(addressData[i]['value']);
+                } else if (addressData[i].types.indexOf('country')) {
+                    console.log('2');
+                    console.log(addressData[i]['value']);
+                    $('#artwork_poi_country').val(addressData[i]['value']);
+                }
+            }
 
             $('#artwork_poi_address').val(result['formatted_address']);
         }
