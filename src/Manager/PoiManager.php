@@ -109,7 +109,7 @@ class PoiManager
                 'lat' => $poi->getLatitude(),
                 'lng' => $poi->getLongitude(),
                 'imgUrl' => $imgUrl,
-                'caption' => $artwork->getTitle(),
+                'caption' => $artwork->getTitle() ? $artwork->getTitle() : '',
                 'iconUrl' => $imgUrl,
                 'thumbnail' => $imgUrl,
                 'artworkUrl' => $this->router->generate(

@@ -82,7 +82,6 @@ class Artwork
         $this->documents = new ArrayCollection();
         $this->createdAt = new \DateTime();
         $this->updatedAt = new \DateTime();
-        $this->title = '';
     }
 
     /**
