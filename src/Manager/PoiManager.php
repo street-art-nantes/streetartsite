@@ -8,6 +8,7 @@ use App\Entity\Poi;
 use Doctrine\ORM\EntityManagerInterface;
 use Liip\ImagineBundle\Service\FilterService;
 use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * Class PoiManager.
@@ -30,17 +31,25 @@ class PoiManager
     private $filterService;
 
     /**
+     * @var UrlGeneratorInterface
+     */
+    private $router;
+
+    /**
      * PoiManager constructor.
      *
      * @param EntityManagerInterface $manager
      * @param UploaderHelper         $helper
      * @param FilterService          $filterService
+     * @param UrlGeneratorInterface          $router
      */
-    public function __construct(EntityManagerInterface $manager, UploaderHelper $helper, FilterService $filterService)
+    public function __construct(EntityManagerInterface $manager, UploaderHelper $helper, FilterService $filterService,
+                                UrlGeneratorInterface $router)
     {
         $this->manager = $manager;
         $this->helper = $helper;
         $this->filterService = $filterService;
+        $this->router = $router;
     }
 
     /**
@@ -93,16 +102,20 @@ class PoiManager
             $artwork = $poi->getArtworks()->first();
             /** @var Document $document */
             $document = $artwork->getDocuments()->first();
-            $urlImg = $this->filterService->getUrlOfFilteredImage($this->helper->asset($document, 'imageFile'), 'thumb_350_260');
+            $imgUrl = $this->filterService->getUrlOfFilteredImage($this->helper->asset($document, 'imageFile'), 'thumb_350_260');
             $convertedPois[] = [
                 'id' => $poi->getId(),
                 'timestamp' => $artwork->getCreatedAt()->getTimestamp(),
                 'lat' => $poi->getLatitude(),
                 'lng' => $poi->getLongitude(),
-                'url' => $urlImg,
+                'imgUrl' => $imgUrl,
                 'caption' => $artwork->getTitle(),
-                'iconUrl' => $urlImg,
-                'thumbnail' => $urlImg,
+                'iconUrl' => $imgUrl,
+                'thumbnail' => $imgUrl,
+                'artworkUrl' => $this->router->generate(
+                    'artwork',
+                    array('id' => $poi->getId())
+                ),
             ];
         }
 

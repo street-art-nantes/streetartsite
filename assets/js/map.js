@@ -27,7 +27,7 @@ const initMap = () => {
 
   const photoLayer = L.photo.cluster().on('click', function (evt) {
     const photo = evt.layer.photo,
-      template = '<img src="{url}"/></a><p>{caption}</p>';
+      template = '<a href="{artworkUrl}"><img src="{url}"/><p>{caption}</p></a>';
 
     evt.layer.bindPopup(L.Util.template(template, photo), {
       className: 'leaflet-popup-photo',
@@ -45,9 +45,10 @@ const initMap = () => {
       timestamp: parseInt(photo.timestamp),
       lat: parseFloat(photo.lat),
       lng: parseFloat(photo.lng),
-      url: photo.url,
+      url: photo.imgUrl,
       caption: photo.caption,
-      iconUrl: photo.iconUrl
+      iconUrl: photo.iconUrl,
+      artworkUrl: photo.artworkUrl
     });
   }
   photoLayer.add(photos).addTo(map);
