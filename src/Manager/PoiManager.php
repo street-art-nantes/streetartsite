@@ -7,8 +7,8 @@ use App\Entity\Document;
 use App\Entity\Poi;
 use Doctrine\ORM\EntityManagerInterface;
 use Liip\ImagineBundle\Service\FilterService;
-use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
 
 /**
  * Class PoiManager.
@@ -41,7 +41,7 @@ class PoiManager
      * @param EntityManagerInterface $manager
      * @param UploaderHelper         $helper
      * @param FilterService          $filterService
-     * @param UrlGeneratorInterface          $router
+     * @param UrlGeneratorInterface  $router
      */
     public function __construct(EntityManagerInterface $manager, UploaderHelper $helper, FilterService $filterService,
                                 UrlGeneratorInterface $router)
@@ -114,7 +114,7 @@ class PoiManager
                 'thumbnail' => $imgUrl,
                 'artworkUrl' => $this->router->generate(
                     'artwork',
-                    array('id' => $poi->getId())
+                    ['id' => $poi->getId()]
                 ),
             ];
         }
