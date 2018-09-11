@@ -53,4 +53,22 @@ class PoiRepository extends ServiceEntityRepository
 
         return $query->getQuery()->getResult();
     }
+
+    public function findByDistanceFrom($latitude, $longitude, $distanceInMeters = 100)
+    {
+        $qb = $this->createQueryBuilder('poi');
+        $pointFrom = 'Geography(ST_SetSRID(ST_Point(poi.longitude, poi.latitude), 4326))';
+        $pointTo = 'Geography(ST_SetSRID(ST_Point(:longitude, :latitude), 4326))';
+        $qb
+            ->where($qb->expr()->eq("ST_DWithin($pointFrom, $pointTo, :distance_in_meters)", $qb->expr()->literal(true)))
+            ->setParameter('latitude', $latitude)
+            ->setParameter('longitude', $longitude)
+            ->setParameter('distance_in_meters', $distanceInMeters)
+        ;
+
+        return $qb
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }
