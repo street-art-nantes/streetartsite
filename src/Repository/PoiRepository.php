@@ -40,8 +40,11 @@ class PoiRepository extends ServiceEntityRepository
      */
     public function getList($page = 1, $maxperpage = 40)
     {
-        $query = $this->createQueryBuilder('p')
-            ->select('p')
+        $query = $this->createQueryBuilder('p');
+
+        $query->select('p')
+            ->leftJoin('p.artworks', 'artworks')
+            ->andWhere('artworks.enabled=TRUE')
         ;
 
         $query->setFirstResult(($page - 1) * $maxperpage)

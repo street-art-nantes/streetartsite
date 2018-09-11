@@ -51,6 +51,8 @@ function getAddressFromCoordinates() {
                     $('#artwork_poi_city').val(value.long_name);
                 } else if (value.types.includes('country')) {
                     $('#artwork_poi_country').val(value.long_name);
+                } else if (value.types.includes('locality')) {
+                    $('#artwork_poi_city').val(value.long_name);
                 }
             });
 
