@@ -5,7 +5,7 @@
 {% block title %}Artwork - {{ poi.address }} - {{ poi.city }} - {{ poi.country }}
 {% if artwork.title %} - {{ artwork.title }}{% endif %}
 {% endblock %}
-{% block body_classes %}page-map{% endblock body_classes %}
+{% block body_classes %}page-artwork{% endblock body_classes %}
 
 {% block body %}
     <main role="main">
@@ -13,6 +13,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 d-flex flex-column justify-content-center align-items-center">
+                        <h4>Toutes mes mensurations</h4>
                         <div id="artwork-data" class="lead text-muted">
                             <ul>
                                 <li>Pays : {{ poi.country }}</li>
@@ -34,11 +35,36 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12 d-flex flex-column justify-content-center align-items-center">
+                        <h4>Me voici en grandeur nature</h4>
                         <div class="card-artwork">
                             <a href="{{ vich_uploader_asset(document, 'imageFile') }}" target="_blank"><img src="{{ vich_uploader_asset(document, 'imageFile') }}" alt="{{ artwork.title }}"
                                  width="100%" class="card-artwork-img"/></a>
                         </div>
                     </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 d-flex flex-column justify-content-center align-items-center">
+                        <h4>Mes voisins (à moins de 100m)</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    {% for pois in poisAround %}
+                        <div class="col-12 col-sm-4">
+                            {% for poiEl in pois %}
+                                {% set artwork = poiEl.artworks.first %}
+                                {% set document = artwork.documents.first %}
+
+                                <a href="{{ path('artwork', {'id': poiEl.id}) }}">
+                                    {% include "components/card-artwork.twig" with {
+                                        imgSrc: vich_uploader_asset(document, 'imageFile'),
+                                        title: artwork.title,
+                                        textLeft: poiEl.city ~ ', ' ~ poiEl.country,
+                                        textRight: artwork.createdAt|date("d/m/Y"),
+                                    } %}
+                                </a>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </section>
