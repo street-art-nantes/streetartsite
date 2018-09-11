@@ -21,6 +21,11 @@ class ArtworkController extends Controller
 
         $poi = $poiRepository->find($id);
 
+        $poisAround = $poiRepository->findByDistanceFrom($poi->getLatitude(), $poi->getLongitude());
+
+        $columnCount = 3;
+        $colPois = array_chunk($poisAround, ceil(count($poisAround) / $columnCount));
+
         /** @var PoiManager $poiManager */
         $poiManager = $this->get('poi.manager');
         /** @var PoiManager $convertedPois */
@@ -29,6 +34,7 @@ class ArtworkController extends Controller
         return $this->render('pages/artwork.html.twig', [
             'convertedPoi' => $convertedPoi,
             'poi' => $poi,
+            'poisAround' => $colPois,
         ]);
     }
 }
