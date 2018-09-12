@@ -9,7 +9,7 @@ liip_imagine:
         default:
             web_path:
                 web_root: "%kernel.project_dir%/public"
-
+    driver: imagick
     filter_sets :
         cache : ~
 

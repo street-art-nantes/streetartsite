@@ -46,8 +46,9 @@ function getAddressFromCoordinates() {
         data : 'latlng=' + lat + ',' + long + '&key=' + key,
         success : function(data){
             var result = data.results.shift();
+            console.log(result);
             $.each(result['address_components'], function( key, value ) {
-                if (value.types.includes('administrative_area_level_1')) {
+                if (value.types.includes('administrative_area_level_1') && $('#artwork_poi_city').val == '') {
                     $('#artwork_poi_city').val(value.long_name);
                 } else if (value.types.includes('country')) {
                     $('#artwork_poi_country').val(value.long_name);
