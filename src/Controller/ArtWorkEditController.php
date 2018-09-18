@@ -76,21 +76,23 @@ class ArtWorkEditController extends Controller
             /** @var Artwork $artwork */
             $artwork = $form->getData();
 
+            $artwork->setEnabled(true);
             if ($isCreateForm) {
                 $this->entityManager->persist($artwork);
             }
 
-            foreach ($originalDocuments as $document) {
-                if (false === $artwork->getDocuments()->contains($document)) {
-                    $this->entityManager->remove($document);
-                } else {
-                    $imagick = new \Imagick($document->getImageFile()->getPathName());
-                    $imagick->setImageOrientation(\Imagick::ORIENTATION_TOPLEFT);
-                    $imagick->writeImage();
-                }
-            }
-
             try {
+                foreach ($originalDocuments as $document) {
+                    if (false === $artwork->getDocuments()->contains($document)) {
+                        $this->entityManager->remove($document);
+                    } else {
+                        $imagick = new \Imagick();
+                        $imagick->readImage($document->getImageFile()->getPathName());
+                        $imagick->autoOrient();
+                        $imagick->writeImage();
+                    }
+                }
+
                 $this->entityManager->flush();
 
                 if ($isCreateForm) {
