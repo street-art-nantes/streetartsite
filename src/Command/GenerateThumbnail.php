@@ -35,12 +35,12 @@ class GenerateThumbnail extends Command
             ->setName('app:generate-thumbnail')
             ->setDescription('Generate thumbail')
             ->setHelp('This command allows you to generate thumbnail :\n
-            first argument : thumbnail name : thumb_350_260\n
+            first argument : thumbnail name : thumb_small\n
             second argument : image path\n')
         ;
 
         $this
-            ->addArgument('thumbnailname', InputArgument::REQUIRED, 'Thumbnail name : thumb_350_260')
+            ->addArgument('thumbnailname', InputArgument::REQUIRED, 'Thumbnail name : thumb_small')
             ->addArgument('imagepath', InputArgument::OPTIONAL, 'Image path.')
         ;
     }
