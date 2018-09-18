@@ -83,6 +83,10 @@ class ArtWorkEditController extends Controller
             foreach ($originalDocuments as $document) {
                 if (false === $artwork->getDocuments()->contains($document)) {
                     $this->entityManager->remove($document);
+                } else {
+                    $imagick = new \Imagick($document->getImageFile()->getPathName());
+                    $imagick->setImageOrientation(\Imagick::ORIENTATION_TOPLEFT);
+                    $imagick->writeImage();
                 }
             }
 
