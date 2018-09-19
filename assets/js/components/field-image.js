@@ -40,6 +40,23 @@ $(document).ready(function () {
       const latRational64u = exif.getTag(this, "GPSLatitude");
       const longRational64u = exif.getTag(this, "GPSLongitude");
 
+      switch(parseInt(exif.getTag(this, "Orientation"))) {
+          case 2:
+              $containerImg.addClass('flip'); break;
+          case 3:
+              $containerImg.addClass('rotate-180'); break;
+          case 4:
+              $containerImg.addClass('flip-and-rotate-180'); break;
+          case 5:
+              $containerImg.addClass('flip-and-rotate-270'); break;
+          case 6:
+              $containerImg.addClass('rotate-90'); break;
+          case 7:
+              $containerImg.addClass('flip-and-rotate-90'); break;
+          case 8:
+              $containerImg.addClass('rotate-270'); break;
+      }
+
       if (latRational64u && longRational64u) {
         const $btnLocation = $('<button type="button" class="btn btn-sm btn-dark" data-placement="top" title="Use GPS location"><i class="fa fa-globe"></i></button>');
         var latRef = (exif.getTag(this, "GPSLatitudeRef") == 'S') ? '-' : '';
