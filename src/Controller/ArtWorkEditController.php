@@ -76,7 +76,6 @@ class ArtWorkEditController extends Controller
             /** @var Artwork $artwork */
             $artwork = $form->getData();
 
-            $artwork->setEnabled(true);
             if ($isCreateForm) {
                 $this->entityManager->persist($artwork);
             }
