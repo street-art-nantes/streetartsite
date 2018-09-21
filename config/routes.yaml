@@ -3,56 +3,66 @@
 #    controller: App\Controller\DefaultController::index
 
 home:
-    path:         /
+    path:         /{_locale}/
     controller:   App\Controller\HomeController
     defaults:
         template: pages/home.html.twig
 
 map:
-    path:         /map
+    path:         /{_locale}/map
     controller:   App\Controller\MapController
     defaults:
         template: pages/map.html.twig
-#    requirements:
-#        _locale:  en|fr
+    requirements:
+        _locale:  '%locale_avalaible%'
 
 list:
-    path:         /list/{page}
+    path:         /{_locale}/list/{page}
     controller:   App\Controller\ListController
     defaults:
         template: pages/list.html.twig
         page:     1
+    requirements:
+        _locale:  '%locale_avalaible%'
 
 faq:
-    path:         /faq
+    path:         /{_locale}/faq
     controller:   App\Controller\FaqController
     defaults:
         template: pages/content.html.twig
+    requirements:
+        _locale:  '%locale_avalaible%'
 
 sitemap:
-    path:         /sitemap
+    path:         /{_locale}/sitemap
     controller:   App\Controller\SitemapController
     defaults:
         template: pages/content.html.twig
+    requirements:
+        _locale:  '%locale_avalaible%'
 
 legals:
-    path:         /legals
+    path:         /{_locale}/legals
     controller:   App\Controller\LegalsController
     defaults:
         template: pages/content.html.twig
+    requirements:
+        _locale:  '%locale_avalaible%'
 
 blog:
-    path:         /blog/{id}
+    path:         /{_locale}/blog/{id}
     controller:   App\Controller\BlogController
     defaults:
         template: pages/content.html.twig
     requirements:
         id:  "[a-zA-Z0-9-]+"
+        _locale:  '%locale_avalaible%'
 
 artwork:
-    path:         /artwork/{id}
+    path:         /{_locale}/artwork/{id}
     controller:   App\Controller\ArtworkController
     defaults:
         template: pages/artwork.html.twig
     requirements:
         id:  "[0-9]+"
+        _locale:  '%locale_avalaible%'

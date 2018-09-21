@@ -13,19 +13,19 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 d-flex flex-column justify-content-center align-items-center">
-                        <h4>Toutes mes mensurations</h4>
+                        <h4>{{ 'artwork.mensurations'|trans({}) }}Toutes mes mensurations</h4>
                         <div id="artwork-data" class="lead text-muted">
                             <ul>
-                                <li>Pays : {{ poi.country }}</li>
-                                <li>Ville : {{ poi.city }}</li>
-                                <li>Adresse : {{ poi.address }}</li>
-                                <li>Latitude : {{ poi.latitude }}</li>
-                                <li>Longitude : {{ poi.longitude }}</li>
-                                <li>Titre : {{ artwork.title }}</li>
-                                <li>Type : {{ artwork.type }}</li>
-                                <li>Auteur : {{ artwork.author }}</li>
-                                <li>Actif : {{ artwork.enabled }}</li>
-                                <li>Date : {{ document.createdAt|date('d-m-Y') }}</li>
+                                <li>{{ 'artwork.label.country'|trans({}) }} : {{ poi.country }}</li>
+                                <li>{{ 'artwork.label.city'|trans({}) }} : {{ poi.city }}</li>
+                                <li>{{ 'artwork.label.address'|trans({}) }} : {{ poi.address }}</li>
+                                <li>{{ 'artwork.label.latitude'|trans({}) }} : {{ poi.latitude }}</li>
+                                <li>{{ 'artwork.label.longitude'|trans({}) }} : {{ poi.longitude }}</li>
+                                <li>{{ 'artwork.label.title'|trans({}) }} : {{ artwork.title }}</li>
+                                <li>{{ 'artwork.label.type'|trans({}) }} : {{ artwork.type }}</li>
+                                <li>{{ 'artwork.label.author'|trans({}) }} : {{ artwork.author }}</li>
+                                <li>{{ 'artwork.label.active'|trans({}) }} : {{ artwork.enabled }}</li>
+                                <li>{{ 'artwork.label.date'|trans({}) }} : {{ document.createdAt|date('d-m-Y') }}</li>
                             </ul>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12 d-flex flex-column justify-content-center align-items-center">
-                        <h4>Me voici en grandeur nature</h4>
+                        <h4>{{ 'artwork.fullsize'|trans({}) }}Me voici en grandeur nature</h4>
                         <div class="card-artwork">
                             <a href="{{ vich_uploader_asset(document, 'imageFile') }}" target="_blank"><img src="{{ vich_uploader_asset(document, 'imageFile') }}" alt="{{ artwork.title }}"
                                  width="100%" class="card-artwork-img"/></a>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12 d-flex flex-column justify-content-center align-items-center">
-                        <h4>Mes voisins (à moins de 100m)</h4>
+                        <h4>{{ 'artwork.neighbour'|trans({}) }}Mes voisins (à moins de 100m)</h4>
                     </div>
                 </div>
                 <div class="row">

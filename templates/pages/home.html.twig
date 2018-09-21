@@ -12,13 +12,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-4">
-                        {% include "components/card-block.twig" with { title: 'Nantes', introduction: 'Fresqu\'île au hangar à bananes', imgSrc: asset('assets/img/hangar-bananes.png'), link: '/blog/1w99PSuxAcMssEGU0AE2i2', linkDisplay: 'En savoir plus'} %}
+                        {% include "components/card-block.twig" with { title: 'Nantes', introduction: {{ 'home.introduction.fresquile'|trans({}) }}'Fresqu\'île au hangar à bananes', imgSrc: asset('assets/img/hangar-bananes.png'), link: '/blog/1w99PSuxAcMssEGU0AE2i2', linkDisplay: {{ 'home.showmore'|trans({}) }}'En savoir plus'} %}
                     </div>
                     <div class="col-sm-4">
-                        {% include "components/card-block.twig" with { title: 'Berlin', introduction: 'Baiser fraternel socialiste', imgSrc: asset('assets/img/berlin.png'), link: '/blog/39R0RcgHSguAui04Uq46sy', linkDisplay: 'En savoir plus'} %}
+                        {% include "components/card-block.twig" with { title: 'Berlin', introduction: {{ 'home.introduction.baisersocialiste'|trans({}) }}'Baiser fraternel socialiste', imgSrc: asset('assets/img/berlin.png'), link: '/blog/39R0RcgHSguAui04Uq46sy', linkDisplay: {{ 'home.showmore'|trans({}) }}'En savoir plus'} %}
                     </div>
                     <div class="col-sm-4">
-                        {% include "components/card-block.twig" with { title: 'Bordeaux', introduction: 'Abys Scaf, OSMOZ-COLORS', imgSrc: asset('assets/img/bdx.png'), link: '', linkDisplay: 'En savoir plus'} %}
+                        {% include "components/card-block.twig" with { title: 'Bordeaux', introduction: 'Abys Scaf, OSMOZ-COLORS', imgSrc: asset('assets/img/bdx.png'), link: '', linkDisplay: {{ 'home.showmore'|trans({}) }}'En savoir plus'} %}
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                     <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
                         <h2>We need you !</h2>
                         <p class="lead text-muted">{{ 'home.needyou'|trans({}) }}</p>
-                        <a href="{{ path('app_artwork_new') }}" class="btn btn-primary my-2">Soumettre une photo</a>
+                        <a href="{{ path('app_artwork_new') }}" class="btn btn-primary my-2">{{ 'home.submit'|trans({}) }}Soumettre une photo</a>
                     </div>
                     <div class="col-md-6">
                         <p>
@@ -43,8 +43,8 @@
 
         <section class="section">
             <div class="container">
-                <h2 class="mb-5 text-center">Preview de la base de données des oeuvres</h2>
-                <h3 class="mb-5 text-center">La base contient {{ totalPois }} oeuvres provenant de {{ totalCountry }} pays</h3>
+                <h2 class="mb-5 text-center">{{ 'home.preview'|trans({}) }}Preview de la base de données des oeuvres</h2>
+                <h3 class="mb-5 text-center">{{ 'home.preview.total'|trans({}) }}La base contient {{ totalPois }} oeuvres provenant de {{ totalCountry }} pays</h3>
                 <div class="row">
                     {% for pois in colPois %}
                         <div class="col-12 col-sm-4">

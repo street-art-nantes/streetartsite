@@ -13,16 +13,16 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('faq') }}">FAQ</a>
+                        <a class="nav-link" href="{{ path('faq') }}">{{ 'nav.link.faq'|trans({}) }}FAQ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('legals') }}">Mentions légales</a>
+                        <a class="nav-link" href="{{ path('legals') }}">{{ 'nav.link.legals'|trans({}) }}Mentions légales</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('sitemap') }}">Plan du site</a>
+                        <a class="nav-link" href="{{ path('sitemap') }}">{{ 'nav.link.sitemap'|trans({}) }}Plan du site</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="mailto:contact@street-artwork.com">Nous contacter</a>
+                        <a class="nav-link" href="mailto:contact@street-artwork.com">{{ 'nav.link.contact'|trans({}) }}Nous contacter</a>
                     </li>
 
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}

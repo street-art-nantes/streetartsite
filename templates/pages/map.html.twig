@@ -31,6 +31,9 @@
 
     <script>
       window.datas = '{{ pois | raw }}';
+      const translations = {
+          'aroundme' : {{ 'map.aroundme' | trans }},
+      }
     </script>
 
     <script src="{{ asset('build/js/map.js') }}"></script>

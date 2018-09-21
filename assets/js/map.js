@@ -63,7 +63,7 @@ $(function () {
   initMap();
 
     function maPosition(position) {
-        var infopos = "<button id='btn-showaround' data-lat='"+position.coords.latitude+"' data-lng='"+position.coords.longitude+"' type='button' class='btn btn-primary'>Voir autour de moi</button>";
+        var infopos = "<button id='btn-showaround' data-lat='"+position.coords.latitude+"' data-lng='"+position.coords.longitude+"' type='button' class='btn btn-primary'>" + translations.aroundme + "Voir autour de moi</button>";
         $('#showaround').html(infopos).show();
 
         $('#btn-showaround').on('click', function () {

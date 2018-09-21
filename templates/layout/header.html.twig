@@ -26,6 +26,26 @@
                         <a href="https://twitter.com/StreetArtwork44" class="fab fa-twitter fa-2x twitter" target="_blank"></a>
                         <a href="https://www.instagram.com/streetartwork44/" class="fab fa-instagram fa-2x instagram" target="_blank"></a>
                     </li>
+                    {% if (app.request.getLocale()) == 'fr' %}
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ 'header.menu.language'|trans({}) }} <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li class="dropdown-header"><strong>{{ 'header.menu.choose'|trans({}) }}</strong></li>
+                                <li class="active"><a href="#"> Fr</a></li>
+                                <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}"> En</a></li>
+                            </ul>
+                        </li>
+                    {% endif %}
+                    {% if (app.request.getLocale()) == 'en' %}
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ 'header.menu.language'|trans({}) }} <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li class="dropdown-header"><strong>{{ 'header.menu.choose'|trans({}) }}</strong></li>
+                                <li class=""><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}"> Fr</a></li>
+                                <li class="active"><a href=""> En</a></li>
+                            </ul>
+                        </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>

@@ -8,7 +8,7 @@
     <main role="main">
         <section class="section">
             <div class="container">
-                <h3 class="mb-5 text-center">La base contient {{ totalPois }} oeuvres provenant de {{ totalCountry }} pays</h3>
+                <h3 class="mb-5 text-center">{{ 'list.base'|trans({}) }}La base contient {{ totalPois }} oeuvres provenant de {{ totalCountry }} pays</h3>
                 {% include 'layout/pagination.html.twig' %}
                 <div class="row">
                     {% for pois in colPois %}

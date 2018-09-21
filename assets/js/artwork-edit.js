@@ -90,7 +90,7 @@ function addTagForm($collectionHolder) {
 }
 
 function addTagFormDeleteLink($tagFormLi) {
-  var $removeFormA = $('<button class="btn btn-danger btn-sm">Supprimer</button>'); // Todo change this by an icon
+  var $removeFormA = $('<button class="btn btn-danger btn-sm">' + translations.delete + '</button>');
   $tagFormLi.find('label .field-image-actions').append($removeFormA);
 
   $removeFormA.on('click', function(e) {
