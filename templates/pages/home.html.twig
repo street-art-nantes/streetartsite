@@ -8,17 +8,19 @@
 
         {% include "components/jumbotron.html.twig" %}
 
+        {% set locale = app.request.getLocale() %}
+
         <section class="section section-lg section-places">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-4">
-                        {% include "components/card-block.twig" with { title: 'Nantes', introduction: {{ 'home.introduction.fresquile'|trans({}) }}'Fresqu\'île au hangar à bananes', imgSrc: asset('assets/img/hangar-bananes.png'), link: '/blog/1w99PSuxAcMssEGU0AE2i2', linkDisplay: {{ 'home.showmore'|trans({}) }}'En savoir plus'} %}
+                        {% include "components/card-block.twig" with { title: 'Nantes', introduction: ('home.introduction.fresquile'|trans({})), imgSrc: asset('assets/img/hangar-bananes.png'), link: locale ~ '/blog/1w99PSuxAcMssEGU0AE2i2', linkDisplay: ('home.showmore'|trans({}))} %}
                     </div>
                     <div class="col-sm-4">
-                        {% include "components/card-block.twig" with { title: 'Berlin', introduction: {{ 'home.introduction.baisersocialiste'|trans({}) }}'Baiser fraternel socialiste', imgSrc: asset('assets/img/berlin.png'), link: '/blog/39R0RcgHSguAui04Uq46sy', linkDisplay: {{ 'home.showmore'|trans({}) }}'En savoir plus'} %}
+                        {% include "components/card-block.twig" with { title: 'Berlin', introduction: ('home.introduction.baisersocialiste'|trans({})), imgSrc: asset('assets/img/berlin.png'), link: locale ~ '/blog/39R0RcgHSguAui04Uq46sy', linkDisplay: ('home.showmore'|trans({}))} %}
                     </div>
                     <div class="col-sm-4">
-                        {% include "components/card-block.twig" with { title: 'Bordeaux', introduction: 'Abys Scaf, OSMOZ-COLORS', imgSrc: asset('assets/img/bdx.png'), link: '', linkDisplay: {{ 'home.showmore'|trans({}) }}'En savoir plus'} %}
+                        {% include "components/card-block.twig" with { title: 'Bordeaux', introduction: 'Abys Scaf, OSMOZ-COLORS', imgSrc: asset('assets/img/bdx.png'), link: '', linkDisplay: ('home.showmore'|trans({}))} %}
                     </div>
                 </div>
             </div>
@@ -30,7 +32,7 @@
                     <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
                         <h2>We need you !</h2>
                         <p class="lead text-muted">{{ 'home.needyou'|trans({}) }}</p>
-                        <a href="{{ path('app_artwork_new') }}" class="btn btn-primary my-2">{{ 'home.submit'|trans({}) }}Soumettre une photo</a>
+                        <a href="{{ path('app_artwork_new') }}" class="btn btn-primary my-2">{{ 'home.submit'|trans({}) }}</a>
                     </div>
                     <div class="col-md-6">
                         <p>
@@ -43,8 +45,8 @@
 
         <section class="section">
             <div class="container">
-                <h2 class="mb-5 text-center">{{ 'home.preview'|trans({}) }}Preview de la base de données des oeuvres</h2>
-                <h3 class="mb-5 text-center">{{ 'home.preview.total'|trans({}) }}La base contient {{ totalPois }} oeuvres provenant de {{ totalCountry }} pays</h3>
+                <h2 class="mb-5 text-center">{{ 'home.preview'|trans({}) }}</h2>
+                <h3 class="mb-5 text-center">{{ 'home.preview.total'|trans({'totalPois': totalPois, 'totalCountry': totalCountry}) }}</h3>
                 <div class="row">
                     {% for pois in colPois %}
                         <div class="col-12 col-sm-4">

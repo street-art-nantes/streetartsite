@@ -1,12 +1,11 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
-
 home:
-    path:         /{_locale}/
+    path:         /{_locale}
     controller:   App\Controller\HomeController
     defaults:
         template: pages/home.html.twig
+        _locale:  fr
+    requirements:
+        _locale:  '%locale_available%'
 
 map:
     path:         /{_locale}/map
@@ -14,7 +13,7 @@ map:
     defaults:
         template: pages/map.html.twig
     requirements:
-        _locale:  '%locale_avalaible%'
+        _locale:  '%locale_available%'
 
 list:
     path:         /{_locale}/list/{page}
@@ -23,7 +22,7 @@ list:
         template: pages/list.html.twig
         page:     1
     requirements:
-        _locale:  '%locale_avalaible%'
+        _locale:  '%locale_available%'
 
 faq:
     path:         /{_locale}/faq
@@ -31,7 +30,7 @@ faq:
     defaults:
         template: pages/content.html.twig
     requirements:
-        _locale:  '%locale_avalaible%'
+        _locale:  '%locale_available%'
 
 sitemap:
     path:         /{_locale}/sitemap
@@ -39,7 +38,7 @@ sitemap:
     defaults:
         template: pages/content.html.twig
     requirements:
-        _locale:  '%locale_avalaible%'
+        _locale:  '%locale_available%'
 
 legals:
     path:         /{_locale}/legals
@@ -47,7 +46,7 @@ legals:
     defaults:
         template: pages/content.html.twig
     requirements:
-        _locale:  '%locale_avalaible%'
+        _locale:  '%locale_available%'
 
 blog:
     path:         /{_locale}/blog/{id}
@@ -56,7 +55,7 @@ blog:
         template: pages/content.html.twig
     requirements:
         id:  "[a-zA-Z0-9-]+"
-        _locale:  '%locale_avalaible%'
+        _locale:  '%locale_available%'
 
 artwork:
     path:         /{_locale}/artwork/{id}
@@ -65,4 +64,4 @@ artwork:
         template: pages/artwork.html.twig
     requirements:
         id:  "[0-9]+"
-        _locale:  '%locale_avalaible%'
+        _locale:  '%locale_available%'
