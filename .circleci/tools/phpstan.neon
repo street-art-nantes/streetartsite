@@ -4,3 +4,4 @@ parameters:
     ignoreErrors:
         - '#Call to method [a-zA-Z0-9\\_]+\(\) on an unknown class Imagick.#'
         - '#Instantiated class Imagick not found.#'
+        - '#::autorotate()#'
