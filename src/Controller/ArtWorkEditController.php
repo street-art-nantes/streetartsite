@@ -49,8 +49,8 @@ class ArtWorkEditController extends Controller
     }
 
     /**
-     * @Route("/artwork/new", name="app_artwork_new")
-     * @Route("/artwork/{id}/edit", name="app_artwork_edit")
+     * @Route("/{_locale}/artwork/new", name="app_artwork_new")
+     * @Route("/{_locale}/artwork/{id}/edit", name="app_artwork_edit")
      *
      * @param Request      $request
      * @param Artwork|null $artwork

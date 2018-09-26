@@ -133,6 +133,7 @@
     </unit>
     <unit id="wt0Gj6K" name="artwork.label.title">
       <notes>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:24</note>
         <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:23</note>
       </notes>
       <segment>
@@ -142,7 +143,8 @@
     </unit>
     <unit id="HiArTFm" name="artwork.label.latitude">
       <notes>
-        <note category="file-source" priority="1">src/Form/Type/PoiType.php:22</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:22</note>
+        <note category="file-source" priority="1">src/Form/Type/PoiType.php:25</note>
       </notes>
       <segment>
         <source>artwork.label.latitude</source>
@@ -151,7 +153,8 @@
     </unit>
     <unit id="8eqK2ln" name="artwork.label.longitude">
       <notes>
-        <note category="file-source" priority="1">src/Form/Type/PoiType.php:25</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:23</note>
+        <note category="file-source" priority="1">src/Form/Type/PoiType.php:28</note>
       </notes>
       <segment>
         <source>artwork.label.longitude</source>
@@ -160,7 +163,8 @@
     </unit>
     <unit id="B91XroD" name="artwork.label.address">
       <notes>
-        <note category="file-source" priority="1">src/Form/Type/PoiType.php:28</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:21</note>
+        <note category="file-source" priority="1">src/Form/Type/PoiType.php:31</note>
       </notes>
       <segment>
         <source>artwork.label.address</source>
@@ -169,7 +173,8 @@
     </unit>
     <unit id="7kQJetd" name="artwork.label.country">
       <notes>
-        <note category="file-source" priority="1">src/Form/Type/PoiType.php:31</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:19</note>
+        <note category="file-source" priority="1">src/Form/Type/PoiType.php:34</note>
       </notes>
       <segment>
         <source>artwork.label.country</source>
@@ -178,7 +183,8 @@
     </unit>
     <unit id="5LLD2XU" name="artwork.label.city">
       <notes>
-        <note category="file-source" priority="1">src/Form/Type/PoiType.php:34</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:20</note>
+        <note category="file-source" priority="1">src/Form/Type/PoiType.php:37</note>
       </notes>
       <segment>
         <source>artwork.label.city</source>
@@ -187,7 +193,7 @@
     </unit>
     <unit id="3YXWeHz" name="artwork.label.documents">
       <notes>
-        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:29</note>
+        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:30</note>
       </notes>
       <segment>
         <source>artwork.label.documents</source>
@@ -205,7 +211,7 @@
     </unit>
     <unit id="9uLIsJG" name="artwork.flash.danger.error">
       <notes>
-        <note category="file-source" priority="1">src/Controller/ArtWorkEditController.php:99</note>
+        <note category="file-source" priority="1">src/Controller/ArtWorkEditController.php:104</note>
       </notes>
       <segment>
         <source>artwork.flash.danger.error</source>
@@ -272,11 +278,254 @@
     <unit id="REXtE1v" name="header.menu.list">
       <notes>
         <note category="file-source" priority="1">templates/layout/header.html.twig:19</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>header.menu.list</source>
         <target>Liste</target>
+      </segment>
+    </unit>
+    <unit id="VGttgWn" name="home.title.first">
+      <notes>
+        <note category="file-source" priority="1">templates/components/jumbotron.html.twig:14</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>home.title.first</source>
+        <target>Bienvenue sur Street Artwork</target>
+      </segment>
+    </unit>
+    <unit id="Tm2vOi." name="home.title.second">
+      <notes>
+        <note category="file-source" priority="1">templates/components/jumbotron.html.twig:20</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>home.title.second</source>
+        <target>Histoire</target>
+      </segment>
+    </unit>
+    <unit id="RIrQkXh" name="nav.link.faq">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/footer.html.twig:16</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>nav.link.faq</source>
+        <target>FAQ</target>
+      </segment>
+    </unit>
+    <unit id="a6EN0Ik" name="nav.link.legals">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/footer.html.twig:19</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>nav.link.legals</source>
+        <target>Mentions légales</target>
+      </segment>
+    </unit>
+    <unit id="57ZrJh1" name="nav.link.sitemap">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/footer.html.twig:22</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>nav.link.sitemap</source>
+        <target>Plan du site</target>
+      </segment>
+    </unit>
+    <unit id="gtOcNBZ" name="nav.link.contact">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/footer.html.twig:25</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>nav.link.contact</source>
+        <target>Nous contacter</target>
+      </segment>
+    </unit>
+    <unit id="_s6811m" name="header.menu.language">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:31</note>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:41</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>header.menu.language</source>
+        <target>Langue</target>
+      </segment>
+    </unit>
+    <unit id="gLQIwTF" name="header.menu.choose">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:33</note>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:43</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>header.menu.choose</source>
+        <target>Choisir</target>
+      </segment>
+    </unit>
+    <unit id="W7.Olmp" name="artwork.mensurations">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:16</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artwork.mensurations</source>
+        <target>Toutes mes mensurations</target>
+      </segment>
+    </unit>
+    <unit id="1NwHVSx" name="artwork.label.type">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:25</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artwork.label.type</source>
+        <target>Type</target>
+      </segment>
+    </unit>
+    <unit id="0zzdtT5" name="artwork.label.author">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:26</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artwork.label.author</source>
+        <target>Auteur</target>
+      </segment>
+    </unit>
+    <unit id="vUmGGvB" name="artwork.label.active">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:27</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artwork.label.active</source>
+        <target>Actif</target>
+      </segment>
+    </unit>
+    <unit id="vKmuEQK" name="artwork.label.date">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:28</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artwork.label.date</source>
+        <target>Date</target>
+      </segment>
+    </unit>
+    <unit id="aEXmsDa" name="artwork.fullsize">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:38</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artwork.fullsize</source>
+        <target>Me voici en grandeur nature</target>
+      </segment>
+    </unit>
+    <unit id="MoE907k" name="artwork.neighbour">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:47</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artwork.neighbour</source>
+        <target>Mes voisins (à moins de 100m)</target>
+      </segment>
+    </unit>
+    <unit id="9lCLEvv" name="artwork.label.delete">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:115</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artwork.label.delete</source>
+        <target>Supprimer</target>
+      </segment>
+    </unit>
+    <unit id="Z20erUn" name="home.introduction.fresquile">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:15</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>home.introduction.fresquile</source>
+        <target>Fresqu'île au hangar à bananes</target>
+      </segment>
+    </unit>
+    <unit id="avkHOvS" name="home.showmore">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:15</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:18</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:21</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>home.showmore</source>
+        <target>En savoir plus</target>
+      </segment>
+    </unit>
+    <unit id="YnSo4sX" name="home.introduction.baisersocialiste">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:18</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>home.introduction.baisersocialiste</source>
+        <target>Baiser fraternel socialiste</target>
+      </segment>
+    </unit>
+    <unit id="57Oz.Kw" name="home.submit">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:33</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>home.submit</source>
+        <target>Soumettre une photo</target>
+      </segment>
+    </unit>
+    <unit id="imv49VI" name="home.preview">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:46</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>home.preview</source>
+        <target>Preview de la base de données des oeuvres</target>
+      </segment>
+    </unit>
+    <unit id="KfBKpMe" name="home.preview.total">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:47</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>home.preview.total</source>
+        <target>La base contient totalPois oeuvres provenant de totalCountry pays</target>
+      </segment>
+    </unit>
+    <unit id="prpvSEO" name="list.base">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/list.html.twig:11</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>list.base</source>
+        <target>La base contient totalPois oeuvres provenant de totalCountry pays</target>
+      </segment>
+    </unit>
+    <unit id="yfyH0FV" name="map.aroundme">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/map.html.twig:35</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>map.aroundme</source>
+        <target>Voir autour de moi</target>
       </segment>
     </unit>
   </file>

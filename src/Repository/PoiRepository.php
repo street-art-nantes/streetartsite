@@ -45,6 +45,7 @@ class PoiRepository extends ServiceEntityRepository
         $query->select('p')
             ->leftJoin('p.artworks', 'artworks')
             ->andWhere('artworks.enabled=TRUE')
+            ->orderBy('p.id', 'DESC')
         ;
 
         $query->setFirstResult(($page - 1) * $maxperpage)

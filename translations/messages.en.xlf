@@ -61,7 +61,7 @@
       </notes>
       <segment>
         <source>artwork.title.create</source>
-        <target></target>
+        <target>Add a street artwork</target>
       </segment>
     </unit>
     <unit id="AM5GsPW" name="artwork.title.edit">
@@ -70,7 +70,7 @@
       </notes>
       <segment>
         <source>artwork.title.edit</source>
-        <target></target>
+        <target>Edit a street artwork</target>
       </segment>
     </unit>
     <unit id="Jn.7hg4" name="artwork.link.add_a_document">
@@ -79,7 +79,7 @@
       </notes>
       <segment>
         <source>artwork.link.add_a_document</source>
-        <target></target>
+        <target>Add a document</target>
       </segment>
     </unit>
     <unit id="asKIZV9" name="artwork.button.save">
@@ -88,7 +88,7 @@
       </notes>
       <segment>
         <source>artwork.button.save</source>
-        <target></target>
+        <target>Save</target>
       </segment>
     </unit>
     <unit id="9nqU7RQ" name="home.description.first">
@@ -97,7 +97,7 @@
       </notes>
       <segment>
         <source>home.description.first</source>
-        <target>          Welcome on street-artwork, the website gathering street artworks from around the world geolocated. Find beautiful artworks all around you.
+        <target>Welcome on street-artwork, the website gathering street artworks from around the world geolocated. Find beautiful artworks all around you.
         </target>
       </segment>
     </unit>
@@ -107,7 +107,8 @@
       </notes>
       <segment>
         <source>home.description.second</source>
-        <target></target>
+        <target>This project is born from the desire to introduce people to this art that is not enough highlighted, and which is often locates in places far from conventional tourist attractions or monuments.
+          Don't miss wonders near you anymore.</target>
       </segment>
     </unit>
     <unit id="NXSzUYf" name="home.needyou">
@@ -116,178 +117,85 @@
       </notes>
       <segment>
         <source>home.needyou</source>
-        <target></target>
-      </segment>
-    </unit>
-    <unit id="WMn2oya" name="artwork.label.image_file">
-      <notes>
-        <note category="state" priority="1">obsolete</note>
-      </notes>
-      <segment>
-        <source>artwork.label.image_file</source>
-        <target></target>
+        <target>We need you! This project is collaborative. We can't visit cities all around the world to take pictures of all the artworks (even if it would be really cool), so we need you to contribute to spread the world the street art of your city.</target>
       </segment>
     </unit>
     <unit id="wt0Gj6K" name="artwork.label.title">
       <notes>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:24</note>
         <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:23</note>
       </notes>
       <segment>
         <source>artwork.label.title</source>
-        <target></target>
-      </segment>
-    </unit>
-    <unit id="qvIyBkY" name="title">
-      <notes>
-        <note category="state" priority="1">obsolete</note>
-      </notes>
-      <segment>
-        <source>title</source>
-        <target></target>
-      </segment>
-    </unit>
-    <unit id="mxa0TQ4" name="documents">
-      <notes>
-        <note category="state" priority="1">obsolete</note>
-      </notes>
-      <segment>
-        <source>documents</source>
-        <target></target>
+        <target>Title</target>
       </segment>
     </unit>
     <unit id="HiArTFm" name="artwork.label.latitude">
       <notes>
-        <note category="file-source" priority="1">src/Form/Type/PoiType.php:22</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:22</note>
+        <note category="file-source" priority="1">src/Form/Type/PoiType.php:25</note>
       </notes>
       <segment>
         <source>artwork.label.latitude</source>
-        <target></target>
+        <target>Latitude</target>
       </segment>
     </unit>
     <unit id="8eqK2ln" name="artwork.label.longitude">
       <notes>
-        <note category="file-source" priority="1">src/Form/Type/PoiType.php:25</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:23</note>
+        <note category="file-source" priority="1">src/Form/Type/PoiType.php:28</note>
       </notes>
       <segment>
         <source>artwork.label.longitude</source>
-        <target></target>
+        <target>Longitude</target>
       </segment>
     </unit>
     <unit id="B91XroD" name="artwork.label.address">
       <notes>
-        <note category="file-source" priority="1">src/Form/Type/PoiType.php:28</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:21</note>
+        <note category="file-source" priority="1">src/Form/Type/PoiType.php:31</note>
       </notes>
       <segment>
         <source>artwork.label.address</source>
-        <target></target>
+        <target>Address</target>
       </segment>
     </unit>
     <unit id="7kQJetd" name="artwork.label.country">
       <notes>
-        <note category="file-source" priority="1">src/Form/Type/PoiType.php:31</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:19</note>
+        <note category="file-source" priority="1">src/Form/Type/PoiType.php:34</note>
       </notes>
       <segment>
         <source>artwork.label.country</source>
-        <target></target>
+        <target>Country</target>
       </segment>
     </unit>
     <unit id="5LLD2XU" name="artwork.label.city">
       <notes>
-        <note category="file-source" priority="1">src/Form/Type/PoiType.php:34</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:20</note>
+        <note category="file-source" priority="1">src/Form/Type/PoiType.php:37</note>
       </notes>
       <segment>
         <source>artwork.label.city</source>
-        <target></target>
-      </segment>
-    </unit>
-    <unit id="f.h.a0H" name="latitude">
-      <notes>
-        <note category="state" priority="1">obsolete</note>
-      </notes>
-      <segment>
-        <source>latitude</source>
-        <target></target>
-      </segment>
-    </unit>
-    <unit id="fdDIXJR" name="longitude">
-      <notes>
-        <note category="state" priority="1">obsolete</note>
-      </notes>
-      <segment>
-        <source>longitude</source>
-        <target></target>
-      </segment>
-    </unit>
-    <unit id="2Ayb_RD" name="address">
-      <notes>
-        <note category="state" priority="1">obsolete</note>
-      </notes>
-      <segment>
-        <source>address</source>
-        <target></target>
-      </segment>
-    </unit>
-    <unit id="r.ZOT9U" name="country">
-      <notes>
-        <note category="state" priority="1">obsolete</note>
-      </notes>
-      <segment>
-        <source>country</source>
-        <target></target>
-      </segment>
-    </unit>
-    <unit id="EaYsI0E" name="city">
-      <notes>
-        <note category="state" priority="1">obsolete</note>
-      </notes>
-      <segment>
-        <source>city</source>
-        <target></target>
-      </segment>
-    </unit>
-    <unit id="hDovvQA" name="The Artwork has been successfully saved">
-      <notes>
-        <note category="state" priority="1">obsolete</note>
-      </notes>
-      <segment>
-        <source>The Artwork has been successfully saved</source>
-        <target></target>
-      </segment>
-    </unit>
-    <unit id="UrEtpG1" name="An error occurred while saving changes.">
-      <notes>
-        <note category="state" priority="1">obsolete</note>
-      </notes>
-      <segment>
-        <source>An error occurred while saving changes.</source>
-        <target></target>
+        <target>City</target>
       </segment>
     </unit>
     <unit id="3YXWeHz" name="artwork.label.documents">
       <notes>
-        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:29</note>
+        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:30</note>
       </notes>
       <segment>
         <source>artwork.label.documents</source>
-        <target></target>
-      </segment>
-    </unit>
-    <unit id="ZnLz_nL" name="artwork.flash.success.saved">
-      <notes>
-        <note category="state" priority="1">obsolete</note>
-      </notes>
-      <segment>
-        <source>artwork.flash.success.saved</source>
-        <target></target>
+        <target>Documents</target>
       </segment>
     </unit>
     <unit id="9uLIsJG" name="artwork.flash.danger.error">
       <notes>
-        <note category="file-source" priority="1">src/Controller/ArtWorkEditController.php:99</note>
+        <note category="file-source" priority="1">src/Controller/ArtWorkEditController.php:104</note>
       </notes>
       <segment>
         <source>artwork.flash.danger.error</source>
-        <target></target>
+        <target>An error has occured during save</target>
       </segment>
     </unit>
     <unit id="xqBfcOp" name="artwork.button.cancel">
@@ -296,7 +204,7 @@
       </notes>
       <segment>
         <source>artwork.button.cancel</source>
-        <target></target>
+        <target>Cancel</target>
       </segment>
     </unit>
     <unit id="N8UWZOy" name="artwork.button.add_new">
@@ -305,7 +213,7 @@
       </notes>
       <segment>
         <source>artwork.button.add_new</source>
-        <target></target>
+        <target>Add new</target>
       </segment>
     </unit>
     <unit id="toykNtT" name="artwork.message.wording_success">
@@ -314,7 +222,7 @@
       </notes>
       <segment>
         <source>artwork.message.wording_success</source>
-        <target></target>
+        <target>Thank you!</target>
       </segment>
     </unit>
     <unit id="dCADRrf" name="artwork.introduction">
@@ -323,7 +231,9 @@
       </notes>
       <segment>
         <source>artwork.introduction</source>
-        <target></target>
+        <target><![CDATA[1/ Clic on « Browse » to add a photo. You can add several of the same artwork by clicking on « Add a document »
+          <br>2/ If your photo contains GPS coordinates, click on the small world map to the left of the "delete" button to automatically fill in the fields.
+          <br>3/ Give it a title then save]]></target>
       </segment>
     </unit>
     <unit id="ownf56y" name="header.menu.submit">
@@ -332,7 +242,7 @@
       </notes>
       <segment>
         <source>header.menu.submit</source>
-        <target></target>
+        <target>Submit a photo</target>
       </segment>
     </unit>
     <unit id="V2YvCwD" name="map.description">
@@ -341,17 +251,261 @@
       </notes>
       <segment>
         <source>map.description</source>
-        <target></target>
+        <target><![CDATA[Here is a glympse of the artworks displayed on a map.
+           <br> In the futur, you will have access to an advanced search, filters, your geolocation to offer the gems around you, settings ... and many good things to enjoy to your heart's content!]]></target>
       </segment>
     </unit>
     <unit id="REXtE1v" name="header.menu.list">
       <notes>
         <note category="file-source" priority="1">templates/layout/header.html.twig:19</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>header.menu.list</source>
-        <target></target>
+        <target>List</target>
+      </segment>
+    </unit>
+    <unit id="VGttgWn" name="home.title.first">
+      <notes>
+        <note category="file-source" priority="1">templates/components/jumbotron.html.twig:14</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>home.title.first</source>
+        <target>Welcome on Street Artwork</target>
+      </segment>
+    </unit>
+    <unit id="Tm2vOi." name="home.title.second">
+      <notes>
+        <note category="file-source" priority="1">templates/components/jumbotron.html.twig:20</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>home.title.second</source>
+        <target>History</target>
+      </segment>
+    </unit>
+    <unit id="RIrQkXh" name="nav.link.faq">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/footer.html.twig:16</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>nav.link.faq</source>
+        <target>FAQ</target>
+      </segment>
+    </unit>
+    <unit id="a6EN0Ik" name="nav.link.legals">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/footer.html.twig:19</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>nav.link.legals</source>
+        <target>Legals</target>
+      </segment>
+    </unit>
+    <unit id="57ZrJh1" name="nav.link.sitemap">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/footer.html.twig:22</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>nav.link.sitemap</source>
+        <target>Sitemap</target>
+      </segment>
+    </unit>
+    <unit id="gtOcNBZ" name="nav.link.contact">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/footer.html.twig:25</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>nav.link.contact</source>
+        <target>Contact us</target>
+      </segment>
+    </unit>
+    <unit id="_s6811m" name="header.menu.language">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:31</note>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:41</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>header.menu.language</source>
+        <target>Language</target>
+      </segment>
+    </unit>
+    <unit id="gLQIwTF" name="header.menu.choose">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:33</note>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:43</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>header.menu.choose</source>
+        <target>Choose</target>
+      </segment>
+    </unit>
+    <unit id="W7.Olmp" name="artwork.mensurations">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:16</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artwork.mensurations</source>
+        <target>My measurements</target>
+      </segment>
+    </unit>
+    <unit id="1NwHVSx" name="artwork.label.type">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:25</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artwork.label.type</source>
+        <target>Type</target>
+      </segment>
+    </unit>
+    <unit id="0zzdtT5" name="artwork.label.author">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:26</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artwork.label.author</source>
+        <target>Author</target>
+      </segment>
+    </unit>
+    <unit id="vUmGGvB" name="artwork.label.active">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:27</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artwork.label.active</source>
+        <target>Active</target>
+      </segment>
+    </unit>
+    <unit id="vKmuEQK" name="artwork.label.date">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:28</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artwork.label.date</source>
+        <target>Date</target>
+      </segment>
+    </unit>
+    <unit id="aEXmsDa" name="artwork.fullsize">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:38</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artwork.fullsize</source>
+        <target>Here I am in full size</target>
+      </segment>
+    </unit>
+    <unit id="MoE907k" name="artwork.neighbour">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:47</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artwork.neighbour</source>
+        <target>My neighbors (within 100m)</target>
+      </segment>
+    </unit>
+    <unit id="9lCLEvv" name="artwork.label.delete">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:115</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artwork.label.delete</source>
+        <target>Delete</target>
+      </segment>
+    </unit>
+    <unit id="Z20erUn" name="home.introduction.fresquile">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:15</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>home.introduction.fresquile</source>
+        <target>Fresqu'île at hangar à bananes</target>
+      </segment>
+    </unit>
+    <unit id="avkHOvS" name="home.showmore">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:15</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:18</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:21</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>home.showmore</source>
+        <target>Read more</target>
+      </segment>
+    </unit>
+    <unit id="YnSo4sX" name="home.introduction.baisersocialiste">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:18</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>home.introduction.baisersocialiste</source>
+        <target>Socialist fraternal kiss</target>
+      </segment>
+    </unit>
+    <unit id="57Oz.Kw" name="home.submit">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:33</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>home.submit</source>
+        <target>Submit a photo</target>
+      </segment>
+    </unit>
+    <unit id="imv49VI" name="home.preview">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:46</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>home.preview</source>
+        <target>Artworks database preview</target>
+      </segment>
+    </unit>
+    <unit id="KfBKpMe" name="home.preview.total">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:47</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>home.preview.total</source>
+        <target>The database contains totalPois artworks from totalCountry countries</target>
+      </segment>
+    </unit>
+    <unit id="prpvSEO" name="list.base">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/list.html.twig:11</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>list.base</source>
+        <target>The database contains totalPois artworks from totalCountry countries</target>
+      </segment>
+    </unit>
+    <unit id="yfyH0FV" name="map.aroundme">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/map.html.twig:35</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>map.aroundme</source>
+        <target>Show around me</target>
       </segment>
     </unit>
   </file>

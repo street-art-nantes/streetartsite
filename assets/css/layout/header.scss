@@ -17,4 +17,20 @@ $header-line-width: 300px;
       border-bottom: solid 3px $secondary;
     }
   }
+
+  .lang button {
+    background: white;
+  }
+
+  @media (max-width: 990px) {
+    .nav-item {
+      .nav-link {
+        height: 40px;
+      }
+    }
+
+    .navbar-nav.social {
+      width: 165px;
+    }
+  }
 }

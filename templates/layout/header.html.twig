@@ -10,24 +10,48 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item {% if app.request.get('_route') == 'home' %}active{% endif %}">
-                        <a class="nav-link" href="{{ path('home') }}">{{ 'header.menu.home'|trans({}) }} <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ path('home') }}">{{ 'header.menu.home'|trans({}) }} <span
+                                    class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item {% if app.request.get('_route') == 'map' %}active{% endif %}">
-                        <a class="nav-link" href="{{ path('map') }}">{{ 'header.menu.map'|trans({}) }} <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ path('map') }}">{{ 'header.menu.map'|trans({}) }} <span
+                                    class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item {% if app.request.get('_route') == 'list' %}active{% endif %}">
-                        <a class="nav-link" href="{{ path('list') }}">{{ 'header.menu.list'|trans({}) }} <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ path('list') }}">{{ 'header.menu.list'|trans({}) }} <span
+                                    class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item {% if app.request.get('_route') == 'app_artwork_new' %}active{% endif %}">
-                        <a class="nav-link" href="{{ path('app_artwork_new') }}">{{ 'header.menu.submit'|trans({}) }} <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item nav-socials ml-2">
-                        <a href="https://www.facebook.com/streetartwork44/" class="fab fa-facebook-f fa-2x facebook" target="_blank"></a>
-                        <a href="https://twitter.com/StreetArtwork44" class="fab fa-twitter fa-2x twitter" target="_blank"></a>
-                        <a href="https://www.instagram.com/streetartwork44/" class="fab fa-instagram fa-2x instagram" target="_blank"></a>
+                        <a class="nav-link" href="{{ path('app_artwork_new') }}">{{ 'header.menu.submit'|trans({}) }}
+                            <span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
             </div>
+
+            <ul class="navbar-nav social">
+                <li class="nav-item nav-socials ml-2">
+                    <a href="https://www.facebook.com/streetartwork44/" class="fab fa-facebook-f fa-2x facebook"
+                       target="_blank"></a>
+                    <a href="https://twitter.com/StreetArtwork44" class="fab fa-twitter fa-2x twitter"
+                       target="_blank"></a>
+                    <a href="https://www.instagram.com/streetartwork44/" class="fab fa-instagram fa-2x instagram"
+                       target="_blank"></a>
+                </li>
+            </ul>
+
+            <div class="btn-group lang">
+                {#<button type="button" class="btn btn-danger">Action</button>#}
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="far fa-flag fa-lg"></i>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item"
+                       href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}">FR</a>
+                    <a class="dropdown-item"
+                       href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}">EN</a>
+                </div>
+            </div>
+
         </div>
     </nav>
 </header>

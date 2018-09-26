@@ -25,6 +25,13 @@
   left: 50%;
 }
 
+@media (max-width: 990px) {
+  #showaround {
+    right: 0;
+    left: auto;
+  }
+}
+
 .bubble-img {
   width: 223px;
   height: 256px;
