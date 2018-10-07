@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Poi;
+use App\Entity\User;
 use App\Repository\PoiRepository;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
@@ -21,6 +23,11 @@ class HomeController extends Controller
         /** @var PoiRepository $poiRepository */
         $poiRepository = $this->getDoctrine()->getRepository(Poi::class);
 
+        /** @var UserRepository $userRepository */
+        $userRepository = $this->getDoctrine()->getRepository(User::class);
+
+        $topContributor = $userRepository->getTopContributor();
+
         $pois = $poiRepository->findBy(['highlight' => true]);
 
         $totalPois = $poiRepository->createQueryBuilder('u')
@@ -37,6 +44,7 @@ class HomeController extends Controller
             'colPois' => $colPois,
             'totalPois' => $totalPois,
             'totalCountry' => count($countriesFromPoi),
+            'topContributor' => $topContributor,
         ]);
     }
 }
