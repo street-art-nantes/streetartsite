@@ -485,117 +485,105 @@
     <unit id="HOSUB7I" name="artwork.connected">
       <notes>
         <note category="file-source" priority="1">templates/pages/artwork_edit.twig:35</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>artwork.connected</source>
-        <target></target>
+        <target>Thx username for sharing your treasures.</target>
       </segment>
     </unit>
     <unit id="64jSnLD" name="artwork.login">
       <notes>
         <note category="file-source" priority="1">templates/pages/artwork_edit.twig:37</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>artwork.login</source>
-        <target></target>
+        <target>Do you forget to login ? Or create an account ?</target>
       </segment>
     </unit>
     <unit id="KWiLMWp" name="home.seemap">
       <notes>
         <note category="file-source" priority="1">templates/pages/home.html.twig:55</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>home.seemap</source>
-        <target></target>
+        <target>See the map</target>
       </segment>
     </unit>
     <unit id="sSgP3hw" name="home.seelist">
       <notes>
         <note category="file-source" priority="1">templates/pages/home.html.twig:57</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>home.seelist</source>
-        <target></target>
+        <target>Browse the list</target>
       </segment>
     </unit>
     <unit id="bnuXF8H" name="home.contribute">
       <notes>
         <note category="file-source" priority="1">templates/pages/home.html.twig:62</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>home.contribute</source>
-        <target></target>
+        <target>Top contributors, be part of them?</target>
       </segment>
     </unit>
     <unit id="qKnsevq" name="home.pseudo">
       <notes>
         <note category="file-source" priority="1">templates/pages/home.html.twig:65</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>home.pseudo</source>
-        <target></target>
+        <target>Nickname</target>
       </segment>
     </unit>
     <unit id="0JK8wuG" name="home.nbartwork">
       <notes>
         <note category="file-source" priority="1">templates/pages/home.html.twig:66</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>home.nbartwork</source>
-        <target></target>
+        <target>Number of artworks</target>
       </segment>
     </unit>
     <unit id="DwuJ.S2" name="home.nbcountry">
       <notes>
         <note category="file-source" priority="1">templates/pages/home.html.twig:67</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>home.nbcountry</source>
-        <target></target>
+        <target>Number of countries</target>
       </segment>
     </unit>
     <unit id="3bqLM8Q" name="dashboard.title">
       <notes>
-        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:12</note>
-        <note category="state" priority="1">new</note>
+        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:15</note>
       </notes>
       <segment>
         <source>dashboard.title</source>
-        <target></target>
+        <target>My dashboard</target>
       </segment>
     </unit>
     <unit id="68QHsSe" name="dashboard.introduction">
       <notes>
-        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:13</note>
-        <note category="state" priority="1">new</note>
+        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:16</note>
       </notes>
       <segment>
         <source>dashboard.introduction</source>
-        <target></target>
+        <target>I submited a total of nbUserArtworks artwork(s) in nbUserContries countries</target>
       </segment>
     </unit>
     <unit id="i07781n" name="welcome.title">
       <notes>
         <note category="file-source" priority="1">templates/pages/welcome.html.twig:12</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>welcome.title</source>
-        <target></target>
+        <target>Be part of the adventure street-artwork.com</target>
       </segment>
     </unit>
     <unit id="wgjBVil" name="welcome.introduction">
       <notes>
-        <note category="file-source" priority="1">templates/pages/welcome.html.twig:13</note>
-        <note category="state" priority="1">new</note>
+        <note category="state" priority="1">obsolete</note>
       </notes>
       <segment>
         <source>welcome.introduction</source>
@@ -604,22 +592,43 @@
     </unit>
     <unit id="Yr35g2M" name="welcome.connect">
       <notes>
-        <note category="file-source" priority="1">templates/pages/welcome.html.twig:19</note>
-        <note category="state" priority="1">new</note>
+        <note category="file-source" priority="1">templates/pages/welcome.html.twig:20</note>
       </notes>
       <segment>
         <source>welcome.connect</source>
-        <target></target>
+        <target>Login</target>
       </segment>
     </unit>
     <unit id="7WELECE" name="welcome.register">
       <notes>
-        <note category="file-source" priority="1">templates/pages/welcome.html.twig:23</note>
-        <note category="state" priority="1">new</note>
+        <note category="file-source" priority="1">templates/pages/welcome.html.twig:24</note>
       </notes>
       <segment>
         <source>welcome.register</source>
-        <target></target>
+        <target>Register</target>
+      </segment>
+    </unit>
+    <unit id="l90EFdY" name="welcome.why">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/welcome.html.twig:13</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>welcome.why</source>
+        <target><![CDATA[<h2>Why ?</h2>
+Create an account will allow you to be part of a wonderful project, be in the list of contributors, find your history, and many great things in the futur!]]></target>
+      </segment>
+    </unit>
+    <unit id="NzCr5Cu" name="welcome.how">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/welcome.html.twig:14</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>welcome.how</source>
+        <target><![CDATA[<h2>How ?</h2>
+Only by clicking on one of the 2 buttons below.<br />
+Or contact us at this address (<a href="mailto:contact@street-artwork.com">contact@street-artwork.com</a>) for any other collaboration as an artist, developer, sponsor, partner ...]]></target>
       </segment>
     </unit>
   </file>

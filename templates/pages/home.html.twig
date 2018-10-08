@@ -50,21 +50,21 @@
                     <div class="col-md-6">
                         <h3 class="mb-5 text-center">{{ 'home.preview'|trans({}) }}</h3>
                         <h4 class="mb-5 text-center">{{ 'home.preview.total'|trans({'totalPois': totalPois, 'totalCountry': totalCountry}) }}</h4>
-                        <p>
+                        <p class="text-center">
                             <a href="{{ path('map') }}"
-                           class="btn btn-primary my-2">{{ 'home.seemap'|trans({}) }}Voir la carte</a>
+                           class="btn btn-primary my-2">{{ 'home.seemap'|trans({}) }}</a>
                             <a href="{{ path('list') }}"
-                           class="btn btn-primary my-2">{{ 'home.seelist'|trans({}) }}Voir la liste</a>
+                           class="btn btn-primary my-2">{{ 'home.seelist'|trans({}) }}</a>
                         </p>
                     </div>
                     <div class="col-md-6">
                         <table class="table">
-                            <caption><a href="{{ path('welcome') }}">{{ 'home.contribute'|trans({}) }}Top contributeurs, en faire partie ?</a></caption>
+                            <caption><a href="{{ path('welcome') }}">{{ 'home.contribute'|trans({}) }}</a></caption>
                             <thead class="thead-dark text-center">
                                 <tr>
-                                    <th scope="col">{{ 'home.pseudo'|trans({}) }}Pseudo</th>
-                                    <th scope="col">{{ 'home.nbartwork'|trans({}) }}Nombre d'artworks</th>
-                                    <th scope="col">{{ 'home.nbcountry'|trans({}) }}Nombre de pays</th>
+                                    <th scope="col">{{ 'home.pseudo'|trans({}) }}</th>
+                                    <th scope="col">{{ 'home.nbartwork'|trans({}) }}</th>
+                                    <th scope="col">{{ 'home.nbcountry'|trans({}) }}</th>
                                 </tr>
                             </thead>
                             <tbody class="text-center">
