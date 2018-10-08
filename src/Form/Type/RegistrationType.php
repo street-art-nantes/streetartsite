@@ -3,6 +3,7 @@
 namespace App\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class RegistrationType extends AbstractType
@@ -11,11 +12,20 @@ class RegistrationType extends AbstractType
     {
         $builder->add('city',
             null,
-            ['label' => 'form.city', 'translation_domain' => 'FOSUserBundle']
+            [
+                'label' => 'form.city',
+                'translation_domain' => 'FOSUserBundle',
+                'required' => false,
+            ]
         );
         $builder->add('country',
-            null,
-            ['label' => 'form.country', 'translation_domain' => 'FOSUserBundle']
+            CountryType::class,
+            [
+                'label' => 'form.country',
+                'translation_domain' => 'FOSUserBundle',
+                'preferred_choices' => ['FR'],
+                'required' => false,
+            ]
         );
     }
 
