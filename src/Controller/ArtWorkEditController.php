@@ -12,7 +12,6 @@ use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 
 /**
@@ -53,13 +52,12 @@ class ArtWorkEditController extends Controller
      * @Route("/{_locale}/artwork/new", name="app_artwork_new")
      * @Route("/{_locale}/artwork/{id}/edit", name="app_artwork_edit")
      *
-     * @param Request       $request
-     * @param Artwork|null  $artwork
-     * @param UserInterface $user
+     * @param Request      $request
+     * @param Artwork|null $artwork
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function __invoke(Request $request, Artwork $artwork = null, UserInterface $user)
+    public function __invoke(Request $request, Artwork $artwork = null)
     {
         $artwork = $this->initializePoi($artwork);
 
@@ -109,7 +107,7 @@ class ArtWorkEditController extends Controller
 
         return $this->render('/pages/artwork_edit.twig', [
             'form' => $form->createView(),
-            'user' => $user,
+            'user' => $this->getUser(),
         ]);
     }
 

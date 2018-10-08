@@ -30,17 +30,17 @@
 
             <ul class="navbar-nav social">
                 <li class="nav-item nav-socials ml-2">
+                    <a href="https://www.facebook.com/streetartwork44/" class="fab fa-facebook-f fa-lg facebook"
+                       target="_blank"></a>
+                    <a href="https://twitter.com/StreetArtwork44" class="fab fa-twitter fa-lg twitter"
+                       target="_blank"></a>
+                    <a href="https://www.instagram.com/streetartwork44/" class="fab fa-instagram fa-lg instagram"
+                       target="_blank"></a>
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                        <a href="{{ path('dashboard') }}" class="far fa-user fa-2x"></a>
+                        <a href="{{ path('dashboard') }}" class="far fa-user fa-lg"></a>
                     {% else %}
-                        <a href="{{ path('welcome') }}" class="far fa-user fa-2x"></a>
+                        <a href="{{ path('welcome') }}" class="far fa-user fa-lg"></a>
                     {% endif %}
-                    <a href="https://www.facebook.com/streetartwork44/" class="fab fa-facebook-f fa-2x facebook"
-                       target="_blank"></a>
-                    <a href="https://twitter.com/StreetArtwork44" class="fab fa-twitter fa-2x twitter"
-                       target="_blank"></a>
-                    <a href="https://www.instagram.com/streetartwork44/" class="fab fa-instagram fa-2x instagram"
-                       target="_blank"></a>
                 </li>
             </ul>
 
