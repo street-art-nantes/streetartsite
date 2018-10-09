@@ -25,6 +25,7 @@ class RegistrationType extends AbstractType
                 'translation_domain' => 'FOSUserBundle',
                 'preferred_choices' => ['FR'],
                 'required' => false,
+                'placeholder' => false,
             ]
         );
     }
