@@ -38,12 +38,12 @@ class HomeController extends Controller
         $countriesFromPoi = $poiRepository->getAllCountries();
 
         $columnCount = 3;
-        $colPois = array_chunk($pois, ceil(count($pois) / $columnCount));
+        $colPois = array_chunk($pois, ceil(\count($pois) / $columnCount));
 
         return $this->render('pages/home.html.twig', [
             'colPois' => $colPois,
             'totalPois' => $totalPois,
-            'totalCountry' => count($countriesFromPoi),
+            'totalCountry' => \count($countriesFromPoi),
             'topContributor' => $topContributor,
         ]);
     }
