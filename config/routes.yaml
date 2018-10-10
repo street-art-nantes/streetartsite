@@ -65,3 +65,19 @@ artwork:
     requirements:
         id:  "[0-9]+"
         _locale:  '%locale_available%'
+
+welcome:
+    path:         /{_locale}/welcome
+    controller:   Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+    defaults:
+        template: pages/welcome.html.twig
+    requirements:
+        _locale:  '%locale_available%'
+
+dashboard:
+    path:         /{_locale}/dashboard
+    controller:   App\Controller\UserController
+    defaults:
+        template: pages/user_dashboard.html.twig
+    requirements:
+        _locale:  '%locale_available%'

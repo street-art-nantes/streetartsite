@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Artwork;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -19,32 +20,43 @@ class ArtworkRepository extends ServiceEntityRepository
         parent::__construct($registry, Artwork::class);
     }
 
-//    /**
-//     * @return Artwork[] Returns an array of Artwork objects
-//     */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @param User $user
+     *
+     * @return mixed
+     */
+    public function getArtworksByUser(User $user)
     {
-        return $this->createQueryBuilder('o')
-            ->andWhere('o.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('o.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $query = $this->createQueryBuilder('a');
 
-    /*
-    public function findOneBySomeField($value): ?Artwork
-    {
-        return $this->createQueryBuilder('o')
-            ->andWhere('o.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
+        $query->select('a')
+            ->leftJoin('a.contributor', 'users')
+            ->andWhere('users.id = :user')
+            ->setParameter('user', $user)
+            ->orderBy('a.id', 'DESC')
         ;
+
+        return $query->getQuery()->getResult();
     }
-    */
+
+    /**
+     * @param User $user
+     *
+     * @return mixed
+     */
+    public function getArtworksCountriesByUser(User $user)
+    {
+        $query = $this->createQueryBuilder('a');
+
+        $query->select('pois.country')
+            ->leftJoin('a.contributor', 'users')
+            ->leftJoin('a.poi', 'pois')
+            ->andWhere('users.id = :user')
+            ->setParameter('user', $user)
+            ->groupBy('pois.country')
+            ->orderBy('pois.country', 'ASC')
+        ;
+
+        return $query->getQuery()->getResult();
+    }
 }

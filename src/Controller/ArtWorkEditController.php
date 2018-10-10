@@ -107,6 +107,7 @@ class ArtWorkEditController extends Controller
 
         return $this->render('/pages/artwork_edit.twig', [
             'form' => $form->createView(),
+            'user' => $this->getUser(),
         ]);
     }
 

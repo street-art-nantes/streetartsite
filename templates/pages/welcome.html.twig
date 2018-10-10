@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body_classes %}page-welcome{% endblock body_classes %}
+
+{% block body %}
+
+<main role="main">
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1>{{ 'welcome.title'|trans({}) }}</h1>
+                    <p>{{ 'welcome.why'|trans({})|raw }}</p>
+                    <p>{{ 'welcome.how'|trans({})|raw }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-3">
+                    <p class="text-center"><a href="{{ path('fos_user_security_login') }}" class="btn btn-primary my-2">{{ 'welcome.connect'|trans({}) }}</a>
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <p class="text-center"><a href="{{ path('fos_user_registration_register') }}" class="btn btn-primary my-2">{{ 'welcome.register'|trans({}) }}</a></p>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

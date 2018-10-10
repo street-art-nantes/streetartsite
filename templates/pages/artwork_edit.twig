@@ -30,6 +30,13 @@
     </h2>
     <div class="row">
         <div class="col-12">
+            <p>
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    {{ 'artwork.connected'|trans({'username' : user.username}) }}
+                {% else %}
+                    <a href="{{ path('welcome') }}"><strong>{{ 'artwork.login'|trans({}) }}</strong></a>
+                {% endif %}
+            </p>
             {{ 'artwork.introduction'|trans({}, 'messages')|raw }}
             <hr />
         </div>
@@ -112,7 +119,7 @@
     {{ parent() }}
     <script type="text/javascript">
         const translations = {
-            'delete' : {{ 'artwork.label.delete' | trans }},
+            'delete' : '{{ 'artwork.label.delete' | trans }}',
         }
     </script>
     <script src="{{ asset('build/js/artwork-edit.js') }}"></script>

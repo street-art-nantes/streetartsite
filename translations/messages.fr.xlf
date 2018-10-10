@@ -48,7 +48,7 @@
     </unit>
     <unit id="S2W3kLv" name="header.menu.map">
       <notes>
-        <note category="file-source" priority="1">templates/layout/header.html.twig:16</note>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:17</note>
       </notes>
       <segment>
         <source>header.menu.map</source>
@@ -78,7 +78,7 @@
     </unit>
     <unit id="NXSzUYf" name="home.needyou">
       <notes>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:32</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:34</note>
       </notes>
       <segment>
         <source>home.needyou</source>
@@ -106,7 +106,7 @@
     </unit>
     <unit id="Jn.7hg4" name="artwork.link.add_a_document">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:44</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:51</note>
       </notes>
       <segment>
         <source>artwork.link.add_a_document</source>
@@ -115,7 +115,7 @@
     </unit>
     <unit id="asKIZV9" name="artwork.button.save">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:76</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:83</note>
       </notes>
       <segment>
         <source>artwork.button.save</source>
@@ -211,7 +211,7 @@
     </unit>
     <unit id="9uLIsJG" name="artwork.flash.danger.error">
       <notes>
-        <note category="file-source" priority="1">src/Controller/ArtWorkEditController.php:104</note>
+        <note category="file-source" priority="1">src/Controller/ArtWorkEditController.php:106</note>
       </notes>
       <segment>
         <source>artwork.flash.danger.error</source>
@@ -220,7 +220,7 @@
     </unit>
     <unit id="xqBfcOp" name="artwork.button.cancel">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:73</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:80</note>
       </notes>
       <segment>
         <source>artwork.button.cancel</source>
@@ -247,7 +247,7 @@
     </unit>
     <unit id="dCADRrf" name="artwork.introduction">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:33</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:40</note>
       </notes>
       <segment>
         <source>artwork.introduction</source>
@@ -258,7 +258,7 @@
     </unit>
     <unit id="ownf56y" name="header.menu.submit">
       <notes>
-        <note category="file-source" priority="1">templates/layout/header.html.twig:22</note>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:25</note>
       </notes>
       <segment>
         <source>header.menu.submit</source>
@@ -277,7 +277,7 @@
     </unit>
     <unit id="REXtE1v" name="header.menu.list">
       <notes>
-        <note category="file-source" priority="1">templates/layout/header.html.twig:19</note>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:21</note>
       </notes>
       <segment>
         <source>header.menu.list</source>
@@ -287,7 +287,6 @@
     <unit id="VGttgWn" name="home.title.first">
       <notes>
         <note category="file-source" priority="1">templates/components/jumbotron.html.twig:14</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>home.title.first</source>
@@ -297,7 +296,6 @@
     <unit id="Tm2vOi." name="home.title.second">
       <notes>
         <note category="file-source" priority="1">templates/components/jumbotron.html.twig:20</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>home.title.second</source>
@@ -307,7 +305,6 @@
     <unit id="RIrQkXh" name="nav.link.faq">
       <notes>
         <note category="file-source" priority="1">templates/layout/footer.html.twig:16</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>nav.link.faq</source>
@@ -317,7 +314,6 @@
     <unit id="a6EN0Ik" name="nav.link.legals">
       <notes>
         <note category="file-source" priority="1">templates/layout/footer.html.twig:19</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>nav.link.legals</source>
@@ -327,7 +323,6 @@
     <unit id="57ZrJh1" name="nav.link.sitemap">
       <notes>
         <note category="file-source" priority="1">templates/layout/footer.html.twig:22</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>nav.link.sitemap</source>
@@ -337,7 +332,6 @@
     <unit id="gtOcNBZ" name="nav.link.contact">
       <notes>
         <note category="file-source" priority="1">templates/layout/footer.html.twig:25</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>nav.link.contact</source>
@@ -346,9 +340,7 @@
     </unit>
     <unit id="_s6811m" name="header.menu.language">
       <notes>
-        <note category="file-source" priority="1">templates/layout/header.html.twig:31</note>
-        <note category="file-source" priority="1">templates/layout/header.html.twig:41</note>
-        <note category="state" priority="1">new</note>
+        <note category="state" priority="1">obsolete</note>
       </notes>
       <segment>
         <source>header.menu.language</source>
@@ -357,9 +349,7 @@
     </unit>
     <unit id="gLQIwTF" name="header.menu.choose">
       <notes>
-        <note category="file-source" priority="1">templates/layout/header.html.twig:33</note>
-        <note category="file-source" priority="1">templates/layout/header.html.twig:43</note>
-        <note category="state" priority="1">new</note>
+        <note category="state" priority="1">obsolete</note>
       </notes>
       <segment>
         <source>header.menu.choose</source>
@@ -369,7 +359,6 @@
     <unit id="W7.Olmp" name="artwork.mensurations">
       <notes>
         <note category="file-source" priority="1">templates/pages/artwork.html.twig:16</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>artwork.mensurations</source>
@@ -379,7 +368,6 @@
     <unit id="1NwHVSx" name="artwork.label.type">
       <notes>
         <note category="file-source" priority="1">templates/pages/artwork.html.twig:25</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>artwork.label.type</source>
@@ -389,7 +377,6 @@
     <unit id="0zzdtT5" name="artwork.label.author">
       <notes>
         <note category="file-source" priority="1">templates/pages/artwork.html.twig:26</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>artwork.label.author</source>
@@ -399,7 +386,6 @@
     <unit id="vUmGGvB" name="artwork.label.active">
       <notes>
         <note category="file-source" priority="1">templates/pages/artwork.html.twig:27</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>artwork.label.active</source>
@@ -409,7 +395,6 @@
     <unit id="vKmuEQK" name="artwork.label.date">
       <notes>
         <note category="file-source" priority="1">templates/pages/artwork.html.twig:28</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>artwork.label.date</source>
@@ -419,7 +404,6 @@
     <unit id="aEXmsDa" name="artwork.fullsize">
       <notes>
         <note category="file-source" priority="1">templates/pages/artwork.html.twig:38</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>artwork.fullsize</source>
@@ -429,7 +413,6 @@
     <unit id="MoE907k" name="artwork.neighbour">
       <notes>
         <note category="file-source" priority="1">templates/pages/artwork.html.twig:47</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>artwork.neighbour</source>
@@ -438,8 +421,7 @@
     </unit>
     <unit id="9lCLEvv" name="artwork.label.delete">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:115</note>
-        <note category="state" priority="1">new</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:122</note>
       </notes>
       <segment>
         <source>artwork.label.delete</source>
@@ -448,8 +430,7 @@
     </unit>
     <unit id="Z20erUn" name="home.introduction.fresquile">
       <notes>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:15</note>
-        <note category="state" priority="1">new</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:17</note>
       </notes>
       <segment>
         <source>home.introduction.fresquile</source>
@@ -458,10 +439,9 @@
     </unit>
     <unit id="avkHOvS" name="home.showmore">
       <notes>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:15</note>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:18</note>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:21</note>
-        <note category="state" priority="1">new</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:17</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:20</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:23</note>
       </notes>
       <segment>
         <source>home.showmore</source>
@@ -470,8 +450,7 @@
     </unit>
     <unit id="YnSo4sX" name="home.introduction.baisersocialiste">
       <notes>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:18</note>
-        <note category="state" priority="1">new</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:20</note>
       </notes>
       <segment>
         <source>home.introduction.baisersocialiste</source>
@@ -480,8 +459,7 @@
     </unit>
     <unit id="57Oz.Kw" name="home.submit">
       <notes>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:33</note>
-        <note category="state" priority="1">new</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:36</note>
       </notes>
       <segment>
         <source>home.submit</source>
@@ -490,8 +468,7 @@
     </unit>
     <unit id="imv49VI" name="home.preview">
       <notes>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:46</note>
-        <note category="state" priority="1">new</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:51</note>
       </notes>
       <segment>
         <source>home.preview</source>
@@ -500,8 +477,7 @@
     </unit>
     <unit id="KfBKpMe" name="home.preview.total">
       <notes>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:47</note>
-        <note category="state" priority="1">new</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:52</note>
       </notes>
       <segment>
         <source>home.preview.total</source>
@@ -511,7 +487,6 @@
     <unit id="prpvSEO" name="list.base">
       <notes>
         <note category="file-source" priority="1">templates/pages/list.html.twig:11</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>list.base</source>
@@ -521,11 +496,159 @@
     <unit id="yfyH0FV" name="map.aroundme">
       <notes>
         <note category="file-source" priority="1">templates/pages/map.html.twig:35</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>map.aroundme</source>
         <target>Voir autour de moi</target>
+      </segment>
+    </unit>
+    <unit id="HOSUB7I" name="artwork.connected">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:35</note>
+      </notes>
+      <segment>
+        <source>artwork.connected</source>
+        <target>Merci username de nous faire partager tes trouvailles.</target>
+      </segment>
+    </unit>
+    <unit id="64jSnLD" name="artwork.login">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:37</note>
+      </notes>
+      <segment>
+        <source>artwork.login</source>
+        <target>N'as-tu pas oublié de te connecter ? Ou même de te créer un compte ?</target>
+      </segment>
+    </unit>
+    <unit id="KWiLMWp" name="home.seemap">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:55</note>
+      </notes>
+      <segment>
+        <source>home.seemap</source>
+        <target>Voir la carte</target>
+      </segment>
+    </unit>
+    <unit id="sSgP3hw" name="home.seelist">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:57</note>
+      </notes>
+      <segment>
+        <source>home.seelist</source>
+        <target>Parcourir la liste</target>
+      </segment>
+    </unit>
+    <unit id="bnuXF8H" name="home.contribute">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:62</note>
+      </notes>
+      <segment>
+        <source>home.contribute</source>
+        <target>Top contributeurs, en faire partie ?</target>
+      </segment>
+    </unit>
+    <unit id="qKnsevq" name="home.pseudo">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:65</note>
+      </notes>
+      <segment>
+        <source>home.pseudo</source>
+        <target>Pseudo</target>
+      </segment>
+    </unit>
+    <unit id="0JK8wuG" name="home.nbartwork">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:66</note>
+      </notes>
+      <segment>
+        <source>home.nbartwork</source>
+        <target>Nombre d'artworks</target>
+      </segment>
+    </unit>
+    <unit id="DwuJ.S2" name="home.nbcountry">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:67</note>
+      </notes>
+      <segment>
+        <source>home.nbcountry</source>
+        <target>Nombre de pays</target>
+      </segment>
+    </unit>
+    <unit id="3bqLM8Q" name="dashboard.title">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:15</note>
+      </notes>
+      <segment>
+        <source>dashboard.title</source>
+        <target>Mon tableau de bord</target>
+      </segment>
+    </unit>
+    <unit id="68QHsSe" name="dashboard.introduction">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:16</note>
+      </notes>
+      <segment>
+        <source>dashboard.introduction</source>
+        <target>J'ai proposé un total de nbUserArtworks artwork(s) dans nbUserContries pays</target>
+      </segment>
+    </unit>
+    <unit id="i07781n" name="welcome.title">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/welcome.html.twig:12</note>
+      </notes>
+      <segment>
+        <source>welcome.title</source>
+        <target>Faire partie de l'aventure street-artwork.com</target>
+      </segment>
+    </unit>
+    <unit id="wgjBVil" name="welcome.introduction">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
+      <segment>
+        <source>welcome.introduction</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="Yr35g2M" name="welcome.connect">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/welcome.html.twig:20</note>
+      </notes>
+      <segment>
+        <source>welcome.connect</source>
+        <target>Me connecter</target>
+      </segment>
+    </unit>
+    <unit id="7WELECE" name="welcome.register">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/welcome.html.twig:24</note>
+      </notes>
+      <segment>
+        <source>welcome.register</source>
+        <target>M'inscrire</target>
+      </segment>
+    </unit>
+    <unit id="l90EFdY" name="welcome.why">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/welcome.html.twig:13</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>welcome.why</source>
+        <target><![CDATA[<h2>Pourquoi ?</h2>
+          Créer un compte vous permettra de faire partie d’un magnifique projet, être dans la liste des contributeurs, retrouver votre historique, et plein de super choses à venir encore !]]></target>
+      </segment>
+    </unit>
+    <unit id="NzCr5Cu" name="welcome.how">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/welcome.html.twig:14</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>welcome.how</source>
+        <target><![CDATA[<h2>Comment ?</h2>
+Simplement en cliquant sur un des 2 boutons ci-dessous.<br />
+Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.com">contact@street-artwork.com</a>) pour tout autre collaboration comme artiste, développeur, sponsor, partenaire...]]></target>
       </segment>
     </unit>
   </file>

@@ -21,8 +21,13 @@ security:
             form_login:
                 provider: fos_userbundle
                 csrf_token_generator: security.csrf.token_manager
+                check_path: fos_user_security_check
+                login_path: fos_user_security_login
+                default_target_path: /
 
-            logout:       true
+            logout:
+                path: fos_user_security_logout
+                target: /
             anonymous:    true
 
             # activate different ways to authenticate
