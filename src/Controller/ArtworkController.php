@@ -24,7 +24,7 @@ class ArtworkController extends Controller
         $poisAround = $poiRepository->findByDistanceFrom($poi->getLatitude(), $poi->getLongitude());
 
         $columnCount = 3;
-        $colPois = array_chunk($poisAround, ceil(count($poisAround) / $columnCount));
+        $colPois = array_chunk($poisAround, ceil(\count($poisAround) / $columnCount));
 
         /** @var PoiManager $poiManager */
         $poiManager = $this->get('poi.manager');
