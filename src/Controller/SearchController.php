@@ -29,7 +29,7 @@ class SearchController extends Controller
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function __invoke($q)
+    public function __invoke($queryRequest)
     {
         /** @var PoiRepository $poiRepository */
         $poiRepository = $this->getDoctrine()->getRepository(Poi::class);
@@ -38,7 +38,7 @@ class SearchController extends Controller
         $pois = [];
         $colPois = [];
 
-        $tmp = explode('-', $q);
+        $tmp = explode('-', $queryRequest);
         $query[$tmp[0]] = $tmp[1];
 
         try {

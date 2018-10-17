@@ -25,7 +25,7 @@ list:
         _locale:  '%locale_available%'
 
 search:
-    path:         /{_locale}/search/{q}
+    path:         /{_locale}/search/{queryRequest}
     controller:   App\Controller\SearchController
     defaults:
         template: pages/list.html.twig
