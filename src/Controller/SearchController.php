@@ -49,12 +49,12 @@ class SearchController extends Controller
 
         if ($pois) {
             $columnCount = 4;
-            $colPois = array_chunk($pois, ceil(count($pois) / $columnCount));
+            $colPois = array_chunk($pois, ceil(\count($pois) / $columnCount));
         }
 
         return $this->render('pages/list.html.twig', [
             'colPois' => $colPois,
-            'filterResult' => count($pois),
+            'filterResult' => \count($pois),
             'listOfCountry' => $poiRepository->getDistinctCountries(),
             'listOfCity' => $poiRepository->getDistinctCities(),
         ]);
