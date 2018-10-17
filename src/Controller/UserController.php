@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function __invoke()
     {
-        /** @var ArtworkRepository $poiRepository */
+        /** @var ArtworkRepository $artworkRepository */
         $artworkRepository = $this->getDoctrine()->getRepository(Artwork::class);
 
         $user = $this->getUser();

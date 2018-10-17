@@ -27,9 +27,9 @@ jobs:
 #            - node_modules
 
   phpstan:
-    working_directory: ~/street-art
+    working_directory: ~/app
     docker:
-      - image: wpengine/php:7.2
+      - image: julienpetit/docker-images:latest
     steps:
       - checkout
       - restore_cache:
@@ -41,7 +41,7 @@ jobs:
            key: composer-v1-{{ checksum "composer.lock" }}
            paths:
              - vendor
-      - run: phpstan analyse --level 2 -c .circleci/tools/phpstan.neon src
+      - run: vendor/bin/phpstan analyse --level 2 -c .circleci/tools/phpstan.neon src
 
   php-metrics:
     working_directory: ~/street-art
@@ -66,7 +66,7 @@ jobs:
   php-cs-fixer:
     working_directory: ~/street-art
     docker:
-      - image: webdevops/php:7.2
+      - image: julienpetit/docker-images:latest
     steps:
       - checkout
       - restore_cache:
@@ -83,9 +83,9 @@ jobs:
           path: "var/patch.diff"
 
   doctrine-schema-validate:
-    working_directory: ~/street-art
+    working_directory: ~/app
     docker:
-      - image: webdevops/php:7.2
+      - image: julienpetit/docker-images:latest
       - image: mdillon/postgis:10
         environment:
             - DEBUG=false
