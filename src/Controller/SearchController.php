@@ -38,7 +38,7 @@ class SearchController extends Controller
         $pois = [];
         $colPois = [];
 
-        $tmp = explode('-', $queryRequest);
+        $tmp = explode('-', $queryRequest, 2);
         $query[$tmp[0]] = $tmp[1];
 
         try {
