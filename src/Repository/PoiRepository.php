@@ -55,6 +55,12 @@ class PoiRepository extends ServiceEntityRepository
         return $query->getQuery()->getResult();
     }
 
+    /**
+     * @param $latitude
+     * @param $longitude
+     * @param int $distanceInMeters
+     * @return mixed
+     */
     public function findByDistanceFrom($latitude, $longitude, $distanceInMeters = 100)
     {
         $qb = $this->createQueryBuilder('poi');
@@ -71,5 +77,33 @@ class PoiRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult()
             ;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDistinctCountries()
+    {
+        $query = $this->createQueryBuilder('p');
+
+        $query->select('DISTINCT(p.country)')
+            ->orderBy('p.country', 'ASC')
+        ;
+
+        return $query->getQuery()->getResult();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDistinctCities()
+    {
+        $query = $this->createQueryBuilder('p');
+
+        $query->select('DISTINCT(p.city)')
+            ->orderBy('p.city', 'ASC')
+        ;
+
+        return $query->getQuery()->getResult();
     }
 }

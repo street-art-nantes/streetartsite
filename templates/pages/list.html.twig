@@ -8,7 +8,25 @@
     <main role="main">
         <section class="section">
             <div class="container">
-                <h3 class="mb-5 text-center">{{ 'list.base'|trans({'totalPois': totalPois, 'totalCountry': totalCountry}) }}</h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="mb-5 text-center">{{ 'list.base'|trans({'totalPois': totalPois, 'totalCountry': totalCountry}) }}</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        {% include 'layout/filter.html.twig' with {
+                            title: 'Countries',
+                            values: countriesList,
+                        } %}
+                    </div>
+                    <div class="col-md-6">
+                        {% include 'layout/filter.html.twig' with {
+                            title: 'Cities',
+                            values: citiesList,
+                        } %}
+                    </div>
+                </div>
                 {% include 'layout/pagination.html.twig' %}
                 <div class="row">
                     {% for pois in colPois %}
@@ -18,12 +36,12 @@
                                 {% set document = artwork.documents.first %}
 
                                 <a href="{{ path('artwork', {'id': poi.id}) }}">
-                                {% include "components/card-artwork.twig" with {
-                                    imgSrc: vich_uploader_asset(document, 'imageFile'),
-                                    title: artwork.title,
-                                    textLeft: poi.city ~ ', ' ~ poi.country,
-                                    textRight: artwork.createdAt|date("d/m/Y"),
-                                } %}
+                                    {% include "components/card-artwork.twig" with {
+                                        imgSrc: vich_uploader_asset(document, 'imageFile'),
+                                        title: artwork.title,
+                                        textLeft: poi.city ~ ', ' ~ poi.country,
+                                        textRight: artwork.createdAt|date("d/m/Y"),
+                                    } %}
                                 </a>
                             {% endfor %}
                         </div>
