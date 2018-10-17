@@ -8,26 +8,49 @@
     <main role="main">
         <section class="section">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h3 class="mb-5 text-center">{{ 'list.base'|trans({'totalPois': totalPois, 'totalCountry': totalCountry}) }}</h3>
+                {% if totalPois is defined and totalCountry is defined %}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 class="mb-5 text-center">{{ 'list.base'|trans({'totalPois': totalPois, 'totalCountry': totalCountry}) }}</h3>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
+                {% elseif filterResult is defined %}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 class="mb-5 text-center">{{ 'list.filter.result'|transchoice(filterResult, {'filterResult': filterResult}) }}
+                            </h3>
+                        </div>
+                    </div>
+                {% endif %}
+                <div class="row mb-3">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-4">
+                        {{ 'list.filter'|trans({}) }}
+                    </div>
+                    <div class="col-md-2">
                         {% include 'layout/filter.html.twig' with {
+                            query: 'country',
                             title: 'Countries',
                             values: countriesList,
                         } %}
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-2">
                         {% include 'layout/filter.html.twig' with {
+                            query: 'city',
                             title: 'Cities',
                             values: citiesList,
                         } %}
                     </div>
+                    <div class="col-md-2">
+                        <div class="m-2">
+                            <a class="btn btn-primary" href="{{ path('list') }}">{{ 'list.backtolist'|trans({}) }}</a>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
                 </div>
-                {% include 'layout/pagination.html.twig' %}
+                {% if pagination is defined %}
+                    {% include 'layout/pagination.html.twig' %}
+                {% endif %}
                 <div class="row">
                     {% for pois in colPois %}
                         <div class="col-12 col-sm-3">
@@ -47,7 +70,9 @@
                         </div>
                     {% endfor %}
                 </div>
-                {% include 'layout/pagination.html.twig' %}
+                {% if pagination is defined %}
+                    {% include 'layout/pagination.html.twig' %}
+                {% endif %}
             </div>
         </section>
     </main>

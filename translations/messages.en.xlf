@@ -191,7 +191,7 @@
     </unit>
     <unit id="9uLIsJG" name="artwork.flash.danger.error">
       <notes>
-        <note category="file-source" priority="1">src/Controller/ArtWorkEditController.php:106</note>
+        <note category="file-source" priority="1">src/Controller/ArtWorkEditController.php:104</note>
       </notes>
       <segment>
         <source>artwork.flash.danger.error</source>
@@ -466,7 +466,7 @@
     </unit>
     <unit id="prpvSEO" name="list.base">
       <notes>
-        <note category="file-source" priority="1">templates/pages/list.html.twig:11</note>
+        <note category="file-source" priority="1">templates/pages/list.html.twig:14</note>
       </notes>
       <segment>
         <source>list.base</source>
@@ -611,7 +611,6 @@
     <unit id="l90EFdY" name="welcome.why">
       <notes>
         <note category="file-source" priority="1">templates/pages/welcome.html.twig:13</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>welcome.why</source>
@@ -622,13 +621,51 @@ Create an account will allow you to be part of a wonderful project, be in the li
     <unit id="NzCr5Cu" name="welcome.how">
       <notes>
         <note category="file-source" priority="1">templates/pages/welcome.html.twig:14</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>welcome.how</source>
         <target><![CDATA[<h2>How ?</h2>
 Only by clicking on one of the 2 buttons below.<br />
 Or contact us at this address (<a href="mailto:contact@street-artwork.com">contact@street-artwork.com</a>) for any other collaboration as an artist, developer, sponsor, partner ...]]></target>
+      </segment>
+    </unit>
+    <unit id="MIVPqPh" name="list.filter.result">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/list.html.twig:20</note>
+      </notes>
+      <segment>
+        <source>list.filter.result</source>
+        <target>{0} Unfortunately, there is no result for your search|]0,Inf]Here are the filterResult artwork(s) matching your search.</target>
+      </segment>
+    </unit>
+    <unit id="bBZIuxN" name="list.backtolist">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/list.html.twig:22</note>
+      </notes>
+      <segment>
+        <source>list.backtolist</source>
+        <target>back to list</target>
+      </segment>
+    </unit>
+    <unit id="SoXS2Ks" name="list.filter">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/list.html.twig:29</note>
+      </notes>
+      <segment>
+        <source>list.filter</source>
+        <target>To find artworks in your country or city, you can use filters on the right.</target>
+      </segment>
+    </unit>
+    <unit id="SoXS2Ksco" name="list.filter.country">
+      <segment>
+        <source>list.filter.country</source>
+        <target>Countries</target>
+      </segment>
+    </unit>
+    <unit id="SoXS2Ksci" name="list.filter.city">
+      <segment>
+        <source>list.filter.city</source>
+        <target>Cities</target>
       </segment>
     </unit>
   </file>

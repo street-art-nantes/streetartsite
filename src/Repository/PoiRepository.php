@@ -59,6 +59,7 @@ class PoiRepository extends ServiceEntityRepository
      * @param $latitude
      * @param $longitude
      * @param int $distanceInMeters
+     *
      * @return mixed
      */
     public function findByDistanceFrom($latitude, $longitude, $distanceInMeters = 100)

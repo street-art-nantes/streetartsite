@@ -1,12 +1,13 @@
-<div class="dropdown show">
-    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+<div class="dropdown show m-2">
+    <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
        aria-haspopup="true" aria-expanded="false">
-        {{ title }}
+        {{ ('list.filter.'~query)|trans({}) }}
     </a>
 
     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
         {% for value in values %}
-            <a class="dropdown-item" href="#">{{ value[1] }}</a>
+            {% set q = query~'-'~value[1] %}
+            <a class="dropdown-item" href="{{ path('search', { 'q' : q }) }}">{{ value[1] }}</a>
         {% endfor %}
     </div>
 </div>
