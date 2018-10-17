@@ -25,7 +25,7 @@ class SearchController extends Controller
     }
 
     /**
-     * @param string $q
+     * @param string $queryRequest
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -55,8 +55,8 @@ class SearchController extends Controller
         return $this->render('pages/list.html.twig', [
             'colPois' => $colPois,
             'filterResult' => count($pois),
-            'countriesList' => $poiRepository->getDistinctCountries(),
-            'citiesList' => $poiRepository->getDistinctCities(),
+            'listOfCountry' => $poiRepository->getDistinctCountries(),
+            'listOfCity' => $poiRepository->getDistinctCities(),
         ]);
     }
 }
