@@ -58,7 +58,7 @@ class PoiRepository extends ServiceEntityRepository
     /**
      * @param float $latitude
      * @param float $longitude
-     * @param int $distanceInMeters
+     * @param int   $distanceInMeters
      *
      * @return mixed
      */
