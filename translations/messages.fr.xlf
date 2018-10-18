@@ -211,7 +211,7 @@
     </unit>
     <unit id="9uLIsJG" name="artwork.flash.danger.error">
       <notes>
-        <note category="file-source" priority="1">src/Controller/ArtWorkEditController.php:106</note>
+        <note category="file-source" priority="1">src/Controller/ArtWorkEditController.php:104</note>
       </notes>
       <segment>
         <source>artwork.flash.danger.error</source>
@@ -486,7 +486,7 @@
     </unit>
     <unit id="prpvSEO" name="list.base">
       <notes>
-        <note category="file-source" priority="1">templates/pages/list.html.twig:11</note>
+        <note category="file-source" priority="1">templates/pages/list.html.twig:14</note>
       </notes>
       <segment>
         <source>list.base</source>
@@ -631,7 +631,6 @@
     <unit id="l90EFdY" name="welcome.why">
       <notes>
         <note category="file-source" priority="1">templates/pages/welcome.html.twig:13</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>welcome.why</source>
@@ -642,13 +641,52 @@
     <unit id="NzCr5Cu" name="welcome.how">
       <notes>
         <note category="file-source" priority="1">templates/pages/welcome.html.twig:14</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>welcome.how</source>
         <target><![CDATA[<h2>Comment ?</h2>
 Simplement en cliquant sur un des 2 boutons ci-dessous.<br />
 Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.com">contact@street-artwork.com</a>) pour tout autre collaboration comme artiste, développeur, sponsor, partenaire...]]></target>
+      </segment>
+    </unit>
+    <unit id="MIVPqPh" name="list.filter.result">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/list.html.twig:20</note>
+      </notes>
+      <segment>
+        <source>list.filter.result</source>
+        <target>{0} Il n'y a malheureusement aucun résultat à votre recherche|]0,Inf]Voici les filterResult oeuvre(s) correspondant à votre recherche.</target>
+      </segment>
+    </unit>
+    <unit id="bBZIuxN" name="list.backtolist">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/list.html.twig:22</note>
+      </notes>
+      <segment>
+        <source>list.backtolist</source>
+        <target>retour à la liste</target>
+      </segment>
+    </unit>
+    <unit id="SoXS2Ks" name="list.filter">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/list.html.twig:29</note>
+      </notes>
+      <segment>
+        <source>list.filter</source>
+        <target>Pour retrouver les oeuvres dans votre pays ou votre ville, vous pouvez utiliser les filtres à votre droite.
+        </target>
+      </segment>
+    </unit>
+    <unit id="SoXS2Ksco" name="list.filter.country">
+      <segment>
+        <source>list.filter.country</source>
+        <target>Pays</target>
+      </segment>
+    </unit>
+    <unit id="SoXS2Ksci" name="list.filter.city">
+      <segment>
+        <source>list.filter.city</source>
+        <target>Villes</target>
       </segment>
     </unit>
   </file>

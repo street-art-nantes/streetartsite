@@ -44,6 +44,8 @@ class ListController extends Controller
             'totalPois' => $totalPois,
             'totalCountry' => \count($countriesFromPoi),
             'pagination' => $pagination,
+            'listOfCountry' => $poiRepository->getDistinctCountries(),
+            'listOfCity' => $poiRepository->getDistinctCities(),
         ]);
     }
 }

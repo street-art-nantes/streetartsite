@@ -24,6 +24,14 @@ list:
     requirements:
         _locale:  '%locale_available%'
 
+search:
+    path:         /{_locale}/search/{queryRequest}
+    controller:   App\Controller\SearchController
+    defaults:
+        template: pages/list.html.twig
+    requirements:
+        _locale:  '%locale_available%'
+
 faq:
     path:         /{_locale}/faq
     controller:   App\Controller\FaqController
