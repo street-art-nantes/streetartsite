@@ -15,3 +15,6 @@ fos_user:
     registration:
         form:
            type: App\Form\Type\RegistrationType
+    profile:
+        form:
+           type: App\Form\Type\RegistrationType

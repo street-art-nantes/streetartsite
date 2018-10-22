@@ -4,6 +4,7 @@ namespace App\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class RegistrationType extends AbstractType
@@ -26,6 +27,13 @@ class RegistrationType extends AbstractType
                 'preferred_choices' => ['FR'],
                 'required' => false,
                 'placeholder' => false,
+            ]
+        );
+        $builder->add('avatar',
+            FileType::class,
+            [
+                'label' => 'form.avatar',
+                'required' => false,
             ]
         );
     }

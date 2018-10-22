@@ -15,6 +15,9 @@
                         <h1>{{ 'dashboard.title'|trans({}) }}</h1>
                         <p>{{ 'dashboard.introduction'|trans({'nbUserArtworks': nbUserArtworks, 'nbUserContries': nbUserContries}) }}</p>
                     </div>
+                    <div class="col-12">
+                        <p><a href="{{ path('fos_user_profile_edit') }}" class="btn btn-primary my-2">{{ 'profile.edit.title'|trans }}Editer mon profil</a><br /><a href="{{ path('fos_user_profile_show') }}" class="btn btn-primary my-2">{{ 'profile.edit.show'|trans }}Voir mon profil</a></p>
+                    </div>
                 </div>
                 <div class="row">
                     {% for userArtwork in userArtworks %}

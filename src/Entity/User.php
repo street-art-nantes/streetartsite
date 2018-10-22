@@ -36,6 +36,16 @@ class User extends BaseUser
     protected $country;
 
     /**
+     * @ORM\Column(type="string")
+     * @Assert\File(
+     * maxSize = "1M",
+     * mimeTypes = {"image/jpeg", "image/gif", "image/png"},
+     * maxSizeMessage = "The maximum allowed file size is 1MB.",
+     * mimeTypesMessage = "Only the file types image are allowed.")
+     */
+    private $avatar;
+
+    /**
      * User constructor.
      */
     public function __construct()
@@ -74,5 +84,21 @@ class User extends BaseUser
     public function getCountry()
     {
         return $this->country;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAvatar()
+    {
+        return $this->avatar;
+    }
+
+    /**
+     * @param mixed $avatar
+     */
+    public function setAvatar($avatar)
+    {
+        $this->avatar = $avatar;
     }
 }
