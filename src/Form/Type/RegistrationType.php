@@ -9,14 +9,13 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
 /**
- * Class RegistrationType
- * @package App\Form\Type
+ * Class RegistrationType.
  */
 class RegistrationType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
