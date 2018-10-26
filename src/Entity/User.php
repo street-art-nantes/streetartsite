@@ -5,11 +5,14 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
- * @ORM\Entity
  * @ORM\Table(name="fos_user")
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @Vich\Uploadable
  */
 class User extends BaseUser
 {
@@ -36,14 +39,23 @@ class User extends BaseUser
     protected $country;
 
     /**
-     * @ORM\Column(type="string")
+     * @Vich\UploadableField(mapping="user_avatar", fileNameProperty="avatarName")
      * @Assert\File(
-     * maxSize = "1M",
-     * mimeTypes = {"image/jpeg", "image/gif", "image/png"},
-     * maxSizeMessage = "The maximum allowed file size is 1MB.",
-     * mimeTypesMessage = "Only the file types image are allowed.")
+     *     maxSize = "1M",
+     *     mimeTypes = {"image/jpeg"},
+     *     mimeTypesMessage = "Please upload a valid JPG"
+     * )
+     *
+     * @var File
      */
-    private $avatar;
+    private $avatarFile;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     * @var string
+     */
+    private $avatarName;
 
     /**
      * User constructor.
@@ -87,18 +99,38 @@ class User extends BaseUser
     }
 
     /**
-     * @return mixed
+     * @return File
      */
-    public function getAvatar()
+    public function getAvatarFile(): ?File
     {
-        return $this->avatar;
+        return $this->avatarFile;
     }
 
     /**
-     * @param mixed $avatar
+     * @param File $avatarFile
+     * @return User
      */
-    public function setAvatar($avatar)
+    public function setAvatarFile(File $avatarFile): User
     {
-        $this->avatar = $avatar;
+        $this->avatarFile = $avatarFile;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAvatarName(): ?string
+    {
+        return $this->avatarName;
+    }
+
+    /**
+     * @param string $avatarName
+     * @return User
+     */
+    public function setAvatarName(string $avatarName): User
+    {
+        $this->avatarName = $avatarName;
+        return $this;
     }
 }

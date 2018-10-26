@@ -1,6 +1,6 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-<h1>{{ 'profile.edit.title'|trans }}Editer mon profil</h1>
+<h1>{{ 'profile.edit.title'|trans({}, 'messages') }}</h1>
 {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
     {{ form_widget(form) }}
     <div>

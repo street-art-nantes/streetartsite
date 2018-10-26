@@ -660,7 +660,7 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     </unit>
     <unit id="bBZIuxN" name="list.backtolist">
       <notes>
-        <note category="file-source" priority="1">templates/pages/list.html.twig:22</note>
+        <note category="file-source" priority="1">templates/pages/list.html.twig:46</note>
       </notes>
       <segment>
         <source>list.backtolist</source>
@@ -669,7 +669,7 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     </unit>
     <unit id="SoXS2Ks" name="list.filter">
       <notes>
-        <note category="file-source" priority="1">templates/pages/list.html.twig:29</note>
+        <note category="file-source" priority="1">templates/pages/list.html.twig:28</note>
       </notes>
       <segment>
         <source>list.filter</source>
@@ -677,16 +677,42 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
         </target>
       </segment>
     </unit>
-    <unit id="SoXS2Ksco" name="list.filter.country">
+    <unit id="L9nJVHB" name="list.filter.country">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
       <segment>
         <source>list.filter.country</source>
         <target>Pays</target>
       </segment>
     </unit>
-    <unit id="SoXS2Ksci" name="list.filter.city">
+    <unit id="4fzgnWI" name="list.filter.city">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
       <segment>
         <source>list.filter.city</source>
         <target>Villes</target>
+      </segment>
+    </unit>
+    <unit id="4JHCt.t" name="profile.edit.title">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:21</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>profile.edit.title</source>
+        <target>Éditer mon profil</target>
+      </segment>
+    </unit>
+    <unit id="ACpWg79" name="profile.show.title">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:24</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>profile.show.title</source>
+        <target>Voir mon profil</target>
       </segment>
     </unit>
   </file>

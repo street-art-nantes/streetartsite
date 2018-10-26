@@ -2,17 +2,17 @@
 
 namespace App\Form\Type;
 
-use FOS\UserBundle\Form\Type\RegistrationFormType;
+use FOS\UserBundle\Form\Type\ProfileFormType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
 /**
- * Class RegistrationType
+ * Class ProfileType
  * @package App\Form\Type
  */
-class RegistrationType extends AbstractType
+class ProfileType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -51,7 +51,7 @@ class RegistrationType extends AbstractType
      */
     public function getParent()
     {
-        return RegistrationFormType::class;
+        return ProfileFormType::class;
     }
 
     /**
@@ -59,7 +59,7 @@ class RegistrationType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'app_user_registration';
+        return 'app_user_profile';
     }
 
     /**
