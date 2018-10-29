@@ -8,6 +8,9 @@
     <div class="user-profile">
         <p>{{ 'profile.show.username'|trans({}, 'FOSUserBundle') }}: {{ user.username }}</p>
         <p>{{ 'profile.show.email'|trans({}, 'FOSUserBundle') }}: {{ user.email }}</p>
+        <p>{{ user.city }} {{ user.country }}</p>
+        <p>{{ user.website }}</p>
+        <p>{{ user.description }}</p>
 
         <a href="{{ path('fos_user_profile_edit') }}"
            class="btn btn-primary btn-block">{{ 'profile.edit.title'|trans }}</a>

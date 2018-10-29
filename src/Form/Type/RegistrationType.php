@@ -5,6 +5,8 @@ namespace App\Form\Type;
 use FOS\UserBundle\Form\Type\RegistrationFormType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
@@ -37,8 +39,22 @@ class RegistrationType extends AbstractType
                 'placeholder' => false,
             ]
         );
+        $builder->add('website',
+            UrlType::class,
+            [
+                'label' => 'form.website',
+                'required' => false,
+            ]
+        );
+        $builder->add('description',
+            TextareaType::class,
+            [
+                'label' => 'form.description',
+                'required' => false,
+            ]
+        );
         $builder->add('avatarFile', VichImageType::class, [
-            'label' => false,
+            'label' => 'form.avatar',
             'translation_domain' => 'messages',
             'allow_delete' => false,
             'required' => false,

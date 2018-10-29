@@ -556,7 +556,7 @@
     </unit>
     <unit id="3bqLM8Q" name="dashboard.title">
       <notes>
-        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:15</note>
+        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:20</note>
       </notes>
       <segment>
         <source>dashboard.title</source>
@@ -565,7 +565,7 @@
     </unit>
     <unit id="68QHsSe" name="dashboard.introduction">
       <notes>
-        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:16</note>
+        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:21</note>
       </notes>
       <segment>
         <source>dashboard.introduction</source>
@@ -676,8 +676,8 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="4JHCt.t" name="profile.edit.title">
       <notes>
-        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:21</note>
-        <note category="state" priority="1">new</note>
+        <note category="file-source" priority="1">templates/bundles/FOSUserBundle/Profile/edit_content.html.twig:3</note>
+        <note category="file-source" priority="1">templates/user/user_profile.html.twig:16</note>
       </notes>
       <segment>
         <source>profile.edit.title</source>
@@ -686,12 +686,44 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="ACpWg79" name="profile.show.title">
       <notes>
-        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:24</note>
-        <note category="state" priority="1">new</note>
+        <note category="state" priority="1">obsolete</note>
       </notes>
       <segment>
         <source>profile.show.title</source>
         <target>Show my profile</target>
+      </segment>
+    </unit>
+    <unit id="WpUieoQ" name="form.website">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/ProfileType.php:44</note>
+        <note category="file-source" priority="1">src/Form/Type/RegistrationType.php:44</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>form.website</source>
+        <target>Website</target>
+      </segment>
+    </unit>
+    <unit id="h2JZhLm" name="form.description">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/ProfileType.php:51</note>
+        <note category="file-source" priority="1">src/Form/Type/RegistrationType.php:51</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>form.description</source>
+        <target>Description</target>
+      </segment>
+    </unit>
+    <unit id="5FHHzyW" name="form.avatar">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/ProfileType.php:56</note>
+        <note category="file-source" priority="1">src/Form/Type/RegistrationType.php:56</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>form.avatar</source>
+        <target>Avatar</target>
       </segment>
     </unit>
   </file>

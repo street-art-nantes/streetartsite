@@ -42,9 +42,19 @@ class User extends BaseUser
     protected $country;
 
     /**
+     * @ORM\Column(name="website", type="string", length=255, nullable=true)
+     */
+    protected $website;
+
+    /**
+     * @ORM\Column(name="description", type="text", nullable=true)
+     */
+    protected $description;
+
+    /**
      * @Vich\UploadableField(mapping="user_avatar", fileNameProperty="avatarName")
      * @Assert\File(
-     *     maxSize = "1M",
+     *     maxSize = "2M",
      *     mimeTypes = {"image/jpeg"},
      *     mimeTypesMessage = "Please upload a valid JPG"
      * )
@@ -101,6 +111,42 @@ class User extends BaseUser
     public function getCountry()
     {
         return $this->country;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     * @return User
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getWebsite()
+    {
+        return $this->website;
+    }
+
+    /**
+     * @param mixed $website
+     * @return User
+     */
+    public function setWebsite($website)
+    {
+        $this->website = $website;
+        return $this;
     }
 
     /**
