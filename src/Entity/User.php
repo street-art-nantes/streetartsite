@@ -123,11 +123,13 @@ class User extends BaseUser
 
     /**
      * @param mixed $description
+     *
      * @return User
      */
     public function setDescription($description)
     {
         $this->description = $description;
+
         return $this;
     }
 
@@ -141,11 +143,13 @@ class User extends BaseUser
 
     /**
      * @param mixed $website
+     *
      * @return User
      */
     public function setWebsite($website)
     {
         $this->website = $website;
+
         return $this;
     }
 
