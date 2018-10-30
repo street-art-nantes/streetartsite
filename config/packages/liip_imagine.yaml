@@ -16,4 +16,9 @@ liip_imagine:
         thumb_small:
             quality: 75
             filters:
-                thumbnail: { size : [350, 260], mode : outbound }
+                thumbnail: { size: [350, 260], mode: outbound }
+
+        thumb_small_square:
+            quality: 75
+            filters:
+                thumbnail: { size: [360, 360], mode: outbound }

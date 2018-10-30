@@ -1,0 +1,18 @@
+{% set user = user|default(false) %}
+
+{% if user %}
+    {% if user.avatarName is not empty %}
+        <img src="{{ vich_uploader_asset(user, 'avatarFile') | imagine_filter('thumb_small_square') }}" alt="" class="img-fluid">
+    {% endif %}
+
+    <div class="user-profile">
+        <p>{{ 'profile.show.username'|trans({}, 'FOSUserBundle') }}: {{ user.username }}</p>
+        <p>{{ 'profile.show.email'|trans({}, 'FOSUserBundle') }}: {{ user.email }}</p>
+        <p>{{ user.city }} {{ user.country }}</p>
+        <p>{{ user.website }}</p>
+        <p>{{ user.description }}</p>
+
+        <a href="{{ path('fos_user_profile_edit') }}"
+           class="btn btn-primary btn-block">{{ 'profile.edit.title'|trans }}</a>
+    </div>
+{% endif %}

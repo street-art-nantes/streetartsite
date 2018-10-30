@@ -11,26 +11,32 @@
         <section class="section">
             <div class="container">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-sm-12 col-md-4">
+                        <div class="card-block">
+                            {% include 'user/user_profile.html.twig' with { user: app.user } %}
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-8">
                         <h1>{{ 'dashboard.title'|trans({}) }}</h1>
                         <p>{{ 'dashboard.introduction'|trans({'nbUserArtworks': nbUserArtworks, 'nbUserContries': nbUserContries}) }}</p>
-                    </div>
-                </div>
-                <div class="row">
-                    {% for userArtwork in userArtworks %}
-                        <div class="col-12 col-sm-3">
-                            {% set document = userArtwork.documents.first %}
-                            {% set poi = userArtwork.poi %}
-                            <a href="{{ path('artwork', {'id': poi.id}) }}">
-                                {% include "components/card-artwork.twig" with {
-                                    imgSrc: vich_uploader_asset(document, 'imageFile'),
-                                    title: userArtwork.title,
-                                    textLeft: poi.city ~ ', ' ~ poi.country,
-                                    textRight: userArtwork.createdAt|date("d/m/Y"),
-                                } %}
-                            </a>
+
+                        <div class="row">
+                            {% for userArtwork in userArtworks %}
+                                <div class="col-12 col-sm-3">
+                                    {% set document = userArtwork.documents.first %}
+                                    {% set poi = userArtwork.poi %}
+                                    <a href="{{ path('artwork', {'id': poi.id}) }}">
+                                        {% include "components/card-artwork.twig" with {
+                                            imgSrc: vich_uploader_asset(document, 'imageFile'),
+                                            title: userArtwork.title,
+                                            textLeft: poi.city ~ ', ' ~ poi.country,
+                                            textRight: userArtwork.createdAt|date("d/m/Y"),
+                                        } %}
+                                    </a>
+                                </div>
+                            {% endfor %}
                         </div>
-                    {% endfor %}
+                    </div>
                 </div>
             </div>
         </section>
