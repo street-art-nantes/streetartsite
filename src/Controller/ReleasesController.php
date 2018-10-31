@@ -6,26 +6,27 @@ use Contentful\Delivery\Client;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-class BlogController extends Controller
+/**
+ * Class ReleasesController.
+ */
+class ReleasesController extends Controller
 {
     /**
-     * @param string $id
-     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function __invoke($id)
+    public function __invoke()
     {
         /** @var Client $client */
         $client = $this->get('contentful.delivery');
-        $entry = $client->getEntry($id);
+        $entry = $client->getEntry('5I57qW3gTSAEogWCKm8iIQ');
 
         if (!$entry) {
             throw new NotFoundHttpException();
         }
 
         return $this->render('pages/content.html.twig', [
-            'entry' => $entry,
-            'pageTitle' => $entry->get('title'),
+            'blog' => $entry,
+            'pageTitle' => 'Releases',
         ]);
     }
 }

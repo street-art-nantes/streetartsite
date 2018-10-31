@@ -56,6 +56,14 @@ legals:
     requirements:
         _locale:  '%locale_available%'
 
+releases:
+    path:         /{_locale}/releases
+    controller:   App\Controller\ReleasesController
+    defaults:
+        template: pages/content.html.twig
+    requirements:
+        _locale:  '%locale_available%'
+
 blog:
     path:         /{_locale}/blog/{id}
     controller:   App\Controller\BlogController
@@ -88,4 +96,13 @@ dashboard:
     defaults:
         template: pages/user_dashboard.html.twig
     requirements:
+        _locale:  '%locale_available%'
+
+public_profile:
+    path:         /{_locale}/public-profile/{id}
+    controller:   App\Controller\UserController
+    defaults:
+        template: pages/user_dashboard.html.twig
+    requirements:
+        id:  "[0-9]+"
         _locale:  '%locale_available%'

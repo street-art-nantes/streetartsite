@@ -302,13 +302,13 @@ class Artwork
 
     /**
      * @param mixed $instaLink
+     *
      * @return Artwork
      */
     public function setInstaLink($instaLink)
     {
         $this->instaLink = $instaLink;
+
         return $this;
     }
-
-
 }

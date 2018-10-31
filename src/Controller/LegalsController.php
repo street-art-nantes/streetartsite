@@ -26,6 +26,7 @@ class LegalsController extends Controller
 
         return $this->render('pages/content.html.twig', [
             'blog' => $entry,
+            'pageTitle' => 'Legals',
         ]);
     }
 }
