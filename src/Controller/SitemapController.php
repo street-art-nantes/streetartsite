@@ -44,6 +44,7 @@ class SitemapController extends Controller
 
         return $this->render('pages/content.html.twig', [
             'entries' => $routes,
+            'pageTitle' => 'Sitemap',
         ]);
     }
 }

@@ -75,6 +75,11 @@ class Artwork
     private $contributor;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $instaLink;
+
+    /**
      * Artwork constructor.
      */
     public function __construct()
@@ -283,6 +288,26 @@ class Artwork
     public function setContributor(?User $contributor): self
     {
         $this->contributor = $contributor;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInstaLink()
+    {
+        return $this->instaLink;
+    }
+
+    /**
+     * @param mixed $instaLink
+     *
+     * @return Artwork
+     */
+    public function setInstaLink($instaLink)
+    {
+        $this->instaLink = $instaLink;
 
         return $this;
     }

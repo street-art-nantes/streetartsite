@@ -3,7 +3,7 @@
   <file id="messages.fr">
     <unit id="WD.KTE9" name="page.logout.link">
       <notes>
-        <note category="file-source" priority="1">templates/layout/footer.html.twig:31</note>
+        <note category="file-source" priority="1">templates/layout/footer.html.twig:34</note>
       </notes>
       <segment>
         <source>page.logout.link</source>
@@ -12,7 +12,7 @@
     </unit>
     <unit id="UpOSnoA" name="page.login.link">
       <notes>
-        <note category="file-source" priority="1">templates/layout/footer.html.twig:37</note>
+        <note category="file-source" priority="1">templates/layout/footer.html.twig:40</note>
       </notes>
       <segment>
         <source>page.login.link</source>
@@ -376,7 +376,7 @@
     </unit>
     <unit id="0zzdtT5" name="artwork.label.author">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork.html.twig:26</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:28</note>
       </notes>
       <segment>
         <source>artwork.label.author</source>
@@ -385,7 +385,7 @@
     </unit>
     <unit id="vUmGGvB" name="artwork.label.active">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork.html.twig:27</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:26</note>
       </notes>
       <segment>
         <source>artwork.label.active</source>
@@ -394,7 +394,7 @@
     </unit>
     <unit id="vKmuEQK" name="artwork.label.date">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork.html.twig:28</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:27</note>
       </notes>
       <segment>
         <source>artwork.label.date</source>
@@ -403,7 +403,7 @@
     </unit>
     <unit id="aEXmsDa" name="artwork.fullsize">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork.html.twig:38</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:48</note>
       </notes>
       <segment>
         <source>artwork.fullsize</source>
@@ -412,7 +412,7 @@
     </unit>
     <unit id="MoE907k" name="artwork.neighbour">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork.html.twig:47</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:57</note>
       </notes>
       <segment>
         <source>artwork.neighbour</source>
@@ -576,7 +576,7 @@
     </unit>
     <unit id="3bqLM8Q" name="dashboard.title">
       <notes>
-        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:20</note>
+        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:24</note>
       </notes>
       <segment>
         <source>dashboard.title</source>
@@ -585,7 +585,7 @@
     </unit>
     <unit id="68QHsSe" name="dashboard.introduction">
       <notes>
-        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:21</note>
+        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:25</note>
       </notes>
       <segment>
         <source>dashboard.introduction</source>
@@ -698,7 +698,7 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     <unit id="4JHCt.t" name="profile.edit.title">
       <notes>
         <note category="file-source" priority="1">templates/bundles/FOSUserBundle/Profile/edit_content.html.twig:3</note>
-        <note category="file-source" priority="1">templates/user/user_profile.html.twig:16</note>
+        <note category="file-source" priority="1">templates/user/user_profile.html.twig:19</note>
       </notes>
       <segment>
         <source>profile.edit.title</source>
@@ -718,7 +718,6 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
       <notes>
         <note category="file-source" priority="1">src/Form/Type/ProfileType.php:44</note>
         <note category="file-source" priority="1">src/Form/Type/RegistrationType.php:44</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>form.website</source>
@@ -729,7 +728,6 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
       <notes>
         <note category="file-source" priority="1">src/Form/Type/ProfileType.php:51</note>
         <note category="file-source" priority="1">src/Form/Type/RegistrationType.php:51</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>form.description</source>
@@ -740,11 +738,60 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
       <notes>
         <note category="file-source" priority="1">src/Form/Type/ProfileType.php:56</note>
         <note category="file-source" priority="1">src/Form/Type/RegistrationType.php:56</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>form.avatar</source>
         <target>Avatar</target>
+      </segment>
+    </unit>
+    <unit id="ppoHTD0" name="nav.link.releases">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/footer.html.twig:28</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>nav.link.releases</source>
+        <target>Releases</target>
+      </segment>
+    </unit>
+    <unit id="XcKoX_F" name="artwork.showoninsta">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:31</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artwork.showoninsta</source>
+        <target>Allez sur Instagram</target>
+      </segment>
+    </unit>
+    <unit id="72dEdZp" name="artwork.label.contributor">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:35</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artwork.label.contributor</source>
+        <target>Contributeur</target>
+      </segment>
+    </unit>
+    <unit id="9tiPSCu" name="dashboard.title.public">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:21</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>dashboard.title.public</source>
+        <target>Tableau de bord de userName</target>
+      </segment>
+    </unit>
+    <unit id="Xn26vC1" name="dashboard.introduction.public">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:22</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>dashboard.introduction.public</source>
+        <target>userName a proposé un total de nbUserArtworks artwork(s) dans nbUserContries pays</target>
       </segment>
     </unit>
   </file>

@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Artwork;
+use App\Entity\User;
 use App\Repository\ArtworkRepository;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
@@ -12,14 +14,19 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class UserController extends Controller
 {
     /**
+     * @param int $id
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function __invoke()
+    public function __invoke($id = 0)
     {
         /** @var ArtworkRepository $artworkRepository */
         $artworkRepository = $this->getDoctrine()->getRepository(Artwork::class);
 
-        $user = $this->getUser();
+        /** @var UserRepository $userRepository */
+        $userRepository = $this->getDoctrine()->getRepository(User::class);
+
+        $user = $id ? $userRepository->find($id) : $this->getUser();
 
         $userArtworks = $artworkRepository->getArtworksByUser($user);
         $userCountriesArtworks = $artworkRepository->getArtworksCountriesByUser($user);
@@ -28,6 +35,7 @@ class UserController extends Controller
             'user' => $user,
             'userArtworks' => $userArtworks,
             'userCountriesArtworks' => $userCountriesArtworks,
+            'public' => $id,
         ]);
     }
 }

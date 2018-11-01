@@ -15,17 +15,27 @@
                     <div class="col-md-4 d-flex flex-column justify-content-center align-items-center">
                         <h4>{{ 'artwork.mensurations'|trans({}) }}</h4>
                         <div id="artwork-data" class="lead text-muted">
-                            <ul>
-                                <li>{{ 'artwork.label.country'|trans({}) }} : {{ poi.country }}</li>
-                                <li>{{ 'artwork.label.city'|trans({}) }} : {{ poi.city }}</li>
-                                <li>{{ 'artwork.label.address'|trans({}) }} : {{ poi.address }}</li>
-                                <li>{{ 'artwork.label.latitude'|trans({}) }} : {{ poi.latitude }}</li>
-                                <li>{{ 'artwork.label.longitude'|trans({}) }} : {{ poi.longitude }}</li>
-                                <li>{{ 'artwork.label.title'|trans({}) }} : {{ artwork.title }}</li>
-                                <li>{{ 'artwork.label.type'|trans({}) }} : {{ artwork.type }}</li>
-                                <li>{{ 'artwork.label.author'|trans({}) }} : {{ artwork.author }}</li>
-                                <li>{{ 'artwork.label.active'|trans({}) }} : {{ artwork.enabled }}</li>
-                                <li>{{ 'artwork.label.date'|trans({}) }} : {{ document.createdAt|date('d-m-Y') }}</li>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item p-0"><span>{{ 'artwork.label.country'|trans({}) }} :</span> {{ poi.country }}</li>
+                                <li class="list-group-item p-0"><span>{{ 'artwork.label.city'|trans({}) }} :</span> {{ poi.city }}</li>
+                                <li class="list-group-item p-0"><span>{{ 'artwork.label.address'|trans({}) }} :</span> {{ poi.address }}</li>
+                                <li class="list-group-item p-0"><span>{{ 'artwork.label.latitude'|trans({}) }} :</span> {{ poi.latitude }}</li>
+                                <li class="list-group-item p-0"><span>{{ 'artwork.label.longitude'|trans({}) }} :</span> {{ poi.longitude }}</li>
+                                <li class="list-group-item p-0"><span>{{ 'artwork.label.title'|trans({}) }} :</span> {{ artwork.title }}</li>
+                                <li class="list-group-item p-0"><span>{{ 'artwork.label.type'|trans({}) }} :</span> {{ artwork.type }}</li>
+                                <li class="list-group-item p-0"><span>{{ 'artwork.label.active'|trans({}) }} :</span> {{ artwork.enabled }}</li>
+                                <li class="list-group-item p-0"><span>{{ 'artwork.label.date'|trans({}) }} :</span> {{ document.createdAt|date('d-m-Y') }}</li>
+                                <li class="list-group-item p-0"><span>{{ 'artwork.label.author'|trans({}) }} :</span> {{ artwork.author }}</li>
+                                {% if artwork.instalink %}
+                                    <li class="list-group-item p-0">
+                                        <a target="_blank" class="fa fa-instagram" href="{{ artwork.instaLink }}"> : {{ 'artwork.showoninsta'|trans({}) }}</a>
+                                    </li>
+                                {% endif %}
+                                {% if artwork.contributor %}
+                                    <li class="list-group-item p-0">{{ 'artwork.label.contributor'|trans({}) }} :
+                                        <a href="{{ path('public_profile', {'id': artwork.contributor.id}) }}">{{ artwork.contributor.username }}</a>
+                                    </li>
+                                {% endif %}
                             </ul>
                         </div>
                     </div>

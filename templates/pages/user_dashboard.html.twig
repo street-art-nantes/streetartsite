@@ -17,8 +17,13 @@
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-8">
-                        <h1>{{ 'dashboard.title'|trans({}) }}</h1>
-                        <p>{{ 'dashboard.introduction'|trans({'nbUserArtworks': nbUserArtworks, 'nbUserContries': nbUserContries}) }}</p>
+                        {% if public %}
+                            <h1>{{ 'dashboard.title.public'|trans({'userName': user.username}) }}</h1>
+                            <p>{{ 'dashboard.introduction.public'|trans({'userName': user.username, 'nbUserArtworks': nbUserArtworks, 'nbUserContries': nbUserContries}) }}</p>
+                        {% else %}
+                            <h1>{{ 'dashboard.title'|trans({}) }}</h1>
+                            <p>{{ 'dashboard.introduction'|trans({'nbUserArtworks': nbUserArtworks, 'nbUserContries': nbUserContries}) }}</p>
+                        {% endif %}
 
                         <div class="row">
                             {% for userArtwork in userArtworks %}
