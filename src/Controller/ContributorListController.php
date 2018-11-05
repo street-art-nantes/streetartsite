@@ -17,7 +17,7 @@ class ContributorListController extends Controller
      */
     public function __invoke($page)
     {
-        /** @var UserRepository $poiRepository */
+        /** @var UserRepository $contributorRepository */
         $contributorRepository = $this->getDoctrine()->getRepository(User::class);
 
         $contributors = $contributorRepository->getList($page);
