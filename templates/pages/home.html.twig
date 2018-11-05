@@ -70,7 +70,7 @@
                             <tbody class="text-center">
                             {% for contributor in topContributor %}
                                 <tr>
-                                    <td>{{ contributor.user.username }}</td>
+                                    <td><a href="{{ path('public_profile', {'id': contributor.user.id}) }}">{{ contributor.user.username }} ({{ 'home.showprofile'|trans({}) }})</a></td>
                                     <td>{{ contributor.nbartwork }}</td>
                                     <td>{{ contributor.nbcountry }}</td>
                                 </tr>

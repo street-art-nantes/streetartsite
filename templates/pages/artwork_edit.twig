@@ -11,9 +11,14 @@
             <i class="far fa-check-circle content-success-icon"></i>
         </figure>
 
-        <h2 class="card-title">
-            {{ 'artwork.message.wording_success'|trans }}
-        </h2>
+        <h3 class="card-title">
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                {{ 'artwork.message.wording_success'|transchoice(1, {'username' : user.username})|raw }}
+            {% else %}
+                {{ 'artwork.message.wording_success'|transchoice(0, {'username' : 0})|raw }}
+                <br><br><a href="{{ path('welcome') }}"><strong>{{ 'artwork.login'|trans({}) }}</strong></a>
+            {% endif %}
+        </h3>
 
         <a href="{{ path('app_artwork_new') }}"
            class="btn btn-lg btn-primary mt-4">{{ 'artwork.button.add_new'|trans({}, 'messages') }}</a>
