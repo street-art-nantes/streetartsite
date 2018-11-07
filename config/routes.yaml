@@ -106,3 +106,12 @@ public_profile:
     requirements:
         id:  "[0-9]+"
         _locale:  '%locale_available%'
+
+contributor_list:
+    path:         /{_locale}/contributor-list/{page}
+    controller:   App\Controller\ContributorListController
+    defaults:
+        template: pages/contributors_list.html.twig
+        page:     1
+    requirements:
+        _locale:  '%locale_available%'
