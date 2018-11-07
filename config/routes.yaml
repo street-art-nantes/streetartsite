@@ -115,3 +115,12 @@ contributor_list:
         page:     1
     requirements:
         _locale:  '%locale_available%'
+
+artist_list:
+    path:         /{_locale}/artist-list/{page}
+    controller:   App\Controller\ArtistListController
+    defaults:
+        template: pages/artist_list.html.twig
+        page:     1
+    requirements:
+        _locale:  '%locale_available%'
