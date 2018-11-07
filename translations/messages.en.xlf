@@ -223,7 +223,7 @@
       </notes>
       <segment>
         <source>artwork.message.wording_success</source>
-        <target><![CDATA[{0}Thank you! <br><br>It will be verified before being online. <br>If you had an account you would be notified of the release.|]0,Inf]Thanks username! <br><br>It will be verified before being online. <br>You will be informed soon of the release.]]></target>
+        <target>{0}<![CDATA[Thank you! <br><br>It will be verified before being online. <br>If you had an account you would be notified of the release.]]>|]0,Inf]<![CDATA[Thanks username! <br><br>It will be verified before being online. <br>You will be informed soon of the release.]]></target>
       </segment>
     </unit>
     <unit id="dCADRrf" name="artwork.introduction">
@@ -786,6 +786,7 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     <unit id="WpIbEXb" name="welcome.contributor.list">
       <notes>
         <note category="file-source" priority="1">templates/pages/welcome.html.twig:27</note>
+        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>welcome.contributor.list</source>

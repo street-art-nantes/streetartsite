@@ -243,7 +243,7 @@
       </notes>
       <segment>
         <source>artwork.message.wording_success</source>
-        <target><![CDATA[{0}Merci pour votre soumission !<br><br>Sa publication est soumise à validation. <br>Si vous aviez un compte vous seriez averti de sa mise en ligne.|]0,Inf]Merci username pour votre soumission !<br><br>Sa publication est soumise à validation. <br>Vous serez averti très prochainement de sa mise en ligne.]]></target>
+        <target>{0}<![CDATA[Merci pour votre soumission !<br><br>Sa publication est soumise à validation. <br>Si vous aviez un compte vous seriez averti de sa mise en ligne.]]>|]0,Inf]<![CDATA[Merci username pour votre soumission !<br><br>Sa publication est soumise à validation. <br>Vous serez averti très prochainement de sa mise en ligne.]]></target>
       </segment>
     </unit>
     <unit id="dCADRrf" name="artwork.introduction">
@@ -807,6 +807,7 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     <unit id="WpIbEXb" name="welcome.contributor.list">
       <notes>
         <note category="file-source" priority="1">templates/pages/welcome.html.twig:27</note>
+        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>welcome.contributor.list</source>
