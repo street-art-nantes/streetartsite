@@ -25,24 +25,12 @@
   margin-top: 20px;
 }
 
-#showaround {
-  display: none;
-  position: absolute;
-  z-index: 1000;
-  left: 50%;
-}
 
 #map_menu {
   position: absolute;
   z-index: 1000;
   right: 0;
-}
-
-@media (max-width: 990px) {
-  #showaround {
-    right: 0;
-    left: auto;
-  }
+  margin: 10px;
 }
 
 .bubble-img {

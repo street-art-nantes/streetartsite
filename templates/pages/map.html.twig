@@ -5,8 +5,10 @@
 
 {% block body %}
     <div id="map" class="content-map">
-        <div id="showaround"></div>
-        <div id="map_menu">Retour au site</div>
+        <div id="map_menu">
+            <div id="showaround"></div>
+            <a href="{{ path('home') }}" class="btn btn-primary my-2">{{ 'map.backwebsite'|trans({}) }}Retour au site</a>
+        </div>
     </div>
 
 {% endblock %}
@@ -17,7 +19,8 @@
     <script>
       window.datas = '{{ pois | raw }}';
       const translations = {
-          'aroundme' : '{{ 'map.aroundme' | trans }}'
+          'aroundme' : '{{ 'map.aroundme' | trans }}',
+          'showartwork' : '{{ 'map.showartwork' | trans }}'
       }
     </script>
 

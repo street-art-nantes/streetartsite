@@ -223,7 +223,7 @@
       </notes>
       <segment>
         <source>artwork.message.wording_success</source>
-        <target>{0}<![CDATA[Thank you! <br><br>It will be verified before being online. <br>If you had an account you would be notified of the release.]]>|]0,Inf]<![CDATA[Thanks username! <br><br>It will be verified before being online. <br>You will be informed soon of the release.]]></target>
+        <target><![CDATA[{0}Thank you! <br><br>It will be verified before being online. <br>If you had an account you would be notified of the release.|]0,Inf]Thanks username! <br><br>It will be verified before being online. <br>You will be informed soon of the release.]]></target>
       </segment>
     </unit>
     <unit id="dCADRrf" name="artwork.introduction">
@@ -248,7 +248,7 @@
     </unit>
     <unit id="V2YvCwD" name="map.description">
       <notes>
-        <note category="file-source" priority="1">templates/pages/map.html.twig:12</note>
+        <note category="state" priority="1">obsolete</note>
       </notes>
       <segment>
         <source>map.description</source>
@@ -476,7 +476,7 @@
     </unit>
     <unit id="yfyH0FV" name="map.aroundme">
       <notes>
-        <note category="file-source" priority="1">templates/pages/map.html.twig:35</note>
+        <note category="file-source" priority="1">templates/pages/map.html.twig:22</note>
       </notes>
       <segment>
         <source>map.aroundme</source>
@@ -776,7 +776,7 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     <unit id="Xrkk60k" name="home.showprofile">
       <notes>
         <note category="file-source" priority="1">templates/pages/contributors_list.html.twig:26</note>
-        <note category="state" priority="1">new</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:73</note>
       </notes>
       <segment>
         <source>home.showprofile</source>
@@ -786,11 +786,30 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     <unit id="WpIbEXb" name="welcome.contributor.list">
       <notes>
         <note category="file-source" priority="1">templates/pages/welcome.html.twig:27</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>welcome.contributor.list</source>
         <target>Contributor list</target>
+      </segment>
+    </unit>
+    <unit id="QR8ZgE5" name="map.backwebsite">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/map.html.twig:10</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>map.backwebsite</source>
+        <target>Back to website</target>
+      </segment>
+    </unit>
+    <unit id="4QNJx3J" name="map.showartwork">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/map.html.twig:23</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>map.showartwork</source>
+        <target>Show artwork</target>
       </segment>
     </unit>
   </file>

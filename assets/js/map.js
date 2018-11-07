@@ -29,7 +29,7 @@ const initMap = () => {
 
   const photoLayer = L.photo.cluster().on('click', function (evt) {
     const photo = evt.layer.photo,
-      template = '<a href="{artworkUrl}"><img src="{url}"/><p>{caption}</p></a>';
+      template = '<a title="'+translations.showartwork+'" target="_blank" href="{artworkUrl}"><img src="{url}"/><p>{caption}</p></a>';
 
     evt.layer.bindPopup(L.Util.template(template, photo), {
       className: 'leaflet-popup-photo',
