@@ -61,7 +61,7 @@ class Artwork
     private $documents;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Author", inversedBy="artwork")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Author", inversedBy="artworks")
      * @Assert\Valid()
      */
     private $author;
