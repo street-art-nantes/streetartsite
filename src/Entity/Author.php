@@ -6,8 +6,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\HttpFoundation\File\File;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AuthorRepository")
@@ -15,7 +15,6 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Author
 {
-
     use TimestampableEntity;
 
     /**
@@ -164,11 +163,13 @@ class Author
 
     /**
      * @param mixed $websiteLink
+     *
      * @return Author
      */
     public function setWebsiteLink($websiteLink)
     {
         $this->websiteLink = $websiteLink;
+
         return $this;
     }
 
@@ -182,13 +183,33 @@ class Author
 
     /**
      * @param mixed $instagramLink
+     *
      * @return Author
      */
     public function setInstagramLink($instagramLink)
     {
         $this->instagramLink = $instagramLink;
+
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getArtworks()
+    {
+        return $this->artworks;
+    }
 
+    /**
+     * @param mixed $artworks
+     *
+     * @return Author
+     */
+    public function setArtworks($artworks)
+    {
+        $this->artworks = $artworks;
+
+        return $this;
+    }
 }

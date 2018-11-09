@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ artist.name }} - Artist profile{% endblock %}
+{% block body_classes %}page-artist-profile{% endblock body_classes %}
+
+{% block body %}
+
+    {% set nbArtistArtworks = artistArtworks|length %}
+    {% set nbArtistCountries = artistCountriesArtworks|length %}
+
+    <main role="main">
+        <section class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4">
+                        <div class="card-block">
+                            {% include 'artist/artist_profile.html.twig' with { artist: artist } %}
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-8">
+                        <h1>{{ 'artist.profile.title'|trans({ artistName: artist.name }) }}</h1>
+                        <p>{{ 'artist.introduction'|trans({'artistName': artist.name, 'nbArtistArtworks': nbArtistArtworks, 'nbArtistCountries': nbArtistCountries}) }}</p>
+                        <p>{{ artist.biography }}</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="container">
+                <div class="row">
+                    {% for artistArtwork in artist.artworks %}
+                        <div class="col-12 col-sm-3">
+                            {% set document = artistArtwork.documents.first %}
+                            {% set poi = artistArtwork.poi %}
+                            <a href="{{ path('artwork', {'id': poi.id}) }}">
+                                {% include "components/card-artwork.twig" with {
+                                    imgSrc: vich_uploader_asset(document, 'imageFile'),
+                                    title: artistArtwork.title,
+                                    textLeft: poi.city ~ ', ' ~ poi.country,
+                                    textRight: artistArtwork.createdAt|date("d/m/Y"),
+                                } %}
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}

@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}{{ user.username }} - User profile{% endblock %}
 {% block body_classes %}page-user-dashboard{% endblock body_classes %}
 
 {% block body %}
 
     {% set nbUserArtworks = userArtworks|length %}
-    {% set nbUserContries = userCountriesArtworks|length %}
+    {% set nbUserCountries = userCountriesArtworks|length %}
 
     <main role="main">
         <section class="section">
@@ -19,10 +20,10 @@
                     <div class="col-sm-12 col-md-8">
                         {% if public %}
                             <h1>{{ 'dashboard.title.public'|trans({'userName': user.username}) }}</h1>
-                            <p>{{ 'dashboard.introduction.public'|trans({'userName': user.username, 'nbUserArtworks': nbUserArtworks, 'nbUserContries': nbUserContries}) }}</p>
+                            <p>{{ 'dashboard.introduction.public'|trans({'userName': user.username, 'nbUserArtworks': nbUserArtworks, 'nbUserContries': nbUserCountries}) }}</p>
                         {% else %}
                             <h1>{{ 'dashboard.title'|trans({}) }}</h1>
-                            <p>{{ 'dashboard.introduction'|trans({'nbUserArtworks': nbUserArtworks, 'nbUserContries': nbUserContries}) }}</p>
+                            <p>{{ 'dashboard.introduction'|trans({'nbUserArtworks': nbUserArtworks, 'nbUserContries': nbUserCountries}) }}</p>
                         {% endif %}
 
                         <div class="row">

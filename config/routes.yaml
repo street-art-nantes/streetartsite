@@ -124,3 +124,12 @@ artist_list:
         page:     1
     requirements:
         _locale:  '%locale_available%'
+
+artist_profile:
+    path:         /{_locale}/artist-profile/{id}
+    controller:   App\Controller\ArtistController
+    defaults:
+        template: pages/artist_dashboard.html.twig
+    requirements:
+        id:  "[0-9]+"
+        _locale:  '%locale_available%'

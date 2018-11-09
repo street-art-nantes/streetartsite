@@ -223,7 +223,7 @@
       </notes>
       <segment>
         <source>artwork.message.wording_success</source>
-        <target>{0}<![CDATA[Thank you! <br><br>It will be verified before being online. <br>If you had an account you would be notified of the release.]]>|]0,Inf]<![CDATA[Thanks username! <br><br>It will be verified before being online. <br>You will be informed soon of the release.]]></target>
+        <target><![CDATA[{0}Thank you! <br><br>It will be verified before being online. <br>If you had an account you would be notified of the release.|]0,Inf]Thanks username! <br><br>It will be verified before being online. <br>You will be informed soon of the release.]]></target>
       </segment>
     </unit>
     <unit id="dCADRrf" name="artwork.introduction">
@@ -239,7 +239,7 @@
     </unit>
     <unit id="ownf56y" name="header.menu.submit">
       <notes>
-        <note category="file-source" priority="1">templates/layout/header.html.twig:25</note>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:29</note>
       </notes>
       <segment>
         <source>header.menu.submit</source>
@@ -262,7 +262,7 @@
       </notes>
       <segment>
         <source>header.menu.list</source>
-        <target>List</target>
+        <target>Artworks</target>
       </segment>
     </unit>
     <unit id="VGttgWn" name="home.title.first">
@@ -561,7 +561,7 @@
     </unit>
     <unit id="3bqLM8Q" name="dashboard.title">
       <notes>
-        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:24</note>
+        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:25</note>
       </notes>
       <segment>
         <source>dashboard.title</source>
@@ -570,7 +570,7 @@
     </unit>
     <unit id="68QHsSe" name="dashboard.introduction">
       <notes>
-        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:25</note>
+        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:26</note>
       </notes>
       <segment>
         <source>dashboard.introduction</source>
@@ -681,8 +681,8 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="4JHCt.t" name="profile.edit.title">
       <notes>
-        <note category="file-source" priority="1">templates/bundles/FOSUserBundle/Profile/edit_content.html.twig:3</note>
         <note category="file-source" priority="1">templates/user/user_profile.html.twig:19</note>
+        <note category="file-source" priority="1">templates/bundles/FOSUserBundle/Profile/edit_content.html.twig:3</note>
       </notes>
       <segment>
         <source>profile.edit.title</source>
@@ -757,7 +757,7 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="9tiPSCu" name="dashboard.title.public">
       <notes>
-        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:21</note>
+        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:22</note>
       </notes>
       <segment>
         <source>dashboard.title.public</source>
@@ -766,7 +766,7 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="Xn26vC1" name="dashboard.introduction.public">
       <notes>
-        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:22</note>
+        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:23</note>
       </notes>
       <segment>
         <source>dashboard.introduction.public</source>
@@ -786,7 +786,6 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     <unit id="WpIbEXb" name="welcome.contributor.list">
       <notes>
         <note category="file-source" priority="1">templates/pages/welcome.html.twig:27</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>welcome.contributor.list</source>
@@ -796,7 +795,6 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     <unit id="QR8ZgE5" name="map.backwebsite">
       <notes>
         <note category="file-source" priority="1">templates/pages/map.html.twig:10</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>map.backwebsite</source>
@@ -806,11 +804,60 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     <unit id="4QNJx3J" name="map.showartwork">
       <notes>
         <note category="file-source" priority="1">templates/pages/map.html.twig:23</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>map.showartwork</source>
         <target>Show artwork</target>
+      </segment>
+    </unit>
+    <unit id="h2Lb0U9" name="header.menu.artistlist">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:25</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>header.menu.artistlist</source>
+        <target>Artists</target>
+      </segment>
+    </unit>
+    <unit id="uS7xKYG" name="artistlist.photos">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artist_list.html.twig:28</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artistlist.photos</source>
+        <target>photos</target>
+      </segment>
+    </unit>
+    <unit id="VyWXgwI" name="artist.profile.title">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artist_dashboard.html.twig:21</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artist.profile.title</source>
+        <target>Profile of the artist artistName</target>
+      </segment>
+    </unit>
+    <unit id="L8KPix4" name="artist.introduction">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artist_dashboard.html.twig:23</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artist.introduction</source>
+        <target>The website contains a total of nbArtistArtworks artworks of artistName in nbArtistCountries countries.</target>
+      </segment>
+    </unit>
+    <unit id="lqxFkoi" name="artist.flash.notice.notfound">
+      <notes>
+        <note category="file-source" priority="1">src/Controller/ArtistController.php:50</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artist.flash.notice.notfound</source>
+        <target>Artist not found</target>
       </segment>
     </unit>
   </file>

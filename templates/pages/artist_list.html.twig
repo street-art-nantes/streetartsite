@@ -20,7 +20,7 @@
                                 {% else %}
                                     {% set imgSrc = vich_uploader_asset(author.artist, 'avatarFile') %}
                                 {% endif %}
-                                <a href="{{ path('artwork', {'id': author.artist.id}) }}">
+                                <a href="{{ path('artist_profile', {'id': author.artist.id}) }}">
                                     {% include "components/card-artwork.twig" with {
                                         imgSrc: imgSrc,
                                         title: author.artist.name,
