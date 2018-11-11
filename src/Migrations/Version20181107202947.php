@@ -15,8 +15,8 @@ final class Version20181107202947 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'postgresql', 'Migration can only be executed safely on \'postgresql\'.');
 
-        $this->addSql('ALTER TABLE author ADD website_link VARCHAR(255) NOT NULL');
-        $this->addSql('ALTER TABLE author ADD instagram_link VARCHAR(255) NOT NULL');
+        $this->addSql('ALTER TABLE author ADD website_link VARCHAR(255) DEFAULT NULL');
+        $this->addSql('ALTER TABLE author ADD instagram_link VARCHAR(255) DEFAULT NULL');
         $this->addSql('ALTER TABLE author ADD avatar_name VARCHAR(255) DEFAULT NULL');
         $this->addSql('ALTER TABLE author ADD created_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL');
         $this->addSql('ALTER TABLE author ADD updated_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL');

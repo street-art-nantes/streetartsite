@@ -35,12 +35,12 @@ class Author
     private $biography;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $websiteLink;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $instagramLink;
 
@@ -64,7 +64,7 @@ class Author
     private $avatarName;
 
     /**
-     * @ORM\OneToMany(targetEntity="Artwork", mappedBy="author")
+     * @ORM\ManyToMany(targetEntity="Artwork", mappedBy="author")
      */
     private $artworks;
 

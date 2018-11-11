@@ -80,6 +80,12 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-12">
+            {{ form_row(form.author) }}
+        </div>
+    </div>
+
     <div class="text-center mt-5">
         <a href="{{ app.request.uri }}"
            class="btn btn-lg btn btn-outline-dark mr-2">{{ 'artwork.button.cancel'|trans({}, 'messages') }}</a>

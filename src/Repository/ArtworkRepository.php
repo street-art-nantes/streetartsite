@@ -50,7 +50,7 @@ class ArtworkRepository extends ServiceEntityRepository
         $query = $this->createQueryBuilder('a');
 
         $query->select('a')
-            ->leftJoin('a.contributor', 'author')
+            ->leftJoin('a.author', 'author')
             ->andWhere('author.id = :artist')
             ->setParameter('artist', $author)
             ->orderBy('a.id', 'DESC')
