@@ -43,7 +43,8 @@ class ArtworkType extends AbstractType
             'class' => Author::class,
             'choice_label' => 'name',
             'required' => false,
-            'placeholder' => 'artwork.label.author',
+            'label' => 'artwork.label.author',
+            'placeholder' => 'artwork.placeholder.author',
         ]);
     }
 
