@@ -21,6 +21,10 @@
                         <a class="nav-link" href="{{ path('list') }}">{{ 'header.menu.list'|trans({}) }} <span
                                     class="sr-only">(current)</span></a>
                     </li>
+                    <li class="nav-item {% if app.request.get('_route') == 'artist_list' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path('artist_list') }}">{{ 'header.menu.artistlist'|trans({}) }} <span
+                                    class="sr-only">(current)</span></a>
+                    </li>
                     <li class="nav-item {% if app.request.get('_route') == 'app_artwork_new' %}active{% endif %}">
                         <a class="nav-link" href="{{ path('app_artwork_new') }}">{{ 'header.menu.submit'|trans({}) }}
                             <span class="sr-only">(current)</span></a>
@@ -31,8 +35,6 @@
             <ul class="navbar-nav social">
                 <li class="nav-item nav-socials ml-2">
                     <a href="https://www.facebook.com/streetartwork44/" class="fab fa-facebook-f fa-lg facebook"
-                       target="_blank"></a>
-                    <a href="https://twitter.com/StreetArtwork44" class="fab fa-twitter fa-lg twitter"
                        target="_blank"></a>
                     <a href="https://www.instagram.com/streetartwork44/" class="fab fa-instagram fa-lg instagram"
                        target="_blank"></a>
@@ -45,7 +47,6 @@
             </ul>
 
             <div class="btn-group lang">
-                {#<button type="button" class="btn btn-danger">Action</button>#}
                 <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="far fa-flag fa-lg"></i>
                 </button>

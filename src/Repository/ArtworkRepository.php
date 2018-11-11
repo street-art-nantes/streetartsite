@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Artwork;
+use App\Entity\Author;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
@@ -40,6 +41,25 @@ class ArtworkRepository extends ServiceEntityRepository
     }
 
     /**
+     * @param Author $author
+     *
+     * @return mixed
+     */
+    public function getArtworksByAuthor(Author $author)
+    {
+        $query = $this->createQueryBuilder('a');
+
+        $query->select('a')
+            ->leftJoin('a.author', 'author')
+            ->andWhere('author.id = :artist')
+            ->setParameter('artist', $author)
+            ->orderBy('a.id', 'DESC')
+        ;
+
+        return $query->getQuery()->getResult();
+    }
+
+    /**
      * @param User $user
      *
      * @return mixed
@@ -53,6 +73,27 @@ class ArtworkRepository extends ServiceEntityRepository
             ->leftJoin('a.poi', 'pois')
             ->andWhere('users.id = :user')
             ->setParameter('user', $user)
+            ->groupBy('pois.country')
+            ->orderBy('pois.country', 'ASC')
+        ;
+
+        return $query->getQuery()->getResult();
+    }
+
+    /**
+     * @param Author $author
+     *
+     * @return mixed
+     */
+    public function getArtworksCountriesByAuthor(Author $author)
+    {
+        $query = $this->createQueryBuilder('a');
+
+        $query->select('pois.country')
+            ->leftJoin('a.author', 'author')
+            ->leftJoin('a.poi', 'pois')
+            ->andWhere('author.id = :artist')
+            ->setParameter('artist', $author)
             ->groupBy('pois.country')
             ->orderBy('pois.country', 'ASC')
         ;

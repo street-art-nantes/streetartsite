@@ -3,6 +3,8 @@
 namespace App\Form\Type;
 
 use App\Entity\Artwork;
+use App\Entity\Author;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -36,6 +38,12 @@ class ArtworkType extends AbstractType
             'allow_delete' => true,
             'by_reference' => false,
             'label' => 'artwork.label.documents',
+        ]);
+        $builder->add('author', EntityType::class, [
+            'class' => Author::class,
+            'choice_label' => 'name',
+            'required' => false,
+            'placeholder' => 'artwork.label.author',
         ]);
     }
 
