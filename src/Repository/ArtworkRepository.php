@@ -33,6 +33,7 @@ class ArtworkRepository extends ServiceEntityRepository
         $query->select('a')
             ->leftJoin('a.contributor', 'users')
             ->andWhere('users.id = :user')
+            ->andWhere('a.enabled=TRUE')
             ->setParameter('user', $user)
             ->orderBy('a.id', 'DESC')
         ;
@@ -52,6 +53,7 @@ class ArtworkRepository extends ServiceEntityRepository
         $query->select('a')
             ->leftJoin('a.author', 'author')
             ->andWhere('author.id = :artist')
+            ->andWhere('a.enabled=TRUE')
             ->setParameter('artist', $author)
             ->orderBy('a.id', 'DESC')
         ;
@@ -72,6 +74,7 @@ class ArtworkRepository extends ServiceEntityRepository
             ->leftJoin('a.contributor', 'users')
             ->leftJoin('a.poi', 'pois')
             ->andWhere('users.id = :user')
+            ->andWhere('a.enabled=TRUE')
             ->setParameter('user', $user)
             ->groupBy('pois.country')
             ->orderBy('pois.country', 'ASC')
@@ -93,6 +96,7 @@ class ArtworkRepository extends ServiceEntityRepository
             ->leftJoin('a.author', 'author')
             ->leftJoin('a.poi', 'pois')
             ->andWhere('author.id = :artist')
+            ->andWhere('a.enabled=TRUE')
             ->setParameter('artist', $author)
             ->groupBy('pois.country')
             ->orderBy('pois.country', 'ASC')

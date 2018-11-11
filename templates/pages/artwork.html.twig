@@ -25,7 +25,11 @@
                                 <li class="list-group-item p-0"><span>{{ 'artwork.label.type'|trans({}) }} :</span> {{ artwork.type }}</li>
                                 <li class="list-group-item p-0"><span>{{ 'artwork.label.active'|trans({}) }} :</span> {{ artwork.enabled }}</li>
                                 <li class="list-group-item p-0"><span>{{ 'artwork.label.date'|trans({}) }} :</span> {{ document.createdAt|date('d-m-Y') }}</li>
-                                <li class="list-group-item p-0"><span>{{ 'artwork.label.author'|trans({}) }} :</span> {{ artwork.author }}</li>
+                                <li class="list-group-item p-0"><span>{{ 'artwork.label.author'|trans({}) }} :</span>
+                                    {% for author in artwork.author %}
+                                        {{ author.name }}
+                                    {% endfor %}
+                                </li>
                                 {% if artwork.instalink %}
                                     <li class="list-group-item p-0">
                                         <a target="_blank" class="fa fa-instagram" href="{{ artwork.instaLink }}"> : {{ 'artwork.showoninsta'|trans({}) }}</a>

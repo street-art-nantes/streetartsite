@@ -3,7 +3,6 @@
 /.env
 /public/bundles/
 /public/img/
-/public/assets/
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
