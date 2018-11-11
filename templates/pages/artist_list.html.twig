@@ -15,7 +15,7 @@
                     {% for authors in colAuthors %}
                         <div class="col-12 col-sm-3">
                             {% for author in authors %}
-                                {% if author.artist.avatarFile is null %}
+                                {% if author.artist.avatarName is empty %}
                                     {% set imgSrc = asset('assets/img/author-avatar.jpg') %}
                                 {% else %}
                                     {% set imgSrc = vich_uploader_asset(author.artist, 'avatarFile') %}

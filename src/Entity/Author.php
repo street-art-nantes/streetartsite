@@ -45,7 +45,7 @@ class Author
     private $instagramLink;
 
     /**
-     * @Vich\UploadableField(mapping="user_avatar", fileNameProperty="avatarName")
+     * @Vich\UploadableField(mapping="author_avatar", fileNameProperty="avatarName")
      * @Assert\File(
      *     maxSize = "2M",
      *     mimeTypes = {"image/jpeg"},
