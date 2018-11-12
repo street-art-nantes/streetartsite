@@ -42,7 +42,7 @@ class SearchController extends Controller
         $query[$tmp[0]] = $tmp[1];
 
         try {
-            $pois = $poiRepository->findBy($query);
+            $pois = $poiRepository->searchByCriteria($query);
         } catch (\Exception $e) {
             $this->logger->error($e->getMessage());
         }
