@@ -27,7 +27,7 @@
                                 <li class="list-group-item p-0"><span>{{ 'artwork.label.date'|trans({}) }} :</span> {{ document.createdAt|date('d-m-Y') }}</li>
                                 <li class="list-group-item p-0"><span>{{ 'artwork.label.author'|trans({}) }} :</span>
                                     {% for author in artwork.author %}
-                                        {{ author.name }}
+                                        <a href="{{ path('artist_profile', {'id': author.id}) }}">{{ author.name }} </a>
                                     {% endfor %}
                                 </li>
                                 {% if artwork.instalink %}

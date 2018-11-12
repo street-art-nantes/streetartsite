@@ -88,6 +88,8 @@ class PoiRepository extends ServiceEntityRepository
         $query = $this->createQueryBuilder('p');
 
         $query->select('DISTINCT(p.country)')
+            ->leftJoin('p.artworks', 'artworks')
+            ->andWhere('artworks.enabled=TRUE')
             ->orderBy('p.country', 'ASC')
         ;
 
@@ -102,6 +104,26 @@ class PoiRepository extends ServiceEntityRepository
         $query = $this->createQueryBuilder('p');
 
         $query->select('DISTINCT(p.city)')
+            ->leftJoin('p.artworks', 'artworks')
+            ->andWhere('artworks.enabled=TRUE')
+            ->orderBy('p.city', 'ASC')
+        ;
+
+        return $query->getQuery()->getResult();
+    }
+
+    /**
+     * @param array $criteria
+     * @return mixed
+     */
+    public function searchByCriteria($criteria)
+    {
+        $query = $this->createQueryBuilder('p');
+
+        $query->select('p')
+            ->leftJoin('p.artworks', 'artworks')
+            ->where('p.'.key($criteria).' LIKE \''.array_shift($criteria).'\'')
+            ->andWhere('artworks.enabled=TRUE')
             ->orderBy('p.city', 'ASC')
         ;
 
