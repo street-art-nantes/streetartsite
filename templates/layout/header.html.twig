@@ -48,13 +48,22 @@
 
             <div class="btn-group lang">
                 <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="far fa-flag fa-lg"></i>
+                    {% set locale = app.request.locale %}
+                    {% if locale == 'fr' %}
+                        <span class="flag-icon flag-icon-fr"></span>
+                    {% elseif locale == 'en' %}
+                        <span class="flag-icon flag-icon-gb"></span>
+                    {% endif %}
                 </button>
                 <div class="dropdown-menu">
                     <a class="dropdown-item"
-                       href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}">FR</a>
+                       href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}">
+                        <span class="flag-icon flag-icon-fr"></span>
+                    </a>
                     <a class="dropdown-item"
-                       href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}">EN</a>
+                       href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}">
+                        <span class="flag-icon flag-icon-gb"></span>
+                    </a>
                 </div>
             </div>
 

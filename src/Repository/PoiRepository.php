@@ -114,6 +114,7 @@ class PoiRepository extends ServiceEntityRepository
 
     /**
      * @param array $criteria
+     *
      * @return mixed
      */
     public function searchByCriteria($criteria)
