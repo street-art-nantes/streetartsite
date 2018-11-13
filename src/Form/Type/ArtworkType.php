@@ -50,6 +50,7 @@ class ArtworkType extends AbstractType
             'required' => false,
             'label' => 'artwork.label.author',
             'placeholder' => 'artwork.placeholder.author',
+            'multiple' => true,
         ]);
     }
 
