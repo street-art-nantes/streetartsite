@@ -43,3 +43,9 @@ services:
     poi.manager:
         alias: App\Manager\PoiManager
         public: true
+
+    App\Service\Mailer:
+          parent: '@fos_user.mailer.default'
+          public: true
+          autowire: true
+          autoconfigure: false
