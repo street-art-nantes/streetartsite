@@ -25,14 +25,13 @@ class RegistrationSuccessListener implements EventSubscriberInterface
         ];
     }
 
+    /**
+     * @param FilterUserResponseEvent $event
+     */
     public function onRegistrationSuccess(FilterUserResponseEvent $event)
     {
-        /** @var $user \FOS\UserBundle\Model\UserInterface */
         $user = $event->getUser();
 
-//        die('plop');
-
-        // send details out to the user
         $this->mailer->sendWelcomeEmailMessage($user);
     }
 }

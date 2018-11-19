@@ -84,9 +84,9 @@ class Mailer
     }
 
     /**
-     * @param $renderedTemplate
-     * @param $fromEmail
-     * @param $toEmail
+     * @param string $renderedTemplate
+     * @param string $fromEmail
+     * @param string $toEmail
      * @param UserInterface $user
      */
     protected function sendEmailMessage($renderedTemplate, $fromEmail, $toEmail, UserInterface $user)
