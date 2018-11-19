@@ -45,7 +45,7 @@ services:
         public: true
 
     App\Service\Mailer:
-          parent: '@fos_user.mailer.default'
-          public: true
-          autowire: true
-          autoconfigure: false
+        arguments: [ '@swiftmailer.mailer.default', '@router.default', '@templating.engine.twig', '@assets.packages', '@translator', []]
+        public: true
+        autowire: true
+        autoconfigure: false

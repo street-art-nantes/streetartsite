@@ -1,0 +1,37 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% block subject %}
+{%- autoescape false -%}
+{{ 'welcome.email.subject'|trans({'%username%': user.username}) }}
+{%- endautoescape -%}
+{% endblock %}
+
+{% block body_text %}
+{% autoescape false %}
+{{ 'welcome.email.message'|trans({'%username%': user.username, '%confirmationUrl%': 'url'}) }}
+{% endautoescape %}
+{% endblock %}
+{% block body_html %}
+    <html>
+    <body style="background: gray">
+    <table style="text-align: center">
+        <tr>
+            <td>
+                <p>{{ 'welcome.email.header'|trans({'%username%': user.username}) }}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p><a href="{{ urlAccount }}">{{ 'welcome.email.body_account'|trans({}) }}</a></p>
+                <p><a href="{{ urlForm }}">{{ 'welcome.email.body_form'|trans({}) }}</a></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>{{ 'welcome.email.footer'|trans({}) }}</p>
+                <img src="{{ urlLogo }}" alt="logo street-artwork.com" />
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+{% endblock %}

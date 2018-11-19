@@ -3,21 +3,17 @@
 namespace App\Listener;
 
 use App\Service\Mailer;
-use FOS\UserBundle\Event\FormEvent;
+use FOS\UserBundle\Event\FilterUserResponseEvent;
 use FOS\UserBundle\FOSUserEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class RegistrationSuccessListener implements EventSubscriberInterface
 {
     private $mailer;
-    private $router;
 
-    public function __construct(Mailer $mailer,
-                                UrlGeneratorInterface $router)
+    public function __construct(Mailer $mailer)
     {
         $this->mailer = $mailer;
-        $this->router = $router;
     }
 
     public static function getSubscribedEvents()
@@ -29,10 +25,10 @@ class RegistrationSuccessListener implements EventSubscriberInterface
         ];
     }
 
-    public function onRegistrationSuccess(FormEvent $event)
+    public function onRegistrationSuccess(FilterUserResponseEvent $event)
     {
         /** @var $user \FOS\UserBundle\Model\UserInterface */
-        $user = $event->getForm()->getData();
+        $user = $event->getUser();
 
 //        die('plop');
 

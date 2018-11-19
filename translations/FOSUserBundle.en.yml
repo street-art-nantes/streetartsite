@@ -92,3 +92,26 @@ form:
     new_password_confirmation: 'Repeat new password'
     city: 'City'
     country: 'Country'
+
+welcome:
+    email:
+        subject: 'Welcome on street-artwork.com %username%!'
+
+        message: |
+            Hello %username%!
+
+            To finish activating your account - please visit %confirmationUrl%
+
+            This link can only be used once to validate your account.
+
+            Regards,
+            the Team.
+
+            '<html>' .
+            ' <body>' .
+            '  Here is an image <img src="' . // Embed the file
+                 $message->embed(Swift_Image::fromPath('image.png')) .
+               '" alt="Image" />' .
+            '  Rest of message' .
+            ' </body>' .
+            '</html>',

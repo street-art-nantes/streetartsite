@@ -87,3 +87,13 @@ form:
     new_password_confirmation: 'Répéter le nouveau mot de passe'
     city: 'Ville'
     country: 'Pays'
+
+welcome:
+    email:
+        subject: 'Bienvenue sur street-artwork.com %username% !'
+        header: 'Bonjour %username% !'
+        body_account: 'Vous pouvez retrouver votre compte public ici.'
+        body_form: 'Si vous ne l''avez pas encore fait, venez proposer vos photos.'
+        footer:
+            Streetartment,
+            L'équipe
