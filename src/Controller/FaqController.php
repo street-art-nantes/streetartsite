@@ -5,6 +5,9 @@ namespace App\Controller;
 use Contentful\Delivery\Client;
 use Contentful\Delivery\Query;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Translation\TranslatorInterface;
+use Psr\Log\LoggerInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class FaqController.
@@ -12,15 +15,47 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class FaqController extends Controller
 {
     /**
+     * @var LoggerInterface
+     */
+    private $logger;
+
+    /**
+     * @var TranslatorInterface
+     */
+    private $translator;
+
+    /**
+     * FaqController constructor.
+     *
+     * @param LoggerInterface        $logger
+     * @param TranslatorInterface    $translator
+     */
+    public function __construct(LoggerInterface $logger, TranslatorInterface $translator)
+    {
+        $this->logger = $logger;
+        $this->translator = $translator;
+    }
+
+    /**
+     * @param Request      $request
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function __invoke()
+    public function __invoke(Request $request)
     {
+        $localeArray = $this->getParameter('contentful_locale');
+
         /** @var Client $client */
         $client = $this->get('contentful.delivery');
         $query = new Query();
         $query->setContentType('faq');
-        $entries = $client->getEntries($query);
+        $query->setLocale($localeArray[$request->getLocale()]);
+        try {
+            $entries = $client->getEntries($query);
+        } catch (\Exception $e) {
+            $this->logger->error($e->getMessage());
+            $this->addFlash('danger', $this->translator->trans('content.not_found'));
+        }
 
         $entriesTransform = [];
         foreach ($entries as $entryContent) {
