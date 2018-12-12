@@ -42,6 +42,7 @@ class BlogController extends Controller
     public function __invoke(Request $request, $id)
     {
         $localeArray = $this->getParameter('contentful_locale');
+        $entry = '';
 
         /** @var Client $client */
         $client = $this->get('contentful.delivery');

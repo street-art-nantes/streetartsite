@@ -44,7 +44,7 @@ class FaqController extends Controller
     public function __invoke(Request $request)
     {
         $localeArray = $this->getParameter('contentful_locale');
-        $entry = '';
+        $entries = [];
 
         /** @var Client $client */
         $client = $this->get('contentful.delivery');
