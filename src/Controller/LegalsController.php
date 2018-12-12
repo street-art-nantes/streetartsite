@@ -3,11 +3,11 @@
 namespace App\Controller;
 
 use Contentful\Delivery\Client;
-use Symfony\Component\HttpFoundation\Request;
+use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Translation\TranslatorInterface;
-use Psr\Log\LoggerInterface;
 
 /**
  * Class LegalsController.
@@ -27,8 +27,8 @@ class LegalsController extends Controller
     /**
      * LegalsController constructor.
      *
-     * @param LoggerInterface        $logger
-     * @param TranslatorInterface    $translator
+     * @param LoggerInterface     $logger
+     * @param TranslatorInterface $translator
      */
     public function __construct(LoggerInterface $logger, TranslatorInterface $translator)
     {
@@ -37,13 +37,14 @@ class LegalsController extends Controller
     }
 
     /**
-     * @param Request      $request
+     * @param Request $request
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function __invoke(Request $request)
     {
         $localeArray = $this->getParameter('contentful_locale');
+        $entry = '';
 
         /** @var Client $client */
         $client = $this->get('contentful.delivery');

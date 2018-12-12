@@ -3,11 +3,11 @@
 namespace App\Controller;
 
 use Contentful\Delivery\Client;
+use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Translation\TranslatorInterface;
-use Psr\Log\LoggerInterface;
-use Symfony\Component\HttpFoundation\Request;
 
 class BlogController extends Controller
 {
@@ -24,8 +24,8 @@ class BlogController extends Controller
     /**
      * BlogController constructor.
      *
-     * @param LoggerInterface        $logger
-     * @param TranslatorInterface    $translator
+     * @param LoggerInterface     $logger
+     * @param TranslatorInterface $translator
      */
     public function __construct(LoggerInterface $logger, TranslatorInterface $translator)
     {
@@ -34,8 +34,8 @@ class BlogController extends Controller
     }
 
     /**
-     * @param Request      $request
-     * @param string $id
+     * @param Request $request
+     * @param string  $id
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
