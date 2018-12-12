@@ -70,12 +70,15 @@ class Mailer
         $template = 'email/welcome.twig';
         $urlAccount = $this->router->generate('public_profile', ['id' => $user->getId()], 0);
         $urlForm = $this->router->generate('app_artwork_new', [], 0);
+        $this->router->getContext();
         $urlLogo = $this->assetPackages->getUrl('img/logo.png');
+        $urlHeaderLogo = $this->assetPackages->getUrl('img/email-logo.png');
         $rendered = $this->templating->render($template, [
             'user' => $user,
             'urlAccount' => $urlAccount,
             'urlForm' => $urlForm,
             'urlLogo' => $urlLogo,
+            'urlHeaderLogo' => $urlHeaderLogo,
         ]);
         $this->sendEmailMessage($rendered,
             'contact@street-artwork.com',
