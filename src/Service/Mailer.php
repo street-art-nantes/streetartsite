@@ -70,7 +70,7 @@ class Mailer
         $template = 'email/welcome.twig';
         $urlAccount = $this->router->generate('public_profile', ['id' => $user->getId()], 0);
         $urlForm = $this->router->generate('app_artwork_new', [], 0);
-        $urlLogo = $this->assetPackages->getUrl('assets/img/logo.png');
+        $urlLogo = $this->assetPackages->getUrl('img/logo.png');
         $rendered = $this->templating->render($template, [
             'user' => $user,
             'urlAccount' => $urlAccount,
@@ -84,9 +84,9 @@ class Mailer
     }
 
     /**
-     * @param string $renderedTemplate
-     * @param string $fromEmail
-     * @param string $toEmail
+     * @param string        $renderedTemplate
+     * @param string        $fromEmail
+     * @param string        $toEmail
      * @param UserInterface $user
      */
     protected function sendEmailMessage($renderedTemplate, $fromEmail, $toEmail, UserInterface $user)
