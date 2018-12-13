@@ -46,3 +46,9 @@ services:
     poi.manager:
         alias: App\Manager\PoiManager
         public: true
+
+    App\Service\Mailer:
+        arguments: [ '@swiftmailer.mailer.default', '@router.default', '@templating.engine.twig', '@assets.packages', '@translator', []]
+        public: true
+        autowire: true
+        autoconfigure: false
