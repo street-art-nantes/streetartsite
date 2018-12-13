@@ -70,13 +70,15 @@ class Mailer
         $template = 'email/welcome.twig';
         $urlAccount = $this->router->generate('public_profile', ['id' => $user->getId()], 0);
         $urlForm = $this->router->generate('app_artwork_new', [], 0);
+        $urlMap = $this->router->generate('map');
         $this->router->getContext();
-        $urlLogo = $this->assetPackages->getUrl('img/logo.png');
-        $urlHeaderLogo = $this->assetPackages->getUrl('img/email-logo.png');
+        $urlLogo = $this->assetPackages->getUrl('assets/img/logo.png');
+        $urlHeaderLogo = $this->assetPackages->getUrl('assets/img/email-logo.png');
         $rendered = $this->templating->render($template, [
             'user' => $user,
             'urlAccount' => $urlAccount,
             'urlForm' => $urlForm,
+            'urlMap' => $urlMap,
             'urlLogo' => $urlLogo,
             'urlHeaderLogo' => $urlHeaderLogo,
         ]);

@@ -92,8 +92,15 @@ welcome:
     email:
         subject: 'Bienvenue sur street-artwork.com %username% !'
         header: 'Bonjour %username% !'
-        body_account: 'Vous pouvez retrouver votre compte public ici.'
+        introduction: 'Bienvenue sur street-artwork.com %username% !<br>
+        Le projet collaboratif regroupant les oeuvres de street art du monde entier géolocalisées.<br>
+        Nous comptons sur vous pour nous faire partager vos trouvailles.'
+        second_titre: 'Quoi faire maintenant ?'
+        body_account: 'Vous pouvez retrouver votre compte public ici. Pour le remplir de belles oeuvres.'
         body_form: 'Si vous ne l''avez pas encore fait, venez proposer vos photos.'
+        body_map: 'Parcourir la carte du monde.'
+        body_follow: 'Nous suivre sur Instagram et Facebook.'
+        body_outside: 'Sortir et partir à la chasse au street art !'
         footer:
             Streetartment,
             L'équipe
