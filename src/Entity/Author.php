@@ -35,6 +35,11 @@ class Author
     private $biography;
 
     /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $biography_en;
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $websiteLink;
@@ -103,6 +108,26 @@ class Author
     public function setBiography(?string $biography): self
     {
         $this->biography = $biography;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBiographyEn()
+    {
+        return $this->biography_en;
+    }
+
+    /**
+     * @param mixed $biography_en
+     *
+     * @return Author
+     */
+    public function setBiographyEn($biography_en)
+    {
+        $this->biography_en = $biography_en;
 
         return $this;
     }

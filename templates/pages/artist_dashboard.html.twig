@@ -7,6 +7,10 @@
 
     {% set nbArtistArtworks = artistArtworks|length %}
     {% set nbArtistCountries = artistCountriesArtworks|length %}
+    {% set biographyLang = 'biography' %}
+    {% if app.request.locale != 'fr' %}
+        {% set biographyLang = 'biography'~app.request.locale %}
+    {% endif %}
 
     <main role="main">
         <section class="section">
@@ -20,7 +24,7 @@
                     <div class="col-sm-12 col-md-8">
                         <h1>{{ 'artist.profile.title'|trans({ artistName: artist.name }) }}</h1>
                         <p>{{ 'artist.introduction'|trans({'artistName': artist.name, 'nbArtistArtworks': nbArtistArtworks, 'nbArtistCountries': nbArtistCountries}) }}</p>
-                        <p>{{ artist.biography }}</p>
+                        <p>{{ attribute(artist, biographyLang) }}</p>
                     </div>
                 </div>
             </div>
