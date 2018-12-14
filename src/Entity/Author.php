@@ -37,7 +37,7 @@ class Author
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $biography_en;
+    private $biographyEn;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -117,17 +117,17 @@ class Author
      */
     public function getBiographyEn()
     {
-        return $this->biography_en;
+        return $this->biographyEn;
     }
 
     /**
-     * @param mixed $biography_en
+     * @param mixed $biographyEn
      *
      * @return Author
      */
-    public function setBiographyEn($biography_en)
+    public function setBiographyEn($biographyEn)
     {
-        $this->biography_en = $biography_en;
+        $this->biographyEn = $biographyEn;
 
         return $this;
     }
