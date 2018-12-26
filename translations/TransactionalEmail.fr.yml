@@ -1,0 +1,9 @@
+submission:
+    subject: 'Soumission de votre artwork bien reçue !'
+    header: 'Bonjour %username% !'
+    introduction: 'Merci beaucoup pour votre soumission d’artwork, vous serez averti dès que celle-ci sera validée.'
+    body_form: 'En attendant vous pouvez en soumettre d’autres par ici :)'
+    second_titre: 'Récapitulatif de votre soumission'
+    footer:
+        Streetartment,
+        L'équipe
