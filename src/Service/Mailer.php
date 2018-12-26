@@ -114,6 +114,7 @@ class Mailer
             [$user->getEmail() => $user->getUsername()],
             $user,
             $subject);
+
     }
 
     /**
@@ -127,6 +128,7 @@ class Mailer
     {
         $message = (new \Swift_Message())
             ->setSubject($subject)
+
             ->setFrom($fromEmail)
             ->setTo($toEmail)
             ->setBody($renderedTemplate, 'text/html');

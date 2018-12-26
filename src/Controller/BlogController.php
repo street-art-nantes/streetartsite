@@ -3,21 +3,55 @@
 namespace App\Controller;
 
 use Contentful\Delivery\Client;
+use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\Translation\TranslatorInterface;
 
 class BlogController extends Controller
 {
     /**
-     * @param string $id
+     * @var LoggerInterface
+     */
+    private $logger;
+
+    /**
+     * @var TranslatorInterface
+     */
+    private $translator;
+
+    /**
+     * BlogController constructor.
+     *
+     * @param LoggerInterface     $logger
+     * @param TranslatorInterface $translator
+     */
+    public function __construct(LoggerInterface $logger, TranslatorInterface $translator)
+    {
+        $this->logger = $logger;
+        $this->translator = $translator;
+    }
+
+    /**
+     * @param Request $request
+     * @param string  $id
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function __invoke($id)
+    public function __invoke(Request $request, $id)
     {
+        $localeArray = $this->getParameter('contentful_locale');
+        $entry = '';
+
         /** @var Client $client */
         $client = $this->get('contentful.delivery');
-        $entry = $client->getEntry($id);
+        try {
+            $entry = $client->getEntry($id, $localeArray[$request->getLocale()]);
+        } catch (\Exception $e) {
+            $this->logger->error($e->getMessage());
+            $this->addFlash('danger', $this->translator->trans('content.not_found'));
+        }
 
         if (!$entry) {
             throw new NotFoundHttpException();
