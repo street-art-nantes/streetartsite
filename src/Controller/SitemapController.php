@@ -49,6 +49,10 @@ class SitemapController extends Controller
                 'content' => '',
             ],
             [
+                'title' => '<a href="/'.$locale.'/blog">'.$this->translator->trans('header.menu.blog').'</a>',
+                'content' => '',
+            ],
+            [
                 'title' => '<a href="/'.$locale.'/faq">'.$this->translator->trans('nav.link.faq').'</a>',
                 'content' => '',
             ],

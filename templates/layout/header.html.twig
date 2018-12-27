@@ -25,6 +25,10 @@
                         <a class="nav-link" href="{{ path('artist_list') }}">{{ 'header.menu.artistlist'|trans({}) }} <span
                                     class="sr-only">(current)</span></a>
                     </li>
+                    <li class="nav-item {% if app.request.get('_route') == 'blog' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path('blog') }}">{{ 'header.menu.blog'|trans({}) }} <span
+                                    class="sr-only">(current)</span></a>
+                    </li>
                     <li class="nav-item {% if app.request.get('_route') == 'app_artwork_new' %}active{% endif %}">
                         <a class="nav-link" href="{{ path('app_artwork_new') }}">{{ 'header.menu.submit'|trans({}) }}
                             <span class="sr-only">(current)</span></a>

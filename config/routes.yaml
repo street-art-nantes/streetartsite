@@ -69,6 +69,7 @@ blog:
     controller:   App\Controller\BlogController
     defaults:
         template: pages/content.html.twig
+        id:       list
     requirements:
         id:  "[a-zA-Z0-9-]+"
         _locale:  '%locale_available%'
