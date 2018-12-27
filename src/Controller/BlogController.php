@@ -49,7 +49,7 @@ class BlogController extends Controller
         /** @var Client $client */
         $client = $this->get('contentful.delivery');
 
-        if ($id && 'list' != $id) {
+        if ($id && 'list' !== $id) {
             try {
                 $entry = $client->getEntry($id, $localeArray[$request->getLocale()]);
             } catch (\Exception $e) {
