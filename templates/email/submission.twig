@@ -4,7 +4,7 @@
     <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
     <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>{{ 'welcome.email.subject'|trans({}) }}</title>
+        <title>{{ 'submission.subject'|trans({},'TransactionalEmail') }}</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta content="width=device-width">
         <style type="text/css">
@@ -81,10 +81,11 @@
                                             <tr>
                                                 <td class="w580"  width="580">
                                                     <h2 style="color:#0E7693; font-size:22px; padding-top:12px;">
-                                                        {{ 'welcome.email.header'|trans({'%username%': user.username}) }}  </h2>
+                                                        {{ 'submission.header'|trans({'%username%': user.username},'TransactionalEmail') }}  </h2>
 
                                                     <div align="left" class="article-content">
-                                                        <p>{{ 'welcome.email.introduction'|trans({'%username%': user.username})|raw }}</p>
+                                                        <p>{{ 'submission.introduction'|trans({'%username%': user.username},'TransactionalEmail')|raw }}</p>
+                                                        <p><a href="{{ urlForm }}">{{ 'submission.body_form'|trans({},'TransactionalEmail') }}</a></p>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -100,18 +101,21 @@
                                             <tbody>
                                             <tr>
                                                 <td colspan="3">
-                                                    <h2 style="color:#0E7693; font-size:22px; padding-top:12px;">{{ 'welcome.email.second_titre'|trans({}) }}</h2>
+                                                    <h2 style="color:#0E7693; font-size:22px; padding-top:12px;">{{ 'submission.second_titre'|trans({},'TransactionalEmail') }}</h2>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td class="w275"  width="275" valign="top">
                                                     <div align="left" class="article-content">
                                                         <ul>
-                                                            <li><a href="{{ urlForm }}">{{ 'welcome.email.body_form'|trans({}) }}</a></li>
-                                                            <li><a href="{{ urlAccount }}">{{ 'welcome.email.body_account'|trans({}) }}</a></li>
-                                                            <li><a href="{{ urlMap }}">{{ 'welcome.email.body_map'|trans({}) }}</a></li>
-                                                            <li>{{ 'welcome.email.body_follow'|trans({}) }}</li>
-                                                            <li>{{ 'welcome.email.body_outside'|trans({}) }}</li>
+                                                            {% set artwork = datas.artwork %}
+                                                            <li>{{ 'artwork.label.title'|trans({},'messages') }} : {{ artwork.title }}</li>
+                                                            <li>{{ 'artwork.label.address'|trans({},'messages') }} : {{ artwork.poi.address }}</li>
+                                                            <li>{{ 'artwork.label.city'|trans({},'messages') }} : {{ artwork.poi.city }}</li>
+                                                            <li>{{ 'artwork.label.country'|trans({},'messages') }} : {{ artwork.poi.country }}</li>
+                                                            <li>{{ 'artwork.label.latitude'|trans({},'messages') }} : {{ artwork.poi.latitude }}</li>
+                                                            <li>{{ 'artwork.label.longitude'|trans({},'messages') }} : {{ artwork.poi.longitude }}</li>
+                                                            <li>{{ 'artwork.label.longitude'|trans({},'messages') }} : {{ artwork.poi.longitude }}</li>
                                                         </ul>
                                                     </div>
                                                 </td>
@@ -170,7 +174,7 @@
                                                 <td class="w30"  width="30"></td>
                                                 <td class="w275"  width="275" valign="top">
                                                     <p align="right" class="pagebottom-content-left">
-                                                        <a style="color:#255D5C;" href="https://www.street-artwork.com"><span style="color:#255D5C;">{{ 'welcome.email.footer'|trans({}) }}</span></a>
+                                                        <a style="color:#255D5C;" href="https://www.street-artwork.com"><span style="color:#255D5C;">{{ 'submission.footer'|trans({},'TransactionalEmail') }}</span></a>
                                                     </p>
                                                 </td>
                                             </tr>

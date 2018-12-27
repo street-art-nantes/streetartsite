@@ -6,6 +6,7 @@ use FOS\UserBundle\Model\UserInterface;
 use Swift_Mailer as BaseMailer;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\Asset\Packages as AssetPackages;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 
@@ -71,7 +72,6 @@ class Mailer
         $urlAccount = $this->router->generate('public_profile', ['id' => $user->getId()], 0);
         $urlForm = $this->router->generate('app_artwork_new', [], 0);
         $urlMap = $this->router->generate('map');
-        $this->router->getContext();
         $urlLogo = $this->assetPackages->getUrl('assets/img/logo.png');
         $urlHeaderLogo = $this->assetPackages->getUrl('assets/img/email-logo.png');
         $rendered = $this->templating->render($template, [
@@ -82,22 +82,50 @@ class Mailer
             'urlLogo' => $urlLogo,
             'urlHeaderLogo' => $urlHeaderLogo,
         ]);
+        $subject = $this->translator->trans('welcome.email.subject', ['%username%' => $user->getUsername()], 'FOSUserBundle');
         $this->sendEmailMessage($rendered,
-            'contact@street-artwork.com',
-            $user->getEmail(),
-            $user);
+            ['contact@street-artwork.com' => 'street-artwork.com'],
+            [$user->getEmail() => $user->getUsername()],
+            $user,
+            $subject);
+    }
+
+    /**
+     * @param Request       $request
+     * @param UserInterface $user
+     */
+    public function sendSubmissionEmailMessage(Request $request, UserInterface $user)
+    {
+        $template = 'email/submission.twig';
+        $urlForm = $this->router->generate('app_artwork_new', [], 0);
+        $urlLogo = $this->assetPackages->getUrl('assets/img/logo.png');
+        $urlHeaderLogo = $this->assetPackages->getUrl('assets/img/email-logo.png');
+        $rendered = $this->templating->render($template, [
+            'user' => $user,
+            'urlForm' => $urlForm,
+            'urlLogo' => $urlLogo,
+            'urlHeaderLogo' => $urlHeaderLogo,
+            'datas' => $request->request->all(),
+        ]);
+        $subject = $this->translator->trans('submission.subject', ['%username%' => $user->getUsername()], 'TransactionalEmail');
+        $this->sendEmailMessage($rendered,
+            ['contact@street-artwork.com' => 'street-artwork.com'],
+            [$user->getEmail() => $user->getUsername()],
+            $user,
+            $subject);
     }
 
     /**
      * @param string        $renderedTemplate
-     * @param string        $fromEmail
-     * @param string        $toEmail
+     * @param mixed         $fromEmail
+     * @param mixed         $toEmail
      * @param UserInterface $user
+     * @param string        $subject
      */
-    protected function sendEmailMessage($renderedTemplate, $fromEmail, $toEmail, UserInterface $user)
+    protected function sendEmailMessage($renderedTemplate, $fromEmail, $toEmail, UserInterface $user, $subject)
     {
         $message = (new \Swift_Message())
-            ->setSubject($this->translator->trans('welcome.email.subject', ['%username%' => $user->getUsername()], 'FOSUserBundle'))
+            ->setSubject($subject)
             ->setFrom($fromEmail)
             ->setTo($toEmail)
             ->setBody($renderedTemplate, 'text/html');

@@ -3,8 +3,11 @@
 namespace App\Controller;
 
 use Contentful\Delivery\Client;
+use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\Translation\TranslatorInterface;
 
 /**
  * Class LegalsController.
@@ -12,13 +15,46 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class LegalsController extends Controller
 {
     /**
+     * @var LoggerInterface
+     */
+    private $logger;
+
+    /**
+     * @var TranslatorInterface
+     */
+    private $translator;
+
+    /**
+     * LegalsController constructor.
+     *
+     * @param LoggerInterface     $logger
+     * @param TranslatorInterface $translator
+     */
+    public function __construct(LoggerInterface $logger, TranslatorInterface $translator)
+    {
+        $this->logger = $logger;
+        $this->translator = $translator;
+    }
+
+    /**
+     * @param Request $request
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function __invoke()
+    public function __invoke(Request $request)
     {
+        $localeArray = $this->getParameter('contentful_locale');
+        $entry = '';
+
         /** @var Client $client */
         $client = $this->get('contentful.delivery');
-        $entry = $client->getEntry('5o9QHWZhTyouo2oIiGEOkw');
+
+        try {
+            $entry = $client->getEntry('5o9QHWZhTyouo2oIiGEOkw', $localeArray[$request->getLocale()]);
+        } catch (\Exception $e) {
+            $this->logger->error($e->getMessage());
+            $this->addFlash('danger', $this->translator->trans('content.not_found'));
+        }
 
         if (!$entry) {
             throw new NotFoundHttpException();
@@ -26,7 +62,7 @@ class LegalsController extends Controller
 
         return $this->render('pages/content.html.twig', [
             'blog' => $entry,
-            'pageTitle' => 'Legals',
+            'pageTitle' => $entry->get('title'),
         ]);
     }
 }

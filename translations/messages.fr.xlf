@@ -134,7 +134,7 @@
     <unit id="wt0Gj6K" name="artwork.label.title">
       <notes>
         <note category="file-source" priority="1">templates/pages/artwork.html.twig:24</note>
-        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:25</note>
+        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:26</note>
       </notes>
       <segment>
         <source>artwork.label.title</source>
@@ -193,7 +193,7 @@
     </unit>
     <unit id="3YXWeHz" name="artwork.label.documents">
       <notes>
-        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:32</note>
+        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:33</note>
       </notes>
       <segment>
         <source>artwork.label.documents</source>
@@ -259,11 +259,12 @@
     </unit>
     <unit id="ownf56y" name="header.menu.submit">
       <notes>
-        <note category="file-source" priority="1">templates/layout/header.html.twig:29</note>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:33</note>
+        <note category="file-source" priority="1">src/Controller/SitemapController.php:68</note>
       </notes>
       <segment>
         <source>header.menu.submit</source>
-        <target>Soumettre une photo</target>
+        <target>Soumettre photo</target>
       </segment>
     </unit>
     <unit id="V2YvCwD" name="map.description">
@@ -279,6 +280,7 @@
     <unit id="REXtE1v" name="header.menu.list">
       <notes>
         <note category="file-source" priority="1">templates/layout/header.html.twig:21</note>
+        <note category="file-source" priority="1">src/Controller/SitemapController.php:44</note>
       </notes>
       <segment>
         <source>header.menu.list</source>
@@ -306,6 +308,7 @@
     <unit id="RIrQkXh" name="nav.link.faq">
       <notes>
         <note category="file-source" priority="1">templates/layout/footer.html.twig:16</note>
+        <note category="file-source" priority="1">src/Controller/SitemapController.php:56</note>
       </notes>
       <segment>
         <source>nav.link.faq</source>
@@ -315,6 +318,7 @@
     <unit id="a6EN0Ik" name="nav.link.legals">
       <notes>
         <note category="file-source" priority="1">templates/layout/footer.html.twig:19</note>
+        <note category="file-source" priority="1">src/Controller/SitemapController.php:64</note>
       </notes>
       <segment>
         <source>nav.link.legals</source>
@@ -324,6 +328,8 @@
     <unit id="57ZrJh1" name="nav.link.sitemap">
       <notes>
         <note category="file-source" priority="1">templates/layout/footer.html.twig:22</note>
+        <note category="file-source" priority="1">src/Controller/SitemapController.php:40</note>
+        <note category="file-source" priority="1">src/Controller/SitemapController.php:60</note>
       </notes>
       <segment>
         <source>nav.link.sitemap</source>
@@ -378,7 +384,7 @@
     <unit id="0zzdtT5" name="artwork.label.author">
       <notes>
         <note category="file-source" priority="1">templates/pages/artwork.html.twig:28</note>
-        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:42</note>
+        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:43</note>
       </notes>
       <segment>
         <source>artwork.label.author</source>
@@ -414,7 +420,7 @@
     </unit>
     <unit id="MoE907k" name="artwork.neighbour">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork.html.twig:61</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:82</note>
       </notes>
       <segment>
         <source>artwork.neighbour</source>
@@ -703,8 +709,8 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     </unit>
     <unit id="4JHCt.t" name="profile.edit.title">
       <notes>
-        <note category="file-source" priority="1">templates/user/user_profile.html.twig:19</note>
         <note category="file-source" priority="1">templates/bundles/FOSUserBundle/Profile/edit_content.html.twig:3</note>
+        <note category="file-source" priority="1">templates/user/user_profile.html.twig:19</note>
       </notes>
       <segment>
         <source>profile.edit.title</source>
@@ -835,6 +841,7 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     <unit id="h2Lb0U9" name="header.menu.artistlist">
       <notes>
         <note category="file-source" priority="1">templates/layout/header.html.twig:25</note>
+        <note category="file-source" priority="1">src/Controller/SitemapController.php:48</note>
       </notes>
       <segment>
         <source>header.menu.artistlist</source>
@@ -879,12 +886,44 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     </unit>
     <unit id="reFG_9c" name="artwork.placeholder.author">
       <notes>
-        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:47</note>
-        <note category="state" priority="1">new</note>
+        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:52</note>
       </notes>
       <segment>
         <source>artwork.placeholder.author</source>
         <target>Auteur</target>
+      </segment>
+    </unit>
+    <unit id="21RFYiC" name="content.not_found">
+      <notes>
+        <note category="file-source" priority="1">src/Controller/BlogController.php:57</note>
+        <note category="file-source" priority="1">src/Controller/BlogController.php:77</note>
+        <note category="file-source" priority="1">src/Controller/FaqController.php:58</note>
+        <note category="file-source" priority="1">src/Controller/LegalsController.php:56</note>
+        <note category="file-source" priority="1">src/Controller/ReleasesController.php:55</note>
+      </notes>
+      <segment>
+        <source>content.not_found</source>
+        <target>Une erreur est survenue en chargeant le contenu</target>
+      </segment>
+    </unit>
+    <unit id="idYSaAg" name="blog.list.title">
+      <notes>
+        <note category="file-source" priority="1">src/Controller/BlogController.php:82</note>
+      </notes>
+      <segment>
+        <source>blog.list.title</source>
+        <target>Blog et articles sur le street art</target>
+      </segment>
+    </unit>
+    <unit id="eEJgfF1" name="header.menu.blog">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:29</note>
+        <note category="file-source" priority="1">src/Controller/SitemapController.php:52</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>header.menu.blog</source>
+        <target>Blog</target>
       </segment>
     </unit>
   </file>
