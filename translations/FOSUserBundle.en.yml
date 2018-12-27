@@ -101,10 +101,10 @@ welcome:
         The collaborative project gathering street artworks from around the world geolocated.<br>
         We rely on you to share your finds.'
         second_titre: 'What''s next?'
-        body_account: 'You can find your public account here. To fill it with nice pictures.'
-        body_form: 'If you haven''t done, submit your photos.'
-        body_map: 'Browse the world map.'
-        body_follow: 'Follow us on Instagram and Facebook.'
+        body_account: 'You can find your public account here. To fill it with nice pictures'
+        body_form: 'If you haven''t done, submit your photos'
+        body_map: 'Browse the world map'
+        body_follow: 'Follow us on Instagram and Facebook'
         body_outside: 'Go out and go streetart hunting!'
         footer:
             Streetarly,

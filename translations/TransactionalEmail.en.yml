@@ -1,0 +1,9 @@
+submission:
+    subject: 'Submission of your work received!'
+    header: 'Hello %username% !'
+    introduction: 'Thank you very much for your artwork submission, you will be notified as soon as it will be validated.'
+    body_form: 'In the meantime, you can submit others here :)'
+    second_titre: 'Summary of your submission'
+    footer:
+        Streetarly,
+        The team.
