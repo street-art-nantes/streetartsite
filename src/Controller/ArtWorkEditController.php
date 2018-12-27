@@ -31,8 +31,8 @@ class ArtWorkEditController extends Controller
     private $logger;
 
     /**
- * @var TranslatorInterface
- */
+     * @var TranslatorInterface
+     */
     private $translator;
 
     /**
@@ -104,6 +104,7 @@ class ArtWorkEditController extends Controller
 
                 if ($isCreateForm) {
                     $this->mailer->sendSubmissionEmailMessage($request, $this->getUser());
+
                     return $this->redirectToRoute('app_artwork_new', [
                         'success' => true,
                     ]);
