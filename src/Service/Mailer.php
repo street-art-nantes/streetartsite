@@ -91,13 +91,11 @@ class Mailer
     }
 
     /**
-     * TODO
      * @param Request       $request
      * @param UserInterface $user
      */
     public function sendSubmissionEmailMessage(Request $request, UserInterface $user)
     {
-        var_dump($request);// TODO convertir les données en tableau pour les afficher dans l'email
         $template = 'email/submission.twig';
         $urlForm = $this->router->generate('app_artwork_new', [], 0);
         $urlLogo = $this->assetPackages->getUrl('assets/img/logo.png');
@@ -107,6 +105,7 @@ class Mailer
             'urlForm' => $urlForm,
             'urlLogo' => $urlLogo,
             'urlHeaderLogo' => $urlHeaderLogo,
+            'datas' => $request->request->all(),
         ]);
         $subject = $this->translator->trans('submission.subject', ['%username%' => $user->getUsername()], 'TransactionalEmail');
         $this->sendEmailMessage($rendered,
@@ -114,13 +113,12 @@ class Mailer
             [$user->getEmail() => $user->getUsername()],
             $user,
             $subject);
-
     }
 
     /**
      * @param string        $renderedTemplate
-     * @param mixed        $fromEmail
-     * @param mixed        $toEmail
+     * @param mixed         $fromEmail
+     * @param mixed         $toEmail
      * @param UserInterface $user
      * @param string        $subject
      */
@@ -128,7 +126,6 @@ class Mailer
     {
         $message = (new \Swift_Message())
             ->setSubject($subject)
-
             ->setFrom($fromEmail)
             ->setTo($toEmail)
             ->setBody($renderedTemplate, 'text/html');
