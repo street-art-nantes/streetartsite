@@ -4,7 +4,7 @@
     <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
     <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>{{ 'submission.subject'|trans({},'TransactionalEmail') }}</title>
+        <title>{{ 'validation.subject'|trans({},'TransactionalEmail') }}</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta content="width=device-width">
         <style type="text/css">
@@ -81,11 +81,11 @@
                                             <tr>
                                                 <td class="w580"  width="580">
                                                     <h2 style="color:#0E7693; font-size:22px; padding-top:12px;">
-                                                        {{ 'submission.header'|trans({'%username%': user.username},'TransactionalEmail') }}  </h2>
+                                                        {{ 'validation.header'|trans({'%username%': user.username},'TransactionalEmail') }}  </h2>
 
                                                     <div align="left" class="article-content">
-                                                        <p>{{ 'submission.introduction'|trans({'%username%': user.username},'TransactionalEmail')|raw }}</p>
-                                                        <p><a href="{{ urlForm }}">{{ 'submission.body_form'|trans({},'TransactionalEmail') }}</a></p>
+                                                        <p><a href="{{ urlArtwork }}">{{ 'validation.introduction'|trans({'%username%': user.username},'TransactionalEmail')|raw }}</a></p>
+                                                        <p><a href="{{ urlForm }}">{{ 'validation.body_form'|trans({},'TransactionalEmail') }}</a></p>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -101,14 +101,13 @@
                                             <tbody>
                                             <tr>
                                                 <td colspan="3">
-                                                    <h2 style="color:#0E7693; font-size:22px; padding-top:12px;">{{ 'submission.second_titre'|trans({},'TransactionalEmail') }}</h2>
+                                                    <h2 style="color:#0E7693; font-size:22px; padding-top:12px;">{{ 'validation.second_titre'|trans({},'TransactionalEmail') }}</h2>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td class="w275"  width="275" valign="top">
                                                     <div align="left" class="article-content">
                                                         <ul>
-                                                            {% set artwork = datas.artwork %}
                                                             <li>{{ 'artwork.label.title'|trans({},'messages') }} : {{ artwork.title }}</li>
                                                             <li>{{ 'artwork.label.address'|trans({},'messages') }} : {{ artwork.poi.address }}</li>
                                                             <li>{{ 'artwork.label.city'|trans({},'messages') }} : {{ artwork.poi.city }}</li>
@@ -119,9 +118,9 @@
                                                     </div>
                                                 </td>
                                                 <td class="w30"  width="30"></td>
-                                                <td class="w275"  width="275" valign="top">
+                                                <td class="w275"  width="195" valign="top">
                                                     <p>
-                                                        <img class="w180"  width="180" src="{{ urlLogo }}" alt="logo street-artwork.com" />
+                                                        <img class="w180"  width="180" src="{{ imgArtwork }}" alt="{{ artwork.title }}" />
                                                     </p>
                                                 </td>
                                             </tr>
@@ -173,7 +172,7 @@
                                                 <td class="w30"  width="30"></td>
                                                 <td class="w275"  width="275" valign="top">
                                                     <p align="right" class="pagebottom-content-left">
-                                                        <a style="color:#000;" href="https://www.street-artwork.com"><span style="color:#000;">{{ 'submission.footer'|trans({},'TransactionalEmail') }}</span></a>
+                                                        <a style="color:#000;" href="https://www.street-artwork.com"><span style="color:#000;">{{ 'validation.footer'|trans({},'TransactionalEmail') }}</span></a>
                                                     </p>
                                                 </td>
                                             </tr>

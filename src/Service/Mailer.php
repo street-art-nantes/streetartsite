@@ -2,13 +2,16 @@
 
 namespace App\Service;
 
+use App\Entity\Artwork;
 use FOS\UserBundle\Model\UserInterface;
+use Liip\ImagineBundle\Service\FilterService;
 use Swift_Mailer as BaseMailer;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\Asset\Packages as AssetPackages;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Translation\TranslatorInterface;
+use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
 
 class Mailer
 {
@@ -43,6 +46,16 @@ class Mailer
     protected $parameters;
 
     /**
+     * @var UploaderHelper
+     */
+    private $helper;
+
+    /**
+     * @var FilterService
+     */
+    private $filterService;
+
+    /**
      * Mailer constructor.
      *
      * @param BaseMailer            $baseMailer
@@ -50,16 +63,21 @@ class Mailer
      * @param EngineInterface       $templating
      * @param AssetPackages         $assetPackages
      * @param TranslatorInterface   $translator
+     * @param UploaderHelper        $helper
+     * @param FilterService         $filterService
      * @param array                 $parameters
      */
     public function __construct(BaseMailer $baseMailer, UrlGeneratorInterface $router, EngineInterface $templating,
-                                AssetPackages $assetPackages, TranslatorInterface $translator, array $parameters)
+                                AssetPackages $assetPackages, TranslatorInterface $translator, UploaderHelper $helper,
+                                FilterService $filterService, array $parameters)
     {
         $this->baseMailer = $baseMailer;
         $this->router = $router;
         $this->templating = $templating;
         $this->assetPackages = $assetPackages;
         $this->translator = $translator;
+        $this->helper = $helper;
+        $this->filterService = $filterService;
         $this->parameters = $parameters;
     }
 
@@ -108,6 +126,34 @@ class Mailer
             'datas' => $request->request->all(),
         ]);
         $subject = $this->translator->trans('submission.subject', ['%username%' => $user->getUsername()], 'TransactionalEmail');
+        $this->sendEmailMessage($rendered,
+            ['contact@street-artwork.com' => 'street-artwork.com'],
+            [$user->getEmail() => $user->getUsername()],
+            $user,
+            $subject);
+    }
+
+    /**
+     * @param Artwork       $artwork
+     * @param UserInterface $user
+     */
+    public function sendValidationEmailMessage(Artwork $artwork, UserInterface $user)
+    {
+        $template = 'email/validation.twig';
+        $urlForm = $this->router->generate('app_artwork_new', [], 0);
+        $urlArtwork = $this->router->generate('artwork', ['id' => $artwork->getId()], 0);
+        $document = $artwork->getDocuments()->first();
+        $urlImgArtwork = $this->filterService->getUrlOfFilteredImage($this->helper->asset($document, 'imageFile'), 'thumb_small');
+        $urlHeaderLogo = $this->assetPackages->getUrl('assets/img/email-logo.png');
+        $rendered = $this->templating->render($template, [
+            'user' => $user,
+            'urlForm' => $urlForm,
+            'urlHeaderLogo' => $urlHeaderLogo,
+            'artwork' => $artwork,
+            'urlArtwork' => $urlArtwork,
+            'imgArtwork' => $urlImgArtwork,
+        ]);
+        $subject = $this->translator->trans('validation.subject', ['%username%' => $user->getUsername()], 'TransactionalEmail');
         $this->sendEmailMessage($rendered,
             ['contact@street-artwork.com' => 'street-artwork.com'],
             [$user->getEmail() => $user->getUsername()],
