@@ -7,3 +7,13 @@ submission:
     footer:
         Streetartment,
         L'équipe
+
+validation:
+    subject: 'Votre artwork a été validé !'
+    header: 'Bonjour %username% !'
+    introduction: 'Votre artwork a été validé. Vous pouvez le retrouver ici et sur votre profil.'
+    body_form: 'Vous pouvez également en soumettre d’autres par ici :)'
+    second_titre: 'Récapitulatif de votre soumission'
+    footer:
+        Streetartment,
+        L'équipe

@@ -7,3 +7,13 @@ submission:
     footer:
         Streetarly,
         The team.
+
+validation:
+    subject: 'Your artwork has been validated!'
+    header: 'Hello %username% !'
+    introduction: 'Your artowrk has been validated. You can find it here and on your profile.'
+    body_form: 'You can also submit others here :)'
+    second_titre: 'Summary of your submission'
+    footer:
+        Streetarly,
+        The team.

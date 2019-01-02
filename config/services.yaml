@@ -48,7 +48,7 @@ services:
         public: true
 
     App\Service\Mailer:
-        arguments: [ '@swiftmailer.mailer.default', '@router.default', '@templating.engine.twig', '@assets.packages', '@translator', []]
+        arguments: [ '@swiftmailer.mailer.default', '@router.default', '@templating.engine.twig', '@assets.packages', '@translator', '@vich_uploader.templating.helper.uploader_helper', '@liip_imagine.service.filter', []]
         public: true
         autowire: true
         autoconfigure: false
