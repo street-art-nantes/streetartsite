@@ -43,6 +43,9 @@ jQuery(document).ready(function() {
             }).show();
         });
     });
+    $( "#author-toggle" ).click(function() {
+        $( "#author-div" ).toggle();
+    });
 });
 
 function getAddressFromCoordinates() {
