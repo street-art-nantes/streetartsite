@@ -5,28 +5,6 @@
 {% form_theme form _self %}
 
 {% block choice_widget_expanded -%}
-    <style>
-        .searchable-container .btn{display: block;margin: 0;padding: 2px 5px;width:105px;height:78px;}
-        .searchable-container label.btn.active{background-color: rgba(23, 162, 184, 0.5);}
-        .searchable-container .btn span.fa-check{opacity: 0;}
-        .searchable-container .btn.active span.fa-check {opacity: 1;}
-        .searchable-container input[type="checkbox"] {
-            clip: rect(0,0,0,0);
-            position: absolute;
-        }
-        .searchable-container h5{
-            background: #fff;
-            border-radius: 0.2rem;
-            opacity: 0.8;
-            /*white-space: normal;*/
-            font-size: 1em;
-            overflow: hidden;
-        }
-        #author-toggle{ cursor: pointer;}
-        #author-div{
-            display: none;
-        }
-    </style>
     <div class="form-group">
         <div class="col-sm-12 col-md-12 col-lg-12">
             <input type="search" class="form-control" id="search-artist" placeholder="{{ 'artwork.searchauthor'|trans({}) }}">
@@ -34,7 +12,6 @@
     </div>
     <div {{ block('widget_container_attributes') }} class="searchable-container">
             {%- for child in form %}
-                {#{{ dump(child) }}#}
                 {% set entity = form.vars.choices[loop.index].data %}
                 {{- form_widget(child, {'entity': entity}) -}}
                 {{- form_label(child, null, {translation_domain: choice_translation_domain}) -}}
@@ -49,11 +26,11 @@
     {% else %}
         {% set imgSrc = vich_uploader_asset(entity, 'avatarFile') %}
     {% endif %}
-    <div class="items" style="display: inline-block;width:105px;height:78px;background: url('{{ imgSrc | imagine_filter('thumb_smaller') }}') no-repeat;margin:5px 7px;">
+    <div class="items" style="background: url('{{ imgSrc | imagine_filter('thumb_smaller') }}') no-repeat;">
         <div class="info-block block-info clearfix">
-            <div data-toggle="buttons">
+            <div data-toggle="buttons" class="btn-group itemcontent">
                 <label class="btn" title="{{ entity.name }}">
-                    <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                    <input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} autocomplete="off" />
                     <span class="fas fa-check"></span>
                     <h5>{{ entity.name }}</h5>
                 </label>
