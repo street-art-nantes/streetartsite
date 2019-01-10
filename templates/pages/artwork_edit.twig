@@ -4,6 +4,41 @@
 
 {% form_theme form _self %}
 
+{% block choice_widget_expanded -%}
+    <div class="form-group">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <input type="search" class="form-control" id="search-artist" placeholder="{{ 'artwork.searchauthor'|trans({}) }}">
+        </div>
+    </div>
+    <div {{ block('widget_container_attributes') }} class="searchable-container">
+            {%- for child in form %}
+                {% set entity = form.vars.choices[loop.index].data %}
+                {{- form_widget(child, {'entity': entity}) -}}
+                {{- form_label(child, null, {translation_domain: choice_translation_domain}) -}}
+            {% endfor -%}
+    </div>
+{%- endblock choice_widget_expanded %}
+
+{% block checkbox_widget -%}
+    {%- set attr = attr|merge({class: (attr.class|default('') ~ ' form-check-input')|trim}) -%}
+    {% if entity.avatarName is empty %}
+        {% set imgSrc = asset('assets/img/author-avatar.jpg') %}
+    {% else %}
+        {% set imgSrc = vich_uploader_asset(entity, 'avatarFile') %}
+    {% endif %}
+    <div class="items" style="background: url('{{ imgSrc | imagine_filter('thumb_smaller') }}') no-repeat;">
+        <div class="info-block block-info clearfix">
+            <div data-toggle="buttons" class="btn-group itemcontent">
+                <label class="btn" title="{{ entity.name }}">
+                    <input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} autocomplete="off" />
+                    <span class="fas fa-check"></span>
+                    <h5>{{ entity.name }}</h5>
+                </label>
+            </div>
+        </div>
+    </div>
+{%- endblock checkbox_widget %}
+
 {% block success %}
     <div class="content-success text-center mt-5">
 
@@ -82,7 +117,10 @@
 
     <div class="row">
         <div class="col-12">
-            {{ form_row(form.author) }}
+            <p id="author-toggle">{{ 'artwork.selectauthor'|trans({}) }}</p>
+            <div id="author-div">
+                {{ form_row(form.author) }}
+            </div>
         </div>
     </div>
 

@@ -32,7 +32,20 @@ jQuery(document).ready(function() {
       $('#artwork_poi_longitude').val(long);
       getAddressFromCoordinates();
     }
-  })
+  });
+
+    $(function() {
+        $('#search-artist').on('keyup', function() {
+            var pattern = $(this).val();
+            $('.searchable-container .items').hide();
+            $('.searchable-container .items').filter(function() {
+                return $(this).text().match(new RegExp(pattern, 'i'));
+            }).show();
+        });
+    });
+    $( "#author-toggle" ).click(function() {
+        $( "#author-div" ).toggle();
+    });
 });
 
 function getAddressFromCoordinates() {

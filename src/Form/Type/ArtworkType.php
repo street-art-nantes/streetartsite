@@ -48,9 +48,10 @@ class ArtworkType extends AbstractType
             },
             'choice_label' => 'name',
             'required' => false,
-            'label' => 'artwork.label.author',
+            'label' => false,
             'placeholder' => 'artwork.placeholder.author',
             'multiple' => true,
+            'expanded' => true,
         ]);
     }
 
