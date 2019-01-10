@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}{{ pageTitle }}{% endblock %}
+{% block metas %}
+    {% include "components/metas.twig" with { metaDesc: 'metaDesc'} %}
+{% endblock metas %}
 {% block body_classes %}page-content{% endblock body_classes %}
 
 {% block body %}
