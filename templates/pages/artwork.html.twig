@@ -2,9 +2,11 @@
 {% set artwork = poi.artworks.first %}
 {% set document = artwork.documents.first %}
 
-{% block title %}Artwork - {{ poi.address }} - {{ poi.city }} - {{ poi.country }}
-{% if artwork.title %} - {{ artwork.title }}{% endif %}
-{% endblock %}
+{% block title %}{{ pageTitle }}{% endblock %}
+{% block metas %}{% include "components/metas.twig" with { metaDesc: 'metaDesc'} %}{% endblock metas %}
+{% block metas_og %}{% include "components/og.twig" with { metaDesc: 'metaDesc'} %}{% endblock metas_og %}
+{% block metas_twitter %}{% include "components/twitter.twig" with { metaDesc: 'metaDesc'} %}{% endblock metas_twitter %}
+
 {% block body_classes %}page-artwork{% endblock body_classes %}
 
 {% block body %}

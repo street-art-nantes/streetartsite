@@ -31,10 +31,14 @@ class ArtworkController extends Controller
         /** @var PoiManager $convertedPois */
         $convertedPoi = $poiManager->convertPoisForMap([$poi]);
 
+        //TODO $pageTitle
+        $pageTitle = '';
+
         return $this->render('pages/artwork.html.twig', [
             'convertedPoi' => $convertedPoi,
             'poi' => $poi,
             'poisAround' => $colPois,
+            'pageTitle' => $pageTitle,
         ]);
     }
 }
