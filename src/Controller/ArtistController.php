@@ -45,20 +45,19 @@ class ArtistController extends Controller
         $artist = $artistRepository->find($id);
 
         if ($artist) {
-            $artistArtworks = $artistCountriesArtworks = [];
             try {
                 $artistArtworks = $artworkRepository->getArtworksByAuthor($artist);
                 $artistCountriesArtworks = $artworkRepository->getArtworksCountriesByAuthor($artist);
+
+                return $this->render('pages/artist_dashboard.html.twig', [
+                    'artist' => $artist,
+                    'artistArtworks' => $artistArtworks,
+                    'artistCountriesArtworks' => $artistCountriesArtworks,
+                    'public' => $id,
+                ]);
             } catch (\Exception $e) {
                 // Nothing to do
             }
-
-            return $this->render('pages/artist_dashboard.html.twig', [
-                'artist' => $artist,
-                'artistArtworks' => $artistArtworks,
-                'artistCountriesArtworks' => $artistCountriesArtworks,
-                'public' => $id,
-            ]);
         }
 
         $this->addFlash('warning', $this->translator->trans('artist.flash.notice.notfound'));
