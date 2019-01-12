@@ -103,7 +103,9 @@ class ArtWorkEditController extends Controller
                 $this->entityManager->flush();
 
                 if ($isCreateForm) {
-                    $this->mailer->sendSubmissionEmailMessage($request, $this->getUser());
+                    if ($this->getUser()) {
+                        $this->mailer->sendSubmissionEmailMessage($request, $this->getUser());
+                    }
 
                     return $this->redirectToRoute('app_artwork_new', [
                         'success' => true,
