@@ -35,28 +35,32 @@ class ArtworkController extends Controller
         /** @var PoiRepository $poiRepository */
         $poiRepository = $this->getDoctrine()->getRepository(Poi::class);
 
-        try {
-            $poi = $poiRepository->find($id);
+        $poi = $poiRepository->find($id);
 
-            $poisAround = $poiRepository->findByDistanceFrom($poi->getLatitude(), $poi->getLongitude());
+        if ($poi) {
+            try {
+                $poisAround = $poiRepository->findByDistanceFrom($poi->getLatitude(), $poi->getLongitude());
 
-            $columnCount = 3;
-            $colPois = array_chunk($poisAround, ceil(\count($poisAround) / $columnCount));
+                $columnCount = 3;
+                $colPois = array_chunk($poisAround, ceil(\count($poisAround) / $columnCount));
 
-            /** @var PoiManager $poiManager */
-            $poiManager = $this->get('poi.manager');
-            /** @var PoiManager $convertedPois */
-            $convertedPoi = $poiManager->convertPoisForMap([$poi]);
-        } catch (\Exception $e) {
-            $this->addFlash('notice', $this->translator->trans('artwork.flash.notice.notfound'));
+                /** @var PoiManager $poiManager */
+                $poiManager = $this->get('poi.manager');
+                /** @var PoiManager $convertedPois */
+                $convertedPoi = $poiManager->convertPoisForMap([$poi]);
 
-            return $this->redirectToRoute('list');
+                return $this->render('pages/artwork.html.twig', [
+                    'convertedPoi' => $convertedPoi,
+                    'poi' => $poi,
+                    'poisAround' => $colPois,
+                ]);
+            } catch (\Exception $e) {
+                // Nothing to do
+            }
         }
 
-        return $this->render('pages/artwork.html.twig', [
-            'convertedPoi' => $convertedPoi,
-            'poi' => $poi,
-            'poisAround' => $colPois,
-        ]);
+        $this->addFlash('warning', $this->translator->trans('artwork.flash.notice.notfound'));
+
+        return $this->redirectToRoute('list');
     }
 }
