@@ -45,6 +45,7 @@ class ArtistController extends Controller
         $artist = $artistRepository->find($id);
 
         if ($artist) {
+            $artistArtworks = $artistCountriesArtworks = [];
             try {
                 $artistArtworks = $artworkRepository->getArtworksByAuthor($artist);
                 $artistCountriesArtworks = $artworkRepository->getArtworksCountriesByAuthor($artist);
