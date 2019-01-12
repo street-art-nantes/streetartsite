@@ -57,7 +57,7 @@
     </unit>
     <unit id="tMH.AuE" name="artwork.title.create">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:89</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:66</note>
       </notes>
       <segment>
         <source>artwork.title.create</source>
@@ -66,7 +66,7 @@
     </unit>
     <unit id="AM5GsPW" name="artwork.title.edit">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:91</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:68</note>
       </notes>
       <segment>
         <source>artwork.title.edit</source>
@@ -75,7 +75,7 @@
     </unit>
     <unit id="Jn.7hg4" name="artwork.link.add_a_document">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:114</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:91</note>
       </notes>
       <segment>
         <source>artwork.link.add_a_document</source>
@@ -84,7 +84,7 @@
     </unit>
     <unit id="asKIZV9" name="artwork.button.save">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:155</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:132</note>
       </notes>
       <segment>
         <source>artwork.button.save</source>
@@ -93,7 +93,7 @@
     </unit>
     <unit id="9nqU7RQ" name="home.description.first">
       <notes>
-        <note category="file-source" priority="1">templates/components/jumbotron.html.twig:15</note>
+        <note category="file-source" priority="1">templates/components/jumbotron.html.twig:13</note>
       </notes>
       <segment>
         <source>home.description.first</source>
@@ -103,7 +103,7 @@
     </unit>
     <unit id="e_qvnqh" name="home.description.second">
       <notes>
-        <note category="file-source" priority="1">templates/components/jumbotron.html.twig:21</note>
+        <note category="file-source" priority="1">templates/components/jumbotron.html.twig:19</note>
       </notes>
       <segment>
         <source>home.description.second</source>
@@ -212,7 +212,7 @@
     </unit>
     <unit id="xqBfcOp" name="artwork.button.cancel">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:152</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:129</note>
       </notes>
       <segment>
         <source>artwork.button.cancel</source>
@@ -221,7 +221,7 @@
     </unit>
     <unit id="N8UWZOy" name="artwork.button.add_new">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:82</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:59</note>
       </notes>
       <segment>
         <source>artwork.button.add_new</source>
@@ -230,8 +230,8 @@
     </unit>
     <unit id="toykNtT" name="artwork.message.wording_success">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:74</note>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:76</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:51</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:53</note>
       </notes>
       <segment>
         <source>artwork.message.wording_success</source>
@@ -240,7 +240,7 @@
     </unit>
     <unit id="dCADRrf" name="artwork.introduction">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:103</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:80</note>
       </notes>
       <segment>
         <source>artwork.introduction</source>
@@ -281,7 +281,7 @@
     </unit>
     <unit id="VGttgWn" name="home.title.first">
       <notes>
-        <note category="file-source" priority="1">templates/components/jumbotron.html.twig:14</note>
+        <note category="file-source" priority="1">templates/components/jumbotron.html.twig:12</note>
       </notes>
       <segment>
         <source>home.title.first</source>
@@ -290,7 +290,7 @@
     </unit>
     <unit id="Tm2vOi." name="home.title.second">
       <notes>
-        <note category="file-source" priority="1">templates/components/jumbotron.html.twig:20</note>
+        <note category="file-source" priority="1">templates/components/jumbotron.html.twig:18</note>
       </notes>
       <segment>
         <source>home.title.second</source>
@@ -420,7 +420,7 @@
     </unit>
     <unit id="9lCLEvv" name="artwork.label.delete">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:194</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:171</note>
       </notes>
       <segment>
         <source>artwork.label.delete</source>
@@ -503,7 +503,7 @@
     </unit>
     <unit id="HOSUB7I" name="artwork.connected">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:98</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:75</note>
       </notes>
       <segment>
         <source>artwork.connected</source>
@@ -512,8 +512,8 @@
     </unit>
     <unit id="64jSnLD" name="artwork.login">
       <notes>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:54</note>
         <note category="file-source" priority="1">templates/pages/artwork_edit.twig:77</note>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:100</note>
       </notes>
       <segment>
         <source>artwork.login</source>
@@ -867,7 +867,7 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="lqxFkoi" name="artist.flash.notice.notfound">
       <notes>
-        <note category="file-source" priority="1">src/Controller/ArtistController.php:48</note>
+        <note category="file-source" priority="1">src/Controller/ArtistController.php:50</note>
       </notes>
       <segment>
         <source>artist.flash.notice.notfound</source>
@@ -917,8 +917,7 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="yDxIskI" name="artwork.searchauthor">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:32</note>
-        <note category="state" priority="1">new</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:10</note>
       </notes>
       <segment>
         <source>artwork.searchauthor</source>
@@ -927,12 +926,21 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="Uc_4HRP" name="artwork.selectauthor">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:143</note>
-        <note category="state" priority="1">new</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:120</note>
       </notes>
       <segment>
         <source>artwork.selectauthor</source>
         <target>Select an author (+)</target>
+      </segment>
+    </unit>
+    <unit id="8I5mm_t" name="artwork.flash.notice.notfound">
+      <notes>
+        <note category="file-source" priority="1">src/Controller/ArtworkController.php:51</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artwork.flash.notice.notfound</source>
+        <target>Artwork not found</target>
       </segment>
     </unit>
   </file>

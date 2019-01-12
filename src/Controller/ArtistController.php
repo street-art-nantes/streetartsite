@@ -42,16 +42,15 @@ class ArtistController extends Controller
         /** @var ArtworkRepository $artworkRepository */
         $artworkRepository = $this->getDoctrine()->getRepository(Artwork::class);
 
-        if ($id) {
+        try {
             $artist = $artistRepository->find($id);
-        } else {
+            $artistArtworks = $artworkRepository->getArtworksByAuthor($artist);
+            $artistCountriesArtworks = $artworkRepository->getArtworksCountriesByAuthor($artist);
+        } catch (\Exception $e) {
             $this->addFlash('notice', $this->translator->trans('artist.flash.notice.notfound'));
 
             return $this->redirectToRoute('artist_list');
         }
-
-        $artistArtworks = $artworkRepository->getArtworksByAuthor($artist);
-        $artistCountriesArtworks = $artworkRepository->getArtworksCountriesByAuthor($artist);
 
         return $this->render('pages/artist_dashboard.html.twig', [
             'artist' => $artist,

@@ -6,9 +6,25 @@ use App\Entity\Poi;
 use App\Manager\PoiManager;
 use App\Repository\PoiRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Translation\TranslatorInterface;
 
 class ArtworkController extends Controller
 {
+    /**
+     * @var TranslatorInterface
+     */
+    private $translator;
+
+    /**
+     * ArtworkController constructor.
+     *
+     * @param TranslatorInterface $translator
+     */
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->translator = $translator;
+    }
+
     /**
      * @param int $id
      *
@@ -19,17 +35,23 @@ class ArtworkController extends Controller
         /** @var PoiRepository $poiRepository */
         $poiRepository = $this->getDoctrine()->getRepository(Poi::class);
 
-        $poi = $poiRepository->find($id);
+        try {
+            $poi = $poiRepository->find($id);
 
-        $poisAround = $poiRepository->findByDistanceFrom($poi->getLatitude(), $poi->getLongitude());
+            $poisAround = $poiRepository->findByDistanceFrom($poi->getLatitude(), $poi->getLongitude());
 
-        $columnCount = 3;
-        $colPois = array_chunk($poisAround, ceil(\count($poisAround) / $columnCount));
+            $columnCount = 3;
+            $colPois = array_chunk($poisAround, ceil(\count($poisAround) / $columnCount));
 
-        /** @var PoiManager $poiManager */
-        $poiManager = $this->get('poi.manager');
-        /** @var PoiManager $convertedPois */
-        $convertedPoi = $poiManager->convertPoisForMap([$poi]);
+            /** @var PoiManager $poiManager */
+            $poiManager = $this->get('poi.manager');
+            /** @var PoiManager $convertedPois */
+            $convertedPoi = $poiManager->convertPoisForMap([$poi]);
+        } catch (\Exception $e) {
+            $this->addFlash('notice', $this->translator->trans('artwork.flash.notice.notfound'));
+
+            return $this->redirectToRoute('list');
+        }
 
         return $this->render('pages/artwork.html.twig', [
             'convertedPoi' => $convertedPoi,
