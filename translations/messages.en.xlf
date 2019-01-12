@@ -867,7 +867,7 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="lqxFkoi" name="artist.flash.notice.notfound">
       <notes>
-        <note category="file-source" priority="1">src/Controller/ArtistController.php:50</note>
+        <note category="file-source" priority="1">src/Controller/ArtistController.php:63</note>
       </notes>
       <segment>
         <source>artist.flash.notice.notfound</source>
@@ -935,12 +935,21 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="8I5mm_t" name="artwork.flash.notice.notfound">
       <notes>
-        <note category="file-source" priority="1">src/Controller/ArtworkController.php:51</note>
-        <note category="state" priority="1">new</note>
+        <note category="file-source" priority="1">src/Controller/ArtworkController.php:62</note>
       </notes>
       <segment>
         <source>artwork.flash.notice.notfound</source>
         <target>Artwork not found</target>
+      </segment>
+    </unit>
+    <unit id="pVVhPMK" name="user.flash.notice.notfound">
+      <notes>
+        <note category="file-source" priority="1">src/Controller/UserController.php:63</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>user.flash.notice.notfound</source>
+        <target>User not found</target>
       </segment>
     </unit>
   </file>

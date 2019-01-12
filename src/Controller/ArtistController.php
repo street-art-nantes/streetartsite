@@ -42,21 +42,26 @@ class ArtistController extends Controller
         /** @var ArtworkRepository $artworkRepository */
         $artworkRepository = $this->getDoctrine()->getRepository(Artwork::class);
 
-        try {
-            $artist = $artistRepository->find($id);
-            $artistArtworks = $artworkRepository->getArtworksByAuthor($artist);
-            $artistCountriesArtworks = $artworkRepository->getArtworksCountriesByAuthor($artist);
-        } catch (\Exception $e) {
-            $this->addFlash('notice', $this->translator->trans('artist.flash.notice.notfound'));
+        $artist = $artistRepository->find($id);
 
-            return $this->redirectToRoute('artist_list');
+        if ($artist) {
+            try {
+                $artistArtworks = $artworkRepository->getArtworksByAuthor($artist);
+                $artistCountriesArtworks = $artworkRepository->getArtworksCountriesByAuthor($artist);
+            } catch (\Exception $e) {
+                // Nothing to do
+            }
+
+            return $this->render('pages/artist_dashboard.html.twig', [
+                'artist' => $artist,
+                'artistArtworks' => $artistArtworks,
+                'artistCountriesArtworks' => $artistCountriesArtworks,
+                'public' => $id,
+            ]);
         }
 
-        return $this->render('pages/artist_dashboard.html.twig', [
-            'artist' => $artist,
-            'artistArtworks' => $artistArtworks,
-            'artistCountriesArtworks' => $artistCountriesArtworks,
-            'public' => $id,
-        ]);
+        $this->addFlash('warning', $this->translator->trans('artist.flash.notice.notfound'));
+
+        return $this->redirectToRoute('artist_list');
     }
 }

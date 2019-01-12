@@ -7,12 +7,28 @@ use App\Entity\User;
 use App\Repository\ArtworkRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Translation\TranslatorInterface;
 
 /**
  * Class UserController.
  */
 class UserController extends Controller
 {
+    /**
+     * @var TranslatorInterface
+     */
+    private $translator;
+
+    /**
+     * UserController constructor.
+     *
+     * @param TranslatorInterface $translator
+     */
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->translator = $translator;
+    }
+
     /**
      * @param int $id
      *
@@ -28,14 +44,23 @@ class UserController extends Controller
 
         $user = $id ? $userRepository->find($id) : $this->getUser();
 
-        $userArtworks = $artworkRepository->getArtworksByUser($user);
-        $userCountriesArtworks = $artworkRepository->getArtworksCountriesByUser($user);
+        if ($user) {
+            try {
+                $userArtworks = $artworkRepository->getArtworksByUser($user);
+                $userCountriesArtworks = $artworkRepository->getArtworksCountriesByUser($user);
 
-        return $this->render('pages/user_dashboard.html.twig', [
-            'user' => $user,
-            'userArtworks' => $userArtworks,
-            'userCountriesArtworks' => $userCountriesArtworks,
-            'public' => $id,
-        ]);
+                return $this->render('pages/user_dashboard.html.twig', [
+                    'user' => $user,
+                    'userArtworks' => $userArtworks,
+                    'userCountriesArtworks' => $userCountriesArtworks,
+                    'public' => $id,
+                ]);
+            } catch (\Exception $e) {
+                // Nothing to do
+            }
+        }
+        $this->addFlash('warning', $this->translator->trans('user.flash.notice.notfound'));
+
+        return $this->redirectToRoute('list');
     }
 }
