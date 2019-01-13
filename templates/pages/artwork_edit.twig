@@ -30,7 +30,7 @@
         <div class="info-block block-info clearfix">
             <div data-toggle="buttons" class="btn-group itemcontent">
                 <label class="btn" title="{{ entity.name }}">
-                    <input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} autocomplete="off" />
+                    <input type="checkbox" {{ block('widget_attributes') }} value="{{ entity.id }}"{% if checked %} checked="checked"{% endif %} autocomplete="off" />
                     <span class="fas fa-check"></span>
                     <h5>{{ entity.name }}</h5>
                 </label>
@@ -51,7 +51,7 @@
                 {{ 'artwork.message.wording_success'|transchoice(1, {'username' : user.username})|raw }}
             {% else %}
                 {{ 'artwork.message.wording_success'|transchoice(0, {'username' : 0})|raw }}
-                <br><br><a href="{{ path('welcome') }}"><strong>{{ 'artwork.login'|trans({}) }}</strong></a>
+                <br><br><a class="alert-warning" href="{{ path('welcome') }}"><strong>{{ 'artwork.login'|trans({}) }}</strong></a>
             {% endif %}
         </h3>
 
@@ -74,7 +74,7 @@
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                     {{ 'artwork.connected'|trans({'username' : user.username}) }}
                 {% else %}
-                    <a href="{{ path('welcome') }}"><strong>{{ 'artwork.login'|trans({}) }}</strong></a>
+                    <a class="alert-warning" href="{{ path('welcome') }}"><strong>{{ 'artwork.login'|trans({}) }}</strong></a>
                 {% endif %}
             </p>
             {{ 'artwork.introduction'|trans({}, 'messages')|raw }}

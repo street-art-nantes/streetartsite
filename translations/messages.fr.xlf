@@ -255,7 +255,7 @@
       </notes>
       <segment>
         <source>artwork.message.wording_success</source>
-        <target><![CDATA[{0}Merci pour votre soumission !<br><br>Sa publication est soumise à validation. <br>Si vous aviez un compte vous seriez averti de sa mise en ligne.|]0,Inf]Merci username pour votre soumission !<br><br>Sa publication est soumise à validation. <br>Vous serez averti très prochainement de sa mise en ligne.]]></target>
+        <target><![CDATA[{0}Merci pour votre soumission !<br><br>Sa publication est soumise à validation. <br>Si vous aviez un compte vous seriez averti de sa mise en ligne.|]0,Inf]Merci <strong>username</strong> pour votre soumission !<br><br>Sa publication est soumise à validation. <br>Vous serez averti très prochainement de sa mise en ligne.]]></target>
       </segment>
     </unit>
     <unit id="dCADRrf" name="artwork.introduction">
@@ -527,7 +527,7 @@
       </notes>
       <segment>
         <source>artwork.connected</source>
-        <target>Merci username de nous faire partager tes trouvailles.</target>
+        <target><![CDATA[Merci <strong>username</strong> de nous faire partager tes trouvailles.]]></target>
       </segment>
     </unit>
     <unit id="64jSnLD" name="artwork.login">
