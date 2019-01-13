@@ -25,7 +25,7 @@ class AuthorRepository extends ServiceEntityRepository
      *
      * @return mixed
      */
-    public function getList($page = 1, $maxperpage = 40)
+    public function getList($page = 1, $maxperpage = 100)
     {
         $query = $this->createQueryBuilder('a');
 
