@@ -72,7 +72,7 @@
         <div class="col-12">
             <p>
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                    {{ 'artwork.connected'|trans({'username' : user.username}) }}
+                    {{ 'artwork.connected'|trans({'username' : user.username})|raw }}
                 {% else %}
                     <a class="alert-warning" href="{{ path('welcome') }}"><strong>{{ 'artwork.login'|trans({}) }}</strong></a>
                 {% endif %}
