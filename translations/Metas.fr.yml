@@ -1,0 +1,9 @@
+title:
+    default: 'Site de streetart, graffitis, tags géolocalisés'
+    map: 'Carte d''oeuvres de streetart géolocalisées'
+    artwork: '%type% %id% %title% de %artist% à %ville% %pays%'
+
+description:
+    default: 'Bienvenue sur street-artwork, le site regroupant les oeuvres de street art du monde entier géolocalisées. Trouvez de magnifiques oeuvres tout autour de vous.'
+    map: 'Naviguer et trouver les oeuvres (graff, tags, mosaic...) des artistes de streetart autour de vous sur une carte du monde. L''outil indispensable pour vos voyages !'
+    artwork: ''

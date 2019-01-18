@@ -4,11 +4,28 @@ namespace App\Controller;
 
 use App\Entity\Poi;
 use App\Manager\PoiManager;
+use App\Model\MetasSeo\ArtworkMetasSeo;
 use App\Repository\PoiRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Translation\TranslatorInterface;
 
 class ArtworkController extends Controller
 {
+
+    /**
+     * @var TranslatorInterface
+     */
+    private $translator;
+
+    /**
+     * ArtworkMetasSeo constructor.
+     * @param TranslatorInterface $translator
+     */
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->translator = $translator;
+    }
+
     /**
      * @param int $id
      *
@@ -32,13 +49,15 @@ class ArtworkController extends Controller
         $convertedPoi = $poiManager->convertPoisForMap([$poi]);
 
         //TODO $pageTitle
-        $pageTitle = '';
+        $metas = new ArtworkMetasSeo($this->translator);
+        $metas->setArtwork($poi->getArtworks()->first());
 
         return $this->render('pages/artwork.html.twig', [
             'convertedPoi' => $convertedPoi,
             'poi' => $poi,
             'poisAround' => $colPois,
-            'pageTitle' => $pageTitle,
+            'metas' => $metas,
+            'pageTitle' => $metas->getPageTitle(),
         ]);
     }
 }

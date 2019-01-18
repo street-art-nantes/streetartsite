@@ -4,9 +4,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title>{% block title %}{{ meta.default.title }}Website of geo streetart, graffiti, mural, tags{% endblock %} - street-artwork.com</title>
+        <title>{% block title %}{{ 'title.default'|trans({},'Metas') }}{% endblock %} - street-artwork.com</title>
         {% block metas %}
-            <meta name="description" content="{{ meta.default.description }}Welcome on street-artwork, the website gathering street artworks from around the world geolocated. Find beautiful artworks all around you and in every cities." />
+            <meta name="description" content="{{ 'description.default'|trans({},'Metas') }}" />
         {% endblock %}
         {% block metas_og %}{% endblock metas_og %}
         {% block metas_twitter %}{% endblock metas_twitter %}

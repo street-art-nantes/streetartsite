@@ -1,6 +1,9 @@
 {% extends 'base_without_body.html.twig' %}
 
-{% block title %}Carte{% endblock %}
+{% block title %}{{ 'title.map'|trans({},'Metas') }}{% endblock %}
+{% block metas %}
+    <meta name="description" content="{{ 'description.map'|trans({},'Metas') }}" />
+{% endblock %}
 {% block body_classes %}page-map{% endblock body_classes %}
 
 {% block body %}
@@ -10,7 +13,6 @@
             <a href="{{ path('home') }}" class="btn btn-primary my-2">{{ 'map.backwebsite'|trans({}) }}</a>
         </div>
     </div>
-
 {% endblock %}
 
 {% block javascripts %}

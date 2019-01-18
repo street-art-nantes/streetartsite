@@ -2,10 +2,12 @@
 {% set artwork = poi.artworks.first %}
 {% set document = artwork.documents.first %}
 
-{% block title %}{{ pageTitle }}{% endblock %}
-{% block metas %}{% include "components/metas.twig" with { metaDesc: 'metaDesc'} %}{% endblock metas %}
-{% block metas_og %}{% include "components/og.twig" with { metaDesc: 'metaDesc'} %}{% endblock metas_og %}
-{% block metas_twitter %}{% include "components/twitter.twig" with { metaDesc: 'metaDesc'} %}{% endblock metas_twitter %}
+{% block title %}{{ 'title.default'|trans({},'Metas') }}{% endblock %}
+{% block metas %}
+    <meta name="description" content="{{ 'description.default'|trans({},'Metas') }}" />
+{% endblock %}
+{% block metas_og %}{% endblock metas_og %}
+{% block metas_twitter %}{% endblock metas_twitter %}
 
 {% block body_classes %}page-artwork{% endblock body_classes %}
 
@@ -18,6 +20,8 @@
                         <h4>{{ 'artwork.mensurations'|trans({}) }}</h4>
                         <div id="artwork-data" class="lead text-muted">
                             <ul class="list-group list-group-flush">
+                                {{ dump(metas) }}
+                                {{ pageTitle }}
                                 <li class="list-group-item p-0"><span>{{ 'artwork.label.country'|trans({}) }} :</span> {{ poi.country }}</li>
                                 <li class="list-group-item p-0"><span>{{ 'artwork.label.city'|trans({}) }} :</span> {{ poi.city }}</li>
                                 <li class="list-group-item p-0"><span>{{ 'artwork.label.address'|trans({}) }} :</span> {{ poi.address }}</li>
