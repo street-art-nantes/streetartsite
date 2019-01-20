@@ -141,7 +141,7 @@ class Mailer
     {
         $template = 'email/validation.twig';
         $urlForm = $this->router->generate('app_artwork_new', [], 0);
-        $urlArtwork = $this->router->generate('artwork', ['id' => $artwork->getId()], 0);
+        $urlArtwork = $this->router->generate('artwork', ['id' => $artwork->getPoi()->getId()], 0);
         $document = $artwork->getDocuments()->first();
         $urlImgArtwork = $this->filterService->getUrlOfFilteredImage($this->helper->asset($document, 'imageFile'), 'thumb_small');
         $urlHeaderLogo = $this->assetPackages->getUrl('assets/img/email-logo.png');

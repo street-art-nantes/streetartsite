@@ -4,11 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Artwork;
 use App\Entity\Author;
-use App\Model\MetasSeo\AuthorMetasSeo;
 use App\Repository\ArtworkRepository;
 use App\Repository\AuthorRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Translation\TranslatorInterface;
 
 /**
@@ -32,12 +30,11 @@ class ArtistController extends Controller
     }
 
     /**
-     * @param Request $request
-     * @param int     $id
+     * @param int $id
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function __invoke(Request $request, $id = 0)
+    public function __invoke($id = 0)
     {
         /** @var AuthorRepository $artistRepository */
         $artistRepository = $this->getDoctrine()->getRepository(Author::class);
@@ -45,26 +42,26 @@ class ArtistController extends Controller
         /** @var ArtworkRepository $artworkRepository */
         $artworkRepository = $this->getDoctrine()->getRepository(Artwork::class);
 
-        if ($id) {
-            $artist = $artistRepository->find($id);
-        } else {
-            $this->addFlash('notice', $this->translator->trans('artist.flash.notice.notfound'));
+        $artist = $artistRepository->find($id);
 
-            return $this->redirectToRoute('artist_list');
+        if ($artist) {
+            try {
+                $artistArtworks = $artworkRepository->getArtworksByAuthor($artist);
+                $artistCountriesArtworks = $artworkRepository->getArtworksCountriesByAuthor($artist);
+
+                return $this->render('pages/artist_dashboard.html.twig', [
+                    'artist' => $artist,
+                    'artistArtworks' => $artistArtworks,
+                    'artistCountriesArtworks' => $artistCountriesArtworks,
+                    'public' => $id,
+                ]);
+            } catch (\Exception $e) {
+                // Nothing to do
+            }
         }
 
-        $artistArtworks = $artworkRepository->getArtworksByAuthor($artist);
-        $artistCountriesArtworks = $artworkRepository->getArtworksCountriesByAuthor($artist);
+        $this->addFlash('warning', $this->translator->trans('artist.flash.notice.notfound'));
 
-        $metas = new AuthorMetasSeo($this->translator, $request->getLocale());
-        $metas->setAuthor($artist);
-
-        return $this->render('pages/artist_dashboard.html.twig', [
-            'artist' => $artist,
-            'artistArtworks' => $artistArtworks,
-            'artistCountriesArtworks' => $artistCountriesArtworks,
-            'public' => $id,
-            'metas' => $metas,
-        ]);
+        return $this->redirectToRoute('artist_list');
     }
 }
