@@ -19,6 +19,7 @@ class ArtworkMetasSeo implements MetasSeoInterface
 
     /**
      * ArtworkMetasSeo constructor.
+     *
      * @param TranslatorInterface $translator
      */
     public function __construct(TranslatorInterface $translator)
@@ -33,11 +34,12 @@ class ArtworkMetasSeo implements MetasSeoInterface
 
     public function getPageTitle()
     {
-        $title = $this->translator->trans('title.artwork',[
-            '%type%' => $this->artwork->getType(),
+        $author = $this->artwork->getAuthor()->first() ? $this->artwork->getAuthor()->first()->getName() : '';
+        $title = $this->translator->transChoice('title.artwork', \mb_strlen($author), [
+            '%type%' => ucfirst($this->artwork->getType()),
             '%id%' => $this->artwork->getId(),
             '%title%' => $this->artwork->getTitle(),
-            '%artist%' => $this->artwork->getAuthor() ? '' : $this->artwork->getAuthor()->first()->getName(),
+            '%artist%' => $author,
             '%ville%' => $this->artwork->getPoi()->getCity(),
             '%pays%' => $this->artwork->getPoi()->getCountry(),
         ], 'Metas');
@@ -45,14 +47,19 @@ class ArtworkMetasSeo implements MetasSeoInterface
         return $title;
     }
 
-    public function getPageUrl()
-    {
-        //https://stackoverflow.com/questions/40492268/is-there-a-way-to-get-the-current-url-with-current-port-number-in-symfony2
-        return 'pageurl';
-    }
     public function getPageDescription()
     {
-        return 'pagedescription';
+        $author = $this->artwork->getAuthor()->first() ? $this->artwork->getAuthor()->first()->getName() : '';
+        $description = $this->translator->transChoice('description.artwork', \mb_strlen($author), [
+            '%type%' => ucfirst($this->artwork->getType()),
+            '%id%' => $this->artwork->getId(),
+            '%title%' => $this->artwork->getTitle(),
+            '%artist%' => $author,
+            '%ville%' => $this->artwork->getPoi()->getCity(),
+            '%pays%' => $this->artwork->getPoi()->getCountry(),
+        ], 'Metas');
+
+        return $description;
     }
 
     public function getOgType()
@@ -62,12 +69,11 @@ class ArtworkMetasSeo implements MetasSeoInterface
 
     public function getOgImage()
     {
-        return 'ogimage';
+        return $this->artwork->getDocuments()->first->getImage();
     }
 
     public function getTwitterCard()
     {
         return MetasSeoInterface::DEFAULT_TWITTER_CARD;
     }
-
 }

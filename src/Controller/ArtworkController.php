@@ -11,7 +11,6 @@ use Symfony\Component\Translation\TranslatorInterface;
 
 class ArtworkController extends Controller
 {
-
     /**
      * @var TranslatorInterface
      */
@@ -19,6 +18,7 @@ class ArtworkController extends Controller
 
     /**
      * ArtworkMetasSeo constructor.
+     *
      * @param TranslatorInterface $translator
      */
     public function __construct(TranslatorInterface $translator)
@@ -48,7 +48,6 @@ class ArtworkController extends Controller
         /** @var PoiManager $convertedPois */
         $convertedPoi = $poiManager->convertPoisForMap([$poi]);
 
-        //TODO $pageTitle
         $metas = new ArtworkMetasSeo($this->translator);
         $metas->setArtwork($poi->getArtworks()->first());
 
@@ -57,7 +56,6 @@ class ArtworkController extends Controller
             'poi' => $poi,
             'poisAround' => $colPois,
             'metas' => $metas,
-            'pageTitle' => $metas->getPageTitle(),
         ]);
     }
 }

@@ -5,9 +5,25 @@ namespace App\Controller;
 use App\Entity\Poi;
 use App\Repository\PoiRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Translation\TranslatorInterface;
 
 class ListController extends Controller
 {
+    /**
+     * @var TranslatorInterface
+     */
+    private $translator;
+
+    /**
+     * ListController constructor.
+     *
+     * @param TranslatorInterface $translator
+     */
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->translator = $translator;
+    }
+
     /**
      * @param int $page
      *
@@ -46,6 +62,8 @@ class ListController extends Controller
             'pagination' => $pagination,
             'listOfCountry' => $poiRepository->getDistinctCountries(),
             'listOfCity' => $poiRepository->getDistinctCities(),
+            'pageTitle' => $this->translator->trans('title.list', [], 'Metas'),
+            'pageDescription' => $this->translator->trans('description.list', [], 'Metas'),
         ]);
     }
 }

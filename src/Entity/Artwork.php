@@ -85,7 +85,7 @@ class Artwork
     public function __construct()
     {
         $this->documents = new ArrayCollection();
-        $this->author    = new ArrayCollection();
+        $this->author = new ArrayCollection();
         $this->createdAt = new \DateTime();
         $this->updatedAt = new \DateTime();
     }

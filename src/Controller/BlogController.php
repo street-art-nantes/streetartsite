@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Model\MetasSeo\BlogMetasSeo;
 use Contentful\Delivery\Client;
 use Contentful\Delivery\Query;
 use Psr\Log\LoggerInterface;
@@ -61,9 +62,14 @@ class BlogController extends Controller
                 throw new NotFoundHttpException();
             }
 
+            $metas = new BlogMetasSeo($this->translator);
+            $metas->setEntry($entry);
+
             return $this->render('pages/content.html.twig', [
                 'entry' => $entry,
-                'pageTitle' => $entry->get('title'),
+                'metas' => $metas,
+                'pageTitle' => $metas->getPageTitle(),
+                'pageDescription' => $metas->getPageDescription(),
             ]);
         }
 
@@ -79,7 +85,8 @@ class BlogController extends Controller
 
         return $this->render('pages/content.html.twig', [
             'entries' => $entries,
-            'pageTitle' => $this->translator->trans('blog.list.title'),
+            'pageTitle' => $this->translator->trans('title.blog', [], 'Metas'),
+            'pageDescription' => $this->translator->trans('description.blog', [], 'Metas'),
         ]);
     }
 }

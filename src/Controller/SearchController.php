@@ -6,6 +6,7 @@ use App\Entity\Poi;
 use App\Repository\PoiRepository;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Translation\TranslatorInterface;
 
 class SearchController extends Controller
 {
@@ -15,13 +16,20 @@ class SearchController extends Controller
     private $logger;
 
     /**
+     * @var TranslatorInterface
+     */
+    private $translator;
+
+    /**
      * SearchController constructor.
      *
-     * @param LoggerInterface $logger
+     * @param LoggerInterface     $logger
+     * @param TranslatorInterface $translator
      */
-    public function __construct(LoggerInterface $logger)
+    public function __construct(LoggerInterface $logger, TranslatorInterface $translator)
     {
         $this->logger = $logger;
+        $this->translator = $translator;
     }
 
     /**
@@ -57,6 +65,8 @@ class SearchController extends Controller
             'filterResult' => \count($pois),
             'listOfCountry' => $poiRepository->getDistinctCountries(),
             'listOfCity' => $poiRepository->getDistinctCities(),
+            'pageTitle' => $this->translator->trans('title.search', ['%place%' => $tmp[1]], 'Metas'),
+            'pageDescription' => $this->translator->trans('description.search', ['%place%' => $tmp[1]], 'Metas'),
         ]);
     }
 }

@@ -62,7 +62,8 @@ class LegalsController extends Controller
 
         return $this->render('pages/content.html.twig', [
             'blog' => $entry,
-            'pageTitle' => $entry->get('title'),
+            'pageTitle' => $this->translator->trans('title.legals', [], 'Metas'),
+            'pageDescription' => $this->translator->trans('description.legals', [], 'Metas'),
         ]);
     }
 }

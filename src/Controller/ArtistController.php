@@ -4,9 +4,11 @@ namespace App\Controller;
 
 use App\Entity\Artwork;
 use App\Entity\Author;
+use App\Model\MetasSeo\AuthorMetasSeo;
 use App\Repository\ArtworkRepository;
 use App\Repository\AuthorRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Translation\TranslatorInterface;
 
 /**
@@ -30,11 +32,12 @@ class ArtistController extends Controller
     }
 
     /**
-     * @param int $id
+     * @param Request $request
+     * @param int     $id
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function __invoke($id = 0)
+    public function __invoke(Request $request, $id = 0)
     {
         /** @var AuthorRepository $artistRepository */
         $artistRepository = $this->getDoctrine()->getRepository(Author::class);
@@ -53,11 +56,15 @@ class ArtistController extends Controller
         $artistArtworks = $artworkRepository->getArtworksByAuthor($artist);
         $artistCountriesArtworks = $artworkRepository->getArtworksCountriesByAuthor($artist);
 
+        $metas = new AuthorMetasSeo($this->translator, $request->getLocale());
+        $metas->setAuthor($artist);
+
         return $this->render('pages/artist_dashboard.html.twig', [
             'artist' => $artist,
             'artistArtworks' => $artistArtworks,
             'artistCountriesArtworks' => $artistCountriesArtworks,
             'public' => $id,
+            'metas' => $metas,
         ]);
     }
 }

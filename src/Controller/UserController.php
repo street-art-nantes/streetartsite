@@ -7,12 +7,28 @@ use App\Entity\User;
 use App\Repository\ArtworkRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Translation\TranslatorInterface;
 
 /**
  * Class UserController.
  */
 class UserController extends Controller
 {
+    /**
+     * @var TranslatorInterface
+     */
+    private $translator;
+
+    /**
+     * UserController constructor.
+     *
+     * @param TranslatorInterface $translator
+     */
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->translator = $translator;
+    }
+
     /**
      * @param int $id
      *
@@ -36,6 +52,8 @@ class UserController extends Controller
             'userArtworks' => $userArtworks,
             'userCountriesArtworks' => $userCountriesArtworks,
             'public' => $id,
+            'pageTitle' => $this->translator->trans('title.user', ['%name%' => $user->getUsername()], 'Metas'),
+            'pageDescription' => $this->translator->trans('description.user', ['%name%' => $user->getUsername()], 'Metas'),
         ]);
     }
 }

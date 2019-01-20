@@ -5,9 +5,25 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Translation\TranslatorInterface;
 
 class ContributorListController extends Controller
 {
+    /**
+     * @var TranslatorInterface
+     */
+    private $translator;
+
+    /**
+     * ContributorListController constructor.
+     *
+     * @param TranslatorInterface $translator
+     */
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->translator = $translator;
+    }
+
     /**
      * @param int $page
      *
@@ -37,6 +53,8 @@ class ContributorListController extends Controller
         return $this->render('pages/contributors_list.html.twig', [
             'pagination' => $pagination,
             'contributors' => $contributors,
+            'pageTitle' => $this->translator->trans('title.contributorlist', [], 'Metas'),
+            'pageDescription' => $this->translator->trans('description.contributorlist', [], 'Metas'),
         ]);
     }
 }

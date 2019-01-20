@@ -72,7 +72,8 @@ class SitemapController extends Controller
 
         return $this->render('pages/content.html.twig', [
             'entries' => $routes,
-            'pageTitle' => 'Sitemap',
+            'pageTitle' => $this->translator->trans('title.sitemap', [], 'Metas'),
+            'pageDescription' => $this->translator->trans('description.sitemap', [], 'Metas'),
         ]);
     }
 }

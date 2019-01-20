@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ user.username }} - User profile{% endblock %}
+{% block title %}{{ pageTitle }}{% endblock %}
+{% block metas %}
+    <meta name="description" content="{{ pageDescription }}" />
+{% endblock %}
 {% block body_classes %}page-user-dashboard{% endblock body_classes %}
 
 {% block body %}

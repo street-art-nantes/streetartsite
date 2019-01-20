@@ -2,12 +2,26 @@
 {% set artwork = poi.artworks.first %}
 {% set document = artwork.documents.first %}
 
-{% block title %}{{ 'title.default'|trans({},'Metas') }}{% endblock %}
+{% block title %}{{ metas.pageTitle }}{% endblock %}
 {% block metas %}
-    <meta name="description" content="{{ 'description.default'|trans({},'Metas') }}" />
+    <meta name="description" content="{{ metas.pageDescription }}" />
 {% endblock %}
-{% block metas_og %}{% endblock metas_og %}
-{% block metas_twitter %}{% endblock metas_twitter %}
+{% block metas_og %}
+    {% include "components/og.twig" with {
+        title: metas.pageTitle,
+        description: metas.pageDescription,
+        type: metas.ogType,
+        url: app.request.uri,
+        image: app.request.schemeAndHttpHost ~ vich_uploader_asset(artwork.documents.first, 'imageFile'),
+    } %}
+{% endblock metas_og %}
+{% block metas_twitter %}
+    {% include "components/twitter.twig" with {
+        title: metas.pageTitle,
+        url: app.request.uri,
+        type: metas.twitterCard,
+    } %}
+{% endblock metas_twitter %}
 
 {% block body_classes %}page-artwork{% endblock body_classes %}
 
@@ -20,8 +34,6 @@
                         <h4>{{ 'artwork.mensurations'|trans({}) }}</h4>
                         <div id="artwork-data" class="lead text-muted">
                             <ul class="list-group list-group-flush">
-                                {{ dump(metas) }}
-                                {{ pageTitle }}
                                 <li class="list-group-item p-0"><span>{{ 'artwork.label.country'|trans({}) }} :</span> {{ poi.country }}</li>
                                 <li class="list-group-item p-0"><span>{{ 'artwork.label.city'|trans({}) }} :</span> {{ poi.city }}</li>
                                 <li class="list-group-item p-0"><span>{{ 'artwork.label.address'|trans({}) }} :</span> {{ poi.address }}</li>
