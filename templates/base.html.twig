@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:og="http://ogp.me/ns#">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title>{% block title %}Accueil{% endblock %} - Street Artwork</title>
+        <title>{% block title %}{{ 'title.default'|trans({},'Metas') }}{% endblock %} - street-artwork.com</title>
+        {% block metas %}
+            <meta name="description" content="{{ 'description.default'|trans({},'Metas') }}" />
+        {% endblock %}
+        {% block metas_og %}{% endblock metas_og %}
+        {% block metas_twitter %}{% endblock metas_twitter %}
         <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-icon-72x72.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicon/favicon-96x96.png">
         <link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">

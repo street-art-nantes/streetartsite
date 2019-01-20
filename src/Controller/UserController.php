@@ -54,6 +54,8 @@ class UserController extends Controller
                     'userArtworks' => $userArtworks,
                     'userCountriesArtworks' => $userCountriesArtworks,
                     'public' => $id,
+                    'pageTitle' => $this->translator->trans('title.user', ['%name%' => $user->getUsername()], 'Metas'),
+                    'pageDescription' => $this->translator->trans('description.user', ['%name%' => $user->getUsername()], 'Metas'),
                 ]);
             } catch (\Exception $e) {
                 // Nothing to do

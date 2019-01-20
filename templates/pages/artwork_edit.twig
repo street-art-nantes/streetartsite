@@ -1,5 +1,10 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}{{ pageTitle }}{% endblock %}
+{% block metas %}
+    <meta name="description" content="{{ pageDescription }}" />
+{% endblock %}
+
 {% set isCreateForm = form.vars.data.id|default(false) ? false : true %}
 
 {% form_theme form _self %}

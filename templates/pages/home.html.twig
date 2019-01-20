@@ -1,5 +1,12 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}{{ 'title.default'|trans({},'Metas') }}{% endblock %}
+{% block metas %}
+    <meta name="description" content="{{ 'description.default'|trans({},'Metas') }}" />
+{% endblock %}
+{% block metas_og %}{% endblock metas_og %}
+{% block metas_twitter %}{% endblock metas_twitter %}
+
 {% block body_classes %}page-home{% endblock body_classes %}
 
 {% block body %}

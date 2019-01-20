@@ -2,9 +2,27 @@
 {% set artwork = poi.artworks.first %}
 {% set document = artwork.documents.first %}
 
-{% block title %}Artwork - {{ poi.address }} - {{ poi.city }} - {{ poi.country }}
-{% if artwork.title %} - {{ artwork.title }}{% endif %}
+{% block title %}{{ metas.pageTitle }}{% endblock %}
+{% block metas %}
+    <meta name="description" content="{{ metas.pageDescription }}" />
 {% endblock %}
+{% block metas_og %}
+    {% include "components/og.twig" with {
+        title: metas.pageTitle,
+        description: metas.pageDescription,
+        type: metas.ogType,
+        url: app.request.uri,
+        image: app.request.schemeAndHttpHost ~ vich_uploader_asset(artwork.documents.first, 'imageFile'),
+    } %}
+{% endblock metas_og %}
+{% block metas_twitter %}
+    {% include "components/twitter.twig" with {
+        title: metas.pageTitle,
+        url: app.request.uri,
+        type: metas.twitterCard,
+    } %}
+{% endblock metas_twitter %}
+
 {% block body_classes %}page-artwork{% endblock body_classes %}
 
 {% block body %}

@@ -120,6 +120,8 @@ class ArtWorkEditController extends Controller
         return $this->render('/pages/artwork_edit.twig', [
             'form' => $form->createView(),
             'user' => $this->getUser(),
+            'pageTitle' => $this->translator->trans('title.artworkedit', [], 'Metas'),
+            'pageDescription' => $this->translator->trans('description.artworkedit', [], 'Metas'),
         ]);
     }
 
