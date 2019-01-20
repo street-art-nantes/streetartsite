@@ -45,16 +45,25 @@ class ArtistController extends Controller
         /** @var ArtworkRepository $artworkRepository */
         $artworkRepository = $this->getDoctrine()->getRepository(Artwork::class);
 
-        if ($id) {
-            $artist = $artistRepository->find($id);
-        } else {
-            $this->addFlash('notice', $this->translator->trans('artist.flash.notice.notfound'));
+        $artist = $artistRepository->find($id);
 
-            return $this->redirectToRoute('artist_list');
+        if ($artist) {
+            try {
+                $artistArtworks = $artworkRepository->getArtworksByAuthor($artist);
+                $artistCountriesArtworks = $artworkRepository->getArtworksCountriesByAuthor($artist);
+
+                return $this->render('pages/artist_dashboard.html.twig', [
+                    'artist' => $artist,
+                    'artistArtworks' => $artistArtworks,
+                    'artistCountriesArtworks' => $artistCountriesArtworks,
+                    'public' => $id,
+                ]);
+            } catch (\Exception $e) {
+                // Nothing to do
+            }
         }
 
-        $artistArtworks = $artworkRepository->getArtworksByAuthor($artist);
-        $artistCountriesArtworks = $artworkRepository->getArtworksCountriesByAuthor($artist);
+        $this->addFlash('warning', $this->translator->trans('artist.flash.notice.notfound'));
 
         $metas = new AuthorMetasSeo($this->translator, $request->getLocale());
         $metas->setAuthor($artist);

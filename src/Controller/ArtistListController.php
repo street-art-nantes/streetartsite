@@ -45,8 +45,8 @@ class ArtistListController extends Controller
 
         $pagination = [
             'page' => $page,
-            'route' => 'list',
-            'pages_count' => ceil($totalAuthors / 40),
+            'route' => 'artist_list',
+            'pages_count' => ceil($totalAuthors / 100),
             'route_params' => [],
         ];
 

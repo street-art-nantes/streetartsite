@@ -44,8 +44,22 @@ class UserController extends Controller
 
         $user = $id ? $userRepository->find($id) : $this->getUser();
 
-        $userArtworks = $artworkRepository->getArtworksByUser($user);
-        $userCountriesArtworks = $artworkRepository->getArtworksCountriesByUser($user);
+        if ($user) {
+            try {
+                $userArtworks = $artworkRepository->getArtworksByUser($user);
+                $userCountriesArtworks = $artworkRepository->getArtworksCountriesByUser($user);
+
+                return $this->render('pages/user_dashboard.html.twig', [
+                    'user' => $user,
+                    'userArtworks' => $userArtworks,
+                    'userCountriesArtworks' => $userCountriesArtworks,
+                    'public' => $id,
+                ]);
+            } catch (\Exception $e) {
+                // Nothing to do
+            }
+        }
+        $this->addFlash('warning', $this->translator->trans('user.flash.notice.notfound'));
 
         return $this->render('pages/user_dashboard.html.twig', [
             'user' => $user,

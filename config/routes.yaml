@@ -30,6 +30,7 @@ search:
     defaults:
         template: pages/list.html.twig
     requirements:
+        queryRequest: .+
         _locale:  '%locale_available%'
 
 faq:
