@@ -3,6 +3,7 @@
 namespace App\Listener;
 
 use App\Entity\Artwork;
+use App\Entity\User;
 use App\Service\Mailer;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -37,7 +38,7 @@ class EasyAdminListener implements EventSubscriberInterface
     {
         $entity = $event->getSubject();
 
-        if (!($entity instanceof Artwork)) {
+        if (!($entity instanceof Artwork) || !($entity->getContributor() instanceof User)) {
             return;
         }
 
