@@ -93,7 +93,7 @@ class ImportStats extends ContainerAwareCommand
             $this->em->flush();
         } catch (\Exception $e) {
             $output->writeln($e->getMessage());
-            $output->writeln('Error: '.json_encode($page));
+            $output->writeln('Error: '.json_encode($data));
         }
 
         $output->writeln('Import stats done');
