@@ -16,14 +16,14 @@ class ImportStats extends ContainerAwareCommand
 
     private $googleAnalyticsApi;
     private $kernel;
-    private $em;
+    private $manager;
 
     public function __construct(GoogleAnalyticsService $googleAnalyticsApi, KernelInterface $kernel,
                                 EntityManagerInterface $manager)
     {
         $this->googleAnalyticsApi = $googleAnalyticsApi;
         $this->kernel = $kernel;
-        $this->em = $manager;
+        $this->manager = $manager;
 
         parent::__construct();
     }
@@ -61,13 +61,13 @@ class ImportStats extends ContainerAwareCommand
         );
 
         // truncate table stats_analytics before import new
-        $classMetaData = $this->em->getClassMetadata('App\Entity\PageStat');
-        $connection = $this->em->getConnection();
+        $classMetaData = $this->manager->getClassMetadata('App\Entity\PageStat');
+        $connection = $this->manager->getConnection();
         try {
             $dbPlatform = $connection->getDatabasePlatform();
             $connection->beginTransaction();
-            $q = $dbPlatform->getTruncateTableSql($classMetaData->getTableName());
-            $connection->executeUpdate($q);
+            $query = $dbPlatform->getTruncateTableSql($classMetaData->getTableName());
+            $connection->executeUpdate($query);
             $connection->commit();
         } catch (\Exception $e) {
             try {
@@ -78,7 +78,7 @@ class ImportStats extends ContainerAwareCommand
                 $output->writeln($e->getMessage());
                 $output->writeln('Error in rollback truncated table');
             } finally {
-                exit($classMetaData->getTableName().' not empty');
+                return;
             }
         }
 
@@ -87,10 +87,10 @@ class ImportStats extends ContainerAwareCommand
                 $pageStat = new PageStat();
                 $pageStat->setViews($page['metrics']['pageviews']);
                 $pageStat->setPath($page['dimensions']['pagePath']);
-                $this->em->persist($pageStat);
+                $this->manager->persist($pageStat);
             }
 
-            $this->em->flush();
+            $this->manager->flush();
         } catch (\Exception $e) {
             $output->writeln($e->getMessage());
             $output->writeln('Error: '.json_encode($data));

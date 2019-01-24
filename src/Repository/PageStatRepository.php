@@ -22,12 +22,10 @@ class PageStatRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param $url string
-     *
+     * @param $url
+     * @return mixed
      * @throws \Doctrine\ORM\NoResultException
      * @throws \Doctrine\ORM\NonUniqueResultException
-     *
-     * @return mixed
      */
     public function getPageViewsByUrl($url)
     {
@@ -41,20 +39,10 @@ class PageStatRepository extends ServiceEntityRepository
         return $query->getQuery()->getSingleResult();
     }
 
-    public function getTotalPageViewsByArtist(Author $artist)
-    {
-        $query = $this->createQueryBuilder('a');
-
-        $query->select('a')
-            ->leftJoin('a.author', 'author')
-            ->andWhere('author.id = :artist')
-            ->andWhere('a.enabled=TRUE')
-            ->setParameter('artist', $author)
-            ->orderBy('a.id', 'DESC')
-        ;
-
-        return $query->getQuery()->getResult();
-    }
+//    public function getTotalPageViewsByArtist(Author $artist)
+//    {
+//        //TODO
+//    }
 
     /**
      * @param User $user
