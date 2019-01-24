@@ -39,10 +39,24 @@ class PageStatRepository extends ServiceEntityRepository
         return $query->getQuery()->getSingleResult();
     }
 
-//    public function getTotalPageViewsByArtist(Author $artist)
-//    {
-//        //TODO
-//    }
+    /**
+     * @param Author $artist
+     * @return mixed
+     * @throws \Doctrine\DBAL\DBALException
+     */
+    public function getTotalPageViewsByArtist(Author $artist)
+    {
+        $sqlRaw = 'SELECT SUM(p.views) FROM page_stat as p WHERE p.path LIKE ANY (
+          SELECT \'%/artwork/\' || artwork.id FROM artwork INNER JOIN artwork_author a on artwork.id = a.artwork_id
+          WHERE a.author_id = :author)';
+
+        $statement = $this->getEntityManager()->getConnection()->prepare($sqlRaw);
+
+        $statement->bindValue('author', $artist->getId());
+        $statement->execute();
+
+        return $statement->fetch();
+    }
 
     /**
      * @param User $user
