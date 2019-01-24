@@ -1,0 +1,78 @@
+<?php
+
+namespace App\Repository;
+
+use App\Entity\Author;
+use App\Entity\PageStat;
+use App\Entity\User;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Symfony\Bridge\Doctrine\RegistryInterface;
+
+/**
+ * @method PageStat|null find($id, $lockMode = null, $lockVersion = null)
+ * @method PageStat|null findOneBy(array $criteria, array $orderBy = null)
+ * @method PageStat[]    findAll()
+ * @method PageStat[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ */
+class PageStatRepository extends ServiceEntityRepository
+{
+    public function __construct(RegistryInterface $registry)
+    {
+        parent::__construct($registry, PageStat::class);
+    }
+
+    /**
+     * @param $url string
+     *
+     * @throws \Doctrine\ORM\NoResultException
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     *
+     * @return mixed
+     */
+    public function getPageViewsByUrl($url)
+    {
+        $query = $this->createQueryBuilder('p');
+
+        $query->select('SUM(p.views')
+            ->andWhere('author.id LIKE \'%:url%\'')
+            ->setParameter('url', $url)
+        ;
+
+        return $query->getQuery()->getSingleResult();
+    }
+
+    public function getTotalPageViewsByArtist(Author $artist)
+    {
+        $query = $this->createQueryBuilder('a');
+
+        $query->select('a')
+            ->leftJoin('a.author', 'author')
+            ->andWhere('author.id = :artist')
+            ->andWhere('a.enabled=TRUE')
+            ->setParameter('artist', $author)
+            ->orderBy('a.id', 'DESC')
+        ;
+
+        return $query->getQuery()->getResult();
+    }
+
+    /**
+     * @param User $user
+     *
+     * @throws \Doctrine\DBAL\DBALException
+     *
+     * @return mixed
+     */
+    public function getTotalPageViewsByUser(User $user)
+    {
+        $sqlRaw = 'SELECT SUM(p.views) FROM page_stat as p WHERE p.path LIKE ANY (
+          SELECT \'%/artwork/\' || artwork.id FROM artwork WHERE artwork.contributor_id = :user)';
+
+        $statement = $this->getEntityManager()->getConnection()->prepare($sqlRaw);
+
+        $statement->bindValue('user', $user->getId());
+        $statement->execute();
+
+        return $statement->fetch();
+    }
+}

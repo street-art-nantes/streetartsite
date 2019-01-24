@@ -1,0 +1,2 @@
+google_analytics_api:
+    google_analytics_json_key: "%google_analytics_json_key%"
