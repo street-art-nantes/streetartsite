@@ -24,19 +24,17 @@ class PageStatRepository extends ServiceEntityRepository
     /**
      * @param $url
      * @return mixed
-     * @throws \Doctrine\ORM\NoResultException
-     * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws \Doctrine\DBAL\DBALException
      */
     public function getPageViewsByUrl($url)
     {
-        $query = $this->createQueryBuilder('p');
+        $sqlRaw = 'SELECT SUM(p.views) FROM page_stat as p WHERE p.path SIMILAR TO \'%'.$url.'|%'.$url.'\?%\'';
 
-        $query->select('SUM(p.views')
-            ->andWhere('author.id LIKE \'%:url%\'')
-            ->setParameter('url', $url)
-        ;
+        $statement = $this->getEntityManager()->getConnection()->prepare($sqlRaw);
 
-        return $query->getQuery()->getSingleResult();
+        $statement->execute();
+
+        return $statement->fetch();
     }
 
     /**
