@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PageStatRepository")
+ * @ORM\Table(name="page_stat",indexes={@ORM\Index(name="page_stat_path_index", columns={"path"})})
  */
 class PageStat
 {
