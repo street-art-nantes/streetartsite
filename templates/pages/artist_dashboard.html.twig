@@ -42,7 +42,10 @@
                     </div>
                     <div class="col-sm-12 col-md-8">
                         <h1>{{ 'artist.profile.title'|trans({ artistName: artist.name }) }}</h1>
-                        <p>{{ 'artist.introduction'|trans({'artistName': artist.name, 'nbArtistArtworks': nbArtistArtworks, 'nbArtistCountries': nbArtistCountries}) }}</p>
+                        <p>{{ 'artist.introduction'|trans({'artistName': artist.name, 'nbArtistArtworks': nbArtistArtworks, 'nbArtistCountries': nbArtistCountries}) }}
+                            <br />{{ 'artist.views'|trans({ '%views%': views }) }}
+                            <br />{{ 'artist.totalviews'|trans({ '%views%': viewsTotal, '%name%': artist.name }) }}
+                        </p>
                         <p>{{ attribute(artist, biographyLang) }}</p>
                     </div>
                 </div>

@@ -6,6 +6,8 @@ parameters:
     contentful_locale:
         fr: fr-FR
         en: en-US
+    google_analytics_json_key: '%kernel.root_dir%/%env(GOOGLE_ANALYTICS_KEY)%'
+    google_analytics_view_id: '%env(GOOGLE_ANALYTICS_VIEW)%'
 
 services:
     # default configuration for services in *this* file
@@ -52,3 +54,5 @@ services:
         public: true
         autowire: true
         autoconfigure: false
+
+    MediaFigaro\GoogleAnalyticsApi\Service\GoogleAnalyticsService: '@google_analytics_api.api'

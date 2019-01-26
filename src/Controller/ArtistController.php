@@ -4,9 +4,12 @@ namespace App\Controller;
 
 use App\Entity\Artwork;
 use App\Entity\Author;
+use App\Entity\PageStat;
 use App\Model\MetasSeo\AuthorMetasSeo;
 use App\Repository\ArtworkRepository;
 use App\Repository\AuthorRepository;
+use App\Repository\PageStatRepository;
+use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Translation\TranslatorInterface;
@@ -22,13 +25,20 @@ class ArtistController extends Controller
     private $translator;
 
     /**
+     * @var LoggerInterface
+     */
+    private $logger;
+
+    /**
      * ArtistController constructor.
      *
      * @param TranslatorInterface $translator
+     * @param LoggerInterface     $logger
      */
-    public function __construct(TranslatorInterface $translator)
+    public function __construct(TranslatorInterface $translator, LoggerInterface $logger)
     {
         $this->translator = $translator;
+        $this->logger = $logger;
     }
 
     /**
@@ -45,6 +55,9 @@ class ArtistController extends Controller
         /** @var ArtworkRepository $artworkRepository */
         $artworkRepository = $this->getDoctrine()->getRepository(Artwork::class);
 
+        /** @var PageStatRepository $pageStatRepository */
+        $pageStatRepository = $this->getDoctrine()->getRepository(PageStat::class);
+
         $artist = $artistRepository->find($id);
 
         if ($artist) {
@@ -55,14 +68,23 @@ class ArtistController extends Controller
                 $metas = new AuthorMetasSeo($this->translator, $request->getLocale());
                 $metas->setAuthor($artist);
 
+                $resultViewsTotal = $pageStatRepository->getTotalPageViewsByArtist($artist);
+                $resultViews = $pageStatRepository->getPageViewsByUrl('/artist-profile/'.$artist->getId());
+
+                $viewsTotal = $resultViewsTotal['sum'] + 1;
+                $views = $resultViews['sum'] + 1;
+
                 return $this->render('pages/artist_dashboard.html.twig', [
                     'artist' => $artist,
                     'artistArtworks' => $artistArtworks,
                     'artistCountriesArtworks' => $artistCountriesArtworks,
                     'public' => $id,
                     'metas' => $metas,
+                    'views' => $views,
+                    'viewsTotal' => $viewsTotal,
                 ]);
             } catch (\Exception $e) {
+                $this->logger->error($e->getMessage());
                 // Nothing to do
             }
         }

@@ -30,7 +30,7 @@
         <section class="section">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4 d-flex flex-column justify-content-center align-items-center">
+                    <div class="col-md-4 d-flex flex-column align-items-center">
                         <h4>{{ 'artwork.mensurations'|trans({}) }}</h4>
                         <div id="artwork-data" class="lead text-muted">
                             <ul class="list-group list-group-flush">
@@ -53,16 +53,47 @@
                                         <a target="_blank" class="fa fa-instagram" href="{{ artwork.instaLink }}"> : {{ 'artwork.showoninsta'|trans({}) }}</a>
                                     </li>
                                 {% endif %}
+                                {% set contributorlink = '' %}
+                                {% set contributorname = '' %}
                                 {% if artwork.contributor %}
+                                    {% set contributorlink = path('public_profile', {'id': artwork.contributor.id}) %}
+                                    {% set contributorname = artwork.contributor.username %}
                                     <li class="list-group-item p-0">{{ 'artwork.label.contributor'|trans({}) }} :
-                                        <a href="{{ path('public_profile', {'id': artwork.contributor.id}) }}">{{ artwork.contributor.username }}</a>
+                                        <a href="{{ contributorlink }}">{{ contributorname }}</a>
                                     </li>
                                 {% endif %}
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-8 d-flex flex-column justify-content-center align-items-center">
+                    <div class="col-md-4 d-flex flex-column align-items-center">
                         <div id="map" class="content-map"></div>
+                    </div>
+                    <div class="col-md-4 d-flex flex-column align-items-center">
+                        {% set qcity = 'city-'~poi.city %}
+                        {% set citylink = path('search', { 'queryRequest' : qcity }) %}
+                        {% set qcountry = 'country-'~poi.country %}
+                        {% set countrylink = path('search', { 'queryRequest' : qcountry }) %}
+                        <div id="artwork-description">
+                            <p>
+                            {{ 'artwork.description'|trans({
+                                '%title%': artwork.title, '%type%': artwork.type, '%city%': poi.city, '%country%': poi.country, '%address%': poi.address,
+                                '%citylink%': citylink, '%countrylink%': countrylink})|raw }}
+                            </p>
+                            <p>
+                                {{ 'artwork.description.author'|transchoice(artwork.author|length) }}
+                                {% for author in artwork.author %}
+                                    <a href="{{ path('artist_profile', {'id': author.id}) }}">{{ author.name }} </a>
+                                {% endfor %}
+                            </p>
+                            <p>
+                            {{ 'artwork.description.contributor'|transchoice(artwork.contributor|length, {
+                                '%date%': document.createdAt|date('d-m-Y'), '%contributor%': contributorname,
+                                '%contributorlink%': contributorlink})|raw }}
+                            </p>
+                            <p>
+                                {{ 'artwork.views'|trans({ '%views%': views }) }}
+                            </p>
+                        </div>
                     </div>
                 </div>
                 <div class="row">

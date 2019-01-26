@@ -1,8 +1,11 @@
 .page-artwork {
   .list-group-item{
-    font-size: smaller;
+    font-size: medium;
     span {
       color: #000;
     }
+  }
+  #artwork-description a{
+    text-decoration: underline;
   }
 }
