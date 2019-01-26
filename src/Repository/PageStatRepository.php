@@ -22,7 +22,7 @@ class PageStatRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param $url
+     * @param string $url
      *
      * @throws \Doctrine\DBAL\DBALException
      *
