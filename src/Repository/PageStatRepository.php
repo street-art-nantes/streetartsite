@@ -23,12 +23,14 @@ class PageStatRepository extends ServiceEntityRepository
 
     /**
      * @param $url
-     * @return mixed
+     *
      * @throws \Doctrine\DBAL\DBALException
+     *
+     * @return mixed
      */
     public function getPageViewsByUrl($url)
     {
-        $sqlRaw = 'SELECT SUM(p.views) FROM page_stat as p WHERE p.path SIMILAR TO \'%'.$url.'|%'.$url.'\?%\'';
+        $sqlRaw = 'SELECT SUM(p.views) FROM page_stat as p WHERE p.path SIMILAR TO \'%'.$url.'|%'.$url.'\?%|%'.$url.'\#%\'';
 
         $statement = $this->getEntityManager()->getConnection()->prepare($sqlRaw);
 
@@ -39,14 +41,21 @@ class PageStatRepository extends ServiceEntityRepository
 
     /**
      * @param Author $artist
-     * @return mixed
+     *
      * @throws \Doctrine\DBAL\DBALException
+     *
+     * @return mixed
      */
     public function getTotalPageViewsByArtist(Author $artist)
     {
-        $sqlRaw = 'SELECT SUM(p.views) FROM page_stat as p WHERE p.path LIKE ANY (
-          SELECT \'%/artwork/\' || artwork.id FROM artwork INNER JOIN artwork_author a on artwork.id = a.artwork_id
-          WHERE a.author_id = :author)';
+        $sqlRaw = 'SELECT SUM(p.views) FROM page_stat as p
+          INNER JOIN (
+          SELECT artwork.id FROM artwork INNER JOIN artwork_author a on artwork.id = a.artwork_id
+          WHERE
+          a.author_id = :author
+          ) art
+          ON p.path SIMILAR TO \'%/artwork/\' || art.id || \'([?|#]%|)\'
+          ';
 
         $statement = $this->getEntityManager()->getConnection()->prepare($sqlRaw);
 

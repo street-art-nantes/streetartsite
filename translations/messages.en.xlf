@@ -122,9 +122,9 @@
     </unit>
     <unit id="wt0Gj6K" name="artwork.label.title">
       <notes>
-        <note category="file-source" priority="1">templates/email/submission.twig:112</note>
-        <note category="file-source" priority="1">templates/email/validation.twig:111</note>
         <note category="file-source" priority="1">templates/pages/artwork.html.twig:42</note>
+        <note category="file-source" priority="1">templates/email/validation.twig:111</note>
+        <note category="file-source" priority="1">templates/email/submission.twig:112</note>
         <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:26</note>
       </notes>
       <segment>
@@ -134,9 +134,9 @@
     </unit>
     <unit id="HiArTFm" name="artwork.label.latitude">
       <notes>
-        <note category="file-source" priority="1">templates/email/submission.twig:116</note>
-        <note category="file-source" priority="1">templates/email/validation.twig:115</note>
         <note category="file-source" priority="1">templates/pages/artwork.html.twig:40</note>
+        <note category="file-source" priority="1">templates/email/validation.twig:115</note>
+        <note category="file-source" priority="1">templates/email/submission.twig:116</note>
         <note category="file-source" priority="1">src/Form/Type/PoiType.php:25</note>
       </notes>
       <segment>
@@ -146,9 +146,9 @@
     </unit>
     <unit id="8eqK2ln" name="artwork.label.longitude">
       <notes>
-        <note category="file-source" priority="1">templates/email/submission.twig:117</note>
-        <note category="file-source" priority="1">templates/email/validation.twig:116</note>
         <note category="file-source" priority="1">templates/pages/artwork.html.twig:41</note>
+        <note category="file-source" priority="1">templates/email/validation.twig:116</note>
+        <note category="file-source" priority="1">templates/email/submission.twig:117</note>
         <note category="file-source" priority="1">src/Form/Type/PoiType.php:28</note>
       </notes>
       <segment>
@@ -158,9 +158,9 @@
     </unit>
     <unit id="B91XroD" name="artwork.label.address">
       <notes>
-        <note category="file-source" priority="1">templates/email/submission.twig:113</note>
-        <note category="file-source" priority="1">templates/email/validation.twig:112</note>
         <note category="file-source" priority="1">templates/pages/artwork.html.twig:39</note>
+        <note category="file-source" priority="1">templates/email/validation.twig:112</note>
+        <note category="file-source" priority="1">templates/email/submission.twig:113</note>
         <note category="file-source" priority="1">src/Form/Type/PoiType.php:31</note>
       </notes>
       <segment>
@@ -170,9 +170,9 @@
     </unit>
     <unit id="7kQJetd" name="artwork.label.country">
       <notes>
-        <note category="file-source" priority="1">templates/email/submission.twig:115</note>
-        <note category="file-source" priority="1">templates/email/validation.twig:114</note>
         <note category="file-source" priority="1">templates/pages/artwork.html.twig:37</note>
+        <note category="file-source" priority="1">templates/email/validation.twig:114</note>
+        <note category="file-source" priority="1">templates/email/submission.twig:115</note>
         <note category="file-source" priority="1">src/Form/Type/PoiType.php:34</note>
       </notes>
       <segment>
@@ -182,9 +182,9 @@
     </unit>
     <unit id="5LLD2XU" name="artwork.label.city">
       <notes>
-        <note category="file-source" priority="1">templates/email/submission.twig:114</note>
-        <note category="file-source" priority="1">templates/email/validation.twig:113</note>
         <note category="file-source" priority="1">templates/pages/artwork.html.twig:38</note>
+        <note category="file-source" priority="1">templates/email/validation.twig:113</note>
+        <note category="file-source" priority="1">templates/email/submission.twig:114</note>
         <note category="file-source" priority="1">src/Form/Type/PoiType.php:37</note>
       </notes>
       <segment>
@@ -699,8 +699,8 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="4JHCt.t" name="profile.edit.title">
       <notes>
-        <note category="file-source" priority="1">templates/bundles/FOSUserBundle/Profile/edit_content.html.twig:3</note>
         <note category="file-source" priority="1">templates/user/user_profile.html.twig:19</note>
+        <note category="file-source" priority="1">templates/bundles/FOSUserBundle/Profile/edit_content.html.twig:3</note>
       </notes>
       <segment>
         <source>profile.edit.title</source>
@@ -867,7 +867,7 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="lqxFkoi" name="artist.flash.notice.notfound">
       <notes>
-        <note category="file-source" priority="1">src/Controller/ArtistController.php:70</note>
+        <note category="file-source" priority="1">src/Controller/ArtistController.php:91</note>
       </notes>
       <segment>
         <source>artist.flash.notice.notfound</source>
@@ -885,11 +885,11 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="21RFYiC" name="content.not_found">
       <notes>
+        <note category="file-source" priority="1">src/Controller/ReleasesController.php:55</note>
         <note category="file-source" priority="1">src/Controller/BlogController.php:58</note>
         <note category="file-source" priority="1">src/Controller/BlogController.php:83</note>
         <note category="file-source" priority="1">src/Controller/FaqController.php:58</note>
         <note category="file-source" priority="1">src/Controller/LegalsController.php:56</note>
-        <note category="file-source" priority="1">src/Controller/ReleasesController.php:55</note>
       </notes>
       <segment>
         <source>content.not_found</source>
@@ -935,7 +935,7 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="8I5mm_t" name="artwork.flash.notice.notfound">
       <notes>
-        <note category="file-source" priority="1">src/Controller/ArtworkController.php:67</note>
+        <note category="file-source" priority="1">src/Controller/ArtworkController.php:86</note>
       </notes>
       <segment>
         <source>artwork.flash.notice.notfound</source>
@@ -944,7 +944,7 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="pVVhPMK" name="user.flash.notice.notfound">
       <notes>
-        <note category="file-source" priority="1">src/Controller/UserController.php:64</note>
+        <note category="file-source" priority="1">src/Controller/UserController.php:85</note>
       </notes>
       <segment>
         <source>user.flash.notice.notfound</source>
@@ -957,7 +957,7 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
       </notes>
       <segment>
         <source>artwork.description</source>
-        <target></target>
+        <target><![CDATA[The artwork <i>%title%</i> is of %type% type. You can admire it in the city of <a href="%citylink%">%city%</a> in <a href="%countrylink%">%country%</a> and more precisely here : %address%.]]></target>
       </segment>
     </unit>
     <unit id="8I4A7yh" name="artwork.description.author">
@@ -966,7 +966,7 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
       </notes>
       <segment>
         <source>artwork.description.author</source>
-        <target></target>
+        <target>{0}If you know the artist or artists who participated in its realization, thank you for contacting us.|]0,Inf]Find all the artworks of the artists who participated in its realization by clicking on their name: </target>
       </segment>
     </unit>
     <unit id="ataekIF" name="artwork.description.contributor">
@@ -975,17 +975,56 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
       </notes>
       <segment>
         <source>artwork.description.contributor</source>
-        <target></target>
+        <target><![CDATA[{0}The photo was released on %date% by an unknown hunter, if you passed it and you're sure that it does not exist anymore do not hesitate to let us know.|]0,Inf]The photo was released on %date% by the hunter <a href="%contributorlink%">%contributor%</a>, if you passed it and you're sure that it does not exist anymore do not hesitate to let us know.]]></target>
       </segment>
     </unit>
     <unit id="rbFw0oA" name="artwork.views">
       <notes>
         <note category="file-source" priority="1">templates/pages/artwork.html.twig:94</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>artwork.views</source>
-        <target></target>
+        <target>This page has been viewed %views% times.</target>
+      </segment>
+    </unit>
+    <unit id="uGs_VvY" name="user.views">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:31</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>user.views</source>
+        <target>This profile has been viewed %views% times.</target>
+      </segment>
+    </unit>
+    <unit id="qm8PnVn" name="user.totalviews">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:32</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>user.totalviews</source>
+        <target>The artworks proposed by %name% have been viewed %views% times.</target>
+      </segment>
+    </unit>
+    <unit id="9I_y0MB" name="artist.views">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artist_dashboard.html.twig:46</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artist.views</source>
+        <target>This profile has been viewed %views% times.</target>
+      </segment>
+    </unit>
+    <unit id="g4W2CJ2" name="artist.totalviews">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artist_dashboard.html.twig:47</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artist.totalviews</source>
+        <target>%name%'s artworks have been viewed %views% times.</target>
       </segment>
     </unit>
   </file>

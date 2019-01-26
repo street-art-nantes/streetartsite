@@ -23,12 +23,14 @@
                     <div class="col-sm-12 col-md-8">
                         {% if public %}
                             <h1>{{ 'dashboard.title.public'|trans({'userName': user.username}) }}</h1>
-                            <p>{{ 'dashboard.introduction.public'|trans({'userName': user.username, 'nbUserArtworks': nbUserArtworks, 'nbUserContries': nbUserCountries}) }}</p>
+                            <p>{{ 'dashboard.introduction.public'|trans({'userName': user.username, 'nbUserArtworks': nbUserArtworks, 'nbUserContries': nbUserCountries}) }}
                         {% else %}
                             <h1>{{ 'dashboard.title'|trans({}) }}</h1>
-                            <p>{{ 'dashboard.introduction'|trans({'nbUserArtworks': nbUserArtworks, 'nbUserContries': nbUserCountries}) }}</p>
+                            <p>{{ 'dashboard.introduction'|trans({'nbUserArtworks': nbUserArtworks, 'nbUserContries': nbUserCountries}) }}
                         {% endif %}
-
+                            <br />{{ 'user.views'|trans({ '%views%': views }) }}
+                            <br />{{ 'user.totalviews'|trans({ '%views%': viewsTotal, '%name%': user.username }) }}
+                        </p>
                         <div class="row">
                             {% for userArtwork in userArtworks %}
                                 <div class="col-12 col-sm-3">

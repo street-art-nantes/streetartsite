@@ -8,9 +8,9 @@ use App\Manager\PoiManager;
 use App\Model\MetasSeo\ArtworkMetasSeo;
 use App\Repository\PageStatRepository;
 use App\Repository\PoiRepository;
+use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Translation\TranslatorInterface;
-use Psr\Log\LoggerInterface;
 
 class ArtworkController extends Controller
 {
@@ -28,7 +28,7 @@ class ArtworkController extends Controller
      * ArtworkController constructor.
      *
      * @param TranslatorInterface $translator
-     * @param LoggerInterface        $logger
+     * @param LoggerInterface     $logger
      */
     public function __construct(TranslatorInterface $translator, LoggerInterface $logger)
     {
