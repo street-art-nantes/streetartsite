@@ -7,7 +7,7 @@ parameters:
         fr: fr-FR
         en: en-US
     google_analytics_json_key: '%kernel.root_dir%/%env(GOOGLE_ANALYTICS_KEY)%'
-    google_analytics_view_id: '177146240'
+    google_analytics_view_id: '%env(GOOGLE_ANALYTICS_VIEW)%'
 
 services:
     # default configuration for services in *this* file
