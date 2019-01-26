@@ -50,11 +50,11 @@ class PageStatRepository extends ServiceEntityRepository
     {
         $sqlRaw = 'SELECT SUM(p.views) FROM page_stat as p
           INNER JOIN (
-          SELECT artwork.id FROM artwork INNER JOIN artwork_author a on artwork.id = a.artwork_id
+          SELECT artwork.poi_id FROM artwork INNER JOIN artwork_author a on artwork.id = a.artwork_id
           WHERE
           a.author_id = :author
           ) art
-          ON p.path SIMILAR TO \'%/artwork/\' || art.id || \'([?|#]%|)\'
+          ON p.path SIMILAR TO \'%/artwork/\' || art.poi_id || \'([?|#]%|)\'
           ';
 
         $statement = $this->getEntityManager()->getConnection()->prepare($sqlRaw);
@@ -74,8 +74,13 @@ class PageStatRepository extends ServiceEntityRepository
      */
     public function getTotalPageViewsByUser(User $user)
     {
-        $sqlRaw = 'SELECT SUM(p.views) FROM page_stat as p WHERE p.path LIKE ANY (
-          SELECT \'%/artwork/\' || artwork.id FROM artwork WHERE artwork.contributor_id = :user)';
+        $sqlRaw = 'SELECT SUM(p.views) FROM page_stat as p
+          INNER JOIN (
+                       SELECT artwork.poi_id FROM artwork
+                       WHERE
+                         artwork.contributor_id = :user
+                     ) art
+            ON p.path SIMILAR TO \'%/artwork/\' || art.poi_id || \'([?|#]%|)\'';
 
         $statement = $this->getEntityManager()->getConnection()->prepare($sqlRaw);
 
