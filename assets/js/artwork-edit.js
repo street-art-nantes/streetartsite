@@ -1,4 +1,5 @@
 import $ from "jquery"
+import './vendors/leaflet/leaflet.js'
 
 var $collectionHolder;
 
@@ -24,8 +25,8 @@ jQuery(document).ready(function() {
   });
 
   $('body').on('click', '.field-image-btn-gps', function(e) {
-    const lat = $(e.currentTarget).data('lat')
-    const long = $(e.currentTarget).data('long')
+    const lat = $(e.currentTarget).data('lat');
+    const long = $(e.currentTarget).data('long');
 
     if (lat && long) {
       $('#artwork_poi_latitude').val(lat);
@@ -114,3 +115,36 @@ function addTagFormDeleteLink($tagFormLi) {
     $tagFormLi.remove();
   });
 }
+
+const initMap = () => {
+
+    var map = L.map('map', { scrollWheelZoom:false }).setView([47.218371, -1.553621], 10);
+
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+        maxZoom: 18,
+        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+        '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+        id: 'mapbox.streets'
+    }).addTo(map);
+
+    map.on('click', function (e) {
+        $('#artwork_poi_latitude').val(e.latlng.lat);
+        $('#artwork_poi_longitude').val(e.latlng.lng);
+
+        getAddressFromCoordinates();
+    });
+
+    var MapboxGeocoder = require('@mapbox/mapbox-gl-geocoder');
+
+    var geocoder = new MapboxGeocoder({
+        accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw',
+    });
+
+    // map.addControl(geocoder);
+    document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+
+}
+
+$(function () {
+    initMap();
+})

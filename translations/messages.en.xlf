@@ -867,7 +867,7 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="lqxFkoi" name="artist.flash.notice.notfound">
       <notes>
-        <note category="file-source" priority="1">src/Controller/ArtistController.php:91</note>
+        <note category="file-source" priority="1">src/Controller/ArtistController.php:92</note>
       </notes>
       <segment>
         <source>artist.flash.notice.notfound</source>
@@ -944,7 +944,7 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="pVVhPMK" name="user.flash.notice.notfound">
       <notes>
-        <note category="file-source" priority="1">src/Controller/UserController.php:85</note>
+        <note category="file-source" priority="1">src/Controller/UserController.php:86</note>
       </notes>
       <segment>
         <source>user.flash.notice.notfound</source>
@@ -990,7 +990,6 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     <unit id="uGs_VvY" name="user.views">
       <notes>
         <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:31</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>user.views</source>
@@ -1000,7 +999,6 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     <unit id="qm8PnVn" name="user.totalviews">
       <notes>
         <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:32</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>user.totalviews</source>
@@ -1010,7 +1008,6 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     <unit id="9I_y0MB" name="artist.views">
       <notes>
         <note category="file-source" priority="1">templates/pages/artist_dashboard.html.twig:46</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>artist.views</source>
@@ -1020,11 +1017,30 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     <unit id="g4W2CJ2" name="artist.totalviews">
       <notes>
         <note category="file-source" priority="1">templates/pages/artist_dashboard.html.twig:47</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>artist.totalviews</source>
         <target>%name%'s artworks have been viewed %views% times.</target>
+      </segment>
+    </unit>
+    <unit id="I.sQdKV" name="artwork.js.coordok">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:177</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artwork.js.coordok</source>
+        <target></target>
+      </segment>
+    </unit>
+    <unit id="Pxo6Sx6" name="artwork.js.coordko">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:178</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artwork.js.coordko</source>
+        <target></target>
       </segment>
     </unit>
   </file>

@@ -93,4 +93,17 @@
   #author-div{
     display: none;
   }
+
+  .content-map {
+    min-height: 300px;
+    height: 100%;
+    width: 100%;
+  }
+
+  .geocoder {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    top: 50px;
+  }
 }

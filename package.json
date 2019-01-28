@@ -11,6 +11,7 @@
         "build": "encore production"
     },
     "dependencies": {
+        "@mapbox/mapbox-gl-geocoder": "^3.0.1",
         "bootstrap": "^4.1.1",
         "exif-js": "^2.3.0",
         "flag-icon-css": "^3.2.1",
