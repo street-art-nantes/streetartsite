@@ -1,5 +1,6 @@
 import $ from "jquery"
 import './vendors/leaflet/leaflet.js'
+import 'leaflet-control-geocoder/dist/Control.Geocoder'
 
 var $collectionHolder;
 
@@ -118,7 +119,8 @@ function addTagFormDeleteLink($tagFormLi) {
 
 const initMap = () => {
 
-    var map = L.map('map', { scrollWheelZoom:false }).setView([47.218371, -1.553621], 10);
+    var map = L.map('map', { scrollWheelZoom:false }).setView([47.218371, -1.553621], 12);
+    L.Icon.Default.imagePath = '/assets/img/leaflet';
 
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
         maxZoom: 18,
@@ -134,15 +136,7 @@ const initMap = () => {
         getAddressFromCoordinates();
     });
 
-    var MapboxGeocoder = require('@mapbox/mapbox-gl-geocoder');
-
-    var geocoder = new MapboxGeocoder({
-        accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw',
-    });
-
-    // map.addControl(geocoder);
-    document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
-
+    L.Control.geocoder({collapsed : false, placeholder: 'Rechercher', showResultIcons: false}).addTo(map);
 }
 
 $(function () {
