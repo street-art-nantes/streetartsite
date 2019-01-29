@@ -71,6 +71,10 @@ $(document).ready(function () {
 
         $containerBtn.prepend($btnLocation);
         $btnLocation.tooltip();
+        $('.field-image-btn-gps').click();
+          alert(translations.coordok)
+      } else {
+          alert(translations.coordko);
       }
     });
 

@@ -93,4 +93,14 @@
   #author-div{
     display: none;
   }
+
+  .content-map {
+    min-height: 350px;
+    height: 100%;
+    width: 100%;
+  }
+
+  .leaflet-control-geocoder-form input {
+    width: 200px;
+  }
 }

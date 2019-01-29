@@ -1,4 +1,6 @@
 import $ from "jquery"
+import './vendors/leaflet/leaflet.js'
+import 'leaflet-control-geocoder/dist/Control.Geocoder'
 
 var $collectionHolder;
 
@@ -24,8 +26,8 @@ jQuery(document).ready(function() {
   });
 
   $('body').on('click', '.field-image-btn-gps', function(e) {
-    const lat = $(e.currentTarget).data('lat')
-    const long = $(e.currentTarget).data('long')
+    const lat = $(e.currentTarget).data('lat');
+    const long = $(e.currentTarget).data('long');
 
     if (lat && long) {
       $('#artwork_poi_latitude').val(lat);
@@ -114,3 +116,51 @@ function addTagFormDeleteLink($tagFormLi) {
     $tagFormLi.remove();
   });
 }
+
+const initMap = () => {
+
+    var map = L.map('map', { scrollWheelZoom:false }).setView([47.218371, -1.553621], 12);
+    L.Icon.Default.imagePath = '/assets/img/leaflet';
+
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+        maxZoom: 18,
+        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+        '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+        id: 'mapbox.streets'
+    }).addTo(map);
+
+    var theMarker = {};
+
+    map.on('click', function (e) {
+
+        var lat = e.latlng.lat;
+        var lon = e.latlng.lng;
+
+        if (theMarker != undefined) {
+            map.removeLayer(theMarker);
+        }
+
+        //Add a marker to show where you clicked.
+        theMarker = L.marker([lat,lon]).addTo(map);
+
+        $('#artwork_poi_latitude').val(lat);
+        $('#artwork_poi_longitude').val(lon);
+
+        getAddressFromCoordinates();
+    });
+
+    var geocoder = L.Control.geocoder({
+        defaultMarkGeocode: false,
+        collapsed: false,
+        placeholder: translations.search
+    })
+        .on('markgeocode', function(e) {
+            var bbox = e.geocode.bbox;
+            map.fitBounds(bbox);
+        })
+        .addTo(map);
+}
+
+$(function () {
+    initMap();
+})

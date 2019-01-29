@@ -100,6 +100,20 @@
     <hr />
 
     {{ form_row(form.title, { 'attr': {'placeholder' : 'La Fabrique'}}) }}
+
+    <div class="row">
+        <div class="col-12">
+            <p>{{ 'artwork.coordinates'|trans({})|raw }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div id="map" class="content-map"></div>
+            <div id="geocoder" class="geocoder"></div>
+        </div>
+    </div>
+
     {{ form_row(form.poi.address, { 'attr': {'placeholder' : '8 Boulevard Léon Bureau, 44200 Nantes, France'}}) }}
 
     <div class="row">
@@ -145,9 +159,9 @@
     <div class="page-artwork-edit">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-8 col-12">
+                <div class="col-lg-10 col-12">
                     <div class="card mt-5">
-                        <article class="card-body p-5">
+                        <article class="card-body">
                             {% if app.request.get('success', false) %}
                                 {{ block('success') }}
                             {% else %}
@@ -174,6 +188,9 @@
     <script type="text/javascript">
         const translations = {
             'delete' : '{{ 'artwork.label.delete' | trans }}',
+            'coordok' : '{{ 'artwork.js.coordok' | trans }}',
+            'coordko' : '{{ 'artwork.js.coordko' | trans }}',
+            'search' : '{{ 'artwork.js.search' | trans }}',
         }
     </script>
     <script src="{{ asset('build/js/artwork-edit.js') }}"></script>
