@@ -72,9 +72,9 @@ $(document).ready(function () {
         $containerBtn.prepend($btnLocation);
         $btnLocation.tooltip();
         $('.field-image-btn-gps').click();
-          alert('Les coordonnées ont été renseignées automatiquement dans le formulaire.')
+          alert(translations.coordok)
       } else {
-          alert('Il n\'y a pas de coordonnées dans votre image. Merci de les renseigner grâce à la carte ci dessous.');
+          alert(translations.coordko);
       }
     });
 

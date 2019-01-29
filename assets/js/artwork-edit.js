@@ -129,14 +129,36 @@ const initMap = () => {
         id: 'mapbox.streets'
     }).addTo(map);
 
+    var theMarker = {};
+
     map.on('click', function (e) {
-        $('#artwork_poi_latitude').val(e.latlng.lat);
-        $('#artwork_poi_longitude').val(e.latlng.lng);
+
+        var lat = e.latlng.lat;
+        var lon = e.latlng.lng;
+
+        if (theMarker != undefined) {
+            map.removeLayer(theMarker);
+        }
+
+        //Add a marker to show where you clicked.
+        theMarker = L.marker([lat,lon]).addTo(map);
+
+        $('#artwork_poi_latitude').val(lat);
+        $('#artwork_poi_longitude').val(lon);
 
         getAddressFromCoordinates();
     });
 
-    L.Control.geocoder({collapsed : false, placeholder: 'Rechercher', showResultIcons: false}).addTo(map);
+    var geocoder = L.Control.geocoder({
+        defaultMarkGeocode: false,
+        collapsed: false,
+        placeholder: translations.search
+    })
+        .on('markgeocode', function(e) {
+            var bbox = e.geocode.bbox;
+            map.fitBounds(bbox);
+        })
+        .addTo(map);
 }
 
 $(function () {

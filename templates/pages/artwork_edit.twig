@@ -103,7 +103,7 @@
 
     <div class="row">
         <div class="col-12">
-            <p>Si les données n'ont pas été automatiquement récupérées dans l'image vous pouvez utiliser la carte ci-dessous pour remplir les champs de localisation.</p>
+            <p>{{ 'artwork.coordinates'|trans({})|raw }}</p>
         </div>
     </div>
 
@@ -161,7 +161,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-10 col-12">
                     <div class="card mt-5">
-                        <article class="card-body p-5">
+                        <article class="card-body">
                             {% if app.request.get('success', false) %}
                                 {{ block('success') }}
                             {% else %}
@@ -190,6 +190,7 @@
             'delete' : '{{ 'artwork.label.delete' | trans }}',
             'coordok' : '{{ 'artwork.js.coordok' | trans }}',
             'coordko' : '{{ 'artwork.js.coordko' | trans }}',
+            'search' : '{{ 'artwork.js.search' | trans }}',
         }
     </script>
     <script src="{{ asset('build/js/artwork-edit.js') }}"></script>

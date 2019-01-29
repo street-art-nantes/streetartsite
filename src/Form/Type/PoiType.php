@@ -29,14 +29,14 @@ class PoiType extends AbstractType
             'constraints' => [
                 new Length(['min' => 3]),
                 new GreaterThan(0),
-                ]
+                ],
         ]);
         $builder->add('longitude', NumberType::class, [
             'label' => 'artwork.label.longitude',
             'constraints' => [
                 new Length(['min' => 3]),
                 new GreaterThan(0),
-            ]
+            ],
         ]);
         $builder->add('address', TextType::class, [
             'label' => 'artwork.label.address',
