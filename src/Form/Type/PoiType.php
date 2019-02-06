@@ -35,7 +35,6 @@ class PoiType extends AbstractType
             'label' => 'artwork.label.longitude',
             'constraints' => [
                 new Length(['min' => 3]),
-                new GreaterThan(0),
             ],
         ]);
         $builder->add('address', TextType::class, [
