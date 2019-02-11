@@ -133,9 +133,9 @@
     </unit>
     <unit id="wt0Gj6K" name="artwork.label.title">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork.html.twig:42</note>
-        <note category="file-source" priority="1">templates/email/validation.twig:111</note>
         <note category="file-source" priority="1">templates/email/submission.twig:112</note>
+        <note category="file-source" priority="1">templates/email/validation.twig:111</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:42</note>
         <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:26</note>
       </notes>
       <segment>
@@ -145,9 +145,9 @@
     </unit>
     <unit id="HiArTFm" name="artwork.label.latitude">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork.html.twig:40</note>
-        <note category="file-source" priority="1">templates/email/validation.twig:115</note>
         <note category="file-source" priority="1">templates/email/submission.twig:116</note>
+        <note category="file-source" priority="1">templates/email/validation.twig:115</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:40</note>
         <note category="file-source" priority="1">src/Form/Type/PoiType.php:27</note>
       </notes>
       <segment>
@@ -157,9 +157,9 @@
     </unit>
     <unit id="8eqK2ln" name="artwork.label.longitude">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork.html.twig:41</note>
-        <note category="file-source" priority="1">templates/email/validation.twig:116</note>
         <note category="file-source" priority="1">templates/email/submission.twig:117</note>
+        <note category="file-source" priority="1">templates/email/validation.twig:116</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:41</note>
         <note category="file-source" priority="1">src/Form/Type/PoiType.php:34</note>
       </notes>
       <segment>
@@ -169,10 +169,10 @@
     </unit>
     <unit id="B91XroD" name="artwork.label.address">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork.html.twig:39</note>
-        <note category="file-source" priority="1">templates/email/validation.twig:112</note>
         <note category="file-source" priority="1">templates/email/submission.twig:113</note>
-        <note category="file-source" priority="1">src/Form/Type/PoiType.php:41</note>
+        <note category="file-source" priority="1">templates/email/validation.twig:112</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:39</note>
+        <note category="file-source" priority="1">src/Form/Type/PoiType.php:40</note>
       </notes>
       <segment>
         <source>artwork.label.address</source>
@@ -181,10 +181,10 @@
     </unit>
     <unit id="7kQJetd" name="artwork.label.country">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork.html.twig:37</note>
-        <note category="file-source" priority="1">templates/email/validation.twig:114</note>
         <note category="file-source" priority="1">templates/email/submission.twig:115</note>
-        <note category="file-source" priority="1">src/Form/Type/PoiType.php:44</note>
+        <note category="file-source" priority="1">templates/email/validation.twig:114</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:37</note>
+        <note category="file-source" priority="1">src/Form/Type/PoiType.php:43</note>
       </notes>
       <segment>
         <source>artwork.label.country</source>
@@ -193,10 +193,10 @@
     </unit>
     <unit id="5LLD2XU" name="artwork.label.city">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork.html.twig:38</note>
-        <note category="file-source" priority="1">templates/email/validation.twig:113</note>
         <note category="file-source" priority="1">templates/email/submission.twig:114</note>
-        <note category="file-source" priority="1">src/Form/Type/PoiType.php:47</note>
+        <note category="file-source" priority="1">templates/email/validation.twig:113</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:38</note>
+        <note category="file-source" priority="1">src/Form/Type/PoiType.php:46</note>
       </notes>
       <segment>
         <source>artwork.label.city</source>
@@ -458,6 +458,8 @@
     </unit>
     <unit id="avkHOvS" name="home.showmore">
       <notes>
+        <note category="file-source" priority="1">templates/pages/content.html.twig:48</note>
+        <note category="file-source" priority="1">templates/pages/content.html.twig:75</note>
         <note category="file-source" priority="1">templates/pages/home.html.twig:24</note>
         <note category="file-source" priority="1">templates/pages/home.html.twig:27</note>
         <note category="file-source" priority="1">templates/pages/home.html.twig:30</note>
@@ -720,8 +722,8 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     </unit>
     <unit id="4JHCt.t" name="profile.edit.title">
       <notes>
-        <note category="file-source" priority="1">templates/user/user_profile.html.twig:19</note>
         <note category="file-source" priority="1">templates/bundles/FOSUserBundle/Profile/edit_content.html.twig:3</note>
+        <note category="file-source" priority="1">templates/user/user_profile.html.twig:19</note>
       </notes>
       <segment>
         <source>profile.edit.title</source>
@@ -906,11 +908,11 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     </unit>
     <unit id="21RFYiC" name="content.not_found">
       <notes>
-        <note category="file-source" priority="1">src/Controller/ReleasesController.php:55</note>
         <note category="file-source" priority="1">src/Controller/BlogController.php:58</note>
         <note category="file-source" priority="1">src/Controller/BlogController.php:83</note>
         <note category="file-source" priority="1">src/Controller/FaqController.php:58</note>
         <note category="file-source" priority="1">src/Controller/LegalsController.php:56</note>
+        <note category="file-source" priority="1">src/Controller/ReleasesController.php:55</note>
       </notes>
       <segment>
         <source>content.not_found</source>
@@ -1065,7 +1067,6 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     <unit id="SeM43gs" name="artwork.coordinates">
       <notes>
         <note category="file-source" priority="1">templates/pages/artwork_edit.twig:106</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>artwork.coordinates</source>
@@ -1075,11 +1076,29 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     <unit id="YTRwoKL" name="artwork.js.search">
       <notes>
         <note category="file-source" priority="1">templates/pages/artwork_edit.twig:193</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>artwork.js.search</source>
         <target>Rechercher...</target>
+      </segment>
+    </unit>
+    <unit id="sD.P9oa" name="content.created">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/content.html.twig:45</note>
+      </notes>
+      <segment>
+        <source>content.created</source>
+        <target>Créé le</target>
+      </segment>
+    </unit>
+    <unit id="vsJ2I29" name="content.backto">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/content.html.twig:75</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>content.backto</source>
+        <target>Retour à</target>
       </segment>
     </unit>
   </file>
