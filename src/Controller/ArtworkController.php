@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Artwork;
 use App\Entity\PageStat;
 use App\Entity\Poi;
 use App\Manager\PoiManager;
@@ -50,8 +51,10 @@ class ArtworkController extends Controller
         $pageStatRepository = $this->getDoctrine()->getRepository(PageStat::class);
 
         $poi = $poiRepository->find($id);
+        /** @var Artwork $firstArtwork */
+        $firstArtwork = $poi->getArtworks()->first();
 
-        if ($poi) {
+        if ($poi && ($firstArtwork->isEnabled() || \in_array('ROLE_ADMIN', $this->getUser()->getRoles(), true))) {
             try {
                 $poisAround = $poiRepository->findByDistanceFrom($poi->getLatitude(), $poi->getLongitude());
 
