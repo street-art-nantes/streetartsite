@@ -4,24 +4,24 @@
 {% block metas %}
     <meta name="description" content="{{ pageDescription }}" />
 {% endblock %}
-{% if metas is defined and not null %}
-    {% block metas_og %}
-        {% include "components/og.twig" with {
-            title: metas.pageTitle,
-            description: metas.pageDescription,
-            type: metas.ogType,
-            url: app.request.uri,
-            image: metas.ogImage.file.url,
-        } %}
-    {% endblock metas_og %}
-    {% block metas_twitter %}
-        {% include "components/twitter.twig" with {
-            title: metas.pageTitle,
-            url: app.request.uri,
-            type: metas.twitterCard,
-        } %}
-    {% endblock metas_twitter %}
-{% endif %}
+{#{% if metas is defined and not null %}#}
+    {#{% block metas_og %}#}
+        {#{% include "components/og.twig" with {#}
+            {#title: metas.pageTitle,#}
+            {#description: metas.pageDescription,#}
+            {#type: metas.ogType,#}
+            {#url: app.request.uri,#}
+            {#image: metas.ogImage.file.url,#}
+        {#} %}#}
+    {#{% endblock metas_og %}#}
+    {#{% block metas_twitter %}#}
+        {#{% include "components/twitter.twig" with {#}
+            {#title: metas.pageTitle,#}
+            {#url: app.request.uri,#}
+            {#type: metas.twitterCard,#}
+        {#} %}#}
+    {#{% endblock metas_twitter %}#}
+{#{% endif %}#}
 
 {% block body_classes %}page-content{% endblock body_classes %}
 
@@ -33,9 +33,19 @@
             {% if entries is defined %}
                 {% for entryElement in entries %}
                     <div class="row">
-                        <div class="col-12">
-                            <h4>{{ entryElement.title|raw }}</h4>
-                            <p>{{ entryElement.content|raw|nl2br }}</p>
+                        <div class="col-md-5">
+                            <div><a href="{{ path('blog', {'id': entryElement.id}) }}">
+                                    <img style="max-width: 100%" src="{{ entryElement.introductionImage.file.url }}?fit=fill&h=200&w=400&f=center&r=max"
+                                         alt="{{ entryElement.introductionImage.title }}" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <h4><a href="{{ path('blog', {'id': entryElement.id}) }}">{{ entryElement.title|raw }}</a></h4>
+                            <p><em>{{ 'content.created'|trans }} : {{ entryElement.getSystemProperties.getCreatedAt|date("d/m/Y" ) }}</em></p>
+                            <h6>{{ entryElement.introduction|raw|nl2br }}</h6>
+                            <p class="center-block"><a href="{{ path('blog', {'id': entryElement.id}) }}"
+                                  class="btn btn-primary my-2">{{ 'home.showmore'|trans }}</a></p>
                         </div>
                     </div>
                     <div class="row">
@@ -57,6 +67,15 @@
                     </div>
                     <div class="col-12 content">
                         <p>{{ entry.get('content')|raw|nl2br }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <p class="center-block">
+                            <a href="{{ path('blog') }}" class="btn btn-primary my-2">
+                                {{ 'content.backto'|trans }} {{ 'header.menu.blog'|trans }}
+                            </a>
+                        </p>
                     </div>
                 </div>
             {% elseif blog is defined %}
