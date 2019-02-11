@@ -54,7 +54,7 @@ class ArtworkController extends Controller
         /** @var Artwork $firstArtwork */
         $firstArtwork = $poi->getArtworks()->first();
 
-        if ($poi && ($firstArtwork->isEnabled() || in_array('ROLE_ADMIN', $this->getUser()->getRoles()))) {
+        if ($poi && ($firstArtwork->isEnabled() || \in_array('ROLE_ADMIN', $this->getUser()->getRoles(), true))) {
             try {
                 $poisAround = $poiRepository->findByDistanceFrom($poi->getLatitude(), $poi->getLongitude());
 
