@@ -4,24 +4,24 @@
 {% block metas %}
     <meta name="description" content="{{ pageDescription }}" />
 {% endblock %}
-{#{% if metas is defined and not null %}#}
-    {#{% block metas_og %}#}
-        {#{% include "components/og.twig" with {#}
-            {#title: metas.pageTitle,#}
-            {#description: metas.pageDescription,#}
-            {#type: metas.ogType,#}
-            {#url: app.request.uri,#}
-            {#image: metas.ogImage.file.url,#}
-        {#} %}#}
-    {#{% endblock metas_og %}#}
-    {#{% block metas_twitter %}#}
-        {#{% include "components/twitter.twig" with {#}
-            {#title: metas.pageTitle,#}
-            {#url: app.request.uri,#}
-            {#type: metas.twitterCard,#}
-        {#} %}#}
-    {#{% endblock metas_twitter %}#}
-{#{% endif %}#}
+{% if metas is defined and not null %}
+    {% block metas_og %}
+        {% include "components/og.twig" with {
+            title: metas.pageTitle,
+            description: metas.pageDescription,
+            type: metas.ogType,
+            url: app.request.uri,
+            image: metas.ogImage.file.url,
+        } %}
+    {% endblock metas_og %}
+    {% block metas_twitter %}
+        {% include "components/twitter.twig" with {
+            title: metas.pageTitle,
+            url: app.request.uri,
+            type: metas.twitterCard,
+        } %}
+    {% endblock metas_twitter %}
+{% endif %}
 
 {% block body_classes %}page-content{% endblock body_classes %}
 
