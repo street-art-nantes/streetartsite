@@ -16,8 +16,10 @@ workflows:
             - php-metrics
             - php-cs-fixer
           filters:  # using regex filters requires the entire branch to match
-            tags:
-              only: /^v.*/
+            branches:
+              only:  # only branches matching the below regex filters will run
+                - master
+
 jobs:
 #      # install npm dependencies
 #      - run:
