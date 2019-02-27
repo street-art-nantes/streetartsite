@@ -15,9 +15,12 @@ workflows:
             - doctrine-schema-validate
             - php-metrics
             - php-cs-fixer
-          filters:  # using regex filters requires the entire branch to match
+          filters:
+            branches:
+              ignore: /.*/
             tags:
               only: /^v.*/
+
 jobs:
 #      # install npm dependencies
 #      - run:
