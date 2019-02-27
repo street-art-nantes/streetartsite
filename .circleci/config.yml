@@ -15,11 +15,10 @@ workflows:
             - doctrine-schema-validate
             - php-metrics
             - php-cs-fixer
-          filters:
+          filters:  # using regex filters requires the entire branch to match
             branches:
-              ignore: /.*/
-            tags:
-              only: /^v.*/
+              only:  # only branches matching the below regex filters will run
+                - master
 
 jobs:
 #      # install npm dependencies
