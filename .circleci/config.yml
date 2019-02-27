@@ -9,6 +9,16 @@ workflows:
       - php-metrics
       - php-phpmd
       - php-cs-fixer
+      - deploy:
+          requires:
+            - phpstan
+            - doctrine-schema-validate
+            - php-metrics
+            - php-cs-fixer
+          filters:  # using regex filters requires the entire branch to match
+            branches:
+              only:  # only branches matching the below regex filters will run
+                - master
 
 jobs:
 #      # install npm dependencies
@@ -109,3 +119,15 @@ jobs:
       - run: .circleci/run-php.sh
       - run: bin/console doctrine:schema:validate
       - run: bin/console doctrine:schema:update --dump-sql
+
+  deploy:
+    machine:
+      enabled: true
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "3b:fb:af:b3:e0:82:dc:66:8c:71:51:dd:25:7c:af:59"
+      - run:
+          name: Deploy Over SSH
+          command: |
+            ssh $SSH_USER@$SSH_HOST "sudo /var/www/deploy.sh"
