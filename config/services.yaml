@@ -1,5 +1,8 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+imports:
+    - { resource: packages/badges.yaml }
+
 parameters:
     locale: 'fr'
     locale_available: 'en|fr'
@@ -51,6 +54,12 @@ services:
 
     App\Service\Mailer:
         arguments: [ '@swiftmailer.mailer.default', '@router.default', '@templating.engine.twig', '@assets.packages', '@translator', '@vich_uploader.templating.helper.uploader_helper', '@liip_imagine.service.filter', []]
+        public: true
+        autowire: true
+        autoconfigure: false
+
+    App\Service\BadgesGenerator:
+        arguments: [ '@App\Repository\UserRepository', '@App\Repository\ArtworkRepository', '@doctrine.orm.entity_manager', '%badges%']
         public: true
         autowire: true
         autoconfigure: false
