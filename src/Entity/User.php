@@ -168,11 +168,13 @@ class User extends BaseUser
 
     /**
      * @param mixed $badges
+     *
      * @return User
      */
     public function setBadges($badges)
     {
         $this->badges = $badges;
+
         return $this;
     }
 

@@ -11,7 +11,6 @@ use Symfony\Component\HttpKernel\KernelInterface;
 
 class GenerateBadges extends ContainerAwareCommand
 {
-
     private $kernel;
     private $manager;
     private $badgesGenerator;
@@ -42,10 +41,8 @@ class GenerateBadges extends ContainerAwareCommand
             '',
         ]);
 
-        $badgesParameters = $this->getContainer()->getParameter('badges');
-
         // TODO call service badges generator
-        $this->badgesGenerator->badgesGenerator($badgesParameters);
+        $this->badgesGenerator->badgesGenerator();
 
 //        $viewId = $this->getContainer()->getParameter('google_analytics_view_id');
 //

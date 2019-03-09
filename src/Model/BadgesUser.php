@@ -2,7 +2,6 @@
 
 namespace App\Model;
 
-
 class BadgesUser
 {
     /**
@@ -27,7 +26,6 @@ class BadgesUser
 
     /**
      * BadgesUser constructor.
-     *
      */
     public function __construct()
     {
@@ -43,11 +41,13 @@ class BadgesUser
 
     /**
      * @param int $artworkLevel
+     *
      * @return BadgesUser
      */
-    public function setArtworkLevel(int $artworkLevel): BadgesUser
+    public function setArtworkLevel(int $artworkLevel): self
     {
         $this->artworkLevel = $artworkLevel;
+
         return $this;
     }
 
@@ -61,11 +61,13 @@ class BadgesUser
 
     /**
      * @param int $artistLevel
+     *
      * @return BadgesUser
      */
-    public function setArtistLevel(int $artistLevel): BadgesUser
+    public function setArtistLevel(int $artistLevel): self
     {
         $this->artistLevel = $artistLevel;
+
         return $this;
     }
 
@@ -79,11 +81,13 @@ class BadgesUser
 
     /**
      * @param int $cityLevel
+     *
      * @return BadgesUser
      */
-    public function setCityLevel(int $cityLevel): BadgesUser
+    public function setCityLevel(int $cityLevel): self
     {
         $this->cityLevel = $cityLevel;
+
         return $this;
     }
 
@@ -97,11 +101,13 @@ class BadgesUser
 
     /**
      * @param int $countryLevel
+     *
      * @return BadgesUser
      */
-    public function setCountryLevel(int $countryLevel): BadgesUser
+    public function setCountryLevel(int $countryLevel): self
     {
         $this->countryLevel = $countryLevel;
+
         return $this;
     }
 }
