@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\Entity\User;
 use App\Model\BadgesUser;
 use App\Repository\ArtworkRepository;
 use App\Repository\UserRepository;
@@ -41,6 +42,11 @@ class BadgesGenerator
     protected $logger;
 
     /**
+     * @var User
+     */
+    protected $user;
+
+    /**
      * BadgesGenerator constructor.
      *
      * @param UserRepository         $userRepository
@@ -68,121 +74,111 @@ class BadgesGenerator
         $allUsers = $this->userRepository->findAll();
         foreach ($allUsers as $user) {
             try {
-                $this->generateArtworkBadge($user);
-                $this->generateArtistBadge($user);
-                $this->generateCityBadge($user);
-                $this->generateCountryBadge($user);
-                $this->generateInstaBadge($user);
-                $this->generateProfilHunterArtworkBadge($user);
-                $this->generateProfilHunterBadge($user);
-                $this->generateSameArtistBadge($user);
-                $this->generateSameCityBadge($user);
-                $this->generateSameCountryBadge($user);
+                $this->user = $user;
+                $this->generateArtworkBadge();
+                $this->generateArtistBadge();
+                $this->generateCityBadge();
+                $this->generateCountryBadge();
+                $this->generateInstaBadge();
+                $this->generateProfilHunterArtworkBadge();
+                $this->generateProfilHunterBadge();
+                $this->generateSameArtistBadge();
+                $this->generateSameCityBadge();
+                $this->generateSameCountryBadge();
+
+                // TODO
+                // compare old badge to send notification if new ones
+                $this->newBadgesNotification();
+
+                $this->user->setBadges($this->badgeUser);
+                $this->manager->persist($this->user);
             } catch (\Exception $e) {
                 $this->logger->error($e->getMessage());
             }
-
-            $user->setBadges($this->badgeUser);
-            $this->manager->persist($user);
         }
         $this->manager->flush();
     }
 
-    /**
-     * @param $user
-     */
-    private function generateArtworkBadge($user)
+    private function newBadgesNotification()
+    {
+        $this->user->getBadges();
+        $this->badgeUser;
+    }
+
+    private function generateArtworkBadge()
     {
         //Artworks submitted : 1 / 20 / 200 / 750 / 2000 (special top 10 user ?)
-        $this->artworkRepository->getArtworksByUser($user);
+        $this->artworkRepository->getArtworksByUser($this->user);
     }
 
     /**
      * TODO.
-     *
-     * @param $user
      */
-    private function generateArtistBadge($user)
+    private function generateArtistBadge()
     {
         //Artists submitted : 1 / 5 / 20 / 50 / 100
     }
 
     /**
      * TODO.
-     *
-     * @param $user
      */
-    private function generateCityBadge($user)
+    private function generateCityBadge()
     {
         //Total cities : 1 / 5 / 20 / 50 / 100
     }
 
     /**
      * TODO.
-     *
-     * @param $user
      */
-    private function generateCountryBadge($user)
+    private function generateCountryBadge()
     {
         //Total countries : 1 / 5 / 10 / 20 / 50
     }
 
     /**
      * TODO.
-     *
-     * @param $user
      */
-    private function generateSameArtistBadge($user)
+    private function generateSameArtistBadge()
     {
         //X of same artist : 1 / 5 / 20 / 50 / 100
     }
 
     /**
      * TODO.
-     *
-     * @param $user
      */
-    private function generateSameCityBadge($user)
+    private function generateSameCityBadge()
     {
         //X from same city : 1 / 10 / 50 / 100 / 500 (top 3 user)
     }
 
     /**
      * TODO.
-     *
-     * @param $user
      */
-    private function generateSameCountryBadge($user)
+    private function generateSameCountryBadge()
     {
         //X from same country : 1 / 10 / 100 / 500 / 1000 (top 3 user)
     }
 
     /**
      * TODO.
-     *
-     * @param $user
      */
-    private function generateProfilHunterBadge($user)
+    private function generateProfilHunterBadge()
     {
         //X views profil hunter : 10 / 50 / 100 / 1000 / 5000
     }
 
     /**
      * TODO.
-     *
-     * @param $user
      */
-    private function generateProfilHunterArtworkBadge($user)
+    private function generateProfilHunterArtworkBadge()
     {
         //Total artworks views : 100 / 500 / 2000 / 5000 / 10000
     }
 
     /**
      * TODO.
-     *
-     * @param $user
      */
-    private function generateInstaBadge($user)
+    private function generateInstaBadge()
     {
         //Instagram photo selected : 1 / 5 / 10 / 50 / 100
     }
