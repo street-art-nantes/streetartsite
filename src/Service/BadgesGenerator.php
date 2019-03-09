@@ -63,7 +63,7 @@ class BadgesGenerator
         $this->manager = $manager;
         $this->parameters = $parameters;
         $this->logger = $logger;
-        $this->bagdeUser = new BadgesUser();
+        $this->badgeUser = new BadgesUser();
     }
 
     /**
