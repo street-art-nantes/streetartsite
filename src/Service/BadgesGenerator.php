@@ -8,6 +8,10 @@ use App\Repository\ArtworkRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Log\LoggerInterface;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 class BadgesGenerator
 {
@@ -63,7 +67,6 @@ class BadgesGenerator
         $this->manager = $manager;
         $this->parameters = $parameters;
         $this->logger = $logger;
-        $this->badgeUser = new BadgesUser();
     }
 
     /**
@@ -71,10 +74,18 @@ class BadgesGenerator
      */
     public function badgesGenerator()
     {
+        $encoders = [new XmlEncoder(), new JsonEncoder()];
+        $normalizers = [new ObjectNormalizer()];
+
+        $serializer = new Serializer($normalizers, $encoders);
+
         $allUsers = $this->userRepository->findAll();
         foreach ($allUsers as $user) {
             try {
+                echo 'userid : '.$user->getId();
                 $this->user = $user;
+                $this->badgeUser = new BadgesUser();
+
                 $this->generateArtworkBadge();
                 $this->generateArtistBadge();
                 $this->generateCityBadge();
@@ -87,10 +98,10 @@ class BadgesGenerator
                 $this->generateSameCountryBadge();
 
                 // TODO
-                // compare old badge to send notification if new ones
+                // compare old badges to send notification if new ones
                 $this->newBadgesNotification();
 
-                $this->user->setBadges($this->badgeUser);
+                $this->user->setBadges($serializer->serialize($this->badgeUser, 'json'));
                 $this->manager->persist($this->user);
             } catch (\Exception $e) {
                 $this->logger->error($e->getMessage());
@@ -101,14 +112,28 @@ class BadgesGenerator
 
     private function newBadgesNotification()
     {
-        $this->user->getBadges();
-        $this->badgeUser;
+        $encoders = [new XmlEncoder(), new JsonEncoder()];
+        $normalizers = [new ObjectNormalizer()];
+
+        $serializer = new Serializer($normalizers, $encoders);
+        /**
+         * @var BadgesUser $userBadges
+         */
+        $userBadges = $serializer->deserialize($this->user->getBadges(), BadgesUser::class, 'json');
+        echo 'level depuis la bdd : '.$userBadges->getArtworkLevel();
+        echo 'level depuis le calcul : '.$this->badgeUser->getArtworkLevel();
     }
 
     private function generateArtworkBadge()
     {
         //Artworks submitted : 1 / 20 / 200 / 750 / 2000 (special top 10 user ?)
-        $this->artworkRepository->getArtworksByUser($this->user);
+        $artworksNb = count($this->artworkRepository->getArtworksByUser($this->user));
+        foreach ($this->parameters['artwork'] as $parameter => $value) {
+            if ($value < $artworksNb) {
+                $this->badgeUser->setArtworkLevel($parameter);
+                break;
+            }
+        }
     }
 
     /**

@@ -34,7 +34,7 @@ class BadgesUser
     /**
      * @return int
      */
-    public function getArtworkLevel(): int
+    public function getArtworkLevel()
     {
         return $this->artworkLevel;
     }
@@ -44,7 +44,7 @@ class BadgesUser
      *
      * @return BadgesUser
      */
-    public function setArtworkLevel(int $artworkLevel): self
+    public function setArtworkLevel($artworkLevel): self
     {
         $this->artworkLevel = $artworkLevel;
 
@@ -54,7 +54,7 @@ class BadgesUser
     /**
      * @return int
      */
-    public function getArtistLevel(): int
+    public function getArtistLevel()
     {
         return $this->artistLevel;
     }
@@ -64,7 +64,7 @@ class BadgesUser
      *
      * @return BadgesUser
      */
-    public function setArtistLevel(int $artistLevel): self
+    public function setArtistLevel($artistLevel): self
     {
         $this->artistLevel = $artistLevel;
 
@@ -74,7 +74,7 @@ class BadgesUser
     /**
      * @return int
      */
-    public function getCityLevel(): int
+    public function getCityLevel()
     {
         return $this->cityLevel;
     }
@@ -84,7 +84,7 @@ class BadgesUser
      *
      * @return BadgesUser
      */
-    public function setCityLevel(int $cityLevel): self
+    public function setCityLevel($cityLevel): self
     {
         $this->cityLevel = $cityLevel;
 
@@ -94,7 +94,7 @@ class BadgesUser
     /**
      * @return int
      */
-    public function getCountryLevel(): int
+    public function getCountryLevel()
     {
         return $this->countryLevel;
     }
@@ -104,7 +104,7 @@ class BadgesUser
      *
      * @return BadgesUser
      */
-    public function setCountryLevel(int $countryLevel): self
+    public function setCountryLevel($countryLevel): self
     {
         $this->countryLevel = $countryLevel;
 
