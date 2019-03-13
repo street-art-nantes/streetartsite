@@ -5,6 +5,7 @@ namespace App\Service;
 use App\Entity\User;
 use App\Model\BadgesUser;
 use App\Repository\ArtworkRepository;
+use App\Repository\AuthorRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Log\LoggerInterface;
@@ -24,6 +25,11 @@ class BadgesGenerator
      * @var ArtworkRepository
      */
     protected $artworkRepository;
+
+    /**
+     * @var AuthorRepository
+     */
+    protected $authorRepository;
 
     /**
      * @var EntityManagerInterface
@@ -52,18 +58,19 @@ class BadgesGenerator
 
     /**
      * BadgesGenerator constructor.
-     *
-     * @param UserRepository         $userRepository
-     * @param ArtworkRepository      $artworkRepository
+     * @param UserRepository $userRepository
+     * @param ArtworkRepository $artworkRepository
+     * @param AuthorRepository $authorRepository
      * @param EntityManagerInterface $manager
-     * @param LoggerInterface        $logger
-     * @param array                  $parameters
+     * @param LoggerInterface $logger
+     * @param array $parameters
      */
-    public function __construct(UserRepository $userRepository, ArtworkRepository $artworkRepository,
+    public function __construct(UserRepository $userRepository, ArtworkRepository $artworkRepository, AuthorRepository $authorRepository,
                                 EntityManagerInterface $manager, LoggerInterface $logger, array $parameters)
     {
         $this->userRepository = $userRepository;
         $this->artworkRepository = $artworkRepository;
+        $this->authorRepository = $authorRepository;
         $this->manager = $manager;
         $this->parameters = $parameters;
         $this->logger = $logger;
@@ -126,7 +133,6 @@ class BadgesGenerator
 
     private function generateArtworkBadge()
     {
-        //Artworks submitted : 1 / 20 / 200 / 750 / 2000 (special top 10 user ?)
         $artworksNb = count($this->artworkRepository->getArtworksByUser($this->user));
         foreach ($this->parameters['artwork'] as $parameter => $value) {
             if ($value < $artworksNb) {
@@ -136,28 +142,37 @@ class BadgesGenerator
         }
     }
 
-    /**
-     * TODO.
-     */
     private function generateArtistBadge()
     {
-        //Artists submitted : 1 / 5 / 20 / 50 / 100
+        $artistsNb = count($this->authorRepository->getAuthorsArtworksByUser($this->user));
+        foreach ($this->parameters['artist'] as $parameter => $value) {
+            if ($value < $artistsNb) {
+                $this->badgeUser->setArtistLevel($parameter);
+                break;
+            }
+        }
     }
 
-    /**
-     * TODO.
-     */
     private function generateCityBadge()
     {
-        //Total cities : 1 / 5 / 20 / 50 / 100
+        $citiesNb = count($this->artworkRepository->getArtworksCitiesByUser($this->user));
+        foreach ($this->parameters['city'] as $parameter => $value) {
+            if ($value < $citiesNb) {
+                $this->badgeUser->setCityLevel($parameter);
+                break;
+            }
+        }
     }
 
-    /**
-     * TODO.
-     */
     private function generateCountryBadge()
     {
-        //Total countries : 1 / 5 / 10 / 20 / 50
+        $countriesNb = count($this->artworkRepository->getArtworksCountriesByUser($this->user));
+        foreach ($this->parameters['country'] as $parameter => $value) {
+            if ($value < $countriesNb) {
+                $this->badgeUser->setCountryLevel($parameter);
+                break;
+            }
+        }
     }
 
     /**

@@ -84,6 +84,28 @@ class ArtworkRepository extends ServiceEntityRepository
     }
 
     /**
+     * @param User $user
+     *
+     * @return mixed
+     */
+    public function getArtworksCitiesByUser(User $user)
+    {
+        $query = $this->createQueryBuilder('a');
+
+        $query->select('pois.city')
+            ->leftJoin('a.contributor', 'users')
+            ->leftJoin('a.poi', 'pois')
+            ->andWhere('users.id = :user')
+            ->andWhere('a.enabled=TRUE')
+            ->setParameter('user', $user)
+            ->groupBy('pois.city')
+            ->orderBy('pois.city', 'ASC')
+        ;
+
+        return $query->getQuery()->getResult();
+    }
+
+    /**
      * @param Author $author
      *
      * @return mixed
