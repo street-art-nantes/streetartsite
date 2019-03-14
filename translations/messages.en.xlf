@@ -439,7 +439,6 @@
     <unit id="avkHOvS" name="home.showmore">
       <notes>
         <note category="file-source" priority="1">templates/pages/content.html.twig:48</note>
-        <note category="file-source" priority="1">templates/pages/content.html.twig:75</note>
         <note category="file-source" priority="1">templates/pages/home.html.twig:24</note>
         <note category="file-source" priority="1">templates/pages/home.html.twig:27</note>
         <note category="file-source" priority="1">templates/pages/home.html.twig:30</note>
@@ -888,7 +887,7 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     <unit id="21RFYiC" name="content.not_found">
       <notes>
         <note category="file-source" priority="1">src/Controller/BlogController.php:58</note>
-        <note category="file-source" priority="1">src/Controller/BlogController.php:83</note>
+        <note category="file-source" priority="1">src/Controller/BlogController.php:84</note>
         <note category="file-source" priority="1">src/Controller/FaqController.php:58</note>
         <note category="file-source" priority="1">src/Controller/LegalsController.php:56</note>
         <note category="file-source" priority="1">src/Controller/ReleasesController.php:55</note>
@@ -910,6 +909,7 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     <unit id="eEJgfF1" name="header.menu.blog">
       <notes>
         <note category="file-source" priority="1">templates/layout/header.html.twig:29</note>
+        <note category="file-source" priority="1">templates/pages/content.html.twig:76</note>
         <note category="file-source" priority="1">src/Controller/SitemapController.php:52</note>
       </notes>
       <segment>
@@ -937,7 +937,7 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="8I5mm_t" name="artwork.flash.notice.notfound">
       <notes>
-        <note category="file-source" priority="1">src/Controller/ArtworkController.php:86</note>
+        <note category="file-source" priority="1">src/Controller/ArtworkController.php:89</note>
       </notes>
       <segment>
         <source>artwork.flash.notice.notfound</source>
@@ -1072,8 +1072,7 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="vsJ2I29" name="content.backto">
       <notes>
-        <note category="file-source" priority="1">templates/pages/content.html.twig:75</note>
-        <note category="state" priority="1">new</note>
+        <note category="file-source" priority="1">templates/pages/content.html.twig:76</note>
       </notes>
       <segment>
         <source>content.backto</source>

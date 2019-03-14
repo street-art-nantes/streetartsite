@@ -59,7 +59,7 @@ services:
         autoconfigure: false
 
     App\Service\BadgesGenerator:
-        arguments: [ '@App\Repository\UserRepository', '@App\Repository\ArtworkRepository', '@App\Repository\AuthorRepository', '@doctrine.orm.entity_manager', '@?logger', '%badges%']
+        arguments: [ '@App\Repository\UserRepository', '@App\Repository\ArtworkRepository', '@App\Repository\AuthorRepository', '@doctrine.orm.entity_manager', '@?logger', '@App\Service\Mailer', '%badges%']
         public: true
         autowire: true
         autoconfigure: false

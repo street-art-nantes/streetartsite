@@ -11,9 +11,20 @@ submission:
 validation:
     subject: 'Your artwork has been validated!'
     header: 'Hello %username% !'
-    introduction: 'Your artowrk has been validated. You can find it here and on your profile.'
+    introduction: 'Your artwork has been validated. You can find it here and on your profile.'
     body_form: 'You can also submit others here :)'
     second_titre: 'Summary of your submission'
+    footer:
+        Streetarly,
+        The team.
+
+badges:
+    subject: 'You won new badges!'
+    header: 'Hello %username% !'
+    introduction: 'The more you participate, the more you earn badges and climbs in the levels. <br />
+                  There are plenty of badges to discover and collect!<br /> You can see yours on your profile.'
+    second_titre: 'Badges you won today:'
+    level: 'level'
     footer:
         Streetarly,
         The team.

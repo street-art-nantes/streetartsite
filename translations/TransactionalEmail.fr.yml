@@ -17,3 +17,14 @@ validation:
     footer:
         Streetartment,
         L'équipe
+
+badges:
+    subject: 'Tu as gagné de nouveaux badges!'
+    header: 'Bonjour %username% !'
+    introduction: 'Plus tu participes, plus tu gagnes des badges et grimpes dans les niveaux. <br />
+                  Il y a plein de badges à découvrir et à collectionner !<br /> Tu peux voir les tiens sur ton profil.'
+    second_titre: 'Badges que tu as gagné aujourd''hui :'
+    level: 'niveau'
+    footer:
+        Streetarly,
+        The team.
