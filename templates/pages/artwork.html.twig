@@ -159,7 +159,7 @@
     {{ parent() }}
 
     <script>
-        window.datas = '{{ convertedPoi | raw }}';
+        window.datas = '{{ convertedPoi | raw | escape('js') }}';
     </script>
 
     <script src="{{ asset('build/js/map-artwork.js') }}"></script>
