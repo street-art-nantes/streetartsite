@@ -19,7 +19,7 @@
     {{ parent() }}
 
     <script>
-      window.datas = '{{ pois | raw }}';
+      window.datas = '{{ pois | raw | escape('js') }}';
       const translations = {
           'aroundme' : '{{ 'map.aroundme' | trans }}',
           'showartwork' : '{{ 'map.showartwork' | trans }}'
