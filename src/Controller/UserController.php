@@ -41,10 +41,11 @@ class UserController extends Controller
 
     /**
      * @param int $id
+     * @param int $page
      *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function __invoke($id = 0)
+    public function __invoke($id = 0, $page = 1)
     {
         /** @var ArtworkRepository $artworkRepository */
         $artworkRepository = $this->getDoctrine()->getRepository(Artwork::class);
@@ -60,7 +61,21 @@ class UserController extends Controller
         if ($user) {
             try {
                 $userArtworks = $artworkRepository->getArtworksByUser($user);
+                $totalUserArtworks = \count($userArtworks);
                 $userCountriesArtworks = $artworkRepository->getArtworksCountriesByUser($user);
+                $pagination = [];
+                $colUserArtworks = [];
+
+                if ($totalUserArtworks) {
+                    $pagination = [
+                        'page' => $page,
+                        'route' => 'list',
+                        'pages_count' => ceil($totalUserArtworks / 40),
+                        'route_params' => [],
+                    ];
+                    $columnCount = 4;
+                    $colUserArtworks = array_chunk($userArtworks, ceil($totalUserArtworks / $columnCount));
+                }
 
                 $resultViewsTotal = $pageStatRepository->getTotalPageViewsByUser($user);
                 $resultViews = $pageStatRepository->getPageViewsByUrl('/public-profile/'.$user->getId());
@@ -71,6 +86,8 @@ class UserController extends Controller
                 return $this->render('pages/user_dashboard.html.twig', [
                     'user' => $user,
                     'userArtworks' => $userArtworks,
+                    'colUserArtworks' => $colUserArtworks,
+                    'pagination' => $pagination,
                     'userCountriesArtworks' => $userCountriesArtworks,
                     'public' => $id,
                     'pageTitle' => $this->translator->trans('title.user', ['%name%' => $user->getUsername()], 'Metas'),
