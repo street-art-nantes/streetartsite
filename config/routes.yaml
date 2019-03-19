@@ -101,10 +101,11 @@ dashboard:
         _locale:  '%locale_available%'
 
 public_profile:
-    path:         /{_locale}/public-profile/{id}
+    path:         /{_locale}/public-profile/{id}/{page}
     controller:   App\Controller\UserController
     defaults:
         template: pages/user_dashboard.html.twig
+        page:     1
     requirements:
         id:  "[0-9]+"
         _locale:  '%locale_available%'

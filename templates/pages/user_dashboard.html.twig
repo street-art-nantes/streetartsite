@@ -31,22 +31,30 @@
                             <br />{{ 'user.views'|trans({ '%views%': views }) }}
                             <br />{{ 'user.totalviews'|trans({ '%views%': viewsTotal, '%name%': user.username }) }}
                         </p>
+                        {% if pagination is defined %}
+                            {% include 'layout/pagination.html.twig' %}
+                        {% endif %}
                         <div class="row">
-                            {% for userArtwork in userArtworks %}
+                            {% for userArtworks in colUserArtworks %}
                                 <div class="col-12 col-sm-3">
-                                    {% set document = userArtwork.documents.first %}
-                                    {% set poi = userArtwork.poi %}
-                                    <a href="{{ path('artwork', {'id': poi.id}) }}">
-                                        {% include "components/card-artwork.twig" with {
-                                            imgSrc: vich_uploader_asset(document, 'imageFile'),
-                                            title: userArtwork.title,
-                                            textLeft: poi.city ~ ', ' ~ poi.country,
-                                            textRight: userArtwork.createdAt|date("d/m/Y"),
-                                        } %}
-                                    </a>
+                                    {% for userArtwork in userArtworks %}
+                                        {% set document = userArtwork.documents.first %}
+                                        {% set poi = userArtwork.poi %}
+                                        <a href="{{ path('artwork', {'id': poi.id}) }}">
+                                            {% include "components/card-artwork.twig" with {
+                                                imgSrc: vich_uploader_asset(document, 'imageFile'),
+                                                title: userArtwork.title,
+                                                textLeft: poi.city ~ ', ' ~ poi.country,
+                                                textRight: userArtwork.createdAt|date("d/m/Y"),
+                                            } %}
+                                        </a>
+                                    {% endfor %}
                                 </div>
                             {% endfor %}
                         </div>
+                        {% if pagination is defined %}
+                            {% include 'layout/pagination.html.twig' %}
+                        {% endif %}
                     </div>
                 </div>
             </div>
