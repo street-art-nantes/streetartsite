@@ -84,7 +84,7 @@
     </unit>
     <unit id="asKIZV9" name="artwork.button.save">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:151</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:152</note>
       </notes>
       <segment>
         <source>artwork.button.save</source>
@@ -125,7 +125,7 @@
         <note category="file-source" priority="1">templates/email/submission.twig:112</note>
         <note category="file-source" priority="1">templates/email/validation.twig:111</note>
         <note category="file-source" priority="1">templates/pages/artwork.html.twig:42</note>
-        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:26</note>
+        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:27</note>
       </notes>
       <segment>
         <source>artwork.label.title</source>
@@ -194,7 +194,7 @@
     </unit>
     <unit id="3YXWeHz" name="artwork.label.documents">
       <notes>
-        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:33</note>
+        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:43</note>
       </notes>
       <segment>
         <source>artwork.label.documents</source>
@@ -212,7 +212,7 @@
     </unit>
     <unit id="xqBfcOp" name="artwork.button.cancel">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:148</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:149</note>
       </notes>
       <segment>
         <source>artwork.button.cancel</source>
@@ -367,6 +367,7 @@
     <unit id="1NwHVSx" name="artwork.label.type">
       <notes>
         <note category="file-source" priority="1">templates/pages/artwork.html.twig:43</note>
+        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:31</note>
       </notes>
       <segment>
         <source>artwork.label.type</source>
@@ -420,7 +421,7 @@
     </unit>
     <unit id="9lCLEvv" name="artwork.label.delete">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:190</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:191</note>
       </notes>
       <segment>
         <source>artwork.label.delete</source>
@@ -439,7 +440,6 @@
     <unit id="avkHOvS" name="home.showmore">
       <notes>
         <note category="file-source" priority="1">templates/pages/content.html.twig:48</note>
-        <note category="file-source" priority="1">templates/pages/content.html.twig:75</note>
         <note category="file-source" priority="1">templates/pages/home.html.twig:24</note>
         <note category="file-source" priority="1">templates/pages/home.html.twig:27</note>
         <note category="file-source" priority="1">templates/pages/home.html.twig:30</note>
@@ -878,7 +878,7 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="reFG_9c" name="artwork.placeholder.author">
       <notes>
-        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:52</note>
+        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:62</note>
       </notes>
       <segment>
         <source>artwork.placeholder.author</source>
@@ -888,7 +888,7 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     <unit id="21RFYiC" name="content.not_found">
       <notes>
         <note category="file-source" priority="1">src/Controller/BlogController.php:58</note>
-        <note category="file-source" priority="1">src/Controller/BlogController.php:83</note>
+        <note category="file-source" priority="1">src/Controller/BlogController.php:84</note>
         <note category="file-source" priority="1">src/Controller/FaqController.php:58</note>
         <note category="file-source" priority="1">src/Controller/LegalsController.php:56</note>
         <note category="file-source" priority="1">src/Controller/ReleasesController.php:55</note>
@@ -910,6 +910,7 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     <unit id="eEJgfF1" name="header.menu.blog">
       <notes>
         <note category="file-source" priority="1">templates/layout/header.html.twig:29</note>
+        <note category="file-source" priority="1">templates/pages/content.html.twig:76</note>
         <note category="file-source" priority="1">src/Controller/SitemapController.php:52</note>
       </notes>
       <segment>
@@ -928,7 +929,7 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="Uc_4HRP" name="artwork.selectauthor">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:139</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:140</note>
       </notes>
       <segment>
         <source>artwork.selectauthor</source>
@@ -937,7 +938,7 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="8I5mm_t" name="artwork.flash.notice.notfound">
       <notes>
-        <note category="file-source" priority="1">src/Controller/ArtworkController.php:86</note>
+        <note category="file-source" priority="1">src/Controller/ArtworkController.php:89</note>
       </notes>
       <segment>
         <source>artwork.flash.notice.notfound</source>
@@ -1027,7 +1028,7 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="I.sQdKV" name="artwork.js.coordok">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:191</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:192</note>
       </notes>
       <segment>
         <source>artwork.js.coordok</source>
@@ -1036,7 +1037,7 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="Pxo6Sx6" name="artwork.js.coordko">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:192</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:193</note>
       </notes>
       <segment>
         <source>artwork.js.coordko</source>
@@ -1045,7 +1046,7 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="SeM43gs" name="artwork.coordinates">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:106</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:107</note>
       </notes>
       <segment>
         <source>artwork.coordinates</source>
@@ -1054,7 +1055,7 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="YTRwoKL" name="artwork.js.search">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:193</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:194</note>
       </notes>
       <segment>
         <source>artwork.js.search</source>
@@ -1072,12 +1073,41 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="vsJ2I29" name="content.backto">
       <notes>
-        <note category="file-source" priority="1">templates/pages/content.html.twig:75</note>
-        <note category="state" priority="1">new</note>
+        <note category="file-source" priority="1">templates/pages/content.html.twig:76</note>
       </notes>
       <segment>
         <source>content.backto</source>
         <target>Back to</target>
+      </segment>
+    </unit>
+    <unit id="fOcrbQ0" name="artwork.label.graffiti">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:34</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artwork.label.graffiti</source>
+        <target>Graffiti (avec bombes, pinceaux...)</target>
+      </segment>
+    </unit>
+    <unit id="luF_5a6" name="artwork.label.sticking">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:34</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artwork.label.sticking</source>
+        <target>Collage</target>
+      </segment>
+    </unit>
+    <unit id="IX.a9I7" name="artwork.label.mosaic">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:34</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artwork.label.mosaic</source>
+        <target>Mosaïque</target>
       </segment>
     </unit>
   </file>

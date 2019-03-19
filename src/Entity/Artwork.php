@@ -14,6 +14,10 @@ class Artwork
 {
     use TimestampableEntity;
 
+    const TYPE_GRAFFITI = 'graffiti';
+    const TYPE_STICKING = 'sticking';
+    const TYPE_MOSAIC = 'mosaic';
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue(strategy="IDENTITY")
