@@ -31,7 +31,7 @@ class ArtworkType extends AbstractType
         $builder->add('type', ChoiceType::class, [
             'label' => 'artwork.label.type',
             'required' => true,
-            'choices'  => [
+            'choices' => [
                 'artwork.label.graffiti' => Artwork::TYPE_GRAFFITI,
                 'artwork.label.sticking' => Artwork::TYPE_STICKING,
                 'artwork.label.mosaic' => Artwork::TYPE_MOSAIC,
