@@ -1,0 +1,101 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ pageTitle }}{% endblock %}
+{% block metas %}
+    <meta name="description" content="{{ pageDescription }}" />
+{% endblock %}
+
+{% set isCreateForm = form.vars.data.id|default(false) ? false : true %}
+
+{% form_theme form _self %}
+
+{% block success %}
+    <div class="content-success text-center mt-5">
+
+        <figure class="">
+            <i class="far fa-check-circle content-success-icon"></i>
+        </figure>
+
+        <h3 class="card-title">
+            {{ 'artist.message.wording_success'|transchoice(1, {'username' : user.username})|raw }}
+        </h3>
+
+        <a href="{{ path('app_artist_new') }}"
+           class="btn btn-lg btn-primary mt-4">{{ 'artist.button.add_new'|trans({}, 'messages') }}</a>
+    </div>
+{% endblock %}
+
+{% block form %}
+    <h2 class="card-title mb-4 text-center">
+        {% if isCreateForm %}
+            {{ 'artist.title.create'|trans({}, 'messages') }}
+        {% else %}
+            {{ 'artist.title.edit'|trans({}, 'messages') }}
+        {% endif %}
+    </h2>
+    <div class="row">
+        <div class="col-12">
+            <p>
+                {{ 'artist.connected'|trans({'username' : user.username})|raw }}
+            </p>
+            {{ 'artist.edit.introduction'|trans({'artistlist' : path('artist_list')}, 'messages')|raw }}
+            <hr />
+        </div>
+    </div>
+
+    {{ form_start(form, { attr: { novalidate: 'novalidate' }}) }}
+    {{ form_errors(form) }}
+
+    <div class="row">
+        <div class="col-12">
+            <p>{{ form_row(form.name, { 'attr': {'placeholder' : 'Bansky'}}) }}</p>
+            <p>{{ form_row(form.biographyEn, { 'attr': {'placeholder' : 'Biography'}}) }}</p>
+            <p>{{ form_row(form.biography, { 'attr': {'placeholder' : 'Biographie'}}) }}</p>
+            <hr />
+        </div>
+    </div>
+
+    {{ form_row(form.avatarFile) }}
+
+    <div class="row">
+        <div class="col-6">
+            {{ form_row(form.websiteLink, { 'attr': {'placeholder' : 'https://www.monsite.com'}}) }}
+        </div>
+        <div class="col-6">
+            {{ form_row(form.instagramLink, { 'attr': {'placeholder' : 'https://www.instagram.com/streetartwork44/'}}) }}
+        </div>
+    </div>
+
+    <div class="text-center mt-5">
+        <a href="{{ app.request.uri }}"
+           class="btn btn-lg btn btn-outline-dark mr-2">{{ 'artwork.button.cancel'|trans({}, 'messages') }}</a>
+
+        <button type="submit"
+                class="btn btn-lg btn-primary">{{ 'artwork.button.save'|trans({}, 'messages') }}</button>
+    </div>
+
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block body %}
+    <div class="page-artist-edit">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 col-12">
+                    <div class="card mt-5">
+                        <article class="card-body">
+                            {% if app.request.get('success', false) %}
+                                {{ block('success') }}
+                            {% elseif is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                {{ block('form') }}
+                            {% else %}
+                                {{ 'artist.not.connected'|trans({}, 'messages') }}
+                            {% endif %}
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

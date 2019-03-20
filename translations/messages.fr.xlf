@@ -115,6 +115,7 @@
     </unit>
     <unit id="asKIZV9" name="artwork.button.save">
       <notes>
+        <note category="file-source" priority="1">templates/pages/artist_edit.twig:74</note>
         <note category="file-source" priority="1">templates/pages/artwork_edit.twig:152</note>
       </notes>
       <segment>
@@ -232,6 +233,7 @@
     </unit>
     <unit id="xqBfcOp" name="artwork.button.cancel">
       <notes>
+        <note category="file-source" priority="1">templates/pages/artist_edit.twig:71</note>
         <note category="file-source" priority="1">templates/pages/artwork_edit.twig:149</note>
       </notes>
       <segment>
@@ -255,7 +257,7 @@
       </notes>
       <segment>
         <source>artwork.message.wording_success</source>
-        <target><![CDATA[{0}Merci pour votre soumission !<br><br>Sa publication est soumise à validation. <br>Si vous aviez un compte vous seriez averti de sa mise en ligne.|]0,Inf]Merci <strong>username</strong> pour votre soumission !<br><br>Sa publication est soumise à validation. <br>Vous serez averti très prochainement de sa mise en ligne.]]></target>
+        <target><![CDATA[{0}Merci pour votre soumission !<br><br>Sa publication est soumise à validation. <br>Si vous aviez un compte vous seriez averti de sa mise en ligne.|]0,Inf]Merci <strong>username</strong> pour ta soumission !<br><br>Sa publication est soumise à validation. <br>Tu seras averti très prochainement de sa mise en ligne.]]></target>
       </segment>
     </unit>
     <unit id="dCADRrf" name="artwork.introduction">
@@ -271,12 +273,12 @@
     </unit>
     <unit id="ownf56y" name="header.menu.submit">
       <notes>
-        <note category="file-source" priority="1">templates/layout/header.html.twig:33</note>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:35</note>
         <note category="file-source" priority="1">src/Controller/SitemapController.php:68</note>
       </notes>
       <segment>
         <source>header.menu.submit</source>
-        <target>Soumettre photo</target>
+        <target>Soumettre</target>
       </segment>
     </unit>
     <unit id="V2YvCwD" name="map.description">
@@ -968,7 +970,7 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     </unit>
     <unit id="pVVhPMK" name="user.flash.notice.notfound">
       <notes>
-        <note category="file-source" priority="1">src/Controller/UserController.php:86</note>
+        <note category="file-source" priority="1">src/Controller/UserController.php:103</note>
       </notes>
       <segment>
         <source>user.flash.notice.notfound</source>
@@ -1104,31 +1106,174 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     <unit id="fOcrbQ0" name="artwork.label.graffiti">
       <notes>
         <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:34</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>artwork.label.graffiti</source>
-        <target>Graffiti (aerosols, paintbrush...)</target>
+        <target>Graffiti (avec bombes, pinceaux...)</target>
       </segment>
     </unit>
     <unit id="luF_5a6" name="artwork.label.sticking">
       <notes>
         <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:34</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>artwork.label.sticking</source>
-        <target>Sticking</target>
+        <target>Collage</target>
       </segment>
     </unit>
     <unit id="IX.a9I7" name="artwork.label.mosaic">
       <notes>
         <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:34</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>artwork.label.mosaic</source>
-        <target>Mosaic</target>
+        <target>Mosaïque</target>
+      </segment>
+    </unit>
+    <unit id="R5iUAG." name="header.menu.submit_artwork">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:38</note>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:46</note>
+      </notes>
+      <segment>
+        <source>header.menu.submit_artwork</source>
+        <target>Soumettre une photo</target>
+      </segment>
+    </unit>
+    <unit id="Xlf_onN" name="header.menu.submit_artist">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:40</note>
+      </notes>
+      <segment>
+        <source>header.menu.submit_artist</source>
+        <target>Soumettre un artiste</target>
+      </segment>
+    </unit>
+    <unit id="ZvS2bvQ" name="artist.message.wording_success">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artist_edit.twig:20</note>
+      </notes>
+      <segment>
+        <source>artist.message.wording_success</source>
+          <target><![CDATA[Merci <strong>username</strong> pour ta soumission !<br><br>Sa publication est soumise à validation. <br>Tu seras averti très prochainement de sa mise en ligne.]]></target>
+      </segment>
+    </unit>
+    <unit id="lr4ae6u" name="artist.button.add_new">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artist_edit.twig:24</note>
+      </notes>
+      <segment>
+        <source>artist.button.add_new</source>
+        <target>Soumettre un nouvel artist</target>
+      </segment>
+    </unit>
+    <unit id="xmhIamx" name="artist.title.create">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artist_edit.twig:31</note>
+      </notes>
+      <segment>
+        <source>artist.title.create</source>
+        <target>Ajouter un artiste</target>
+      </segment>
+    </unit>
+    <unit id="71pd3zx" name="artist.title.edit">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artist_edit.twig:33</note>
+      </notes>
+      <segment>
+        <source>artist.title.edit</source>
+        <target>Editer un artiste</target>
+      </segment>
+    </unit>
+    <unit id="mE3zJHI" name="artist.connected">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artist_edit.twig:39</note>
+      </notes>
+      <segment>
+        <source>artist.connected</source>
+        <target><![CDATA[Merci <strong>username</strong> de nous faire partager tes trouvailles.]]></target>
+      </segment>
+    </unit>
+    <unit id="Z7o_t9v" name="artist.edit.introduction">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artist_edit.twig:41</note>
+      </notes>
+      <segment>
+        <source>artist.edit.introduction</source>
+        <target><![CDATA[Si tu n'as pas trouvé ton artiste préféré dans la liste déjà présente <strong><a href="artistlist" target="_blank">ici</a></strong>, tu peux le proposer à l'aide de ce formulaire.]]></target>
+      </segment>
+    </unit>
+    <unit id="2m5dyeL" name="artist.flash.danger.error">
+      <notes>
+        <note category="file-source" priority="1">src/Controller/ArtistEditController.php:101</note>
+      </notes>
+      <segment>
+        <source>artist.flash.danger.error</source>
+        <target>Une erreur s'est produite lors de la sauvegarde</target>
+      </segment>
+    </unit>
+    <unit id="pW7ZNgQ" name="artist.label.name">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/ArtistType.php:30</note>
+      </notes>
+      <segment>
+        <source>artist.label.name</source>
+        <target>Nom (Blaze)</target>
+      </segment>
+    </unit>
+    <unit id="o2U3esm" name="artist.label.biography">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/ArtistType.php:34</note>
+      </notes>
+      <segment>
+        <source>artist.label.biography</source>
+        <target>Biographie (en français)</target>
+      </segment>
+    </unit>
+    <unit id="HoEjkiU" name="artist.label.biographyEn">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/ArtistType.php:38</note>
+      </notes>
+      <segment>
+        <source>artist.label.biographyEn</source>
+        <target>Biographie (en anglais)</target>
+      </segment>
+    </unit>
+    <unit id="1yjokYL" name="artist.label.websiteLink">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/ArtistType.php:42</note>
+      </notes>
+      <segment>
+        <source>artist.label.websiteLink</source>
+        <target>Adresse de son site web</target>
+      </segment>
+    </unit>
+    <unit id="3eGcKnP" name="artist.label.instagramLink">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/ArtistType.php:46</note>
+      </notes>
+      <segment>
+        <source>artist.label.instagramLink</source>
+        <target>Adresse de son compte Instagram</target>
+      </segment>
+    </unit>
+    <unit id="3WEow_o" name="artist.label.avatarFile">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/ArtistType.php:50</note>
+      </notes>
+      <segment>
+        <source>artist.label.avatarFile</source>
+        <target>Photo de profil (choisis quelque chose de reconnaissable)</target>
+      </segment>
+    </unit>
+    <unit id="YuLT7dn" name="artist.not.connected">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artist_edit.twig:93</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artist.not.connected</source>
+        <target></target>
       </segment>
     </unit>
   </file>

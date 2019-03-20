@@ -29,10 +29,24 @@
                         <a class="nav-link" href="{{ path('blog') }}">{{ 'header.menu.blog'|trans({}) }} <span
                                     class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item {% if app.request.get('_route') == 'app_artwork_new' %}active{% endif %}">
-                        <a class="nav-link" href="{{ path('app_artwork_new') }}">{{ 'header.menu.submit'|trans({}) }}
-                            <span class="sr-only">(current)</span></a>
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ 'header.menu.submit'|trans({}) }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="nav-link {% if app.request.get('_route') == 'app_artwork_new' %}active{% endif %}" href="{{ path('app_artwork_new') }}">{{ 'header.menu.submit_artwork'|trans({}) }}
+                                <span class="sr-only">(current)</span></a>
+                            <a class="nav-link {% if app.request.get('_route') == 'app_artist_new' %}active{% endif %}" href="{{ path('app_artist_new') }}">{{ 'header.menu.submit_artist'|trans({}) }}
+                                <span class="sr-only">(current)</span></a>
+                        </div>
                     </li>
+                    {% else %}
+                        <li class="nav-item {% if app.request.get('_route') == 'app_artwork_new' %}active{% endif %}">
+                            <a class="nav-link" href="{{ path('app_artwork_new') }}">{{ 'header.menu.submit_artwork'|trans({}) }}
+                                <span class="sr-only">(current)</span></a>
+                        </li>
+                    {% endif %}
                 </ul>
             </div>
 
