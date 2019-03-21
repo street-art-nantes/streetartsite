@@ -33,7 +33,7 @@ class ArtistType extends AbstractType
         ]);
         $builder->add('biography', TextareaType::class, [
             'label' => 'artist.label.biography',
-            'required' => true,
+            'required' => false,
         ]);
         $builder->add('biographyEn', TextareaType::class, [
             'label' => 'artist.label.biographyEn',
@@ -52,8 +52,6 @@ class ArtistType extends AbstractType
             'translation_domain' => 'messages',
             'allow_delete' => false,
         ]);
-
-
     }
 
     /**

@@ -90,7 +90,9 @@
                             {% elseif is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                                 {{ block('form') }}
                             {% else %}
-                                {{ 'artist.not.connected'|trans({}, 'messages') }}
+                                <div class="text-center">
+                                    {{ 'artist.not.connected'|trans({'urlaccount' : path('welcome')}, 'messages')|raw }}
+                                </div>
                             {% endif %}
                         </article>
                     </div>
