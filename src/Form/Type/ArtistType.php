@@ -2,18 +2,13 @@
 
 namespace App\Form\Type;
 
-use App\Entity\Artwork;
 use App\Entity\Author;
-use Doctrine\ORM\EntityRepository;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Length;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
 /**
@@ -30,6 +25,9 @@ class ArtistType extends AbstractType
         $builder->add('name', TextType::class, [
             'label' => 'artist.label.name',
             'required' => true,
+            'constraints' => [
+                new Length(['min' => 2]),
+            ],
         ]);
         $builder->add('biography', TextareaType::class, [
             'label' => 'artist.label.biography',
@@ -38,6 +36,9 @@ class ArtistType extends AbstractType
         $builder->add('biographyEn', TextareaType::class, [
             'label' => 'artist.label.biographyEn',
             'required' => true,
+            'constraints' => [
+                new Length(['min' => 50]),
+            ],
         ]);
         $builder->add('websiteLink', TextType::class, [
             'label' => 'artist.label.websiteLink',

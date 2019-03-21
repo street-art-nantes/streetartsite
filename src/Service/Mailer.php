@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Entity\Artwork;
+use App\Entity\Author;
 use FOS\UserBundle\Model\UserInterface;
 use Liip\ImagineBundle\Service\FilterService;
 use Swift_Mailer as BaseMailer;
@@ -134,6 +135,31 @@ class Mailer
     }
 
     /**
+     * @param Request       $request
+     * @param UserInterface $user
+     */
+    public function sendArtistSubmissionEmailMessage(Request $request, UserInterface $user)
+    {
+        $template = 'email/artist_submission.twig';
+        $urlForm = $this->router->generate('app_artist_new', [], 0);
+        $urlLogo = $this->assetPackages->getUrl('assets/img/logo.png');
+        $urlHeaderLogo = $this->assetPackages->getUrl('assets/img/email-logo.png');
+        $rendered = $this->templating->render($template, [
+            'user' => $user,
+            'urlForm' => $urlForm,
+            'urlLogo' => $urlLogo,
+            'urlHeaderLogo' => $urlHeaderLogo,
+            'datas' => $request->request->all(),
+        ]);
+        $subject = $this->translator->trans('artist_submission.subject', ['%username%' => $user->getUsername()], 'TransactionalEmail');
+        $this->sendEmailMessage($rendered,
+            ['contact@street-artwork.com' => 'street-artwork.com'],
+            [$user->getEmail() => $user->getUsername()],
+            $user,
+            $subject);
+    }
+
+    /**
      * @param Artwork       $artwork
      * @param UserInterface $user
      */
@@ -154,6 +180,33 @@ class Mailer
             'imgArtwork' => $urlImgArtwork,
         ]);
         $subject = $this->translator->trans('validation.subject', ['%username%' => $user->getUsername()], 'TransactionalEmail');
+        $this->sendEmailMessage($rendered,
+            ['contact@street-artwork.com' => 'street-artwork.com'],
+            [$user->getEmail() => $user->getUsername()],
+            $user,
+            $subject);
+    }
+
+    /**
+     * @param Author       $artist
+     * @param UserInterface $user
+     */
+    public function sendArtistValidationEmailMessage(Author $artist, UserInterface $user)
+    {
+        $template = 'email/artist_validation.twig';
+        $urlForm = $this->router->generate('app_artist_new', [], 0);
+        $urlArtist = $this->router->generate('artist_profile', ['id' => $artist->getId()], 0);
+        $urlImgArtist = $this->filterService->getUrlOfFilteredImage($this->helper->asset($artist, 'avatarFile'), 'thumb_small');
+        $urlHeaderLogo = $this->assetPackages->getUrl('assets/img/email-logo.png');
+        $rendered = $this->templating->render($template, [
+            'user' => $user,
+            'urlForm' => $urlForm,
+            'urlHeaderLogo' => $urlHeaderLogo,
+            'artist' => $artist,
+            'urlArtist' => $urlArtist,
+            'imgArtist' => $urlImgArtist,
+        ]);
+        $subject = $this->translator->trans('artist_validation.subject', ['%username%' => $user->getUsername()], 'TransactionalEmail');
         $this->sendEmailMessage($rendered,
             ['contact@street-artwork.com' => 'street-artwork.com'],
             [$user->getEmail() => $user->getUsername()],

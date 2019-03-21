@@ -2,9 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Artwork;
 use App\Entity\Author;
-use App\Entity\Document;
 use App\Entity\User;
 use App\Form\Type\ArtistType;
 use App\Service\Mailer;
@@ -69,6 +67,9 @@ class ArtistEditController extends Controller
     {
         if (!$author) {
             $author = new Author();
+            if (!$author->getContributor() && $this->getUser() instanceof User) {
+                $author->setContributor($this->getUser());
+            }
         }
 
         $form = $this->createForm(ArtistType::class, $author);
@@ -87,15 +88,15 @@ class ArtistEditController extends Controller
             try {
                 $this->entityManager->flush();
 
-//                if ($isCreateForm) {
-//                    if ($this->getUser()) {
-//                        $this->mailer->sendSubmissionEmailMessage($request, $this->getUser());
-//                    }
+                if ($isCreateForm) {
+                    if ($this->getUser()) {
+                        $this->mailer->sendArtistSubmissionEmailMessage($request, $this->getUser());
+                    }
 
                     return $this->redirectToRoute('app_artist_new', [
                         'success' => true,
                     ]);
-//                }
+                }
             } catch (\Exception $e) {
                 $this->logger->error($e->getMessage());
                 $this->addFlash('danger', $this->translator->trans('artist.flash.danger.error'));

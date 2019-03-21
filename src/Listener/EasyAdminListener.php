@@ -3,6 +3,7 @@
 namespace App\Listener;
 
 use App\Entity\Artwork;
+use App\Entity\Author;
 use App\Entity\User;
 use App\Service\Mailer;
 use Psr\Log\LoggerInterface;
@@ -38,12 +39,16 @@ class EasyAdminListener implements EventSubscriberInterface
     {
         $entity = $event->getSubject();
 
-        if (!($entity instanceof Artwork) || !($entity->getContributor() instanceof User)) {
+        if (!($entity instanceof Artwork || $entity instanceof Author) || !($entity->getContributor() instanceof User)) {
             return;
         }
 
         try {
-            $this->mailer->sendValidationEmailMessage($entity, $entity->getContributor());
+            if ($entity instanceof Artwork) {
+                $this->mailer->sendValidationEmailMessage($entity, $entity->getContributor());
+            } elseif ($entity instanceof Author) {
+                $this->mailer->sendArtistValidationEmailMessage($entity, $entity->getContributor());
+            }
         } catch (\Exception $e) {
             $this->logger->error($e->getMessage());
         }
