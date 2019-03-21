@@ -26,6 +26,7 @@ class Author
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $name;
 
@@ -41,6 +42,7 @@ class Author
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Assert\NotBlank()
      */
     private $biographyEn;
 
@@ -124,11 +126,13 @@ class Author
 
     /**
      * @param mixed $enabled
+     *
      * @return Author
      */
     public function setEnabled($enabled)
     {
         $this->enabled = $enabled;
+
         return $this;
     }
 
@@ -174,11 +178,13 @@ class Author
 
     /**
      * @param User $contributor
+     *
      * @return Author
      */
-    public function setContributor(?User $contributor): Author
+    public function setContributor(?User $contributor): self
     {
         $this->contributor = $contributor;
+
         return $this;
     }
 

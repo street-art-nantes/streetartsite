@@ -119,7 +119,9 @@
                                                 <td class="w30"  width="30"></td>
                                                 <td class="w275"  width="195" valign="top">
                                                     <p>
-                                                        <img class="w180"  width="180" src="{{ imgArtist }}" alt="{{ artist.name }}" />
+                                                        {% if imgArtist %}
+                                                            <img class="w180"  width="180" src="{{ imgArtist }}" alt="{{ artist.name }}" />
+                                                        {% endif %}
                                                     </p>
                                                 </td>
                                             </tr>

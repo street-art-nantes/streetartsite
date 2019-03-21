@@ -188,7 +188,7 @@ class Mailer
     }
 
     /**
-     * @param Author       $artist
+     * @param Author        $artist
      * @param UserInterface $user
      */
     public function sendArtistValidationEmailMessage(Author $artist, UserInterface $user)
@@ -196,7 +196,10 @@ class Mailer
         $template = 'email/artist_validation.twig';
         $urlForm = $this->router->generate('app_artist_new', [], 0);
         $urlArtist = $this->router->generate('artist_profile', ['id' => $artist->getId()], 0);
-        $urlImgArtist = $this->filterService->getUrlOfFilteredImage($this->helper->asset($artist, 'avatarFile'), 'thumb_small');
+        $urlImgArtist = '';
+        if ($artist->getAvatarFile()) {
+            $urlImgArtist = $this->filterService->getUrlOfFilteredImage($this->helper->asset($artist, 'avatarFile'), 'thumb_small');
+        }
         $urlHeaderLogo = $this->assetPackages->getUrl('assets/img/email-logo.png');
         $rendered = $this->templating->render($template, [
             'user' => $user,

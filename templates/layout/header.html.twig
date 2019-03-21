@@ -34,9 +34,9 @@
                             {{ 'header.menu.submit'|trans({}) }}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="nav-link {% if app.request.get('_route') == 'app_artwork_new' %}active{% endif %}" href="{{ path('app_artwork_new') }}">{{ 'header.menu.submit_artwork'|trans({}) }}
+                            <a class="dropdown-item {% if app.request.get('_route') == 'app_artwork_new' %}active{% endif %}" href="{{ path('app_artwork_new') }}">{{ 'header.menu.submit_artwork'|trans({}) }}
                                 <span class="sr-only">(current)</span></a>
-                            <a class="nav-link {% if app.request.get('_route') == 'app_artist_new' %}active{% endif %}" href="{{ path('app_artist_new') }}">{{ 'header.menu.submit_artist'|trans({}) }}
+                            <a class="dropdown-item {% if app.request.get('_route') == 'app_artist_new' %}active{% endif %}" href="{{ path('app_artist_new') }}">{{ 'header.menu.submit_artist'|trans({}) }}
                                 <span class="sr-only">(current)</span></a>
                         </div>
                     </li>

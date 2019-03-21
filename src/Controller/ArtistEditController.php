@@ -58,7 +58,7 @@ class ArtistEditController extends Controller
      * @Route("/{_locale}/artist/new", name="app_artist_new")
      * @Route("/{_locale}/artist/{id}/edit", name="app_artist_edit")
      *
-     * @param Request      $request
+     * @param Request     $request
      * @param Author|null $author
      *
      * @return \Symfony\Component\HttpFoundation\Response
@@ -110,5 +110,4 @@ class ArtistEditController extends Controller
             'pageDescription' => $this->translator->trans('description.artistedit', [], 'Metas'),
         ]);
     }
-
 }
