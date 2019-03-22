@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Author;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -38,6 +39,28 @@ class AuthorRepository extends ServiceEntityRepository
 
         $query->setFirstResult(($page - 1) * $maxperpage)
             ->setMaxResults($maxperpage)
+        ;
+
+        return $query->getQuery()->getResult();
+    }
+
+    /**
+     * @param User $user
+     *
+     * @return mixed
+     */
+    public function getAuthorsArtworksByUser(User $user)
+    {
+        $query = $this->createQueryBuilder('a');
+
+        $query->select('a.id')
+            ->leftJoin('a.artworks', 'artworks')
+            ->leftJoin('artworks.contributor', 'contributor')
+            ->andWhere('contributor.id = :user')
+            ->andWhere('artworks.enabled=TRUE')
+            ->setParameter('user', $user)
+            ->groupBy('a.id')
+            ->orderBy('a.id', 'ASC')
         ;
 
         return $query->getQuery()->getResult();

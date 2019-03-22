@@ -52,6 +52,11 @@ class User extends BaseUser
     protected $description;
 
     /**
+     * @ORM\Column(type="json_array",nullable=true,options={"jsonb"=true})
+     */
+    private $badges;
+
+    /**
      * @Vich\UploadableField(mapping="user_avatar", fileNameProperty="avatarName")
      * @Assert\File(
      *     maxSize = "2M",
@@ -149,6 +154,26 @@ class User extends BaseUser
     public function setWebsite($website)
     {
         $this->website = $website;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBadges()
+    {
+        return $this->badges;
+    }
+
+    /**
+     * @param mixed $badges
+     *
+     * @return User
+     */
+    public function setBadges($badges)
+    {
+        $this->badges = $badges;
 
         return $this;
     }

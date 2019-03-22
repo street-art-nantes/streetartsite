@@ -83,6 +83,8 @@ class UserController extends Controller
                 $viewsTotal = $resultViewsTotal['sum'] + 1;
                 $views = $resultViews['sum'] + 1;
 
+                $badges = json_decode($user->getBadges(), true);
+
                 return $this->render('pages/user_dashboard.html.twig', [
                     'user' => $user,
                     'userArtworks' => $userArtworks,
@@ -94,6 +96,7 @@ class UserController extends Controller
                     'pageDescription' => $this->translator->trans('description.user', ['%name%' => $user->getUsername()], 'Metas'),
                     'views' => $views,
                     'viewsTotal' => $viewsTotal,
+                    'badges' => $badges,
                 ]);
             } catch (\Exception $e) {
                 $this->logger->error($e->getMessage());

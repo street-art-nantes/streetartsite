@@ -42,6 +42,27 @@ class ArtworkRepository extends ServiceEntityRepository
     }
 
     /**
+     * @param User $user
+     *
+     * @return mixed
+     */
+    public function getInstaArtworksByUser(User $user)
+    {
+        $query = $this->createQueryBuilder('a');
+
+        $query->select('a')
+            ->leftJoin('a.contributor', 'users')
+            ->andWhere('users.id = :user')
+            ->andWhere('a.enabled=TRUE')
+            ->andWhere('a.instaLink IS NOT NULL')
+            ->setParameter('user', $user)
+            ->orderBy('a.id', 'DESC')
+        ;
+
+        return $query->getQuery()->getResult();
+    }
+
+    /**
      * @param Author $author
      *
      * @return mixed
@@ -78,6 +99,28 @@ class ArtworkRepository extends ServiceEntityRepository
             ->setParameter('user', $user)
             ->groupBy('pois.country')
             ->orderBy('pois.country', 'ASC')
+        ;
+
+        return $query->getQuery()->getResult();
+    }
+
+    /**
+     * @param User $user
+     *
+     * @return mixed
+     */
+    public function getArtworksCitiesByUser(User $user)
+    {
+        $query = $this->createQueryBuilder('a');
+
+        $query->select('pois.city')
+            ->leftJoin('a.contributor', 'users')
+            ->leftJoin('a.poi', 'pois')
+            ->andWhere('users.id = :user')
+            ->andWhere('a.enabled=TRUE')
+            ->setParameter('user', $user)
+            ->groupBy('pois.city')
+            ->orderBy('pois.city', 'ASC')
         ;
 
         return $query->getQuery()->getResult();

@@ -162,6 +162,30 @@ class Mailer
     }
 
     /**
+     * @param UserInterface $user
+     * @param array         $newBadges
+     */
+    public function sendNewBadgesEmailMessage(UserInterface $user, array $newBadges)
+    {
+        $template = 'email/new_badges.twig';
+        $urlHeaderLogo = $this->assetPackages->getUrl('assets/img/email-logo.png');
+        $urlLogo = $this->assetPackages->getUrl('assets/img/logo.png');
+        $rendered = $this->templating->render($template, [
+            'user' => $user,
+            'urlLogo' => $urlLogo,
+            'urlHeaderLogo' => $urlHeaderLogo,
+            'newBadges' => $newBadges,
+            'urlBadges' => $this->assetPackages->getUrl('assets/img/badges/'),
+        ]);
+        $subject = $this->translator->trans('badges.subject', ['%username%' => $user->getUsername()], 'TransactionalEmail');
+        $this->sendEmailMessage($rendered,
+            ['contact@street-artwork.com' => 'street-artwork.com'],
+            [$user->getEmail() => $user->getUsername()],
+            $user,
+            $subject);
+    }
+
+    /**
      * @param string        $renderedTemplate
      * @param mixed         $fromEmail
      * @param mixed         $toEmail

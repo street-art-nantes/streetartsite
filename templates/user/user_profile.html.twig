@@ -18,5 +18,7 @@
             <a href="{{ path('fos_user_profile_edit') }}"
                class="btn btn-primary btn-block">{{ 'profile.edit.title'|trans }}</a>
         {% endif %}
+        {{ dump(badges) }}
+        {% include 'layout/badges.html.twig' %}
     </div>
 {% endif %}
