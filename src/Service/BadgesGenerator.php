@@ -69,14 +69,15 @@ class BadgesGenerator
 
     /**
      * BadgesGenerator constructor.
-     * @param UserRepository $userRepository
-     * @param ArtworkRepository $artworkRepository
-     * @param AuthorRepository $authorRepository
-     * @param PageStatRepository $pageStatRepository
+     *
+     * @param UserRepository         $userRepository
+     * @param ArtworkRepository      $artworkRepository
+     * @param AuthorRepository       $authorRepository
+     * @param PageStatRepository     $pageStatRepository
      * @param EntityManagerInterface $manager
-     * @param LoggerInterface $logger
-     * @param Mailer $mailer
-     * @param array $parameters
+     * @param LoggerInterface        $logger
+     * @param Mailer                 $mailer
+     * @param array                  $parameters
      */
     public function __construct(UserRepository $userRepository, ArtworkRepository $artworkRepository, AuthorRepository $authorRepository,
                                 PageStatRepository $pageStatRepository, EntityManagerInterface $manager, LoggerInterface $logger,
@@ -141,31 +142,47 @@ class BadgesGenerator
 
         try {
             /**
-             * @var BadgesUser $userBadges
+             * @var BadgesUser
              */
             $userBadges = $serializer->deserialize($this->user->getBadges(), BadgesUser::class, 'json');
         } catch (\Exception $e) {
             $this->logger->error($e->getMessage());
         }
 
-        if ($userBadges->getArtworkLevel() != $this->badgeUser->getArtworkLevel()) $newBadges['artwork'] = $this->badgeUser->getArtworkLevel();
-        if ($userBadges->getArtistLevel() != $this->badgeUser->getArtistLevel()) $newBadges['artist'] = $this->badgeUser->getArtistLevel();
-        if ($userBadges->getCityLevel() != $this->badgeUser->getCityLevel()) $newBadges['city'] = $this->badgeUser->getCityLevel();
-        if ($userBadges->getCountryLevel() != $this->badgeUser->getCountryLevel()) $newBadges['country'] = $this->badgeUser->getCountryLevel();
-        if ($userBadges->getInstaLevel() != $this->badgeUser->getInstaLevel()) $newBadges['insta'] = $this->badgeUser->getInstaLevel();
-        if ($userBadges->getHunterProfileLevel() != $this->badgeUser->getHunterProfileLevel()) $newBadges['profil_hunter'] = $this->badgeUser->getHunterProfileLevel();
-        if ($userBadges->getHunterArtworkLevel() != $this->badgeUser->getHunterArtworkLevel()) $newBadges['profil_hunter_artwork'] = $this->badgeUser->getHunterArtworkLevel();
+        if ($userBadges->getArtworkLevel() !== $this->badgeUser->getArtworkLevel()) {
+            $newBadges['artwork'] = $this->badgeUser->getArtworkLevel();
+        }
+        if ($userBadges->getArtistLevel() !== $this->badgeUser->getArtistLevel()) {
+            $newBadges['artist'] = $this->badgeUser->getArtistLevel();
+        }
+        if ($userBadges->getCityLevel() !== $this->badgeUser->getCityLevel()) {
+            $newBadges['city'] = $this->badgeUser->getCityLevel();
+        }
+        if ($userBadges->getCountryLevel() !== $this->badgeUser->getCountryLevel()) {
+            $newBadges['country'] = $this->badgeUser->getCountryLevel();
+        }
+        if ($userBadges->getInstaLevel() !== $this->badgeUser->getInstaLevel()) {
+            $newBadges['insta'] = $this->badgeUser->getInstaLevel();
+        }
+        if ($userBadges->getHunterProfileLevel() !== $this->badgeUser->getHunterProfileLevel()) {
+            $newBadges['profil_hunter'] = $this->badgeUser->getHunterProfileLevel();
+        }
+        if ($userBadges->getHunterArtworkLevel() !== $this->badgeUser->getHunterArtworkLevel()) {
+            $newBadges['profil_hunter_artwork'] = $this->badgeUser->getHunterArtworkLevel();
+        }
 
-        if ($newBadges) $this->mailer->sendNewBadgesEmailMessage($this->user, $newBadges);
+        if ($newBadges) {
+            $this->mailer->sendNewBadgesEmailMessage($this->user, $newBadges);
+        }
     }
 
     private function generateArtworkBadge()
     {
-        $artworksNb = count($this->artworkRepository->getArtworksByUser($this->user));
-        echo "artworksNb : ".$artworksNb;
+        $artworksNb = \count($this->artworkRepository->getArtworksByUser($this->user));
+        echo 'artworksNb : '.$artworksNb;
         foreach ($this->parameters['artwork'] as $parameter => $value) {
             if ($value > $artworksNb) {
-                $this->badgeUser->setArtworkLevel($parameter-1);
+                $this->badgeUser->setArtworkLevel($parameter - 1);
                 break;
             }
         }
@@ -173,11 +190,11 @@ class BadgesGenerator
 
     private function generateArtistBadge()
     {
-        $artistsNb = count($this->authorRepository->getAuthorsArtworksByUser($this->user));
-        echo "artistsNb : ".$artistsNb;
+        $artistsNb = \count($this->authorRepository->getAuthorsArtworksByUser($this->user));
+        echo 'artistsNb : '.$artistsNb;
         foreach ($this->parameters['artist'] as $parameter => $value) {
             if ($value > $artistsNb) {
-                $this->badgeUser->setArtistLevel($parameter-1);
+                $this->badgeUser->setArtistLevel($parameter - 1);
                 break;
             }
         }
@@ -185,11 +202,11 @@ class BadgesGenerator
 
     private function generateCityBadge()
     {
-        $citiesNb = count($this->artworkRepository->getArtworksCitiesByUser($this->user));
-        echo "citiesNb : ".$citiesNb;
+        $citiesNb = \count($this->artworkRepository->getArtworksCitiesByUser($this->user));
+        echo 'citiesNb : '.$citiesNb;
         foreach ($this->parameters['city'] as $parameter => $value) {
             if ($value > $citiesNb) {
-                $this->badgeUser->setCityLevel($parameter-1);
+                $this->badgeUser->setCityLevel($parameter - 1);
                 break;
             }
         }
@@ -197,11 +214,11 @@ class BadgesGenerator
 
     private function generateCountryBadge()
     {
-        $countriesNb = count($this->artworkRepository->getArtworksCountriesByUser($this->user));
-        echo "countriesNb : ".$countriesNb;
+        $countriesNb = \count($this->artworkRepository->getArtworksCountriesByUser($this->user));
+        echo 'countriesNb : '.$countriesNb;
         foreach ($this->parameters['country'] as $parameter => $value) {
             if ($value > $countriesNb) {
-                $this->badgeUser->setCountryLevel($parameter-1);
+                $this->badgeUser->setCountryLevel($parameter - 1);
                 break;
             }
         }
@@ -239,10 +256,10 @@ class BadgesGenerator
         } catch (\Exception $e) {
             $this->logger->error($e->getMessage());
         }
-        echo "hunterPageNb : ".$hunterPageNb['sum'];
+        echo 'hunterPageNb : '.$hunterPageNb['sum'];
         foreach ($this->parameters['profil_hunter'] as $parameter => $value) {
             if ($value > $hunterPageNb['sum']) {
-                $this->badgeUser->setHunterProfileLevel($parameter-1);
+                $this->badgeUser->setHunterProfileLevel($parameter - 1);
                 break;
             }
         }
@@ -256,10 +273,10 @@ class BadgesGenerator
         } catch (\Exception $e) {
             $this->logger->error($e->getMessage());
         }
-        echo "hunterArtworkNb : ".$hunterArtworkNb['sum'];
+        echo 'hunterArtworkNb : '.$hunterArtworkNb['sum'];
         foreach ($this->parameters['profil_hunter_artwork'] as $parameter => $value) {
             if ($value > $hunterArtworkNb['sum']) {
-                $this->badgeUser->setHunterArtworkLevel($parameter-1);
+                $this->badgeUser->setHunterArtworkLevel($parameter - 1);
                 break;
             }
         }
@@ -268,11 +285,11 @@ class BadgesGenerator
     private function generateInstaBadge()
     {
         //Instagram photo selected : 1 / 5 / 10 / 50 / 100
-        $instaPhotoNb = count($this->artworkRepository->getInstaArtworksByUser($this->user));
-        echo "instaPhotoNb : ".$instaPhotoNb;
+        $instaPhotoNb = \count($this->artworkRepository->getInstaArtworksByUser($this->user));
+        echo 'instaPhotoNb : '.$instaPhotoNb;
         foreach ($this->parameters['insta'] as $parameter => $value) {
             if ($value > $instaPhotoNb) {
-                $this->badgeUser->setInstaLevel($parameter-1);
+                $this->badgeUser->setInstaLevel($parameter - 1);
                 break;
             }
         }
