@@ -6,6 +6,7 @@ use App\Entity\User;
 use App\Model\BadgesUser;
 use App\Repository\ArtworkRepository;
 use App\Repository\AuthorRepository;
+use App\Repository\PageStatRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Log\LoggerInterface;
@@ -30,6 +31,11 @@ class BadgesGenerator
      * @var AuthorRepository
      */
     protected $authorRepository;
+
+    /**
+     * @var PageStatRepository
+     */
+    protected $pageStatRepository;
 
     /**
      * @var EntityManagerInterface
@@ -66,17 +72,20 @@ class BadgesGenerator
      * @param UserRepository $userRepository
      * @param ArtworkRepository $artworkRepository
      * @param AuthorRepository $authorRepository
+     * @param PageStatRepository $pageStatRepository
      * @param EntityManagerInterface $manager
      * @param LoggerInterface $logger
      * @param Mailer $mailer
      * @param array $parameters
      */
     public function __construct(UserRepository $userRepository, ArtworkRepository $artworkRepository, AuthorRepository $authorRepository,
-                                EntityManagerInterface $manager, LoggerInterface $logger, Mailer $mailer, array $parameters)
+                                PageStatRepository $pageStatRepository, EntityManagerInterface $manager, LoggerInterface $logger,
+                                Mailer $mailer, array $parameters)
     {
         $this->userRepository = $userRepository;
         $this->artworkRepository = $artworkRepository;
         $this->authorRepository = $authorRepository;
+        $this->pageStatRepository = $pageStatRepository;
         $this->manager = $manager;
         $this->parameters = $parameters;
         $this->logger = $logger;
@@ -96,7 +105,6 @@ class BadgesGenerator
         $allUsers = $this->userRepository->findAll();
         foreach ($allUsers as $user) {
             try {
-                echo 'userid : '.$user->getId();
                 $this->user = $user;
                 $this->badgeUser = new BadgesUser();
 
@@ -105,8 +113,8 @@ class BadgesGenerator
                 $this->generateCityBadge();
                 $this->generateCountryBadge();
                 $this->generateInstaBadge();
-                $this->generateProfilHunterArtworkBadge();
                 $this->generateProfilHunterBadge();
+                $this->generateProfilHunterArtworkBadge();
                 $this->generateSameArtistBadge();
                 $this->generateSameCityBadge();
                 $this->generateSameCountryBadge();
@@ -145,6 +153,8 @@ class BadgesGenerator
         if ($userBadges->getCityLevel() != $this->badgeUser->getCityLevel()) $newBadges['city'] = $this->badgeUser->getCityLevel();
         if ($userBadges->getCountryLevel() != $this->badgeUser->getCountryLevel()) $newBadges['country'] = $this->badgeUser->getCountryLevel();
         if ($userBadges->getInstaLevel() != $this->badgeUser->getInstaLevel()) $newBadges['insta'] = $this->badgeUser->getInstaLevel();
+        if ($userBadges->getHunterProfileLevel() != $this->badgeUser->getHunterProfileLevel()) $newBadges['profil_hunter'] = $this->badgeUser->getHunterProfileLevel();
+        if ($userBadges->getHunterArtworkLevel() != $this->badgeUser->getHunterArtworkLevel()) $newBadges['profil_hunter_artwork'] = $this->badgeUser->getHunterArtworkLevel();
 
         if ($newBadges) $this->mailer->sendNewBadgesEmailMessage($this->user, $newBadges);
     }
@@ -221,20 +231,38 @@ class BadgesGenerator
         //X from same country : 1 / 10 / 100 / 500 / 1000 (top 3 user)
     }
 
-    /**
-     * TODO.
-     */
     private function generateProfilHunterBadge()
     {
-        //X views profil hunter : 10 / 50 / 100 / 1000 / 5000
+        $hunterPageNb = 0;
+        try {
+            $hunterPageNb = $this->pageStatRepository->getPageViewsByUrl('/public-profile/'.$this->user->getId());
+        } catch (\Exception $e) {
+            $this->logger->error($e->getMessage());
+        }
+        echo "hunterPageNb : ".$hunterPageNb['sum'];
+        foreach ($this->parameters['profil_hunter'] as $parameter => $value) {
+            if ($value > $hunterPageNb['sum']) {
+                $this->badgeUser->setHunterProfileLevel($parameter-1);
+                break;
+            }
+        }
     }
 
-    /**
-     * TODO.
-     */
     private function generateProfilHunterArtworkBadge()
     {
-        //Total artworks views : 100 / 500 / 2000 / 5000 / 10000
+        $hunterArtworkNb = 0;
+        try {
+            $hunterArtworkNb = $this->pageStatRepository->getTotalPageViewsByUser($this->user);
+        } catch (\Exception $e) {
+            $this->logger->error($e->getMessage());
+        }
+        echo "hunterArtworkNb : ".$hunterArtworkNb['sum'];
+        foreach ($this->parameters['profil_hunter_artwork'] as $parameter => $value) {
+            if ($value > $hunterArtworkNb['sum']) {
+                $this->badgeUser->setHunterArtworkLevel($parameter-1);
+                break;
+            }
+        }
     }
 
     private function generateInstaBadge()

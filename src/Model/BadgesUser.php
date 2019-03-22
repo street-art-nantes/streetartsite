@@ -30,6 +30,16 @@ class BadgesUser
     private $instaLevel;
 
     /**
+     * @var int
+     */
+    private $hunterProfileLevel;
+
+    /**
+     * @var int
+     */
+    private $hunterArtworkLevel;
+
+    /**
      * BadgesUser constructor.
      */
     public function __construct()
@@ -134,4 +144,39 @@ class BadgesUser
         return $this;
     }
 
+    /**
+     * @return int
+     */
+    public function getHunterProfileLevel()
+    {
+        return $this->hunterProfileLevel;
+    }
+
+    /**
+     * @param int $hunterProfileLevel
+     * @return BadgesUser
+     */
+    public function setHunterProfileLevel($hunterProfileLevel): self
+    {
+        $this->hunterProfileLevel = $hunterProfileLevel;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getHunterArtworkLevel()
+    {
+        return $this->hunterArtworkLevel;
+    }
+
+    /**
+     * @param int $hunterArtworkLevel
+     * @return BadgesUser
+     */
+    public function setHunterArtworkLevel($hunterArtworkLevel): self
+    {
+        $this->hunterArtworkLevel = $hunterArtworkLevel;
+        return $this;
+    }
 }
