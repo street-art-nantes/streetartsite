@@ -137,7 +137,7 @@ class BadgesGenerator
         $encoders = [new XmlEncoder(), new JsonEncoder()];
         $normalizers = [new ObjectNormalizer()];
         $serializer = new Serializer($normalizers, $encoders);
-        $newBadges = [];
+        $newBadges = $userBadges = [];
 
         try {
             /**

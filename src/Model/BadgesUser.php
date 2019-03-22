@@ -136,11 +136,13 @@ class BadgesUser
 
     /**
      * @param int $instaLevel
+     *
      * @return BadgesUser
      */
     public function setInstaLevel($instaLevel): self
     {
         $this->instaLevel = $instaLevel;
+
         return $this;
     }
 
@@ -154,11 +156,13 @@ class BadgesUser
 
     /**
      * @param int $hunterProfileLevel
+     *
      * @return BadgesUser
      */
     public function setHunterProfileLevel($hunterProfileLevel): self
     {
         $this->hunterProfileLevel = $hunterProfileLevel;
+
         return $this;
     }
 
@@ -172,11 +176,13 @@ class BadgesUser
 
     /**
      * @param int $hunterArtworkLevel
+     *
      * @return BadgesUser
      */
     public function setHunterArtworkLevel($hunterArtworkLevel): self
     {
         $this->hunterArtworkLevel = $hunterArtworkLevel;
+
         return $this;
     }
 }

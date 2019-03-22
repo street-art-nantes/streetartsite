@@ -163,7 +163,7 @@ class Mailer
 
     /**
      * @param UserInterface $user
-     * @param array $newBadges
+     * @param array         $newBadges
      */
     public function sendNewBadgesEmailMessage(UserInterface $user, array $newBadges)
     {
