@@ -25,6 +25,11 @@ class BadgesUser
     private $countryLevel;
 
     /**
+     * @var int
+     */
+    private $instaLevel;
+
+    /**
      * BadgesUser constructor.
      */
     public function __construct()
@@ -110,4 +115,23 @@ class BadgesUser
 
         return $this;
     }
+
+    /**
+     * @return int
+     */
+    public function getInstaLevel()
+    {
+        return $this->instaLevel;
+    }
+
+    /**
+     * @param int $instaLevel
+     * @return BadgesUser
+     */
+    public function setInstaLevel($instaLevel): self
+    {
+        $this->instaLevel = $instaLevel;
+        return $this;
+    }
+
 }

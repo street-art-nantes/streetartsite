@@ -42,6 +42,27 @@ class ArtworkRepository extends ServiceEntityRepository
     }
 
     /**
+     * @param User $user
+     *
+     * @return mixed
+     */
+    public function getInstaArtworksByUser(User $user)
+    {
+        $query = $this->createQueryBuilder('a');
+
+        $query->select('a')
+            ->leftJoin('a.contributor', 'users')
+            ->andWhere('users.id = :user')
+            ->andWhere('a.enabled=TRUE')
+            ->andWhere('a.instaLink IS NOT NULL')
+            ->setParameter('user', $user)
+            ->orderBy('a.id', 'DESC')
+        ;
+
+        return $query->getQuery()->getResult();
+    }
+
+    /**
      * @param Author $author
      *
      * @return mixed
