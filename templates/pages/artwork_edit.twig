@@ -17,9 +17,11 @@
     </div>
     <div {{ block('widget_container_attributes') }} class="searchable-container">
             {%- for child in form %}
-                {% set entity = form.vars.choices[loop.index].data %}
-                {{- form_widget(child, {'entity': entity}) -}}
-                {{- form_label(child, null, {translation_domain: choice_translation_domain}) -}}
+                {% if form.vars.choices[child.vars.value] is defined %}
+                    {% set entity = form.vars.choices[child.vars.value].data %}
+                    {{- form_widget(child, {'entity': entity}) -}}
+                    {{- form_label(child, null, {translation_domain: choice_translation_domain}) -}}
+                {% endif %}
             {% endfor -%}
     </div>
 {%- endblock choice_widget_expanded %}
