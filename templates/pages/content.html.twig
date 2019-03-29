@@ -58,7 +58,6 @@
                 <div class="row">
                     <div class="col-12 title">
                         <h1>{{ entry.get('title')|raw }}</h1>
-                        {{ dump(entry) }}
                     </div>
                     {#<div class="col-md-6">#}
                     {#<p>{{ blog.get('introductionImage')|raw }}</p>#}
@@ -67,7 +66,6 @@
                         <h6>{{ entry.get('introduction')|raw|nl2br }}</h6>
                     </div>
                     <div class="col-12 content">
-                        <p>{{  rich_text_render(entry.getContent()) }}</p>
                         <p>{{ entry.get('content')|raw|nl2br }}</p>
                     </div>
                 </div>
