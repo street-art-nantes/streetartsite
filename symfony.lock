@@ -1,0 +1,29 @@
+{
+    "contentful/rich-text": {
+        "version": "1.2.0"
+    },
+    "ralouphie/getallheaders": {
+        "version": "2.0.5"
+    },
+    "symfony/contracts": {
+        "version": "v1.0.2"
+    },
+    "symfony/polyfill-intl-idn": {
+        "version": "v1.11.0"
+    },
+    "symfony/security-core": {
+        "version": "v4.2.4"
+    },
+    "symfony/security-csrf": {
+        "version": "v4.2.4"
+    },
+    "symfony/security-guard": {
+        "version": "v4.2.4"
+    },
+    "symfony/security-http": {
+        "version": "v4.2.4"
+    },
+    "symfony/var-exporter": {
+        "version": "v4.2.4"
+    }
+}
