@@ -84,6 +84,7 @@
     </unit>
     <unit id="asKIZV9" name="artwork.button.save">
       <notes>
+        <note category="file-source" priority="1">templates/pages/artist_edit.twig:74</note>
         <note category="file-source" priority="1">templates/pages/artwork_edit.twig:152</note>
       </notes>
       <segment>
@@ -212,6 +213,7 @@
     </unit>
     <unit id="xqBfcOp" name="artwork.button.cancel">
       <notes>
+        <note category="file-source" priority="1">templates/pages/artist_edit.twig:71</note>
         <note category="file-source" priority="1">templates/pages/artwork_edit.twig:149</note>
       </notes>
       <segment>
@@ -251,12 +253,12 @@
     </unit>
     <unit id="ownf56y" name="header.menu.submit">
       <notes>
-        <note category="file-source" priority="1">templates/layout/header.html.twig:33</note>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:35</note>
         <note category="file-source" priority="1">src/Controller/SitemapController.php:68</note>
       </notes>
       <segment>
         <source>header.menu.submit</source>
-        <target>Submit photo</target>
+        <target>Submit</target>
       </segment>
     </unit>
     <unit id="V2YvCwD" name="map.description">
@@ -947,7 +949,7 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="pVVhPMK" name="user.flash.notice.notfound">
       <notes>
-        <note category="file-source" priority="1">src/Controller/UserController.php:86</note>
+        <note category="file-source" priority="1">src/Controller/UserController.php:103</note>
       </notes>
       <segment>
         <source>user.flash.notice.notfound</source>
@@ -1083,31 +1085,176 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     <unit id="fOcrbQ0" name="artwork.label.graffiti">
       <notes>
         <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:34</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>artwork.label.graffiti</source>
-        <target>Graffiti (avec bombes, pinceaux...)</target>
+        <target>Graffiti (aerosols, paintbrush...)</target>
       </segment>
     </unit>
     <unit id="luF_5a6" name="artwork.label.sticking">
       <notes>
         <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:34</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>artwork.label.sticking</source>
-        <target>Collage</target>
+        <target>Sticking</target>
       </segment>
     </unit>
     <unit id="IX.a9I7" name="artwork.label.mosaic">
       <notes>
         <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:34</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>artwork.label.mosaic</source>
-        <target>Mosaïque</target>
+        <target>Mosaic</target>
+      </segment>
+    </unit>
+    <unit id="R5iUAG." name="header.menu.submit_artwork">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:38</note>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:46</note>
+      </notes>
+      <segment>
+        <source>header.menu.submit_artwork</source>
+        <target>Submit a photo</target>
+      </segment>
+    </unit>
+    <unit id="Xlf_onN" name="header.menu.submit_artist">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:40</note>
+      </notes>
+      <segment>
+        <source>header.menu.submit_artist</source>
+        <target>Submit an artist</target>
+      </segment>
+    </unit>
+    <unit id="ZvS2bvQ" name="artist.message.wording_success">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artist_edit.twig:20</note>
+      </notes>
+      <segment>
+        <source>artist.message.wording_success</source>
+          <target><![CDATA[Thanks <strong>username</strong>! <br><br>It will be verified before being online. <br>You will be informed soon of the release.]]></target>
+      </segment>
+    </unit>
+    <unit id="lr4ae6u" name="artist.button.add_new">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artist_edit.twig:24</note>
+      </notes>
+      <segment>
+        <source>artist.button.add_new</source>
+        <target>Submit another artist</target>
+      </segment>
+    </unit>
+    <unit id="xmhIamx" name="artist.title.create">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artist_edit.twig:31</note>
+      </notes>
+      <segment>
+        <source>artist.title.create</source>
+        <target>Add an artist</target>
+      </segment>
+    </unit>
+    <unit id="71pd3zx" name="artist.title.edit">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artist_edit.twig:33</note>
+      </notes>
+      <segment>
+        <source>artist.title.edit</source>
+        <target>Edit an artist</target>
+      </segment>
+    </unit>
+    <unit id="mE3zJHI" name="artist.connected">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artist_edit.twig:39</note>
+      </notes>
+      <segment>
+        <source>artist.connected</source>
+        <target><![CDATA[Thx <strong>username</strong> for sharing your treasures.]]></target>
+      </segment>
+    </unit>
+    <unit id="Z7o_t9v" name="artist.edit.introduction">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artist_edit.twig:41</note>
+      </notes>
+      <segment>
+        <source>artist.edit.introduction</source>
+        <target><![CDATA[If you have not found your favorite artist in the list already <strong><a href="artistlist" target="_blank">here</a></strong>, you can propose using this form.]]></target>
+      </segment>
+    </unit>
+    <unit id="2m5dyeL" name="artist.flash.danger.error">
+      <notes>
+        <note category="file-source" priority="1">src/Controller/ArtistEditController.php:101</note>
+      </notes>
+      <segment>
+        <source>artist.flash.danger.error</source>
+        <target>An error has occured during save</target>
+      </segment>
+    </unit>
+    <unit id="pW7ZNgQ" name="artist.label.name">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/ArtistType.php:30</note>
+      </notes>
+      <segment>
+        <source>artist.label.name</source>
+        <target>Name (Blaze)</target>
+      </segment>
+    </unit>
+    <unit id="o2U3esm" name="artist.label.biography">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/ArtistType.php:34</note>
+      </notes>
+      <segment>
+        <source>artist.label.biography</source>
+        <target>Biography (in french)</target>
+      </segment>
+    </unit>
+    <unit id="HoEjkiU" name="artist.label.biographyEn">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/ArtistType.php:38</note>
+      </notes>
+      <segment>
+        <source>artist.label.biographyEn</source>
+        <target>Biography (in english)</target>
+      </segment>
+    </unit>
+    <unit id="1yjokYL" name="artist.label.websiteLink">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/ArtistType.php:42</note>
+      </notes>
+      <segment>
+        <source>artist.label.websiteLink</source>
+        <target>Artist website link</target>
+      </segment>
+    </unit>
+    <unit id="3eGcKnP" name="artist.label.instagramLink">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/ArtistType.php:46</note>
+      </notes>
+      <segment>
+        <source>artist.label.instagramLink</source>
+        <target>Artist Instagram account link</target>
+      </segment>
+    </unit>
+    <unit id="3WEow_o" name="artist.label.avatarFile">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/ArtistType.php:50</note>
+      </notes>
+      <segment>
+        <source>artist.label.avatarFile</source>
+        <target>Profile picture (choose something recognizable)</target>
+      </segment>
+    </unit>
+    <unit id="YuLT7dn" name="artist.not.connected">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artist_edit.twig:93</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artist.not.connected</source>
+        <target><![CDATA[To be able to propose an artist, you must log in or create an account if you do not have one yet. <br /><br />
+        Having an account will allow you to be part of a wonderful project, have a dedicated page, earn badges according to your participation and full of great things to come yet<br /><br />
+        <a class="btn btn-primary my-2" href="urlaccount">Connect or register</a>]]></target>
       </segment>
     </unit>
   </file>

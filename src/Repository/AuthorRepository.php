@@ -32,6 +32,7 @@ class AuthorRepository extends ServiceEntityRepository
         $query->select('a as artist, count(artworks) as nbartwork')
             ->leftJoin('a.artworks', 'artworks')
             ->leftJoin('artworks.poi', 'poi')
+            ->andWhere('a.enabled=TRUE')
             ->groupBy('a.id')
             ->orderBy('nbartwork', 'DESC')
         ;

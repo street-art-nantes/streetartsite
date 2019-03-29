@@ -26,8 +26,14 @@ class Author
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $name;
+
+    /**
+     * @ORM\Column(type="boolean", options={"default":false})
+     */
+    private $enabled;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -36,18 +42,29 @@ class Author
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Assert\NotBlank()
      */
     private $biographyEn;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Url
      */
     private $websiteLink;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Url
      */
     private $instagramLink;
+
+    /**
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="artworks")
+     * @Assert\Valid()
+     */
+    private $contributor;
 
     /**
      * @Vich\UploadableField(mapping="author_avatar", fileNameProperty="avatarName")
@@ -81,6 +98,7 @@ class Author
         $this->artworks = new ArrayCollection();
         $this->createdAt = new \DateTime();
         $this->updatedAt = new \DateTime();
+        $this->enabled = false;
     }
 
     public function getId()
@@ -96,6 +114,26 @@ class Author
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function isEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * @param mixed $enabled
+     *
+     * @return Author
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
 
         return $this;
     }
@@ -128,6 +166,26 @@ class Author
     public function setBiographyEn($biographyEn)
     {
         $this->biographyEn = $biographyEn;
+
+        return $this;
+    }
+
+    /**
+     * @return User
+     */
+    public function getContributor(): ?User
+    {
+        return $this->contributor;
+    }
+
+    /**
+     * @param User $contributor
+     *
+     * @return Author
+     */
+    public function setContributor(?User $contributor): self
+    {
+        $this->contributor = $contributor;
 
         return $this;
     }
