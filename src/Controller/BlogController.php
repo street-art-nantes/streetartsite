@@ -48,7 +48,7 @@ class BlogController extends Controller
         $entries = [];
 
         /** @var Client $client */
-        $client = $this->get('contentful.delivery');
+        $client = $this->get('contentful.delivery.client');
 
         if ($id && 'list' !== $id) {
             try {

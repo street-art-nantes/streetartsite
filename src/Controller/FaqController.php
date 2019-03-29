@@ -47,7 +47,7 @@ class FaqController extends Controller
         $entries = [];
 
         /** @var Client $client */
-        $client = $this->get('contentful.delivery');
+        $client = $this->get('contentful.delivery.client');
         $query = new Query();
         $query->setContentType('faq');
         $query->setLocale($localeArray[$request->getLocale()]);

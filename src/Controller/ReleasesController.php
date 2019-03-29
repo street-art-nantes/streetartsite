@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use Contentful\Delivery\Client;
+use Contentful\RichText\Parser;
+use Contentful\RichText\Renderer;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -47,7 +49,7 @@ class ReleasesController extends Controller
         $entry = '';
 
         /** @var Client $client */
-        $client = $this->get('contentful.delivery');
+        $client = $this->get('contentful.delivery.client');
         try {
             $entry = $client->getEntry('5I57qW3gTSAEogWCKm8iIQ', $localeArray[$request->getLocale()]);
         } catch (\Exception $e) {

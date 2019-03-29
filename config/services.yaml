@@ -56,3 +56,9 @@ services:
         autoconfigure: false
 
     MediaFigaro\GoogleAnalyticsApi\Service\GoogleAnalyticsService: '@google_analytics_api.api'
+
+    contenful_extension:
+        class: Contentful\RichText\Bridge\TwigExtension
+        public: false
+        tags:
+            - { name: twig.extension }

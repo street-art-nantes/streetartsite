@@ -47,7 +47,7 @@ class LegalsController extends Controller
         $entry = '';
 
         /** @var Client $client */
-        $client = $this->get('contentful.delivery');
+        $client = $this->get('contentful.delivery.client');
 
         try {
             $entry = $client->getEntry('5o9QHWZhTyouo2oIiGEOkw', $localeArray[$request->getLocale()]);
