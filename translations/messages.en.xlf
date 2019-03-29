@@ -1252,7 +1252,7 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
       </notes>
       <segment>
         <source>artist.not.connected</source>
-        <target><![CDATA[To be able to propose an artist, you must log in or create an account if we do not have one yet. <br /><br />
+        <target><![CDATA[To be able to propose an artist, you must log in or create an account if you do not have one yet. <br /><br />
         Having an account will allow you to be part of a wonderful project, have a dedicated page, earn badges according to your participation and full of great things to come yet<br /><br />
         <a class="btn btn-primary my-2" href="urlaccount">Connect or register</a>]]></target>
       </segment>

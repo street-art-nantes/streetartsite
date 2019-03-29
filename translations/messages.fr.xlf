@@ -1273,7 +1273,7 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
       </notes>
       <segment>
         <source>artist.not.connected</source>
-        <target><![CDATA[Pour pouvoir proposer un artiste il faut vous connecter ou créer un compte si nous n'en avez pas encore un.<br /><br />
+        <target><![CDATA[Pour pouvoir proposer un artiste il faut vous connecter ou créer un compte si vous n'en avez pas encore un.<br /><br />
         Avoir un compte te permettra de faire partie d’un merveilleux projet, avoir une page dédiée, gagner des badges suivant votre participation et plein de super choses à venir encore<br /><br />
         <a class="btn btn-primary my-2" href="urlaccount">Me connecter ou m'enregistrer</a>]]></target>
       </segment>
