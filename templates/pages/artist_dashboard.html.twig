@@ -54,7 +54,7 @@
         <section class="section">
             <div class="container">
                 <div class="row">
-                    {% for artistArtwork in artist.artworks %}
+                    {% for artistArtwork in artistArtworks %}
                         <div class="col-12 col-sm-3">
                             {% set document = artistArtwork.documents.first %}
                             {% set poi = artistArtwork.poi %}
