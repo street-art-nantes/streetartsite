@@ -47,8 +47,13 @@ class BlogController extends Controller
         $entry = '';
         $entries = [];
 
-        /** @var Client $client */
-        $client = $this->get('contentful.delivery');
+        if ('preview' === $request->attributes->get('_route')) {
+            /** @var Client $client */
+            $client = $this->get('contentful.delivery.streetartapi_preview_client');
+        } else {
+            /** @var Client $client */
+            $client = $this->get('contentful.delivery.streetartapi_client');
+        }
 
         if ($id && 'list' !== $id) {
             try {
