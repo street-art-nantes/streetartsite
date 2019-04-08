@@ -75,6 +75,15 @@ blog:
         id:  "[a-zA-Z0-9-]+"
         _locale:  '%locale_available%'
 
+preview:
+    path:         /{_locale}/preview/{id}
+    controller:   App\Controller\BlogController
+    defaults:
+        template: pages/content.html.twig
+    requirements:
+        id:  "[a-zA-Z0-9-]+"
+        _locale:  '%locale_available%'
+
 artwork:
     path:         /{_locale}/artwork/{id}
     controller:   App\Controller\ArtworkController
