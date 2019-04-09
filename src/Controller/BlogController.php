@@ -80,7 +80,7 @@ class BlogController extends Controller
 
         $query = new Query();
         $query->setLocale($localeArray[$request->getLocale()])->setContentType('blogPost')
-        ->orderBy('sys.updatedAt', true);
+        ->orderBy('fields.publishedDate', true);
 
         try {
             $entries = $client->getEntries($query);
