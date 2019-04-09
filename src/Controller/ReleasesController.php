@@ -3,8 +3,6 @@
 namespace App\Controller;
 
 use Contentful\Delivery\Client;
-use Contentful\RichText\Parser;
-use Contentful\RichText\Renderer;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
