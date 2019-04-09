@@ -31,7 +31,7 @@
                             <br />{{ 'user.views'|trans({ '%views%': views }) }}
                             <br />{{ 'user.totalviews'|trans({ '%views%': viewsTotal, '%name%': user.username }) }}
                         </p>
-                        {% if pagination is defined %}
+                        {% if pagination is defined and pagination is not empty %}
                             {% include 'layout/pagination.html.twig' %}
                         {% endif %}
                         <div class="row">
@@ -52,7 +52,7 @@
                                 </div>
                             {% endfor %}
                         </div>
-                        {% if pagination is defined %}
+                        {% if pagination is defined and pagination is not empty %}
                             {% include 'layout/pagination.html.twig' %}
                         {% endif %}
                     </div>

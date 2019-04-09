@@ -47,8 +47,13 @@ class BlogController extends Controller
         $entry = '';
         $entries = [];
 
-        /** @var Client $client */
-        $client = $this->get('contentful.delivery.client');
+        if ('preview' === $request->attributes->get('_route')) {
+            /** @var Client $client */
+            $client = $this->get('contentful.delivery.streetartapi_preview_client');
+        } else {
+            /** @var Client $client */
+            $client = $this->get('contentful.delivery.streetartapi_client');
+        }
 
         if ($id && 'list' !== $id) {
             try {
@@ -75,7 +80,7 @@ class BlogController extends Controller
 
         $query = new Query();
         $query->setLocale($localeArray[$request->getLocale()])->setContentType('blogPost')
-        ->orderBy('sys.updatedAt', true);
+        ->orderBy('fields.publishedDate', true);
 
         try {
             $entries = $client->getEntries($query);

@@ -17,3 +17,23 @@ validation:
     footer:
         Streetartment,
         L'équipe
+
+artist_submission:
+    subject: 'Soumission de l''artiste bien reçue !'
+    header: 'Bonjour %username% !'
+    introduction: 'Merci beaucoup pour votre soumission d’artiste, vous serez averti dès que celle-ci sera validée.'
+    body_form: 'En attendant vous pouvez en soumettre d’autres par ici :)'
+    second_titre: 'Récapitulatif de votre soumission'
+    footer:
+        Streetartment,
+        L'équipe
+
+artist_validation:
+    subject: 'L''artiste a été validé !'
+    header: 'Bonjour %username% !'
+    introduction: 'L''artiste a été validé. Vous pouvez le retrouver ici.'
+    body_form: 'Vous pouvez également en soumettre d’autres par ici :)'
+    second_titre: 'Récapitulatif de votre soumission'
+    footer:
+        Streetartment,
+        L'équipe
