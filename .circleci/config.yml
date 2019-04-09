@@ -46,7 +46,7 @@ jobs:
          keys:
            - composer-v1-{{ checksum "composer.lock" }}
            - composer-v1-
-      - run: composer install --prefer-dist
+      - run: composer install --prefer-dist --no-interaction
       - save_cache:
            key: composer-v1-{{ checksum "composer.lock" }}
            paths:
@@ -83,7 +83,7 @@ jobs:
          keys:
            - composer-v1-{{ checksum "composer.lock" }}
            - composer-v1-
-      - run: composer install --prefer-dist
+      - run: composer install --prefer-dist --no-interaction
       - save_cache:
            key: composer-v1-{{ checksum "composer.lock" }}
            paths:
