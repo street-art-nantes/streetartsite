@@ -102,10 +102,11 @@ welcome:
         _locale:  '%locale_available%'
 
 dashboard:
-    path:         /{_locale}/dashboard
+    path:         /{_locale}/dashboard/{page}
     controller:   App\Controller\UserController
     defaults:
         template: pages/user_dashboard.html.twig
+        page:     1
     requirements:
         _locale:  '%locale_available%'
 

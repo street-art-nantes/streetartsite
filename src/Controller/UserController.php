@@ -60,8 +60,8 @@ class UserController extends Controller
 
         if ($user) {
             try {
-                $userArtworks = $artworkRepository->getArtworksByUser($user);
-                $totalUserArtworks = \count($userArtworks);
+                $userArtworks = $artworkRepository->getArtworksByUser($user, $page, 40);
+                $totalUserArtworks = \count($user->getArtworks());
                 $userCountriesArtworks = $artworkRepository->getArtworksCountriesByUser($user);
                 $pagination = [];
                 $colUserArtworks = [];
@@ -69,12 +69,16 @@ class UserController extends Controller
                 if ($totalUserArtworks) {
                     $pagination = [
                         'page' => $page,
-                        'route' => 'list',
+                        'route' => $id ? 'public_profile' : 'dashboard',
                         'pages_count' => ceil($totalUserArtworks / 40),
-                        'route_params' => [],
                     ];
+                    if ($id) {
+                        $pagination['route_params'] = ['id' => $id];
+                    } else {
+                        $pagination['route_params'] = [];
+                    }
                     $columnCount = 4;
-                    $colUserArtworks = array_chunk($userArtworks, ceil($totalUserArtworks / $columnCount));
+                    $colUserArtworks = array_chunk($userArtworks, ceil(\count($userArtworks) / $columnCount));
                 }
 
                 $resultViewsTotal = $pageStatRepository->getTotalPageViewsByUser($user);
@@ -85,7 +89,7 @@ class UserController extends Controller
 
                 return $this->render('pages/user_dashboard.html.twig', [
                     'user' => $user,
-                    'userArtworks' => $userArtworks,
+                    'userArtworks' => $user->getArtworks(),
                     'colUserArtworks' => $colUserArtworks,
                     'pagination' => $pagination,
                     'userCountriesArtworks' => $userCountriesArtworks,
@@ -102,6 +106,6 @@ class UserController extends Controller
         }
         $this->addFlash('warning', $this->translator->trans('user.flash.notice.notfound'));
 
-        return $this->redirectToRoute('list');
+        return $this->redirectToRoute('contributor_list');
     }
 }
