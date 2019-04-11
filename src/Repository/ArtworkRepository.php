@@ -23,10 +23,11 @@ class ArtworkRepository extends ServiceEntityRepository
 
     /**
      * @param User $user
-     *
+     * @param int|null $page
+     * @param int $maxperpage
      * @return mixed
      */
-    public function getArtworksByUser(User $user)
+    public function getArtworksByUser(User $user, int $page = null, $maxperpage = 40)
     {
         $query = $this->createQueryBuilder('a');
 
@@ -36,6 +37,10 @@ class ArtworkRepository extends ServiceEntityRepository
             ->andWhere('a.enabled=TRUE')
             ->setParameter('user', $user)
             ->orderBy('a.id', 'DESC')
+        ;
+
+        $query->setFirstResult(($page - 1) * $maxperpage)
+            ->setMaxResults($maxperpage)
         ;
 
         return $query->getQuery()->getResult();

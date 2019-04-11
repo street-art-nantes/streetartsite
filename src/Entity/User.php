@@ -199,4 +199,12 @@ class User extends BaseUser
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getArtworks()
+    {
+        return $this->artworks;
+    }
 }
