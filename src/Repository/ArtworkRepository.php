@@ -22,9 +22,10 @@ class ArtworkRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param User $user
+     * @param User     $user
      * @param int|null $page
-     * @param int $maxperpage
+     * @param int      $maxperpage
+     *
      * @return mixed
      */
     public function getArtworksByUser(User $user, int $page = null, $maxperpage = 40)
