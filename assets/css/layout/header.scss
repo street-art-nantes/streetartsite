@@ -4,6 +4,10 @@ $header-line-width: 300px;
 
   @extend .shadow-sm;
 
+  .dropdown-menu {
+    min-width: auto;
+  }
+
   .nav-item {
     .nav-link {
       height: 70px;

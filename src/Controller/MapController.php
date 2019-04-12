@@ -17,7 +17,7 @@ class MapController extends Controller
         /** @var PoiRepository $poiRepository */
         $poiRepository = $this->getDoctrine()->getRepository(Poi::class);
 
-        $pois = $poiRepository->getList(1, 1000);
+        $pois = $poiRepository->getList(1, 10000);
 
         /** @var PoiManager $poiManager */
         $poiManager = $this->get('poi.manager');

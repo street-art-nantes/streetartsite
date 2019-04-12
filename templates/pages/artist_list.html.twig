@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ pageTitle }}{% endblock %}
+{% block metas %}
+    <meta name="description" content="{{ pageDescription }}" />
+{% endblock %}
+{% block body_classes %}page-list{% endblock body_classes %}
+
+{% block body %}
+
+    <main role="main">
+        <section class="section">
+            <div class="container">
+                {% if pagination is defined and pagination.pages_count > 1 %}
+                    {% include 'layout/pagination.html.twig' %}
+                {% endif %}
+                <div class="row">
+                    {% for authors in colAuthors %}
+                        <div class="col-12 col-sm-3">
+                            {% for author in authors %}
+                                {% if author.artist.avatarName is empty %}
+                                    {% set imgSrc = asset('assets/img/author-avatar.jpg') %}
+                                {% else %}
+                                    {% set imgSrc = vich_uploader_asset(author.artist, 'avatarFile') %}
+                                {% endif %}
+                                <a href="{{ path('artist_profile', {'id': author.artist.id}) }}">
+                                    {% include "components/card-artwork.twig" with {
+                                        imgSrc: imgSrc,
+                                        title: author.artist.name,
+                                        textLeft: '',
+                                        textRight: author.nbartwork ~ ' ' ~ 'artistlist.photos'|trans({}),
+                                    } %}
+                                </a>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                </div>
+                {% if pagination is defined and pagination.pages_count > 1 %}
+                    {% include 'layout/pagination.html.twig' %}
+                {% endif %}
+            </div>
+        </section>
+    </main>
+{% endblock %}

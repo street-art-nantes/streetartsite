@@ -20,7 +20,11 @@
 @import "pages/home";
 @import "pages/map";
 @import "pages/artwork-edit";
+@import "pages/artwork";
 @import "pages/content";
 
 $fa-font-path:"~font-awesome/fonts";
 @import "~font-awesome/scss/font-awesome";
+@import "~flag-icon-css/css/flag-icon.min.css";
+
+@import "~leaflet-control-geocoder/dist/Control.Geocoder.css";

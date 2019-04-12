@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ metas.pageTitle }}{% endblock %}
+{% block metas %}
+    <meta name="description" content="{{ metas.pageDescription }}" />
+{% endblock %}
+{% block metas_og %}
+    {% include "components/og.twig" with {
+        title: metas.pageTitle,
+        description: metas.pageDescription,
+        type: metas.ogType,
+        url: app.request.uri,
+        image: app.request.schemeAndHttpHost ~ vich_uploader_asset(artist, 'avatarFile'),
+    } %}
+{% endblock metas_og %}
+{% block metas_twitter %}
+    {% include "components/twitter.twig" with {
+        title: metas.pageTitle,
+        url: app.request.uri,
+        type: metas.twitterCard,
+    } %}
+{% endblock metas_twitter %}
+{% block body_classes %}page-artist-profile{% endblock body_classes %}
+
+{% block body %}
+
+    {% set nbArtistArtworks = artistArtworks|length %}
+    {% set nbArtistCountries = artistCountriesArtworks|length %}
+    {% set biographyLang = 'biography' %}
+    {% if app.request.locale != 'fr' %}
+        {% set biographyLang = 'biography'~app.request.locale %}
+    {% endif %}
+
+    <main role="main">
+        <section class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4">
+                        <div class="card-block">
+                            {% include 'artist/artist_profile.html.twig' with { artist: artist } %}
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-8">
+                        <h1>{{ 'artist.profile.title'|trans({ artistName: artist.name }) }}</h1>
+                        <p>{{ 'artist.introduction'|trans({'artistName': artist.name, 'nbArtistArtworks': nbArtistArtworks, 'nbArtistCountries': nbArtistCountries}) }}
+                            <br />{{ 'artist.views'|trans({ '%views%': views }) }}
+                            <br />{{ 'artist.totalviews'|trans({ '%views%': viewsTotal, '%name%': artist.name }) }}
+                        </p>
+                        <p>{{ attribute(artist, biographyLang) }}</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="container">
+                <div class="row">
+                    {% for artistArtwork in artistArtworks %}
+                        <div class="col-12 col-sm-3">
+                            {% set document = artistArtwork.documents.first %}
+                            {% set poi = artistArtwork.poi %}
+                            <a href="{{ path('artwork', {'id': poi.id}) }}">
+                                {% include "components/card-artwork.twig" with {
+                                    imgSrc: vich_uploader_asset(document, 'imageFile'),
+                                    title: artistArtwork.title,
+                                    textLeft: poi.city ~ ', ' ~ poi.country,
+                                    textRight: artistArtwork.createdAt|date("d/m/Y"),
+                                } %}
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}

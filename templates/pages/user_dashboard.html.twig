@@ -1,11 +1,15 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}{{ pageTitle }}{% endblock %}
+{% block metas %}
+    <meta name="description" content="{{ pageDescription }}" />
+{% endblock %}
 {% block body_classes %}page-user-dashboard{% endblock body_classes %}
 
 {% block body %}
 
     {% set nbUserArtworks = userArtworks|length %}
-    {% set nbUserContries = userCountriesArtworks|length %}
+    {% set nbUserCountries = userCountriesArtworks|length %}
 
     <main role="main">
         <section class="section">
@@ -17,25 +21,40 @@
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-8">
-                        <h1>{{ 'dashboard.title'|trans({}) }}</h1>
-                        <p>{{ 'dashboard.introduction'|trans({'nbUserArtworks': nbUserArtworks, 'nbUserContries': nbUserContries}) }}</p>
-
+                        {% if public %}
+                            <h1>{{ 'dashboard.title.public'|trans({'userName': user.username}) }}</h1>
+                            <p>{{ 'dashboard.introduction.public'|trans({'userName': user.username, 'nbUserArtworks': nbUserArtworks, 'nbUserContries': nbUserCountries}) }}
+                        {% else %}
+                            <h1>{{ 'dashboard.title'|trans({}) }}</h1>
+                            <p>{{ 'dashboard.introduction'|trans({'nbUserArtworks': nbUserArtworks, 'nbUserContries': nbUserCountries}) }}
+                        {% endif %}
+                            <br />{{ 'user.views'|trans({ '%views%': views }) }}
+                            <br />{{ 'user.totalviews'|trans({ '%views%': viewsTotal, '%name%': user.username }) }}
+                        </p>
+                        {% if pagination is defined and pagination is not empty %}
+                            {% include 'layout/pagination.html.twig' %}
+                        {% endif %}
                         <div class="row">
-                            {% for userArtwork in userArtworks %}
+                            {% for userArtworks in colUserArtworks %}
                                 <div class="col-12 col-sm-3">
-                                    {% set document = userArtwork.documents.first %}
-                                    {% set poi = userArtwork.poi %}
-                                    <a href="{{ path('artwork', {'id': poi.id}) }}">
-                                        {% include "components/card-artwork.twig" with {
-                                            imgSrc: vich_uploader_asset(document, 'imageFile'),
-                                            title: userArtwork.title,
-                                            textLeft: poi.city ~ ', ' ~ poi.country,
-                                            textRight: userArtwork.createdAt|date("d/m/Y"),
-                                        } %}
-                                    </a>
+                                    {% for userArtwork in userArtworks %}
+                                        {% set document = userArtwork.documents.first %}
+                                        {% set poi = userArtwork.poi %}
+                                        <a href="{{ path('artwork', {'id': poi.id}) }}">
+                                            {% include "components/card-artwork.twig" with {
+                                                imgSrc: vich_uploader_asset(document, 'imageFile'),
+                                                title: userArtwork.title,
+                                                textLeft: poi.city ~ ', ' ~ poi.country,
+                                                textRight: userArtwork.createdAt|date("d/m/Y"),
+                                            } %}
+                                        </a>
+                                    {% endfor %}
                                 </div>
                             {% endfor %}
                         </div>
+                        {% if pagination is defined and pagination is not empty %}
+                            {% include 'layout/pagination.html.twig' %}
+                        {% endif %}
                     </div>
                 </div>
             </div>

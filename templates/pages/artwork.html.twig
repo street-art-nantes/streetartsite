@@ -2,9 +2,27 @@
 {% set artwork = poi.artworks.first %}
 {% set document = artwork.documents.first %}
 
-{% block title %}Artwork - {{ poi.address }} - {{ poi.city }} - {{ poi.country }}
-{% if artwork.title %} - {{ artwork.title }}{% endif %}
+{% block title %}{{ metas.pageTitle }}{% endblock %}
+{% block metas %}
+    <meta name="description" content="{{ metas.pageDescription }}" />
 {% endblock %}
+{% block metas_og %}
+    {% include "components/og.twig" with {
+        title: metas.pageTitle,
+        description: metas.pageDescription,
+        type: metas.ogType,
+        url: app.request.uri,
+        image: app.request.schemeAndHttpHost ~ vich_uploader_asset(artwork.documents.first, 'imageFile'),
+    } %}
+{% endblock metas_og %}
+{% block metas_twitter %}
+    {% include "components/twitter.twig" with {
+        title: metas.pageTitle,
+        url: app.request.uri,
+        type: metas.twitterCard,
+    } %}
+{% endblock metas_twitter %}
+
 {% block body_classes %}page-artwork{% endblock body_classes %}
 
 {% block body %}
@@ -12,33 +30,99 @@
         <section class="section">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4 d-flex flex-column justify-content-center align-items-center">
+                    <div class="col-md-4 d-flex flex-column align-items-center">
                         <h4>{{ 'artwork.mensurations'|trans({}) }}</h4>
                         <div id="artwork-data" class="lead text-muted">
-                            <ul>
-                                <li>{{ 'artwork.label.country'|trans({}) }} : {{ poi.country }}</li>
-                                <li>{{ 'artwork.label.city'|trans({}) }} : {{ poi.city }}</li>
-                                <li>{{ 'artwork.label.address'|trans({}) }} : {{ poi.address }}</li>
-                                <li>{{ 'artwork.label.latitude'|trans({}) }} : {{ poi.latitude }}</li>
-                                <li>{{ 'artwork.label.longitude'|trans({}) }} : {{ poi.longitude }}</li>
-                                <li>{{ 'artwork.label.title'|trans({}) }} : {{ artwork.title }}</li>
-                                <li>{{ 'artwork.label.type'|trans({}) }} : {{ artwork.type }}</li>
-                                <li>{{ 'artwork.label.author'|trans({}) }} : {{ artwork.author }}</li>
-                                <li>{{ 'artwork.label.active'|trans({}) }} : {{ artwork.enabled }}</li>
-                                <li>{{ 'artwork.label.date'|trans({}) }} : {{ document.createdAt|date('d-m-Y') }}</li>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item p-0"><span>{{ 'artwork.label.country'|trans({}) }} :</span> {{ poi.country }}</li>
+                                <li class="list-group-item p-0"><span>{{ 'artwork.label.city'|trans({}) }} :</span> {{ poi.city }}</li>
+                                <li class="list-group-item p-0"><span>{{ 'artwork.label.address'|trans({}) }} :</span> {{ poi.address }}</li>
+                                <li class="list-group-item p-0"><span>{{ 'artwork.label.latitude'|trans({}) }} :</span> {{ poi.latitude }}</li>
+                                <li class="list-group-item p-0"><span>{{ 'artwork.label.longitude'|trans({}) }} :</span> {{ poi.longitude }}</li>
+                                <li class="list-group-item p-0"><span>{{ 'artwork.label.title'|trans({}) }} :</span> {{ artwork.title }}</li>
+                                <li class="list-group-item p-0"><span>{{ 'artwork.label.type'|trans({}) }} :</span> {{ artwork.type }}</li>
+                                <li class="list-group-item p-0"><span>{{ 'artwork.label.active'|trans({}) }} :</span> {{ artwork.enabled }}</li>
+                                <li class="list-group-item p-0"><span>{{ 'artwork.label.date'|trans({}) }} :</span> {{ document.createdAt|date('d-m-Y') }}</li>
+                                <li class="list-group-item p-0"><span>{{ 'artwork.label.author'|trans({}) }} :</span>
+                                    {% for author in artwork.author %}
+                                        <a href="{{ path('artist_profile', {'id': author.id}) }}">{{ author.name }} </a>
+                                    {% endfor %}
+                                </li>
+                                {% if artwork.instalink %}
+                                    <li class="list-group-item p-0">
+                                        <a target="_blank" class="fa fa-instagram" href="{{ artwork.instaLink }}"> : {{ 'artwork.showoninsta'|trans({}) }}</a>
+                                    </li>
+                                {% endif %}
+                                {% set contributorlink = '' %}
+                                {% set contributorname = '' %}
+                                {% if artwork.contributor %}
+                                    {% set contributorlink = path('public_profile', {'id': artwork.contributor.id}) %}
+                                    {% set contributorname = artwork.contributor.username %}
+                                    <li class="list-group-item p-0">{{ 'artwork.label.contributor'|trans({}) }} :
+                                        <a href="{{ contributorlink }}">{{ contributorname }}</a>
+                                    </li>
+                                {% endif %}
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-8 d-flex flex-column justify-content-center align-items-center">
+                    <div class="col-md-4 d-flex flex-column align-items-center">
                         <div id="map" class="content-map"></div>
+                    </div>
+                    <div class="col-md-4 d-flex flex-column align-items-center">
+                        {% set qcity = 'city-'~poi.city %}
+                        {% set citylink = path('search', { 'queryRequest' : qcity }) %}
+                        {% set qcountry = 'country-'~poi.country %}
+                        {% set countrylink = path('search', { 'queryRequest' : qcountry }) %}
+                        <div id="artwork-description">
+                            <p>
+                            {{ 'artwork.description'|trans({
+                                '%title%': artwork.title, '%type%': artwork.type, '%city%': poi.city, '%country%': poi.country, '%address%': poi.address,
+                                '%citylink%': citylink, '%countrylink%': countrylink})|raw }}
+                            </p>
+                            <p>
+                                {{ 'artwork.description.author'|transchoice(artwork.author|length) }}
+                                {% for author in artwork.author %}
+                                    <a href="{{ path('artist_profile', {'id': author.id}) }}">{{ author.name }} </a>
+                                {% endfor %}
+                            </p>
+                            <p>
+                            {{ 'artwork.description.contributor'|transchoice(artwork.contributor|length, {
+                                '%date%': document.createdAt|date('d-m-Y'), '%contributor%': contributorname,
+                                '%contributorlink%': contributorlink})|raw }}
+                            </p>
+                            <p>
+                                {{ 'artwork.views'|trans({ '%views%': views }) }}
+                            </p>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12 d-flex flex-column justify-content-center align-items-center">
                         <h4>{{ 'artwork.fullsize'|trans({}) }}</h4>
                         <div class="card-artwork">
-                            <a href="{{ vich_uploader_asset(document, 'imageFile') }}" target="_blank"><img src="{{ vich_uploader_asset(document, 'imageFile') }}" alt="{{ artwork.title }}"
-                                 width="100%" class="card-artwork-img"/></a>
+                            <div id="carousel" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner">
+                                    {% set first = true %}
+                                    {% for document in artwork.documents %}
+                                        <div class="carousel-item {% if first %}active{% endif %}">
+                                            <a href="{{ vich_uploader_asset(document, 'imageFile') }}" target="_blank">
+                                                <img src="{{ vich_uploader_asset(document, 'imageFile') }}" alt="{{ artwork.title }}" width="100%" class="card-artwork-img d-block w-100"/>
+                                            </a>
+                                        </div>
+                                        {% set first = false %}
+                                    {% endfor %}
+                                </div>
+                                {% if artwork.documents|length > 1 %}
+                                <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -75,7 +159,7 @@
     {{ parent() }}
 
     <script>
-        window.datas = '{{ convertedPoi | raw }}';
+        window.datas = '{{ convertedPoi | raw | escape('js') }}';
     </script>
 
     <script src="{{ asset('build/js/map-artwork.js') }}"></script>

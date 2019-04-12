@@ -8,9 +8,16 @@
 }
 
 .page-map .content-map, .page-artwork .content-map {
-  min-height: 300px;
   height: 100%;
   width: 100%;
+}
+
+.page-map .content {
+  min-height: auto;
+}
+
+.page-artwork .content-map {
+  min-height: 300px;
   margin-bottom: 30px;
 }
 
@@ -18,18 +25,12 @@
   margin-top: 20px;
 }
 
-#showaround {
-  display: none;
+
+#map_menu {
   position: absolute;
   z-index: 1000;
-  left: 50%;
-}
-
-@media (max-width: 990px) {
-  #showaround {
-    right: 0;
-    left: auto;
-  }
+  right: 0;
+  margin: 10px;
 }
 
 .bubble-img {

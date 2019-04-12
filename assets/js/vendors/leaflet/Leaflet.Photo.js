@@ -1,7 +1,7 @@
 L.Photo = L.FeatureGroup.extend({
 	options: {
 		icon: {						
-			iconSize: [60, 60]
+			iconSize: [80, 80]
 		}
 	},
 
@@ -45,7 +45,7 @@ if (L.MarkerClusterGroup) {
 	L.Photo.Cluster = L.MarkerClusterGroup.extend({
 		options: {
 			featureGroup: L.photo,		
-			maxClusterRadius: 90,
+			maxClusterRadius: 100,
 			showCoverageOnHover: false,
 			iconCreateFunction: function(cluster) {
 				return new L.DivIcon(L.extend({
@@ -54,7 +54,7 @@ if (L.MarkerClusterGroup) {
 				}, this.icon));
 		   	},	
 			icon: {						
-				iconSize: [60, 60]
+				iconSize: [80, 80]
 			}		   		
 		},
 

@@ -14,6 +14,10 @@ class Artwork
 {
     use TimestampableEntity;
 
+    const TYPE_GRAFFITI = 'graffiti';
+    const TYPE_STICKING = 'sticking';
+    const TYPE_MOSAIC = 'mosaic';
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -61,7 +65,7 @@ class Artwork
     private $documents;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Author", inversedBy="artwork")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Author", inversedBy="artworks")
      * @Assert\Valid()
      */
     private $author;
@@ -75,11 +79,17 @@ class Artwork
     private $contributor;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $instaLink;
+
+    /**
      * Artwork constructor.
      */
     public function __construct()
     {
         $this->documents = new ArrayCollection();
+        $this->author = new ArrayCollection();
         $this->createdAt = new \DateTime();
         $this->updatedAt = new \DateTime();
     }
@@ -240,7 +250,7 @@ class Artwork
     }
 
     /**
-     * @return mixed
+     * @return ArrayCollection
      */
     public function getAuthor()
     {
@@ -283,6 +293,26 @@ class Artwork
     public function setContributor(?User $contributor): self
     {
         $this->contributor = $contributor;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInstaLink()
+    {
+        return $this->instaLink;
+    }
+
+    /**
+     * @param mixed $instaLink
+     *
+     * @return Artwork
+     */
+    public function setInstaLink($instaLink)
+    {
+        $this->instaLink = $instaLink;
 
         return $this;
     }

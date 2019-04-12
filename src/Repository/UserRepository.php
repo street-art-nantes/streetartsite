@@ -36,4 +36,28 @@ class UserRepository extends ServiceEntityRepository
 
         return $query->getQuery()->getResult();
     }
+
+    /**
+     * @param int $page
+     * @param int $maxperpage
+     *
+     * @return mixed
+     */
+    public function getList($page = 1, $maxperpage = 100)
+    {
+        $query = $this->createQueryBuilder('u');
+
+        $query->select('u as user, count(artwork) as nbartwork, count(DISTINCT poi.country) as nbcountry')
+            ->leftJoin('u.artworks', 'artwork')
+            ->leftJoin('artwork.poi', 'poi')
+            ->groupBy('u.id')
+            ->orderBy('nbartwork', 'DESC')
+        ;
+
+        $query->setFirstResult(($page - 1) * $maxperpage)
+            ->setMaxResults($maxperpage)
+        ;
+
+        return $query->getQuery()->getResult();
+    }
 }

@@ -2,6 +2,9 @@ import $ from "jquery"
 import exif from 'exif-js'
 
 $(document).ready(function () {
+  $('#carousel').carousel({
+    interval: 3000
+  })
 
   const rational64uToDecimal = (n) => {
     const degrees = parseFloat(n[0]);
@@ -68,6 +71,10 @@ $(document).ready(function () {
 
         $containerBtn.prepend($btnLocation);
         $btnLocation.tooltip();
+        $('.field-image-btn-gps').click();
+          alert(translations.coordok)
+      } else {
+          alert(translations.coordko);
       }
     });
 

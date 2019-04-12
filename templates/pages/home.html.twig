@@ -1,5 +1,12 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}{{ 'title.default'|trans({},'Metas') }}{% endblock %}
+{% block metas %}
+    <meta name="description" content="{{ 'description.default'|trans({},'Metas') }}" />
+{% endblock %}
+{% block metas_og %}{% endblock metas_og %}
+{% block metas_twitter %}{% endblock metas_twitter %}
+
 {% block body_classes %}page-home{% endblock body_classes %}
 
 {% block body %}
@@ -20,7 +27,7 @@
                         {% include "components/card-block.twig" with { title: 'Berlin', introduction: ('home.introduction.baisersocialiste'|trans({})), imgSrc: asset('assets/img/berlin.png'), link: locale ~ '/blog/39R0RcgHSguAui04Uq46sy', linkDisplay: ('home.showmore'|trans({}))} %}
                     </div>
                     <div class="col-sm-4">
-                        {% include "components/card-block.twig" with { title: 'Bordeaux', introduction: 'Abys Scaf, OSMOZ-COLORS', imgSrc: asset('assets/img/bdx.png'), link: '', linkDisplay: ('home.showmore'|trans({}))} %}
+                        {% include "components/card-block.twig" with { title: 'Nantes', introduction: 'Nantes, Balades urbaines', imgSrc: asset('assets/img/articles/nantes-balades-urbaines-home.jpg'), link: locale ~ '/blog/2sgRd7EGuf4InR5EZzvqMM', linkDisplay: ('home.showmore'|trans({}))} %}
                     </div>
                 </div>
             </div>
@@ -70,7 +77,7 @@
                             <tbody class="text-center">
                             {% for contributor in topContributor %}
                                 <tr>
-                                    <td>{{ contributor.user.username }}</td>
+                                    <td><a href="{{ path('public_profile', {'id': contributor.user.id}) }}">{{ contributor.user.username }} ({{ 'home.showprofile'|trans({}) }})</a></td>
                                     <td>{{ contributor.nbartwork }}</td>
                                     <td>{{ contributor.nbcountry }}</td>
                                 </tr>
