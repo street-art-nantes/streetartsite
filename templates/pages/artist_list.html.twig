@@ -7,7 +7,6 @@
 {% block body_classes %}page-list{% endblock body_classes %}
 
 {% block body %}
-
     <main role="main">
         <section class="section">
             <div class="container">
@@ -15,25 +14,32 @@
                     {% include 'layout/pagination.html.twig' %}
                 {% endif %}
                 <div class="row">
-                    {% for authors in colAuthors %}
-                        <div class="col-12 col-sm-3">
-                            {% for author in authors %}
-                                {% if author.artist.avatarName is empty %}
-                                    {% set imgSrc = asset('assets/img/author-avatar.jpg') %}
-                                {% else %}
-                                    {% set imgSrc = vich_uploader_asset(author.artist, 'avatarFile') %}
-                                {% endif %}
-                                <a href="{{ path('artist_profile', {'id': author.artist.id}) }}">
-                                    {% include "components/card-artwork.twig" with {
-                                        imgSrc: imgSrc,
-                                        title: author.artist.name,
-                                        textLeft: '',
-                                        textRight: author.nbartwork ~ ' ' ~ 'artistlist.photos'|trans({}),
-                                    } %}
-                                </a>
-                            {% endfor %}
+                    <form>
+                        <div class="form-group">
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <input type="search" class="form-control" id="search-artist" placeholder="{{ 'artwork.searchauthor'|trans({}) }}">
+                            </div>
                         </div>
-                    {% endfor %}
+                    </form>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="searchable-container">
+                        {% for author in authors %}
+                            {% if author.artist.avatarName is empty %}
+                                {% set imgSrc = asset('assets/img/author-avatar.jpg') %}
+                            {% else %}
+                                {% set imgSrc = vich_uploader_asset(author.artist, 'avatarFile') %}
+                            {% endif %}
+                            <a href="{{ path('artist_profile', {'id': author.artist.id}) }}" class="items d-inline-block">
+                                {% include "components/card-artist-list.twig" with {
+                                    imgSrc: imgSrc,
+                                    title: author.artist.name,
+                                } %}
+                            </a>
+                        {% endfor %}
+                        </div>
+                    </div>
                 </div>
                 {% if pagination is defined and pagination.pages_count > 1 %}
                     {% include 'layout/pagination.html.twig' %}
@@ -41,4 +47,14 @@
             </div>
         </section>
     </main>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        const translations = {
+            'search' : '{{ 'artwork.js.search' | trans }}',
+        }
+    </script>
+    <script src="{{ asset('build/js/artist-edit.js') }}"></script>
 {% endblock %}

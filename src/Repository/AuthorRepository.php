@@ -29,12 +29,10 @@ class AuthorRepository extends ServiceEntityRepository
     {
         $query = $this->createQueryBuilder('a');
 
-        $query->select('a as artist, count(artworks) as nbartwork')
-            ->leftJoin('a.artworks', 'artworks')
-            ->leftJoin('artworks.poi', 'poi')
+        $query->select('a as artist')
             ->andWhere('a.enabled=TRUE')
             ->groupBy('a.id')
-            ->orderBy('nbartwork', 'DESC')
+            ->orderBy('a.name', 'ASC')
         ;
 
         $query->setFirstResult(($page - 1) * $maxperpage)
