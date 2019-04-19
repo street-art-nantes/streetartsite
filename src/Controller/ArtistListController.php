@@ -50,11 +50,8 @@ class ArtistListController extends Controller
             'route_params' => [],
         ];
 
-        $columnCount = 4;
-        $colAuthors = array_chunk($authors, ceil(\count($authors) / $columnCount));
-
         return $this->render('pages/artist_list.html.twig', [
-            'colAuthors' => $colAuthors,
+            'authors' => $authors,
             'totalAuthors' => $totalAuthors,
             'pagination' => $pagination,
             'pageTitle' => $this->translator->trans('title.artistlist', [], 'Metas'),

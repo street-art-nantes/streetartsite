@@ -1,0 +1,14 @@
+.page-list {
+  .scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+    padding-top: 0;
+  }
+  .dropdown-menu input {
+    border: none;
+    border-bottom: 1px gainsboro solid;
+    background: #f0f0f0;
+    padding: 5px;
+  }
+}
