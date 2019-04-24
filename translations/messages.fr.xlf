@@ -1291,7 +1291,6 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     <unit id="Yf0M9.3" name="artist.view">
       <notes>
         <note category="file-source" priority="1">templates/components/card-artist-list.twig:6</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>artist.view</source>

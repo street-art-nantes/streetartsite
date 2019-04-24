@@ -44,6 +44,8 @@
                 <label for="remember_me" class="form-check-label">{{ 'security.login.remember_me'|trans }}</label>
             </div>
 
+            <p><a href="{{ path('fos_user_resetting_request') }}">{{ 'security.login.forgot_password'|trans }}</a></p>
+
             <input type="submit"
                    id="_submit"
                    name="_submit"
