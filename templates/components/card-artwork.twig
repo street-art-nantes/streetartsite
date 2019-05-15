@@ -1,14 +1,15 @@
-<div class="card-artwork">
+<div class="card-artwork hovereffect">
     <img src="{{ imgSrc | imagine_filter('thumb_small') }}" alt="{{ title }}" class="card-artwork-img">
 
-    <div class="card-artwork-body">
-        <h2 class="card-artwork-title">
-            {{ title }}
-        </h2>
-
-        <div class="card-artwork-footer">
-            <small class="text-muted">{{ textLeft }}</small>
-            <small class="text-muted">{{ textRight }}</small>
-        </div>
+    <div class="card-artwork-body overlay">
+        <span class="info">
+            {% if title %}
+                <h2 class="card-artwork-title">
+                    {{ title }}
+                </h2>
+            {% endif %}
+            <small>{{ textLeft }}</small>
+            <small>{{ textRight }}</small>
+        </span>
     </div>
 </div>

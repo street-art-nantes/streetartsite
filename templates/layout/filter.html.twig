@@ -4,10 +4,29 @@
         {{ ('list.filter.'~query)|trans({}) }}
     </a>
 
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <div id="dropdown-{{ query }}" class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuLink">
+        <input type="text" placeholder="{{ 'action.search'|trans() }}" id="input-{{ query }}" onkeyup="filterFunction{{ query }}()">
         {% for value in values %}
             {% set q = query~'-'~value[1] %}
             <a class="dropdown-item" href="{{ path('search', { 'queryRequest' : q }) }}">{{ value[1] }}</a>
         {% endfor %}
     </div>
 </div>
+
+<script type="text/javascript">
+    function filterFunction{{ query }}() {
+        var input, filter, a, i;
+        input = document.getElementById("input-{{ query }}");
+        filter = input.value.toUpperCase();
+        div = document.getElementById("dropdown-{{ query }}");
+        a = div.getElementsByTagName("a");
+        for (i = 0; i < a.length; i++) {
+            txtValue = a[i].textContent || a[i].innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                a[i].style.display = "";
+            } else {
+                a[i].style.display = "none";
+            }
+        }
+    }
+</script>
