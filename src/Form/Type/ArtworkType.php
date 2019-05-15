@@ -35,6 +35,7 @@ class ArtworkType extends AbstractType
                 'artwork.label.graffiti' => Artwork::TYPE_GRAFFITI,
                 'artwork.label.sticking' => Artwork::TYPE_STICKING,
                 'artwork.label.mosaic' => Artwork::TYPE_MOSAIC,
+                'artwork.label.yarnbombing' => Artwork::TYPE_YARN_BOMBING,
             ],
         ]);
         $builder->add('poi', PoiType::class, [
