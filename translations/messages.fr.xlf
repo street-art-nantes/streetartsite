@@ -206,7 +206,7 @@
     </unit>
     <unit id="3YXWeHz" name="artwork.label.documents">
       <notes>
-        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:43</note>
+        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:44</note>
       </notes>
       <segment>
         <source>artwork.label.documents</source>
@@ -901,7 +901,7 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     </unit>
     <unit id="reFG_9c" name="artwork.placeholder.author">
       <notes>
-        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:62</note>
+        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:63</note>
       </notes>
       <segment>
         <source>artwork.placeholder.author</source>
@@ -1295,6 +1295,26 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
       <segment>
         <source>artist.view</source>
         <target>Voir l'artiste</target>
+      </segment>
+    </unit>
+    <unit id="odDw0du" name="action.search">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/filter.html.twig:8</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>action.search</source>
+        <target>Rechercher</target>
+      </segment>
+    </unit>
+    <unit id="xAoSB8." name="artwork.label.yarnbombing">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:34</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>artwork.label.yarnbombing</source>
+        <target>Yarn bombing (tricot-graffiti)</target>
       </segment>
     </unit>
   </file>

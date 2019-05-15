@@ -17,6 +17,7 @@ class Artwork
     const TYPE_GRAFFITI = 'graffiti';
     const TYPE_STICKING = 'sticking';
     const TYPE_MOSAIC = 'mosaic';
+    const TYPE_YARN_BOMBING = 'yarn_bombing';
 
     /**
      * @ORM\Id()
