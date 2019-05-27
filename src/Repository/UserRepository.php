@@ -43,7 +43,7 @@ class UserRepository extends ServiceEntityRepository
      *
      * @return mixed
      */
-    public function getList($page = 1, $maxperpage = 100)
+    public function getList($page = 1, $maxperpage = 1000)
     {
         $query = $this->createQueryBuilder('u');
 
