@@ -78,7 +78,7 @@
     </unit>
     <unit id="NXSzUYf" name="home.needyou">
       <notes>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:41</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:46</note>
       </notes>
       <segment>
         <source>home.needyou</source>
@@ -482,7 +482,7 @@
     </unit>
     <unit id="57Oz.Kw" name="home.submit">
       <notes>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:43</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:48</note>
       </notes>
       <segment>
         <source>home.submit</source>
@@ -491,7 +491,7 @@
     </unit>
     <unit id="imv49VI" name="home.preview">
       <notes>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:58</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:63</note>
       </notes>
       <segment>
         <source>home.preview</source>
@@ -500,7 +500,7 @@
     </unit>
     <unit id="KfBKpMe" name="home.preview.total">
       <notes>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:59</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:64</note>
       </notes>
       <segment>
         <source>home.preview.total</source>
@@ -546,7 +546,7 @@
     </unit>
     <unit id="KWiLMWp" name="home.seemap">
       <notes>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:62</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:67</note>
       </notes>
       <segment>
         <source>home.seemap</source>
@@ -555,7 +555,7 @@
     </unit>
     <unit id="sSgP3hw" name="home.seelist">
       <notes>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:64</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:69</note>
       </notes>
       <segment>
         <source>home.seelist</source>
@@ -564,7 +564,7 @@
     </unit>
     <unit id="bnuXF8H" name="home.contribute">
       <notes>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:69</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:74</note>
       </notes>
       <segment>
         <source>home.contribute</source>
@@ -574,7 +574,7 @@
     <unit id="qKnsevq" name="home.pseudo">
       <notes>
         <note category="file-source" priority="1">templates/pages/contributors_list.html.twig:18</note>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:72</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:77</note>
       </notes>
       <segment>
         <source>home.pseudo</source>
@@ -584,7 +584,7 @@
     <unit id="0JK8wuG" name="home.nbartwork">
       <notes>
         <note category="file-source" priority="1">templates/pages/contributors_list.html.twig:19</note>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:73</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:78</note>
       </notes>
       <segment>
         <source>home.nbartwork</source>
@@ -594,7 +594,7 @@
     <unit id="DwuJ.S2" name="home.nbcountry">
       <notes>
         <note category="file-source" priority="1">templates/pages/contributors_list.html.twig:20</note>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:74</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:79</note>
       </notes>
       <segment>
         <source>home.nbcountry</source>
@@ -819,7 +819,7 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     <unit id="Xrkk60k" name="home.showprofile">
       <notes>
         <note category="file-source" priority="1">templates/pages/contributors_list.html.twig:26</note>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:80</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:85</note>
       </notes>
       <segment>
         <source>home.showprofile</source>
@@ -1300,7 +1300,6 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     <unit id="odDw0du" name="action.search">
       <notes>
         <note category="file-source" priority="1">templates/layout/filter.html.twig:8</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>action.search</source>
@@ -1310,11 +1309,30 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     <unit id="xAoSB8." name="artwork.label.yarnbombing">
       <notes>
         <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:34</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>artwork.label.yarnbombing</source>
         <target>Yarn bombing (tricot-graffiti)</target>
+      </segment>
+    </unit>
+    <unit id="27XMNVu" name="home.seearticles">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:35</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>home.seearticles</source>
+        <target>Voir les articles</target>
+      </segment>
+    </unit>
+    <unit id="1OEotYm" name="home.seeartworks">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:115</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>home.seeartworks</source>
+        <target>Voir les oeuvres</target>
       </segment>
     </unit>
   </file>
