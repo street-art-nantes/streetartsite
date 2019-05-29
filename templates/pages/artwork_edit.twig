@@ -1,8 +1,50 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}{{ pageTitle }}{% endblock %}
+{% block metas %}
+    <meta name="description" content="{{ pageDescription }}" />
+{% endblock %}
+
 {% set isCreateForm = form.vars.data.id|default(false) ? false : true %}
 
 {% form_theme form _self %}
+
+{% block choice_widget_expanded -%}
+    <div class="form-group">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <input type="search" class="form-control" id="search-artist" placeholder="{{ 'artwork.searchauthor'|trans({}) }}">
+        </div>
+    </div>
+    <div {{ block('widget_container_attributes') }} class="searchable-container">
+            {%- for child in form %}
+                {% if form.vars.choices[child.vars.value] is defined %}
+                    {% set entity = form.vars.choices[child.vars.value].data %}
+                    {{- form_widget(child, {'entity': entity}) -}}
+                    {{- form_label(child, null, {translation_domain: choice_translation_domain}) -}}
+                {% endif %}
+            {% endfor -%}
+    </div>
+{%- endblock choice_widget_expanded %}
+
+{% block checkbox_widget -%}
+    {%- set attr = attr|merge({class: (attr.class|default('') ~ ' form-check-input')|trim}) -%}
+    {% if entity.avatarName is empty %}
+        {% set imgSrc = asset('assets/img/author-avatar.jpg') %}
+    {% else %}
+        {% set imgSrc = vich_uploader_asset(entity, 'avatarFile') %}
+    {% endif %}
+    <div class="items" style="background: url('{{ imgSrc | imagine_filter('thumb_smaller') }}') no-repeat;">
+        <div class="info-block block-info clearfix">
+            <div data-toggle="buttons" class="btn-group itemcontent">
+                <label class="btn" title="{{ entity.name }}">
+                    <input type="checkbox" {{ block('widget_attributes') }} value="{{ entity.id }}"{% if checked %} checked="checked"{% endif %} autocomplete="off" />
+                    <span class="fas fa-check"></span>
+                    <h5>{{ entity.name }}</h5>
+                </label>
+            </div>
+        </div>
+    </div>
+{%- endblock checkbox_widget %}
 
 {% block success %}
     <div class="content-success text-center mt-5">
@@ -11,9 +53,14 @@
             <i class="far fa-check-circle content-success-icon"></i>
         </figure>
 
-        <h2 class="card-title">
-            {{ 'artwork.message.wording_success'|trans }}
-        </h2>
+        <h3 class="card-title">
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                {{ 'artwork.message.wording_success'|transchoice(1, {'username' : user.username})|raw }}
+            {% else %}
+                {{ 'artwork.message.wording_success'|transchoice(0, {'username' : 0})|raw }}
+                <br><br><a class="alert-warning" href="{{ path('welcome') }}"><strong>{{ 'artwork.login'|trans({}) }}</strong></a>
+            {% endif %}
+        </h3>
 
         <a href="{{ path('app_artwork_new') }}"
            class="btn btn-lg btn-primary mt-4">{{ 'artwork.button.add_new'|trans({}, 'messages') }}</a>
@@ -32,9 +79,9 @@
         <div class="col-12">
             <p>
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                    {{ 'artwork.connected'|trans({'username' : user.username}) }}
+                    {{ 'artwork.connected'|trans({'username' : user.username})|raw }}
                 {% else %}
-                    <a href="{{ path('welcome') }}"><strong>{{ 'artwork.login'|trans({}) }}</strong></a>
+                    <a class="alert-warning" href="{{ path('welcome') }}"><strong>{{ 'artwork.login'|trans({}) }}</strong></a>
                 {% endif %}
             </p>
             {{ 'artwork.introduction'|trans({}, 'messages')|raw }}
@@ -55,6 +102,21 @@
     <hr />
 
     {{ form_row(form.title, { 'attr': {'placeholder' : 'La Fabrique'}}) }}
+    {{ form_row(form.type) }}
+
+    <div class="row">
+        <div class="col-12">
+            <p>{{ 'artwork.coordinates'|trans({})|raw }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div id="map" class="content-map"></div>
+            <div id="geocoder" class="geocoder"></div>
+        </div>
+    </div>
+
     {{ form_row(form.poi.address, { 'attr': {'placeholder' : '8 Boulevard Léon Bureau, 44200 Nantes, France'}}) }}
 
     <div class="row">
@@ -75,6 +137,15 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-12">
+            <p id="author-toggle">{{ 'artwork.selectauthor'|trans({}) }}</p>
+            <div id="author-div">
+                {{ form_row(form.author) }}
+            </div>
+        </div>
+    </div>
+
     <div class="text-center mt-5">
         <a href="{{ app.request.uri }}"
            class="btn btn-lg btn btn-outline-dark mr-2">{{ 'artwork.button.cancel'|trans({}, 'messages') }}</a>
@@ -91,9 +162,9 @@
     <div class="page-artwork-edit">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-8 col-12">
+                <div class="col-lg-10 col-12">
                     <div class="card mt-5">
-                        <article class="card-body p-5">
+                        <article class="card-body">
                             {% if app.request.get('success', false) %}
                                 {{ block('success') }}
                             {% else %}
@@ -120,6 +191,9 @@
     <script type="text/javascript">
         const translations = {
             'delete' : '{{ 'artwork.label.delete' | trans }}',
+            'coordok' : '{{ 'artwork.js.coordok' | trans }}',
+            'coordko' : '{{ 'artwork.js.coordko' | trans }}',
+            'search' : '{{ 'artwork.js.search' | trans }}',
         }
     </script>
     <script src="{{ asset('build/js/artwork-edit.js') }}"></script>

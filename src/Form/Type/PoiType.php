@@ -10,6 +10,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\GreaterThan;
+use Symfony\Component\Validator\Constraints\Length;
 
 /**
  * Class PoiType.
@@ -24,9 +26,16 @@ class PoiType extends AbstractType
     {
         $builder->add('latitude', NumberType::class, [
             'label' => 'artwork.label.latitude',
+            'constraints' => [
+                new Length(['min' => 3]),
+                new GreaterThan(0),
+                ],
         ]);
         $builder->add('longitude', NumberType::class, [
             'label' => 'artwork.label.longitude',
+            'constraints' => [
+                new Length(['min' => 3]),
+            ],
         ]);
         $builder->add('address', TextType::class, [
             'label' => 'artwork.label.address',

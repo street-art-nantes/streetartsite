@@ -1,0 +1,17 @@
+{% if artist %}
+
+    {% if artist.avatarName is not empty %}
+        <img src="{{ vich_uploader_asset(artist, 'avatarFile') | imagine_filter('thumb_small_square') }}" alt="" class="img-fluid">
+    {% endif %}
+
+    <div class="user-profile">
+        <ul class="list-group list-group-flush">
+        {% if artist.websiteLink %}
+            <li class="list-group-item p-0"><i class="fas fa-globe m-2 fa-2x align-middle"></i><a href="{{ artist.websiteLink }}" target="_blank">{{ artist.websiteLink }}</a></li>
+        {% endif %}
+        {% if artist.instagramLink %}
+            <li class="list-group-item p-0"><i class="fab fa-instagram m-2 fa-2x align-middle"></i><a href="{{ artist.instagramLink }}" target="_blank">{{ artist.instagramLink }}</a></li>
+        {% endif %}
+        </ul>
+    </div>
+{% endif %}

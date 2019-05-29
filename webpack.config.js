@@ -15,6 +15,7 @@ Encore
     .addEntry('js/map', './assets/js/map.js')
     .addEntry('js/map-artwork', './assets/js/map-artwork.js')
     .addEntry('js/artwork-edit', './assets/js/artwork-edit.js')
+    .addEntry('js/artist-edit', './assets/js/artist-edit.js')
     .addStyleEntry('css/app', './assets/css/app.scss')
 
     // uncomment if you use Sass/SCSS files

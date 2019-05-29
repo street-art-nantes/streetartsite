@@ -3,7 +3,11 @@
 namespace App\Form\Type;
 
 use App\Entity\Artwork;
+use App\Entity\Author;
+use Doctrine\ORM\EntityRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -24,6 +28,16 @@ class ArtworkType extends AbstractType
             'label' => 'artwork.label.title',
             'required' => false,
         ]);
+        $builder->add('type', ChoiceType::class, [
+            'label' => 'artwork.label.type',
+            'required' => true,
+            'choices' => [
+                'artwork.label.graffiti' => Artwork::TYPE_GRAFFITI,
+                'artwork.label.sticking' => Artwork::TYPE_STICKING,
+                'artwork.label.mosaic' => Artwork::TYPE_MOSAIC,
+                'artwork.label.yarnbombing' => Artwork::TYPE_YARN_BOMBING,
+            ],
+        ]);
         $builder->add('poi', PoiType::class, [
             'label' => false,
         ]);
@@ -36,6 +50,19 @@ class ArtworkType extends AbstractType
             'allow_delete' => true,
             'by_reference' => false,
             'label' => 'artwork.label.documents',
+        ]);
+        $builder->add('author', EntityType::class, [
+            'class' => Author::class,
+            'query_builder' => function (EntityRepository $er) {
+                return $er->createQueryBuilder('a')
+                    ->orderBy('a.name', 'ASC');
+            },
+            'choice_label' => 'name',
+            'required' => false,
+            'label' => false,
+            'placeholder' => 'artwork.placeholder.author',
+            'multiple' => true,
+            'expanded' => true,
         ]);
     }
 

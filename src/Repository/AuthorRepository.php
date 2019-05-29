@@ -19,32 +19,26 @@ class AuthorRepository extends ServiceEntityRepository
         parent::__construct($registry, Author::class);
     }
 
-//    /**
-//     * @return Author[] Returns an array of Author objects
-//     */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @param int $page
+     * @param int $maxperpage
+     *
+     * @return mixed
+     */
+    public function getList($page = 1, $maxperpage = 100)
     {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('a.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $query = $this->createQueryBuilder('a');
 
-    /*
-    public function findOneBySomeField($value): ?Author
-    {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
+        $query->select('a as artist')
+            ->andWhere('a.enabled=TRUE')
+            ->groupBy('a.id')
+            ->orderBy('a.name', 'ASC')
         ;
+
+        $query->setFirstResult(($page - 1) * $maxperpage)
+            ->setMaxResults($maxperpage)
+        ;
+
+        return $query->getQuery()->getResult();
     }
-    */
 }

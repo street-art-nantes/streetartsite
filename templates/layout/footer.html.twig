@@ -24,6 +24,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="mailto:contact@street-artwork.com">{{ 'nav.link.contact'|trans({}) }}</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('releases') }}">{{ 'nav.link.releases'|trans({}) }}</a>
+                    </li>
 
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                         <li class="nav-item">

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste contributeurs{% endblock %}
+{% block body_classes %}page-list-contributor{% endblock body_classes %}
+
+{% block body %}
+
+    <main role="main">
+        <section class="section">
+            <div class="container">
+                {% if pagination is defined and pagination.pages_count > 1 %}
+                    {% include 'layout/pagination.html.twig' %}
+                {% endif %}
+                <div class="row">
+                    <table class="table">
+                        <thead class="thead-dark text-center">
+                        <tr>
+                            <th scope="col">{{ 'home.pseudo'|trans({}) }}</th>
+                            <th scope="col">{{ 'home.nbartwork'|trans({}) }}</th>
+                            <th scope="col">{{ 'home.nbcountry'|trans({}) }}</th>
+                        </tr>
+                        </thead>
+                        <tbody class="text-center">
+                            {% for contributor in contributors %}
+                                <tr>
+                                    <td><a href="{{ path('public_profile', {'id': contributor.user.id}) }}">{{ contributor.user.username }} ({{ 'home.showprofile'|trans({}) }})</a></td>
+                                    <td>{{ contributor.nbartwork }}</td>
+                                    <td>{{ contributor.nbcountry }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% if pagination is defined and pagination.pages_count > 1 %}
+                    {% include 'layout/pagination.html.twig' %}
+                {% endif %}
+            </div>
+        </section>
+    </main>
+{% endblock %}

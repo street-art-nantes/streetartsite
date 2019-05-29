@@ -6,6 +6,7 @@ use App\Entity\Artwork;
 use App\Entity\Document;
 use App\Entity\User;
 use App\Form\Type\ArtworkType;
+use App\Service\Mailer;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Log\LoggerInterface;
@@ -35,17 +36,24 @@ class ArtWorkEditController extends Controller
     private $translator;
 
     /**
+     * @var Mailer
+     */
+    private $mailer;
+
+    /**
      * ArtWorkEditController constructor.
      *
      * @param EntityManagerInterface $entityManager
      * @param LoggerInterface        $logger
      * @param TranslatorInterface    $translator
+     * @param Mailer                 $mailer
      */
-    public function __construct(EntityManagerInterface $entityManager, LoggerInterface $logger, TranslatorInterface $translator)
+    public function __construct(EntityManagerInterface $entityManager, LoggerInterface $logger, TranslatorInterface $translator, Mailer $mailer)
     {
         $this->entityManager = $entityManager;
         $this->logger = $logger;
         $this->translator = $translator;
+        $this->mailer = $mailer;
     }
 
     /**
@@ -95,6 +103,10 @@ class ArtWorkEditController extends Controller
                 $this->entityManager->flush();
 
                 if ($isCreateForm) {
+                    if ($this->getUser()) {
+                        $this->mailer->sendSubmissionEmailMessage($request, $this->getUser());
+                    }
+
                     return $this->redirectToRoute('app_artwork_new', [
                         'success' => true,
                     ]);
@@ -108,6 +120,8 @@ class ArtWorkEditController extends Controller
         return $this->render('/pages/artwork_edit.twig', [
             'form' => $form->createView(),
             'user' => $this->getUser(),
+            'pageTitle' => $this->translator->trans('title.artworkedit', [], 'Metas'),
+            'pageDescription' => $this->translator->trans('description.artworkedit', [], 'Metas'),
         ]);
     }
 
@@ -121,7 +135,6 @@ class ArtWorkEditController extends Controller
         if (!$artwork) {
             $artwork = new Artwork();
             $artwork->setEnabled(false);
-            $artwork->setType('graffiti');
             $artwork->addDocument(new Document());
         }
 

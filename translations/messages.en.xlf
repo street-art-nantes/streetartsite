@@ -3,7 +3,7 @@
   <file id="messages.en">
     <unit id="WD.KTE9" name="page.logout.link">
       <notes>
-        <note category="file-source" priority="1">templates/layout/footer.html.twig:31</note>
+        <note category="file-source" priority="1">templates/layout/footer.html.twig:34</note>
       </notes>
       <segment>
         <source>page.logout.link</source>
@@ -12,7 +12,7 @@
     </unit>
     <unit id="UpOSnoA" name="page.login.link">
       <notes>
-        <note category="file-source" priority="1">templates/layout/footer.html.twig:37</note>
+        <note category="file-source" priority="1">templates/layout/footer.html.twig:40</note>
       </notes>
       <segment>
         <source>page.login.link</source>
@@ -57,7 +57,7 @@
     </unit>
     <unit id="tMH.AuE" name="artwork.title.create">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:26</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:73</note>
       </notes>
       <segment>
         <source>artwork.title.create</source>
@@ -66,7 +66,7 @@
     </unit>
     <unit id="AM5GsPW" name="artwork.title.edit">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:28</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:75</note>
       </notes>
       <segment>
         <source>artwork.title.edit</source>
@@ -75,7 +75,7 @@
     </unit>
     <unit id="Jn.7hg4" name="artwork.link.add_a_document">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:51</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:98</note>
       </notes>
       <segment>
         <source>artwork.link.add_a_document</source>
@@ -84,7 +84,8 @@
     </unit>
     <unit id="asKIZV9" name="artwork.button.save">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:83</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:154</note>
+        <note category="file-source" priority="1">templates/pages/artist_edit.twig:74</note>
       </notes>
       <segment>
         <source>artwork.button.save</source>
@@ -93,7 +94,7 @@
     </unit>
     <unit id="9nqU7RQ" name="home.description.first">
       <notes>
-        <note category="file-source" priority="1">templates/components/jumbotron.html.twig:15</note>
+        <note category="file-source" priority="1">templates/components/jumbotron.html.twig:13</note>
       </notes>
       <segment>
         <source>home.description.first</source>
@@ -103,7 +104,7 @@
     </unit>
     <unit id="e_qvnqh" name="home.description.second">
       <notes>
-        <note category="file-source" priority="1">templates/components/jumbotron.html.twig:21</note>
+        <note category="file-source" priority="1">templates/components/jumbotron.html.twig:19</note>
       </notes>
       <segment>
         <source>home.description.second</source>
@@ -113,7 +114,7 @@
     </unit>
     <unit id="NXSzUYf" name="home.needyou">
       <notes>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:34</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:46</note>
       </notes>
       <segment>
         <source>home.needyou</source>
@@ -122,8 +123,10 @@
     </unit>
     <unit id="wt0Gj6K" name="artwork.label.title">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork.html.twig:24</note>
-        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:23</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:42</note>
+        <note category="file-source" priority="1">templates/email/validation.twig:111</note>
+        <note category="file-source" priority="1">templates/email/submission.twig:112</note>
+        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:27</note>
       </notes>
       <segment>
         <source>artwork.label.title</source>
@@ -132,8 +135,10 @@
     </unit>
     <unit id="HiArTFm" name="artwork.label.latitude">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork.html.twig:22</note>
-        <note category="file-source" priority="1">src/Form/Type/PoiType.php:25</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:40</note>
+        <note category="file-source" priority="1">templates/email/validation.twig:115</note>
+        <note category="file-source" priority="1">templates/email/submission.twig:116</note>
+        <note category="file-source" priority="1">src/Form/Type/PoiType.php:27</note>
       </notes>
       <segment>
         <source>artwork.label.latitude</source>
@@ -142,8 +147,10 @@
     </unit>
     <unit id="8eqK2ln" name="artwork.label.longitude">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork.html.twig:23</note>
-        <note category="file-source" priority="1">src/Form/Type/PoiType.php:28</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:41</note>
+        <note category="file-source" priority="1">templates/email/validation.twig:116</note>
+        <note category="file-source" priority="1">templates/email/submission.twig:117</note>
+        <note category="file-source" priority="1">src/Form/Type/PoiType.php:34</note>
       </notes>
       <segment>
         <source>artwork.label.longitude</source>
@@ -152,8 +159,10 @@
     </unit>
     <unit id="B91XroD" name="artwork.label.address">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork.html.twig:21</note>
-        <note category="file-source" priority="1">src/Form/Type/PoiType.php:31</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:39</note>
+        <note category="file-source" priority="1">templates/email/validation.twig:112</note>
+        <note category="file-source" priority="1">templates/email/submission.twig:113</note>
+        <note category="file-source" priority="1">src/Form/Type/PoiType.php:40</note>
       </notes>
       <segment>
         <source>artwork.label.address</source>
@@ -162,8 +171,10 @@
     </unit>
     <unit id="7kQJetd" name="artwork.label.country">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork.html.twig:19</note>
-        <note category="file-source" priority="1">src/Form/Type/PoiType.php:34</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:37</note>
+        <note category="file-source" priority="1">templates/email/validation.twig:114</note>
+        <note category="file-source" priority="1">templates/email/submission.twig:115</note>
+        <note category="file-source" priority="1">src/Form/Type/PoiType.php:43</note>
       </notes>
       <segment>
         <source>artwork.label.country</source>
@@ -172,8 +183,10 @@
     </unit>
     <unit id="5LLD2XU" name="artwork.label.city">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork.html.twig:20</note>
-        <note category="file-source" priority="1">src/Form/Type/PoiType.php:37</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:38</note>
+        <note category="file-source" priority="1">templates/email/validation.twig:113</note>
+        <note category="file-source" priority="1">templates/email/submission.twig:114</note>
+        <note category="file-source" priority="1">src/Form/Type/PoiType.php:46</note>
       </notes>
       <segment>
         <source>artwork.label.city</source>
@@ -182,7 +195,7 @@
     </unit>
     <unit id="3YXWeHz" name="artwork.label.documents">
       <notes>
-        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:30</note>
+        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:44</note>
       </notes>
       <segment>
         <source>artwork.label.documents</source>
@@ -191,7 +204,7 @@
     </unit>
     <unit id="9uLIsJG" name="artwork.flash.danger.error">
       <notes>
-        <note category="file-source" priority="1">src/Controller/ArtWorkEditController.php:104</note>
+        <note category="file-source" priority="1">src/Controller/ArtWorkEditController.php:116</note>
       </notes>
       <segment>
         <source>artwork.flash.danger.error</source>
@@ -200,7 +213,8 @@
     </unit>
     <unit id="xqBfcOp" name="artwork.button.cancel">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:80</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:151</note>
+        <note category="file-source" priority="1">templates/pages/artist_edit.twig:71</note>
       </notes>
       <segment>
         <source>artwork.button.cancel</source>
@@ -209,7 +223,7 @@
     </unit>
     <unit id="N8UWZOy" name="artwork.button.add_new">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:19</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:66</note>
       </notes>
       <segment>
         <source>artwork.button.add_new</source>
@@ -218,16 +232,17 @@
     </unit>
     <unit id="toykNtT" name="artwork.message.wording_success">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:15</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:58</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:60</note>
       </notes>
       <segment>
         <source>artwork.message.wording_success</source>
-        <target>Thank you!</target>
+        <target><![CDATA[{0}Thank you! <br><br>It will be verified before being online. <br>If you had an account you would be notified of the release.|]0,Inf]Thanks <strong>username</strong>! <br><br>It will be verified before being online. <br>You will be informed soon of the release.]]></target>
       </segment>
     </unit>
     <unit id="dCADRrf" name="artwork.introduction">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:40</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:87</note>
       </notes>
       <segment>
         <source>artwork.introduction</source>
@@ -238,16 +253,17 @@
     </unit>
     <unit id="ownf56y" name="header.menu.submit">
       <notes>
-        <note category="file-source" priority="1">templates/layout/header.html.twig:25</note>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:34</note>
+        <note category="file-source" priority="1">src/Controller/SitemapController.php:68</note>
       </notes>
       <segment>
         <source>header.menu.submit</source>
-        <target>Submit a photo</target>
+        <target>Submit</target>
       </segment>
     </unit>
     <unit id="V2YvCwD" name="map.description">
       <notes>
-        <note category="file-source" priority="1">templates/pages/map.html.twig:12</note>
+        <note category="state" priority="1">obsolete</note>
       </notes>
       <segment>
         <source>map.description</source>
@@ -258,15 +274,16 @@
     <unit id="REXtE1v" name="header.menu.list">
       <notes>
         <note category="file-source" priority="1">templates/layout/header.html.twig:21</note>
+        <note category="file-source" priority="1">src/Controller/SitemapController.php:44</note>
       </notes>
       <segment>
         <source>header.menu.list</source>
-        <target>List</target>
+        <target>Artworks</target>
       </segment>
     </unit>
     <unit id="VGttgWn" name="home.title.first">
       <notes>
-        <note category="file-source" priority="1">templates/components/jumbotron.html.twig:14</note>
+        <note category="file-source" priority="1">templates/components/jumbotron.html.twig:12</note>
       </notes>
       <segment>
         <source>home.title.first</source>
@@ -275,7 +292,7 @@
     </unit>
     <unit id="Tm2vOi." name="home.title.second">
       <notes>
-        <note category="file-source" priority="1">templates/components/jumbotron.html.twig:20</note>
+        <note category="file-source" priority="1">templates/components/jumbotron.html.twig:18</note>
       </notes>
       <segment>
         <source>home.title.second</source>
@@ -285,6 +302,7 @@
     <unit id="RIrQkXh" name="nav.link.faq">
       <notes>
         <note category="file-source" priority="1">templates/layout/footer.html.twig:16</note>
+        <note category="file-source" priority="1">src/Controller/SitemapController.php:56</note>
       </notes>
       <segment>
         <source>nav.link.faq</source>
@@ -294,6 +312,7 @@
     <unit id="a6EN0Ik" name="nav.link.legals">
       <notes>
         <note category="file-source" priority="1">templates/layout/footer.html.twig:19</note>
+        <note category="file-source" priority="1">src/Controller/SitemapController.php:64</note>
       </notes>
       <segment>
         <source>nav.link.legals</source>
@@ -303,6 +322,8 @@
     <unit id="57ZrJh1" name="nav.link.sitemap">
       <notes>
         <note category="file-source" priority="1">templates/layout/footer.html.twig:22</note>
+        <note category="file-source" priority="1">src/Controller/SitemapController.php:40</note>
+        <note category="file-source" priority="1">src/Controller/SitemapController.php:60</note>
       </notes>
       <segment>
         <source>nav.link.sitemap</source>
@@ -338,7 +359,7 @@
     </unit>
     <unit id="W7.Olmp" name="artwork.mensurations">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork.html.twig:16</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:34</note>
       </notes>
       <segment>
         <source>artwork.mensurations</source>
@@ -347,7 +368,8 @@
     </unit>
     <unit id="1NwHVSx" name="artwork.label.type">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork.html.twig:25</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:43</note>
+        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:31</note>
       </notes>
       <segment>
         <source>artwork.label.type</source>
@@ -356,7 +378,7 @@
     </unit>
     <unit id="0zzdtT5" name="artwork.label.author">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork.html.twig:26</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:46</note>
       </notes>
       <segment>
         <source>artwork.label.author</source>
@@ -365,7 +387,7 @@
     </unit>
     <unit id="vUmGGvB" name="artwork.label.active">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork.html.twig:27</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:44</note>
       </notes>
       <segment>
         <source>artwork.label.active</source>
@@ -374,7 +396,7 @@
     </unit>
     <unit id="vKmuEQK" name="artwork.label.date">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork.html.twig:28</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:45</note>
       </notes>
       <segment>
         <source>artwork.label.date</source>
@@ -383,7 +405,7 @@
     </unit>
     <unit id="aEXmsDa" name="artwork.fullsize">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork.html.twig:38</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:101</note>
       </notes>
       <segment>
         <source>artwork.fullsize</source>
@@ -392,7 +414,7 @@
     </unit>
     <unit id="MoE907k" name="artwork.neighbour">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork.html.twig:47</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:131</note>
       </notes>
       <segment>
         <source>artwork.neighbour</source>
@@ -401,7 +423,7 @@
     </unit>
     <unit id="9lCLEvv" name="artwork.label.delete">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:122</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:193</note>
       </notes>
       <segment>
         <source>artwork.label.delete</source>
@@ -410,7 +432,7 @@
     </unit>
     <unit id="Z20erUn" name="home.introduction.fresquile">
       <notes>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:17</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:24</note>
       </notes>
       <segment>
         <source>home.introduction.fresquile</source>
@@ -419,9 +441,10 @@
     </unit>
     <unit id="avkHOvS" name="home.showmore">
       <notes>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:17</note>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:20</note>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:23</note>
+        <note category="file-source" priority="1">templates/pages/content.html.twig:48</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:24</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:27</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:30</note>
       </notes>
       <segment>
         <source>home.showmore</source>
@@ -430,7 +453,7 @@
     </unit>
     <unit id="YnSo4sX" name="home.introduction.baisersocialiste">
       <notes>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:20</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:27</note>
       </notes>
       <segment>
         <source>home.introduction.baisersocialiste</source>
@@ -439,7 +462,7 @@
     </unit>
     <unit id="57Oz.Kw" name="home.submit">
       <notes>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:36</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:48</note>
       </notes>
       <segment>
         <source>home.submit</source>
@@ -448,7 +471,7 @@
     </unit>
     <unit id="imv49VI" name="home.preview">
       <notes>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:51</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:63</note>
       </notes>
       <segment>
         <source>home.preview</source>
@@ -457,7 +480,7 @@
     </unit>
     <unit id="KfBKpMe" name="home.preview.total">
       <notes>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:52</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:64</note>
       </notes>
       <segment>
         <source>home.preview.total</source>
@@ -466,7 +489,7 @@
     </unit>
     <unit id="prpvSEO" name="list.base">
       <notes>
-        <note category="file-source" priority="1">templates/pages/list.html.twig:14</note>
+        <note category="file-source" priority="1">templates/pages/list.html.twig:17</note>
       </notes>
       <segment>
         <source>list.base</source>
@@ -475,7 +498,7 @@
     </unit>
     <unit id="yfyH0FV" name="map.aroundme">
       <notes>
-        <note category="file-source" priority="1">templates/pages/map.html.twig:35</note>
+        <note category="file-source" priority="1">templates/pages/map.html.twig:24</note>
       </notes>
       <segment>
         <source>map.aroundme</source>
@@ -484,16 +507,17 @@
     </unit>
     <unit id="HOSUB7I" name="artwork.connected">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:35</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:82</note>
       </notes>
       <segment>
         <source>artwork.connected</source>
-        <target>Thx username for sharing your treasures.</target>
+        <target><![CDATA[Thx <strong>username</strong> for sharing your treasures.]]></target>
       </segment>
     </unit>
     <unit id="64jSnLD" name="artwork.login">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:37</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:61</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:84</note>
       </notes>
       <segment>
         <source>artwork.login</source>
@@ -502,7 +526,7 @@
     </unit>
     <unit id="KWiLMWp" name="home.seemap">
       <notes>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:55</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:67</note>
       </notes>
       <segment>
         <source>home.seemap</source>
@@ -511,7 +535,7 @@
     </unit>
     <unit id="sSgP3hw" name="home.seelist">
       <notes>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:57</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:69</note>
       </notes>
       <segment>
         <source>home.seelist</source>
@@ -520,7 +544,7 @@
     </unit>
     <unit id="bnuXF8H" name="home.contribute">
       <notes>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:62</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:74</note>
       </notes>
       <segment>
         <source>home.contribute</source>
@@ -529,7 +553,8 @@
     </unit>
     <unit id="qKnsevq" name="home.pseudo">
       <notes>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:65</note>
+        <note category="file-source" priority="1">templates/pages/contributors_list.html.twig:18</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:77</note>
       </notes>
       <segment>
         <source>home.pseudo</source>
@@ -538,7 +563,8 @@
     </unit>
     <unit id="0JK8wuG" name="home.nbartwork">
       <notes>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:66</note>
+        <note category="file-source" priority="1">templates/pages/contributors_list.html.twig:19</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:78</note>
       </notes>
       <segment>
         <source>home.nbartwork</source>
@@ -547,7 +573,8 @@
     </unit>
     <unit id="DwuJ.S2" name="home.nbcountry">
       <notes>
-        <note category="file-source" priority="1">templates/pages/home.html.twig:67</note>
+        <note category="file-source" priority="1">templates/pages/contributors_list.html.twig:20</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:79</note>
       </notes>
       <segment>
         <source>home.nbcountry</source>
@@ -556,7 +583,7 @@
     </unit>
     <unit id="3bqLM8Q" name="dashboard.title">
       <notes>
-        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:20</note>
+        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:28</note>
       </notes>
       <segment>
         <source>dashboard.title</source>
@@ -565,7 +592,7 @@
     </unit>
     <unit id="68QHsSe" name="dashboard.introduction">
       <notes>
-        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:21</note>
+        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:29</note>
       </notes>
       <segment>
         <source>dashboard.introduction</source>
@@ -631,7 +658,7 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="MIVPqPh" name="list.filter.result">
       <notes>
-        <note category="file-source" priority="1">templates/pages/list.html.twig:20</note>
+        <note category="file-source" priority="1">templates/pages/list.html.twig:23</note>
       </notes>
       <segment>
         <source>list.filter.result</source>
@@ -640,7 +667,7 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="bBZIuxN" name="list.backtolist">
       <notes>
-        <note category="file-source" priority="1">templates/pages/list.html.twig:46</note>
+        <note category="file-source" priority="1">templates/pages/list.html.twig:49</note>
       </notes>
       <segment>
         <source>list.backtolist</source>
@@ -649,7 +676,7 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="SoXS2Ks" name="list.filter">
       <notes>
-        <note category="file-source" priority="1">templates/pages/list.html.twig:28</note>
+        <note category="file-source" priority="1">templates/pages/list.html.twig:31</note>
       </notes>
       <segment>
         <source>list.filter</source>
@@ -676,8 +703,8 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="4JHCt.t" name="profile.edit.title">
       <notes>
+        <note category="file-source" priority="1">templates/user/user_profile.html.twig:19</note>
         <note category="file-source" priority="1">templates/bundles/FOSUserBundle/Profile/edit_content.html.twig:3</note>
-        <note category="file-source" priority="1">templates/user/user_profile.html.twig:16</note>
       </notes>
       <segment>
         <source>profile.edit.title</source>
@@ -697,7 +724,6 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
       <notes>
         <note category="file-source" priority="1">src/Form/Type/ProfileType.php:44</note>
         <note category="file-source" priority="1">src/Form/Type/RegistrationType.php:44</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>form.website</source>
@@ -708,7 +734,6 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
       <notes>
         <note category="file-source" priority="1">src/Form/Type/ProfileType.php:51</note>
         <note category="file-source" priority="1">src/Form/Type/RegistrationType.php:51</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>form.description</source>
@@ -719,11 +744,574 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
       <notes>
         <note category="file-source" priority="1">src/Form/Type/ProfileType.php:56</note>
         <note category="file-source" priority="1">src/Form/Type/RegistrationType.php:56</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>form.avatar</source>
         <target>Avatar</target>
+      </segment>
+    </unit>
+    <unit id="ppoHTD0" name="nav.link.releases">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/footer.html.twig:28</note>
+      </notes>
+      <segment>
+        <source>nav.link.releases</source>
+        <target>Releases</target>
+      </segment>
+    </unit>
+    <unit id="XcKoX_F" name="artwork.showoninsta">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:53</note>
+      </notes>
+      <segment>
+        <source>artwork.showoninsta</source>
+        <target>Go to Instagram</target>
+      </segment>
+    </unit>
+    <unit id="72dEdZp" name="artwork.label.contributor">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:61</note>
+      </notes>
+      <segment>
+        <source>artwork.label.contributor</source>
+        <target>Contributor</target>
+      </segment>
+    </unit>
+    <unit id="9tiPSCu" name="dashboard.title.public">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:25</note>
+      </notes>
+      <segment>
+        <source>dashboard.title.public</source>
+        <target>userName's dashboard</target>
+      </segment>
+    </unit>
+    <unit id="Xn26vC1" name="dashboard.introduction.public">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:26</note>
+      </notes>
+      <segment>
+        <source>dashboard.introduction.public</source>
+        <target>userName submited a total of nbUserArtworks artwork(s) in nbUserContries countries</target>
+      </segment>
+    </unit>
+    <unit id="Xrkk60k" name="home.showprofile">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/contributors_list.html.twig:26</note>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:85</note>
+      </notes>
+      <segment>
+        <source>home.showprofile</source>
+        <target>Show profile</target>
+      </segment>
+    </unit>
+    <unit id="WpIbEXb" name="welcome.contributor.list">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/welcome.html.twig:27</note>
+      </notes>
+      <segment>
+        <source>welcome.contributor.list</source>
+        <target>Contributor list</target>
+      </segment>
+    </unit>
+    <unit id="QR8ZgE5" name="map.backwebsite">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/map.html.twig:13</note>
+      </notes>
+      <segment>
+        <source>map.backwebsite</source>
+        <target>Back to website</target>
+      </segment>
+    </unit>
+    <unit id="4QNJx3J" name="map.showartwork">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/map.html.twig:25</note>
+      </notes>
+      <segment>
+        <source>map.showartwork</source>
+        <target>Show artwork</target>
+      </segment>
+    </unit>
+    <unit id="h2Lb0U9" name="header.menu.artistlist">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:25</note>
+        <note category="file-source" priority="1">src/Controller/SitemapController.php:48</note>
+      </notes>
+      <segment>
+        <source>header.menu.artistlist</source>
+        <target>Artists</target>
+      </segment>
+    </unit>
+    <unit id="uS7xKYG" name="artistlist.photos">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
+      <segment>
+        <source>artistlist.photos</source>
+        <target>photos</target>
+      </segment>
+    </unit>
+    <unit id="VyWXgwI" name="artist.profile.title">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artist_dashboard.html.twig:44</note>
+      </notes>
+      <segment>
+        <source>artist.profile.title</source>
+        <target>Profile of the artist artistName</target>
+      </segment>
+    </unit>
+    <unit id="L8KPix4" name="artist.introduction">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artist_dashboard.html.twig:45</note>
+      </notes>
+      <segment>
+        <source>artist.introduction</source>
+        <target>The website contains a total of nbArtistArtworks artworks of artistName in nbArtistCountries countries.</target>
+      </segment>
+    </unit>
+    <unit id="lqxFkoi" name="artist.flash.notice.notfound">
+      <notes>
+        <note category="file-source" priority="1">src/Controller/ArtistController.php:92</note>
+      </notes>
+      <segment>
+        <source>artist.flash.notice.notfound</source>
+        <target>Artist not found</target>
+      </segment>
+    </unit>
+    <unit id="reFG_9c" name="artwork.placeholder.author">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:63</note>
+      </notes>
+      <segment>
+        <source>artwork.placeholder.author</source>
+        <target>Author</target>
+      </segment>
+    </unit>
+    <unit id="21RFYiC" name="content.not_found">
+      <notes>
+        <note category="file-source" priority="1">src/Controller/ReleasesController.php:55</note>
+        <note category="file-source" priority="1">src/Controller/BlogController.php:63</note>
+        <note category="file-source" priority="1">src/Controller/BlogController.php:89</note>
+        <note category="file-source" priority="1">src/Controller/FaqController.php:58</note>
+        <note category="file-source" priority="1">src/Controller/LegalsController.php:56</note>
+      </notes>
+      <segment>
+        <source>content.not_found</source>
+        <target>An error occured when loading content</target>
+      </segment>
+    </unit>
+    <unit id="idYSaAg" name="blog.list.title">
+      <notes>
+        <note category="state" priority="1">obsolete</note>
+      </notes>
+      <segment>
+        <source>blog.list.title</source>
+        <target>Street art blog and articles</target>
+      </segment>
+    </unit>
+    <unit id="eEJgfF1" name="header.menu.blog">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:29</note>
+        <note category="file-source" priority="1">templates/pages/content.html.twig:76</note>
+        <note category="file-source" priority="1">src/Controller/SitemapController.php:52</note>
+      </notes>
+      <segment>
+        <source>header.menu.blog</source>
+        <target>Blog</target>
+      </segment>
+    </unit>
+    <unit id="yDxIskI" name="artwork.searchauthor">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:15</note>
+        <note category="file-source" priority="1">templates/pages/artist_list.html.twig:20</note>
+      </notes>
+      <segment>
+        <source>artwork.searchauthor</source>
+        <target>Search an artist...</target>
+      </segment>
+    </unit>
+    <unit id="Uc_4HRP" name="artwork.selectauthor">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:142</note>
+      </notes>
+      <segment>
+        <source>artwork.selectauthor</source>
+        <target>Select an author (+)</target>
+      </segment>
+    </unit>
+    <unit id="8I5mm_t" name="artwork.flash.notice.notfound">
+      <notes>
+        <note category="file-source" priority="1">src/Controller/ArtworkController.php:89</note>
+      </notes>
+      <segment>
+        <source>artwork.flash.notice.notfound</source>
+        <target>Artwork not found</target>
+      </segment>
+    </unit>
+    <unit id="pVVhPMK" name="user.flash.notice.notfound">
+      <notes>
+        <note category="file-source" priority="1">src/Controller/UserController.php:107</note>
+      </notes>
+      <segment>
+        <source>user.flash.notice.notfound</source>
+        <target>User not found</target>
+      </segment>
+    </unit>
+    <unit id="yOytrg." name="artwork.description">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:78</note>
+      </notes>
+      <segment>
+        <source>artwork.description</source>
+        <target><![CDATA[The artwork <i>%title%</i> is of %type% type. You can admire it in the city of <a href="%citylink%">%city%</a> in <a href="%countrylink%">%country%</a> and more precisely here : %address%.]]></target>
+      </segment>
+    </unit>
+    <unit id="8I4A7yh" name="artwork.description.author">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:83</note>
+      </notes>
+      <segment>
+        <source>artwork.description.author</source>
+        <target>{0}If you know the artist or artists who participated in its realization, thank you for contacting us.|]0,Inf]Find all the artworks of the artists who participated in its realization by clicking on their name: </target>
+      </segment>
+    </unit>
+    <unit id="ataekIF" name="artwork.description.contributor">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:89</note>
+      </notes>
+      <segment>
+        <source>artwork.description.contributor</source>
+        <target><![CDATA[{0}The photo was released on %date% by an unknown hunter, if you passed it and you're sure that it does not exist anymore do not hesitate to let us know.|]0,Inf]The photo was released on %date% by the hunter <a href="%contributorlink%">%contributor%</a>, if you passed it and you're sure that it does not exist anymore do not hesitate to let us know.]]></target>
+      </segment>
+    </unit>
+    <unit id="rbFw0oA" name="artwork.views">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:94</note>
+      </notes>
+      <segment>
+        <source>artwork.views</source>
+        <target>This page has been viewed %views% times.</target>
+      </segment>
+    </unit>
+    <unit id="uGs_VvY" name="user.views">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:31</note>
+      </notes>
+      <segment>
+        <source>user.views</source>
+        <target>This profile has been viewed %views% times.</target>
+      </segment>
+    </unit>
+    <unit id="qm8PnVn" name="user.totalviews">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/user_dashboard.html.twig:32</note>
+      </notes>
+      <segment>
+        <source>user.totalviews</source>
+        <target>The artworks proposed by %name% have been viewed %views% times.</target>
+      </segment>
+    </unit>
+    <unit id="9I_y0MB" name="artist.views">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artist_dashboard.html.twig:46</note>
+      </notes>
+      <segment>
+        <source>artist.views</source>
+        <target>This profile has been viewed %views% times.</target>
+      </segment>
+    </unit>
+    <unit id="g4W2CJ2" name="artist.totalviews">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artist_dashboard.html.twig:47</note>
+      </notes>
+      <segment>
+        <source>artist.totalviews</source>
+        <target>%name%'s artworks have been viewed %views% times.</target>
+      </segment>
+    </unit>
+    <unit id="I.sQdKV" name="artwork.js.coordok">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:194</note>
+      </notes>
+      <segment>
+        <source>artwork.js.coordok</source>
+        <target>The coordinates have been filled automatically in the form.</target>
+      </segment>
+    </unit>
+    <unit id="Pxo6Sx6" name="artwork.js.coordko">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:195</note>
+      </notes>
+      <segment>
+        <source>artwork.js.coordko</source>
+        <target>There are no coordinates in your image. \n Please fill them in the form with the map below.</target>
+      </segment>
+    </unit>
+    <unit id="SeM43gs" name="artwork.coordinates">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:109</note>
+      </notes>
+      <segment>
+        <source>artwork.coordinates</source>
+        <target><![CDATA[If the data has not been automatically retrieved in the image you can use the map below to fill in the location fields. <strong>Be careful to choose the exact location.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="YTRwoKL" name="artwork.js.search">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:196</note>
+        <note category="file-source" priority="1">templates/pages/artist_list.html.twig:56</note>
+      </notes>
+      <segment>
+        <source>artwork.js.search</source>
+        <target>Search...</target>
+      </segment>
+    </unit>
+    <unit id="sD.P9oa" name="content.created">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/content.html.twig:45</note>
+      </notes>
+      <segment>
+        <source>content.created</source>
+        <target>Created at</target>
+      </segment>
+    </unit>
+    <unit id="vsJ2I29" name="content.backto">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/content.html.twig:76</note>
+      </notes>
+      <segment>
+        <source>content.backto</source>
+        <target>Back to</target>
+      </segment>
+    </unit>
+    <unit id="fOcrbQ0" name="artwork.label.graffiti">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:34</note>
+      </notes>
+      <segment>
+        <source>artwork.label.graffiti</source>
+        <target>Graffiti (aerosols, paintbrush...)</target>
+      </segment>
+    </unit>
+    <unit id="luF_5a6" name="artwork.label.sticking">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:34</note>
+      </notes>
+      <segment>
+        <source>artwork.label.sticking</source>
+        <target>Sticking</target>
+      </segment>
+    </unit>
+    <unit id="IX.a9I7" name="artwork.label.mosaic">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:34</note>
+      </notes>
+      <segment>
+        <source>artwork.label.mosaic</source>
+        <target>Mosaic</target>
+      </segment>
+    </unit>
+    <unit id="R5iUAG." name="header.menu.submit_artwork">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:37</note>
+      </notes>
+      <segment>
+        <source>header.menu.submit_artwork</source>
+        <target>Submit a photo</target>
+      </segment>
+    </unit>
+    <unit id="Xlf_onN" name="header.menu.submit_artist">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/header.html.twig:39</note>
+      </notes>
+      <segment>
+        <source>header.menu.submit_artist</source>
+        <target>Submit an artist</target>
+      </segment>
+    </unit>
+    <unit id="ZvS2bvQ" name="artist.message.wording_success">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artist_edit.twig:20</note>
+      </notes>
+      <segment>
+        <source>artist.message.wording_success</source>
+        <target><![CDATA[Thanks <strong>username</strong>! <br><br>It will be verified before being online. <br>You will be informed soon of the release.]]></target>
+      </segment>
+    </unit>
+    <unit id="lr4ae6u" name="artist.button.add_new">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artist_edit.twig:24</note>
+      </notes>
+      <segment>
+        <source>artist.button.add_new</source>
+        <target>Submit another artist</target>
+      </segment>
+    </unit>
+    <unit id="xmhIamx" name="artist.title.create">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artist_edit.twig:31</note>
+      </notes>
+      <segment>
+        <source>artist.title.create</source>
+        <target>Add an artist</target>
+      </segment>
+    </unit>
+    <unit id="71pd3zx" name="artist.title.edit">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artist_edit.twig:33</note>
+      </notes>
+      <segment>
+        <source>artist.title.edit</source>
+        <target>Edit an artist</target>
+      </segment>
+    </unit>
+    <unit id="mE3zJHI" name="artist.connected">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artist_edit.twig:39</note>
+      </notes>
+      <segment>
+        <source>artist.connected</source>
+        <target><![CDATA[Thx <strong>username</strong> for sharing your treasures.]]></target>
+      </segment>
+    </unit>
+    <unit id="Z7o_t9v" name="artist.edit.introduction">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artist_edit.twig:41</note>
+      </notes>
+      <segment>
+        <source>artist.edit.introduction</source>
+        <target><![CDATA[If you have not found your favorite artist in the list already <strong><a href="artistlist" target="_blank">here</a></strong>, you can propose using this form.]]></target>
+      </segment>
+    </unit>
+    <unit id="2m5dyeL" name="artist.flash.danger.error">
+      <notes>
+        <note category="file-source" priority="1">src/Controller/ArtistEditController.php:102</note>
+      </notes>
+      <segment>
+        <source>artist.flash.danger.error</source>
+        <target>An error has occured during save</target>
+      </segment>
+    </unit>
+    <unit id="pW7ZNgQ" name="artist.label.name">
+      <notes>
+        <note category="file-source" priority="1">templates/email/artist_validation.twig:111</note>
+        <note category="file-source" priority="1">templates/email/artist_submission.twig:109</note>
+        <note category="file-source" priority="1">src/Form/Type/ArtistType.php:25</note>
+      </notes>
+      <segment>
+        <source>artist.label.name</source>
+        <target>Name (Blaze)</target>
+      </segment>
+    </unit>
+    <unit id="o2U3esm" name="artist.label.biography">
+      <notes>
+        <note category="file-source" priority="1">templates/email/artist_validation.twig:113</note>
+        <note category="file-source" priority="1">templates/email/artist_submission.twig:111</note>
+        <note category="file-source" priority="1">src/Form/Type/ArtistType.php:32</note>
+      </notes>
+      <segment>
+        <source>artist.label.biography</source>
+        <target>Biography (in french)</target>
+      </segment>
+    </unit>
+    <unit id="HoEjkiU" name="artist.label.biographyEn">
+      <notes>
+        <note category="file-source" priority="1">templates/email/artist_validation.twig:112</note>
+        <note category="file-source" priority="1">templates/email/artist_submission.twig:110</note>
+        <note category="file-source" priority="1">src/Form/Type/ArtistType.php:36</note>
+      </notes>
+      <segment>
+        <source>artist.label.biographyEn</source>
+        <target>Biography (in english)</target>
+      </segment>
+    </unit>
+    <unit id="1yjokYL" name="artist.label.websiteLink">
+      <notes>
+        <note category="file-source" priority="1">templates/email/artist_validation.twig:115</note>
+        <note category="file-source" priority="1">templates/email/artist_submission.twig:113</note>
+        <note category="file-source" priority="1">src/Form/Type/ArtistType.php:43</note>
+      </notes>
+      <segment>
+        <source>artist.label.websiteLink</source>
+        <target>Artist website link</target>
+      </segment>
+    </unit>
+    <unit id="3eGcKnP" name="artist.label.instagramLink">
+      <notes>
+        <note category="file-source" priority="1">templates/email/artist_validation.twig:114</note>
+        <note category="file-source" priority="1">templates/email/artist_submission.twig:112</note>
+        <note category="file-source" priority="1">src/Form/Type/ArtistType.php:47</note>
+      </notes>
+      <segment>
+        <source>artist.label.instagramLink</source>
+        <target>Artist Instagram account link</target>
+      </segment>
+    </unit>
+    <unit id="3WEow_o" name="artist.label.avatarFile">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/ArtistType.php:51</note>
+      </notes>
+      <segment>
+        <source>artist.label.avatarFile</source>
+        <target>Profile picture (choose something recognizable)</target>
+      </segment>
+    </unit>
+    <unit id="YuLT7dn" name="artist.not.connected">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/artist_edit.twig:94</note>
+      </notes>
+      <segment>
+        <source>artist.not.connected</source>
+        <target><![CDATA[To be able to propose an artist, you must log in or create an account if you do not have one yet. <br /><br />
+        Having an account will allow you to be part of a wonderful project, have a dedicated page, earn badges according to your participation and full of great things to come yet<br /><br />
+        <a class="btn btn-primary my-2" href="urlaccount">Connect or register</a>]]></target>
+      </segment>
+    </unit>
+    <unit id="Yf0M9.3" name="artist.view">
+      <notes>
+        <note category="file-source" priority="1">templates/components/card-artist-list.twig:6</note>
+      </notes>
+      <segment>
+        <source>artist.view</source>
+        <target>View the artist</target>
+      </segment>
+    </unit>
+    <unit id="odDw0du" name="action.search">
+      <notes>
+        <note category="file-source" priority="1">templates/layout/filter.html.twig:8</note>
+      </notes>
+      <segment>
+        <source>action.search</source>
+        <target>Search</target>
+      </segment>
+    </unit>
+    <unit id="xAoSB8." name="artwork.label.yarnbombing">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:34</note>
+      </notes>
+      <segment>
+        <source>artwork.label.yarnbombing</source>
+        <target>Yarn bombing</target>
+      </segment>
+    </unit>
+    <unit id="27XMNVu" name="home.seearticles">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:35</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>home.seearticles</source>
+        <target>Read articles</target>
+      </segment>
+    </unit>
+    <unit id="1OEotYm" name="home.seeartworks">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/home.html.twig:115</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>home.seeartworks</source>
+        <target>See artworks</target>
       </segment>
     </unit>
   </file>

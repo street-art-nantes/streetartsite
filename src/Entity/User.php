@@ -43,6 +43,7 @@ class User extends BaseUser
 
     /**
      * @ORM\Column(name="website", type="string", length=255, nullable=true)
+     * @Assert\Url
      */
     protected $website;
 
@@ -197,5 +198,13 @@ class User extends BaseUser
         $this->avatarName = $avatarName;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getArtworks()
+    {
+        return $this->artworks;
     }
 }

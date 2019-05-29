@@ -1,3 +1,5 @@
 framework:
     router:
         strict_requirements: ~
+    assets:
+        base_urls: "https://www.street-artwork.com/"
