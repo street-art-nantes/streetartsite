@@ -18,9 +18,8 @@ function addEvent(obj, evt, fn) {
 }
 
 addEvent(document, 'mouseout', function(evt) {
-  if (!evt.toElement && !evt.relatedTarget /*&& !localStorage.getItem('exitintent_show')*/) {
-    console.log("left window");
-    $('#follow-us').modal()
-    //localStorage.setItem('exitintent_show', 'true');
+  if (!evt.toElement && !evt.relatedTarget && !localStorage.getItem('exitstreetartwork')) {
+    $('#follow-us').modal();
+    localStorage.setItem('exitstreetartwork', 'true');
   }
 });
