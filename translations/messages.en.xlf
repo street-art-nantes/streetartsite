@@ -84,8 +84,8 @@
     </unit>
     <unit id="asKIZV9" name="artwork.button.save">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:154</note>
         <note category="file-source" priority="1">templates/pages/artist_edit.twig:74</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:154</note>
       </notes>
       <segment>
         <source>artwork.button.save</source>
@@ -123,9 +123,9 @@
     </unit>
     <unit id="wt0Gj6K" name="artwork.label.title">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork.html.twig:42</note>
-        <note category="file-source" priority="1">templates/email/validation.twig:111</note>
         <note category="file-source" priority="1">templates/email/submission.twig:112</note>
+        <note category="file-source" priority="1">templates/email/validation.twig:111</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:42</note>
         <note category="file-source" priority="1">src/Form/Type/ArtworkType.php:27</note>
       </notes>
       <segment>
@@ -135,9 +135,9 @@
     </unit>
     <unit id="HiArTFm" name="artwork.label.latitude">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork.html.twig:40</note>
-        <note category="file-source" priority="1">templates/email/validation.twig:115</note>
         <note category="file-source" priority="1">templates/email/submission.twig:116</note>
+        <note category="file-source" priority="1">templates/email/validation.twig:115</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:40</note>
         <note category="file-source" priority="1">src/Form/Type/PoiType.php:27</note>
       </notes>
       <segment>
@@ -147,9 +147,9 @@
     </unit>
     <unit id="8eqK2ln" name="artwork.label.longitude">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork.html.twig:41</note>
-        <note category="file-source" priority="1">templates/email/validation.twig:116</note>
         <note category="file-source" priority="1">templates/email/submission.twig:117</note>
+        <note category="file-source" priority="1">templates/email/validation.twig:116</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:41</note>
         <note category="file-source" priority="1">src/Form/Type/PoiType.php:34</note>
       </notes>
       <segment>
@@ -159,9 +159,9 @@
     </unit>
     <unit id="B91XroD" name="artwork.label.address">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork.html.twig:39</note>
-        <note category="file-source" priority="1">templates/email/validation.twig:112</note>
         <note category="file-source" priority="1">templates/email/submission.twig:113</note>
+        <note category="file-source" priority="1">templates/email/validation.twig:112</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:39</note>
         <note category="file-source" priority="1">src/Form/Type/PoiType.php:40</note>
       </notes>
       <segment>
@@ -171,9 +171,9 @@
     </unit>
     <unit id="7kQJetd" name="artwork.label.country">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork.html.twig:37</note>
-        <note category="file-source" priority="1">templates/email/validation.twig:114</note>
         <note category="file-source" priority="1">templates/email/submission.twig:115</note>
+        <note category="file-source" priority="1">templates/email/validation.twig:114</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:37</note>
         <note category="file-source" priority="1">src/Form/Type/PoiType.php:43</note>
       </notes>
       <segment>
@@ -183,9 +183,9 @@
     </unit>
     <unit id="5LLD2XU" name="artwork.label.city">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork.html.twig:38</note>
-        <note category="file-source" priority="1">templates/email/validation.twig:113</note>
         <note category="file-source" priority="1">templates/email/submission.twig:114</note>
+        <note category="file-source" priority="1">templates/email/validation.twig:113</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:38</note>
         <note category="file-source" priority="1">src/Form/Type/PoiType.php:46</note>
       </notes>
       <segment>
@@ -213,8 +213,8 @@
     </unit>
     <unit id="xqBfcOp" name="artwork.button.cancel">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:151</note>
         <note category="file-source" priority="1">templates/pages/artist_edit.twig:71</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:151</note>
       </notes>
       <segment>
         <source>artwork.button.cancel</source>
@@ -703,8 +703,8 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="4JHCt.t" name="profile.edit.title">
       <notes>
-        <note category="file-source" priority="1">templates/user/user_profile.html.twig:19</note>
         <note category="file-source" priority="1">templates/bundles/FOSUserBundle/Profile/edit_content.html.twig:3</note>
+        <note category="file-source" priority="1">templates/user/user_profile.html.twig:19</note>
       </notes>
       <segment>
         <source>profile.edit.title</source>
@@ -889,11 +889,11 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="21RFYiC" name="content.not_found">
       <notes>
-        <note category="file-source" priority="1">src/Controller/ReleasesController.php:55</note>
         <note category="file-source" priority="1">src/Controller/BlogController.php:63</note>
         <note category="file-source" priority="1">src/Controller/BlogController.php:89</note>
         <note category="file-source" priority="1">src/Controller/FaqController.php:58</note>
         <note category="file-source" priority="1">src/Controller/LegalsController.php:56</note>
+        <note category="file-source" priority="1">src/Controller/ReleasesController.php:55</note>
       </notes>
       <segment>
         <source>content.not_found</source>
@@ -922,8 +922,8 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="yDxIskI" name="artwork.searchauthor">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:15</note>
         <note category="file-source" priority="1">templates/pages/artist_list.html.twig:20</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:15</note>
       </notes>
       <segment>
         <source>artwork.searchauthor</source>
@@ -1058,8 +1058,8 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="YTRwoKL" name="artwork.js.search">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:196</note>
         <note category="file-source" priority="1">templates/pages/artist_list.html.twig:56</note>
+        <note category="file-source" priority="1">templates/pages/artwork_edit.twig:196</note>
       </notes>
       <segment>
         <source>artwork.js.search</source>
@@ -1194,8 +1194,8 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="pW7ZNgQ" name="artist.label.name">
       <notes>
-        <note category="file-source" priority="1">templates/email/artist_validation.twig:111</note>
         <note category="file-source" priority="1">templates/email/artist_submission.twig:109</note>
+        <note category="file-source" priority="1">templates/email/artist_validation.twig:111</note>
         <note category="file-source" priority="1">src/Form/Type/ArtistType.php:25</note>
       </notes>
       <segment>
@@ -1205,8 +1205,8 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="o2U3esm" name="artist.label.biography">
       <notes>
-        <note category="file-source" priority="1">templates/email/artist_validation.twig:113</note>
         <note category="file-source" priority="1">templates/email/artist_submission.twig:111</note>
+        <note category="file-source" priority="1">templates/email/artist_validation.twig:113</note>
         <note category="file-source" priority="1">src/Form/Type/ArtistType.php:32</note>
       </notes>
       <segment>
@@ -1216,8 +1216,8 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="HoEjkiU" name="artist.label.biographyEn">
       <notes>
-        <note category="file-source" priority="1">templates/email/artist_validation.twig:112</note>
         <note category="file-source" priority="1">templates/email/artist_submission.twig:110</note>
+        <note category="file-source" priority="1">templates/email/artist_validation.twig:112</note>
         <note category="file-source" priority="1">src/Form/Type/ArtistType.php:36</note>
       </notes>
       <segment>
@@ -1227,8 +1227,8 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="1yjokYL" name="artist.label.websiteLink">
       <notes>
-        <note category="file-source" priority="1">templates/email/artist_validation.twig:115</note>
         <note category="file-source" priority="1">templates/email/artist_submission.twig:113</note>
+        <note category="file-source" priority="1">templates/email/artist_validation.twig:115</note>
         <note category="file-source" priority="1">src/Form/Type/ArtistType.php:43</note>
       </notes>
       <segment>
@@ -1238,8 +1238,8 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="3eGcKnP" name="artist.label.instagramLink">
       <notes>
-        <note category="file-source" priority="1">templates/email/artist_validation.twig:114</note>
         <note category="file-source" priority="1">templates/email/artist_submission.twig:112</note>
+        <note category="file-source" priority="1">templates/email/artist_validation.twig:114</note>
         <note category="file-source" priority="1">src/Form/Type/ArtistType.php:47</note>
       </notes>
       <segment>
@@ -1297,7 +1297,6 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     <unit id="27XMNVu" name="home.seearticles">
       <notes>
         <note category="file-source" priority="1">templates/pages/home.html.twig:35</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>home.seearticles</source>
@@ -1307,11 +1306,50 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     <unit id="1OEotYm" name="home.seeartworks">
       <notes>
         <note category="file-source" priority="1">templates/pages/home.html.twig:115</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>home.seeartworks</source>
         <target>See artworks</target>
+      </segment>
+    </unit>
+    <unit id="GFlflaS" name="popup.title">
+      <notes>
+        <note category="file-source" priority="1">templates/popup/facebook-instagram.twig:5</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>popup.title</source>
+        <target>You want to see the most beautiful streetart in the world?</target>
+      </segment>
+    </unit>
+    <unit id="fThqjqD" name="popup.followus">
+      <notes>
+        <note category="file-source" priority="1">templates/popup/facebook-instagram.twig:12</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>popup.followus</source>
+        <target>Follow us on Facebook or Instagram like already over 4000 people!</target>
+      </segment>
+    </unit>
+    <unit id="FL11tyG" name="popup.goodbye">
+      <notes>
+        <note category="file-source" priority="1">templates/popup/facebook-instagram.twig:23</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>popup.goodbye</source>
+        <target>Hey username! See you soon for new artworks;)</target>
+      </segment>
+    </unit>
+    <unit id="EoxH1_w" name="popup.register">
+      <notes>
+        <note category="file-source" priority="1">templates/popup/facebook-instagram.twig:25</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>popup.register</source>
+        <target>Create my account to share my treasures :)</target>
       </segment>
     </unit>
   </file>
