@@ -84,7 +84,7 @@ class ImportStats extends ContainerAwareCommand
 
         try {
             foreach ($data as $page) {
-                if (strlen($page['dimensions']['pagePath']) < 256) {
+                if (\mb_strlen($page['dimensions']['pagePath']) < 256) {
                     $pageStat = new PageStat();
                     $pageStat->setViews($page['metrics']['pageviews']);
                     $pageStat->setPath($page['dimensions']['pagePath']);
