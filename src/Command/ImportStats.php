@@ -84,10 +84,12 @@ class ImportStats extends ContainerAwareCommand
 
         try {
             foreach ($data as $page) {
-                $pageStat = new PageStat();
-                $pageStat->setViews($page['metrics']['pageviews']);
-                $pageStat->setPath($page['dimensions']['pagePath']);
-                $this->manager->persist($pageStat);
+                if (strlen($page['dimensions']['pagePath']) < 256) {
+                    $pageStat = new PageStat();
+                    $pageStat->setViews($page['metrics']['pageviews']);
+                    $pageStat->setPath($page['dimensions']['pagePath']);
+                    $this->manager->persist($pageStat);
+                }
             }
 
             $this->manager->flush();
