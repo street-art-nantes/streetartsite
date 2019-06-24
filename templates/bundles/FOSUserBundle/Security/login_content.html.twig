@@ -51,6 +51,13 @@
                    name="_submit"
                    class="btn btn-block btn-primary mt-5"
                    value="{{ 'security.login.submit'|trans }}"/>
+
+            <a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}">
+                <span>Login with Facebook</span>
+            </a>
+            <a href="{{ path('hwi_oauth_service_redirect', {'service': 'instagram' }) }}">
+                <span>Login with Instagram</span>
+            </a>
         </form>
     </article>
 </div>

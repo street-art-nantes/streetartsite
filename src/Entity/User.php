@@ -27,6 +27,16 @@ class User extends BaseUser
     protected $id;
 
     /**
+     * @ORM\Column(name="facebookId", type="string", length=255, nullable=true)
+     */
+    protected $facebookId;
+
+    /**
+     * @ORM\Column(name="instagramId", type="string", length=255, nullable=true)
+     */
+    protected $instagramId;
+
+    /**
      * @ORM\OneToMany(targetEntity="Artwork", mappedBy="contributor")
      */
     private $artworks;
@@ -207,4 +217,42 @@ class User extends BaseUser
     {
         return $this->artworks;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getFacebookId()
+    {
+        return $this->facebookId;
+    }
+
+    /**
+     * @param mixed $facebookId
+     * @return User
+     */
+    public function setFacebookId($facebookId)
+    {
+        $this->facebookId = $facebookId;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInstagramId()
+    {
+        return $this->instagramId;
+    }
+
+    /**
+     * @param mixed $instagramId
+     * @return User
+     */
+    public function setInstagramId($instagramId)
+    {
+        $this->instagramId = $instagramId;
+        return $this;
+    }
+
+
 }

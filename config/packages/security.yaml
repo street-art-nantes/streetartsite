@@ -30,6 +30,18 @@ security:
                 target: /
             anonymous:    true
 
+            oauth:
+                resource_owners:
+                    facebook: "/login/check-facebook"
+                    instagram: "/login/check-instagram"
+                login_path: /login
+                failure_path: /login
+
+                provider: fos_userbundle
+
+                oauth_user_provider:
+                    service: my_user_provider
+
             # activate different ways to authenticate
 
             # http_basic: true
