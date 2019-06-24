@@ -1,0 +1,39 @@
+submission:
+    subject: 'Submission of your work received!'
+    header: 'Hello %username% !'
+    introduction: 'Thank you very much for your artwork submission, you will be notified as soon as it will be validated.'
+    body_form: 'In the meantime, you can submit others here :)'
+    second_titre: 'Summary of your submission'
+    footer:
+        Streetarly,
+        The team.
+
+validation:
+    subject: 'Your artwork has been validated!'
+    header: 'Hello %username% !'
+    introduction: 'Your artwork has been validated. You can find it here and on your profile.'
+    body_form: 'You can also submit others here :)'
+    second_titre: 'Summary of your submission'
+    footer:
+        Streetarly,
+        The team.
+
+artist_submission:
+    subject: 'Submission of artist received!'
+    header: 'Hello %username% !'
+    introduction: 'Thank you very much for your artist submission, you will be notified as soon as it will be validated.'
+    body_form: 'In the meantime, you can submit others here :)'
+    second_titre: 'Summary of your submission'
+    footer:
+        Streetarly,
+        The team.
+
+artist_validation:
+    subject: 'The artist has been validated!'
+    header: 'Hello %username% !'
+    introduction: 'The artist has been validated. You can find it here.'
+    body_form: 'You can also submit others here :)'
+    second_titre: 'Summary of your submission'
+    footer:
+        Streetarly,
+        The team.

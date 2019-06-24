@@ -4,9 +4,10 @@ namespace App\Controller;
 
 use Contentful\Delivery\Client;
 use Contentful\Delivery\Query;
-use Contentful\Delivery\Resource\Entry;
+use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Translation\TranslatorInterface;
 
 /**
  * Class FaqController.
@@ -14,20 +15,47 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class FaqController extends Controller
 {
     /**
+     * @var LoggerInterface
+     */
+    private $logger;
+
+    /**
+     * @var TranslatorInterface
+     */
+    private $translator;
+
+    /**
+     * FaqController constructor.
+     *
+     * @param LoggerInterface     $logger
+     * @param TranslatorInterface $translator
+     */
+    public function __construct(LoggerInterface $logger, TranslatorInterface $translator)
+    {
+        $this->logger = $logger;
+        $this->translator = $translator;
+    }
+
+    /**
+     * @param Request $request
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function __invoke()
+    public function __invoke(Request $request)
     {
+        $localeArray = $this->getParameter('contentful_locale');
+        $entries = [];
+
         /** @var Client $client */
         $client = $this->get('contentful.delivery');
-        /** @var Entry $entry */
-        $entry = $client->getEntry('36gXCzBGjCCgog8aYqeaoK');
         $query = new Query();
         $query->setContentType('faq');
-        $entries = $client->getEntries($query);
-
-        if (!$entry) {
-            throw new NotFoundHttpException();
+        $query->setLocale($localeArray[$request->getLocale()]);
+        try {
+            $entries = $client->getEntries($query);
+        } catch (\Exception $e) {
+            $this->logger->error($e->getMessage());
+            $this->addFlash('danger', $this->translator->trans('content.not_found'));
         }
 
         $entriesTransform = [];
@@ -39,8 +67,9 @@ class FaqController extends Controller
         }
 
         return $this->render('pages/content.html.twig', [
-            'entry' => $entry,
             'entries' => $entriesTransform,
+            'pageTitle' => $this->translator->trans('title.faq', [], 'Metas'),
+            'pageDescription' => $this->translator->trans('description.faq', [], 'Metas'),
         ]);
     }
 }

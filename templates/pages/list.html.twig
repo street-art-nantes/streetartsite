@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Liste{% endblock %}
+{% block title %}{{ pageTitle }}{% endblock %}
+{% block metas %}
+    <meta name="description" content="{{ pageDescription }}" />
+{% endblock %}
 {% block body_classes %}page-list{% endblock body_classes %}
 
 {% block body %}

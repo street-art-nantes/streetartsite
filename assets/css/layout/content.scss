@@ -1,3 +1,7 @@
 .content {
   min-height: 800px;
 }
+
+.modal-backdrop.show {
+  opacity: 0.7;
+}

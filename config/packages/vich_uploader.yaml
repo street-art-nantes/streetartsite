@@ -10,3 +10,7 @@ vich_uploader:
             uri_prefix: /uploads/user/avatar
             upload_destination: '%kernel.project_dir%/public/uploads/user/avatar'
             namer: Vich\UploaderBundle\Naming\UniqidNamer
+        author_avatar:
+            uri_prefix: /uploads/author/avatar
+            upload_destination: '%kernel.project_dir%/public/uploads/author/avatar'
+            namer: Vich\UploaderBundle\Naming\UniqidNamer

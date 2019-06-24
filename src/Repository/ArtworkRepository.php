@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Artwork;
+use App\Entity\Author;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
@@ -21,18 +22,45 @@ class ArtworkRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param User $user
+     * @param User     $user
+     * @param int|null $page
+     * @param int      $maxperpage
      *
      * @return mixed
      */
-    public function getArtworksByUser(User $user)
+    public function getArtworksByUser(User $user, int $page = null, $maxperpage = 40)
     {
         $query = $this->createQueryBuilder('a');
 
         $query->select('a')
             ->leftJoin('a.contributor', 'users')
             ->andWhere('users.id = :user')
+            ->andWhere('a.enabled=TRUE')
             ->setParameter('user', $user)
+            ->orderBy('a.id', 'DESC')
+        ;
+
+        $query->setFirstResult(($page - 1) * $maxperpage)
+            ->setMaxResults($maxperpage)
+        ;
+
+        return $query->getQuery()->getResult();
+    }
+
+    /**
+     * @param Author $author
+     *
+     * @return mixed
+     */
+    public function getArtworksByAuthor(Author $author)
+    {
+        $query = $this->createQueryBuilder('a');
+
+        $query->select('a')
+            ->leftJoin('a.author', 'author')
+            ->andWhere('author.id = :artist')
+            ->andWhere('a.enabled=TRUE')
+            ->setParameter('artist', $author)
             ->orderBy('a.id', 'DESC')
         ;
 
@@ -52,7 +80,30 @@ class ArtworkRepository extends ServiceEntityRepository
             ->leftJoin('a.contributor', 'users')
             ->leftJoin('a.poi', 'pois')
             ->andWhere('users.id = :user')
+            ->andWhere('a.enabled=TRUE')
             ->setParameter('user', $user)
+            ->groupBy('pois.country')
+            ->orderBy('pois.country', 'ASC')
+        ;
+
+        return $query->getQuery()->getResult();
+    }
+
+    /**
+     * @param Author $author
+     *
+     * @return mixed
+     */
+    public function getArtworksCountriesByAuthor(Author $author)
+    {
+        $query = $this->createQueryBuilder('a');
+
+        $query->select('pois.country')
+            ->leftJoin('a.author', 'author')
+            ->leftJoin('a.poi', 'pois')
+            ->andWhere('author.id = :artist')
+            ->andWhere('a.enabled=TRUE')
+            ->setParameter('artist', $author)
             ->groupBy('pois.country')
             ->orderBy('pois.country', 'ASC')
         ;
