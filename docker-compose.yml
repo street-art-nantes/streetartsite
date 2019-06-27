@@ -6,6 +6,7 @@ services:
         image: nginx:latest
         ports:
             - 80:80
+            - 443:443
         networks:
             - backend
         depends_on:
@@ -13,6 +14,9 @@ services:
         volumes:
             - .:/app:delegated
             - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf
+            - ./docker/streetartwork.com.crt:/etc/nginx/ssl/streetartwork.com.crt
+            - ./docker/streetartwork.com.key:/etc/nginx/ssl/streetartwork.com.key
+            - ./var/log/xdebug_remote.log:/var/log/xdebug_remote.log
 
     php:
         build:
@@ -25,6 +29,8 @@ services:
             - db
         volumes:
             - .:/app:delegated
+        environment:
+          XDEBUG_CONFIG: remote_host={{172.18.0.4}}
 
     db:
         image: mdillon/postgis:10

@@ -131,6 +131,9 @@
     "egulias/email-validator": {
         "version": "2.1.4"
     },
+    "facebook/graph-sdk": {
+        "version": "5.7.0"
+    },
     "fig/link-util": {
         "version": "1.0.0"
     },

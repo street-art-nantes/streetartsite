@@ -53,6 +53,11 @@ class User extends BaseUser
     protected $description;
 
     /**
+     * @ORM\Column(name="facebook_user_id", type="string", length=255, nullable=true)
+     */
+    protected $facebookUserId;
+
+    /**
      * @Vich\UploadableField(mapping="user_avatar", fileNameProperty="avatarName")
      * @Assert\File(
      *     maxSize = "2M",
@@ -206,5 +211,23 @@ class User extends BaseUser
     public function getArtworks()
     {
         return $this->artworks;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFacebookUserId()
+    {
+        return $this->facebookUserId;
+    }
+
+    /**
+     * @param mixed $facebookUserId
+     * @return User
+     */
+    public function setFacebookUserId($facebookUserId)
+    {
+        $this->facebookUserId = $facebookUserId;
+        return $this;
     }
 }
