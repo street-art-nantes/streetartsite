@@ -2,110 +2,129 @@
 
 namespace App\Security\Provider;
 
-use App\Entity\User;
+use FOS\UserBundle\Model\UserManagerInterface;
 use HWI\Bundle\OAuthBundle\OAuth\Response\UserResponseInterface;
 use HWI\Bundle\OAuthBundle\Security\Core\User\FOSUBUserProvider as BaseFOSUBProvider;
+use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Translation\TranslatorInterface;
 
 class UserProvider extends BaseFOSUBProvider
 {
+
+    /**
+     * @var UserPasswordEncoder
+     */
+    protected $encoder;
+
+    /**
+     * @var TokenStorage
+     */
+    protected $tokenStorage;
+
+    /**
+     * @var TranslatorInterface
+     */
+    private $translator;
+
+    /**
+     * @var Session
+     */
+    private $session;
+
+    /**
+     * UserProvider constructor.
+     * @param UserManagerInterface $userManager
+     * @param array $properties
+     * @param UserPasswordEncoder $encoder
+     * @param TokenStorage $tokenStorage
+     * @param TranslatorInterface $translator
+     * @param Session $session
+     */
+    public function __construct(UserManagerInterface $userManager, array $properties, UserPasswordEncoder $encoder,
+                                TokenStorage $tokenStorage, TranslatorInterface $translator, Session $session)
+    {
+        parent::__construct($userManager, $properties);
+        $this->encoder = $encoder;
+        $this->tokenStorage = $tokenStorage;
+        $this->translator = $translator;
+        $this->session = $session;
+    }
+
     /**
      * {@inheritDoc}
      */
-//    public function connect(UserInterface $user, UserResponseInterface $response)
-//    {
-//        // get property from provider configuration by provider name
-//        // , it will return `facebook_id` in that case (see service definition below)
-//        $property = $this->getProperty($response);
-//        $username = $response->getUsername(); // get the unique user identifier
-//
-//        //we "disconnect" previously connected users
-//        $existingUser = $this->userManager->findUserBy(array($property => $username));
-//        if (null !== $existingUser) {
-//            // set current user id and token to null for disconnect
-//            // ...
-//
-//            $this->userManager->updateUser($existingUser);
-//        }
-//        // we connect current user, set current user id and token
-//        // ...
-//        $this->userManager->updateUser($user);
-//    }
+    public function connect(UserInterface $user, UserResponseInterface $response)
+    {
+        $property = $this->getProperty($response);
+        $username = $response->getUsername();
+        //on connect - get the access token and the user ID
+        $service = $response->getResourceOwner()->getName();
+        $setter = 'set'.ucfirst($service);
+        $setter_id = $setter.'Id';
+        $setter_token = $setter.'AccessToken';
+        //we "disconnect" previously connected users
+        if (null !== $previousUser = $this->userManager->findUserBy(array($property => $username))) {
+            $previousUser->$setter_id(null);
+            $previousUser->$setter_token(null);
+            $this->userManager->updateUser($previousUser);
+        }
+
+        $user->$setter_id($username);
+        $user->$setter_token($response->getAccessToken());
+        $this->userManager->updateUser($user);
+
+        // login user
+        $token = new UsernamePasswordToken($user, null, 'main', $user->getRoles());
+        $this->tokenStorage->setToken($token);
+    }
 
     /**
-     * Ad-hoc creation of user
-     *
-     * @param UserResponseInterface $response
-     *
-     * @return User
+     * {@inheritdoc}
      */
-//    protected function createUserByOAuthUserResponse(UserResponseInterface $response)
-//    {
-////        $user = $this->userManager->createUser();
-//        $user = new User();
-//        $this->updateUserByOAuthUserResponse($user, $response);
-//
-//        // set default values taken from OAuth sign-in provider account
-//        if (null !== $email = $response->getEmail()) {
-//            $user->setEmail($email);
-//        }
-//
-//        if (null === $this->userManager->findUserByUsername($response->getNickname())) {
-//            $user->setUsername($response->getNickname());
-//        }
-//
-//        $user->setEnabled(true);
-//
-//        return $user;
-//    }
+    public function loadUserByOAuthUserResponse(UserResponseInterface $response)
+    {
+        $username = $response->getUsername();
+        $user = $this->userManager->findUserBy(array($this->getProperty($response) => $username));
 
-//    /**
-//     * {@inheritdoc}
-//     */
-//    public function loadUserByOAuthUserResponse(UserResponseInterface $response)
-//    {
-//        $userEmail = $response->getEmail();
-//        $user = $this->userManager->findUserByEmail($userEmail);
-//
-//        // if null just create new user and set it properties
-//        if (null === $user) {
-////            $username = $response->getRealName();
-//            $user = new User();
-//
-//            $this->updateUserByOAuthUserResponse($user, $response);
-//
-//            // ... save user to database
-//
-//            return $user;
-//        }
-//        // else update access token of existing user
-////        $serviceName = $response->getResourceOwner()->getName();
-////        $setter = 'set' . ucfirst($serviceName) . 'AccessToken';
-////        $user->$setter($response->getAccessToken());//update access token
-//
-//        return $user;
-//    }
+        $service = $response->getResourceOwner()->getName();
+        $setter = 'set'.ucfirst($service);
+        $setter_id = $setter.'Id';
+        $setter_token = $setter.'AccessToken';
 
-    /**
-     * Attach OAuth sign-in provider account to existing user
-     *
-     * @param User      $user
-     * @param UserResponseInterface $response
-     *
-     * @return User
-     */
-//    protected function updateUserByOAuthUserResponse(User $user, UserResponseInterface $response)
-//    {
-//        $providerName = $response->getResourceOwner()->getName();
-//        $providerNameSetter = 'set'.ucfirst($providerName).'Id';
-//        $user->$providerNameSetter($response->getUsername());
-//
-//        if(!$user->getPassword()) {
-//            // generate unique token
-//            $secret = md5(uniqid(rand(), true));
-//            $user->setPassword($secret);
-//        }
-//
-//        return $user;
-//    }
+        // if never logged with current provider search by email
+        if (null === $user && $response->getEmail()) {
+            $user = $this->userManager->findUserBy(array('email' => $response->getEmail()));
+        }
+
+        if (null === $user) {
+            // create new user here if not found by id or email
+            $user = $this->userManager->createUser();
+            $user->$setter_id($username);
+            $user->$setter_token($response->getAccessToken());
+            $user->setUsername($response->getNickname());
+            // Generate fake email if not in response (aka instagram)
+            $user->setEmail($response->getEmail() ?: $username.'_'.uniqid().'@street-artwork.com');
+            $password = $this->encoder->encodePassword($user, $username.'_'.uniqid());
+            $user->setPassword($password);
+            $user->setEnabled(true);
+            $this->userManager->updateUser($user);
+            $this->session->getFlashBag()->add('notice', $this->translator->trans(
+                'user.flash.created',
+                ['nickname' => $response->getNickname()]
+            ));
+        } else {
+            $user->$setter_id($username);
+            $user->$setter_token($response->getAccessToken());
+            $this->session->getFlashBag()->add('notice', $this->translator->trans(
+                'user.flash.loggedin',
+                ['nickname' => $response->getNickname()]
+            ));
+        }
+
+        return $user;
+    }
 }

@@ -1318,7 +1318,6 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     <unit id="27XMNVu" name="home.seearticles">
       <notes>
         <note category="file-source" priority="1">templates/pages/home.html.twig:35</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>home.seearticles</source>
@@ -1328,11 +1327,30 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     <unit id="1OEotYm" name="home.seeartworks">
       <notes>
         <note category="file-source" priority="1">templates/pages/home.html.twig:115</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>home.seeartworks</source>
         <target>Voir les oeuvres</target>
+      </segment>
+    </unit>
+    <unit id="tpKWk20" name="user.flash.created">
+      <notes>
+        <note category="file-source" priority="1">src/Security/Provider/UserProvider.php:115</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>user.flash.created</source>
+        <target>Ton compte est créé. Bienvenue nickname !</target>
+      </segment>
+    </unit>
+    <unit id="TJNPSpe" name="user.flash.loggedin">
+      <notes>
+        <note category="file-source" priority="1">src/Security/Provider/UserProvider.php:119</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>user.flash.loggedin</source>
+        <target>Bienvenue nickname !</target>
       </segment>
     </unit>
   </file>

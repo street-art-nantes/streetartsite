@@ -32,9 +32,19 @@ class User extends BaseUser
     protected $facebookId;
 
     /**
+     * @ORM\Column(name="facebookAccessToken", type="string", length=255, nullable=true)
+     */
+    protected $facebookAccessToken;
+
+    /**
      * @ORM\Column(name="instagramId", type="string", length=255, nullable=true)
      */
     protected $instagramId;
+
+    /**
+     * @ORM\Column(name="instagramAccessToken", type="string", length=255, nullable=true)
+     */
+    protected $instagramAccessToken;
 
     /**
      * @ORM\OneToMany(targetEntity="Artwork", mappedBy="contributor")
@@ -254,5 +264,40 @@ class User extends BaseUser
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getFacebookAccessToken()
+    {
+        return $this->facebookAccessToken;
+    }
+
+    /**
+     * @param mixed $facebookAccessToken
+     * @return User
+     */
+    public function setFacebookAccessToken($facebookAccessToken)
+    {
+        $this->facebookAccessToken = $facebookAccessToken;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInstagramAccessToken()
+    {
+        return $this->instagramAccessToken;
+    }
+
+    /**
+     * @param mixed $instagramAccessToken
+     * @return User
+     */
+    public function setInstagramAccessToken($instagramAccessToken)
+    {
+        $this->instagramAccessToken = $instagramAccessToken;
+        return $this;
+    }
 
 }

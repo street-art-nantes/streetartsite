@@ -59,4 +59,4 @@ services:
 
     my_user_provider:
         class: App\Security\Provider\UserProvider
-        arguments: ['@fos_user.user_manager', {facebook: facebookId, instagram: instagramId}]
+        arguments: ['@fos_user.user_manager', {facebook: facebookId, instagram: instagramId}, '@security.password_encoder', '@security.token_storage', '@translator', '@session']
