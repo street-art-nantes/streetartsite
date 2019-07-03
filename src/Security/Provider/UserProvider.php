@@ -14,7 +14,6 @@ use Symfony\Component\Translation\TranslatorInterface;
 
 class UserProvider extends BaseFOSUBProvider
 {
-
     /**
      * @var UserPasswordEncoder
      */
@@ -37,12 +36,13 @@ class UserProvider extends BaseFOSUBProvider
 
     /**
      * UserProvider constructor.
+     *
      * @param UserManagerInterface $userManager
-     * @param array $properties
-     * @param UserPasswordEncoder $encoder
-     * @param TokenStorage $tokenStorage
-     * @param TranslatorInterface $translator
-     * @param Session $session
+     * @param array                $properties
+     * @param UserPasswordEncoder  $encoder
+     * @param TokenStorage         $tokenStorage
+     * @param TranslatorInterface  $translator
+     * @param Session              $session
      */
     public function __construct(UserManagerInterface $userManager, array $properties, UserPasswordEncoder $encoder,
                                 TokenStorage $tokenStorage, TranslatorInterface $translator, Session $session)
@@ -55,7 +55,7 @@ class UserProvider extends BaseFOSUBProvider
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function connect(UserInterface $user, UserResponseInterface $response)
     {
@@ -64,17 +64,17 @@ class UserProvider extends BaseFOSUBProvider
         //on connect - get the access token and the user ID
         $service = $response->getResourceOwner()->getName();
         $setter = 'set'.ucfirst($service);
-        $setter_id = $setter.'Id';
-        $setter_token = $setter.'AccessToken';
+        $setterId = $setter.'Id';
+        $setterToken = $setter.'AccessToken';
         //we "disconnect" previously connected users
-        if (null !== $previousUser = $this->userManager->findUserBy(array($property => $username))) {
-            $previousUser->$setter_id(null);
-            $previousUser->$setter_token(null);
+        if (null !== $previousUser = $this->userManager->findUserBy([$property => $username])) {
+            $previousUser->$setterId(null);
+            $previousUser->$setterToken(null);
             $this->userManager->updateUser($previousUser);
         }
 
-        $user->$setter_id($username);
-        $user->$setter_token($response->getAccessToken());
+        $user->$setterId($username);
+        $user->$setterToken($response->getAccessToken());
         $this->userManager->updateUser($user);
 
         // login user
@@ -88,23 +88,23 @@ class UserProvider extends BaseFOSUBProvider
     public function loadUserByOAuthUserResponse(UserResponseInterface $response)
     {
         $username = $response->getUsername();
-        $user = $this->userManager->findUserBy(array($this->getProperty($response) => $username));
+        $user = $this->userManager->findUserBy([$this->getProperty($response) => $username]);
 
         $service = $response->getResourceOwner()->getName();
         $setter = 'set'.ucfirst($service);
-        $setter_id = $setter.'Id';
-        $setter_token = $setter.'AccessToken';
+        $setterId = $setter.'Id';
+        $setterToken = $setter.'AccessToken';
 
         // if never logged with current provider search by email
         if (null === $user && $response->getEmail()) {
-            $user = $this->userManager->findUserBy(array('email' => $response->getEmail()));
+            $user = $this->userManager->findUserBy(['email' => $response->getEmail()]);
         }
 
         if (null === $user) {
             // create new user here if not found by id or email
             $user = $this->userManager->createUser();
-            $user->$setter_id($username);
-            $user->$setter_token($response->getAccessToken());
+            $user->$setterId($username);
+            $user->$setterToken($response->getAccessToken());
             $user->setUsername($response->getNickname());
             // Generate fake email if not in response (aka instagram)
             $user->setEmail($response->getEmail() ?: $username.'_'.uniqid().'@street-artwork.com');
@@ -117,8 +117,8 @@ class UserProvider extends BaseFOSUBProvider
                 ['nickname' => $response->getNickname()]
             ));
         } else {
-            $user->$setter_id($username);
-            $user->$setter_token($response->getAccessToken());
+            $user->$setterId($username);
+            $user->$setterToken($response->getAccessToken());
             $this->session->getFlashBag()->add('notice', $this->translator->trans(
                 'user.flash.loggedin',
                 ['nickname' => $response->getNickname()]

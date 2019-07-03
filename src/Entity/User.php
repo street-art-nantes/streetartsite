@@ -238,11 +238,13 @@ class User extends BaseUser
 
     /**
      * @param mixed $facebookId
+     *
      * @return User
      */
     public function setFacebookId($facebookId)
     {
         $this->facebookId = $facebookId;
+
         return $this;
     }
 
@@ -256,11 +258,13 @@ class User extends BaseUser
 
     /**
      * @param mixed $instagramId
+     *
      * @return User
      */
     public function setInstagramId($instagramId)
     {
         $this->instagramId = $instagramId;
+
         return $this;
     }
 
@@ -274,11 +278,13 @@ class User extends BaseUser
 
     /**
      * @param mixed $facebookAccessToken
+     *
      * @return User
      */
     public function setFacebookAccessToken($facebookAccessToken)
     {
         $this->facebookAccessToken = $facebookAccessToken;
+
         return $this;
     }
 
@@ -292,12 +298,13 @@ class User extends BaseUser
 
     /**
      * @param mixed $instagramAccessToken
+     *
      * @return User
      */
     public function setInstagramAccessToken($instagramAccessToken)
     {
         $this->instagramAccessToken = $instagramAccessToken;
+
         return $this;
     }
-
 }
