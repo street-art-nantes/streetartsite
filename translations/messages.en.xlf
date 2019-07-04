@@ -1356,6 +1356,8 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
       <segment>
         <source>welcome.connectionor</source>
         <target><![CDATA[OR <br />with email/password]]></target>
+      </segment>
+    </unit>
     <unit id="GFlflaS" name="popup.title">
       <notes>
         <note category="file-source" priority="1">templates/popup/facebook-instagram.twig:5</note>

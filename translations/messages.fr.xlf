@@ -1377,6 +1377,8 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
       <segment>
         <source>welcome.connectionor</source>
         <target><![CDATA[OU <br />avec email/mot de passe]]></target>
+      </segment>
+    </unit>
     <unit id="GFlflaS" name="popup.title">
       <notes>
         <note category="file-source" priority="1">templates/popup/facebook-instagram.twig:5</note>
