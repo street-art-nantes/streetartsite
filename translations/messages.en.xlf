@@ -619,7 +619,7 @@
     </unit>
     <unit id="Yr35g2M" name="welcome.connect">
       <notes>
-        <note category="file-source" priority="1">templates/pages/welcome.html.twig:20</note>
+        <note category="file-source" priority="1">templates/pages/welcome.html.twig:39</note>
       </notes>
       <segment>
         <source>welcome.connect</source>
@@ -628,7 +628,7 @@
     </unit>
     <unit id="7WELECE" name="welcome.register">
       <notes>
-        <note category="file-source" priority="1">templates/pages/welcome.html.twig:24</note>
+        <note category="file-source" priority="1">templates/pages/welcome.html.twig:44</note>
       </notes>
       <segment>
         <source>welcome.register</source>
@@ -807,7 +807,7 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="WpIbEXb" name="welcome.contributor.list">
       <notes>
-        <note category="file-source" priority="1">templates/pages/welcome.html.twig:27</note>
+        <note category="state" priority="1">obsolete</note>
       </notes>
       <segment>
         <source>welcome.contributor.list</source>
@@ -1315,7 +1315,6 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     <unit id="tpKWk20" name="user.flash.created">
       <notes>
         <note category="file-source" priority="1">src/Security/Provider/UserProvider.php:115</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>user.flash.created</source>
@@ -1324,12 +1323,39 @@ Or contact us at this address (<a href="mailto:contact@street-artwork.com">conta
     </unit>
     <unit id="TJNPSpe" name="user.flash.loggedin">
       <notes>
-        <note category="file-source" priority="1">src/Security/Provider/UserProvider.php:119</note>
-        <note category="state" priority="1">new</note>
+        <note category="file-source" priority="1">src/Security/Provider/UserProvider.php:122</note>
       </notes>
       <segment>
         <source>user.flash.loggedin</source>
         <target>Welcome back nickname!</target>
+      </segment>
+    </unit>
+    <unit id="ZuwP116" name="welcome.facebook">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/welcome.html.twig:22</note>
+      </notes>
+      <segment>
+        <source>welcome.facebook</source>
+        <target>Sign in with Facebook</target>
+      </segment>
+    </unit>
+    <unit id="4WhY53P" name="welcome.instagram">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/welcome.html.twig:24</note>
+      </notes>
+      <segment>
+        <source>welcome.instagram</source>
+        <target>Sign in with Instagram</target>
+      </segment>
+    </unit>
+    <unit id="YoXcIqM" name="welcome.connectionor">
+      <notes>
+        <note category="file-source" priority="1">templates/pages/welcome.html.twig:32</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>welcome.connectionor</source>
+        <target><![CDATA[OR <br />with email/password]]></target>
       </segment>
     </unit>
   </file>
