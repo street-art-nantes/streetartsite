@@ -19,6 +19,11 @@
         <!-- ###+ nelmio/cors-bundle ### -->
         <env name="CORS_ALLOW_ORIGIN" value="^https?://localhost:?[0-9]*$"/>
         <!-- ###- nelmio/cors-bundle ### -->
+
+        <!-- ###+ hwi/oauth-bundle ### -->
+        <env name="FB_ID" value=""/>
+        <env name="FB_SECRET" value=""/>
+        <!-- ###- hwi/oauth-bundle ### -->
     </php>
 
     <testsuites>

@@ -4,31 +4,54 @@
 
 {% block body %}
 
-<main role="main">
-    <section class="section">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h1>{{ 'welcome.title'|trans({}) }}</h1>
-                    <p>{{ 'welcome.why'|trans({})|raw }}</p>
-                    <p>{{ 'welcome.how'|trans({})|raw }}</p>
+    <main role="main">
+        <section class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h1>{{ 'welcome.title'|trans({}) }}</h1>
+                        <p>{{ 'welcome.why'|trans({})|raw }}</p>
+                        <p>{{ 'welcome.how'|trans({})|raw }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <div class="social-login text-center">
+                            <button class="btn facebook-btn social-btn m-4" type="button"><span><i
+                                            class="fab fa-facebook-f"></i> {{ 'welcome.facebook'|trans({}) }}</span></button>
+                            <button class="btn instagram-btn social-btn m-4" type="button"><span><i
+                                            class="fab fa-instagram"></i> {{ 'welcome.instagram'|trans({}) }}</span></button>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3"></div>
+                <div class="col-md-12">
+                    <h4 class="text-center m-3">{{ 'welcome.connectionor'|trans({})|raw }}</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4"></div>
                 <div class="col-md-2">
-                    <p class="text-center"><a href="{{ path('fos_user_security_login') }}" class="btn btn-primary my-2">{{ 'welcome.connect'|trans({}) }}</a>
+                    <p class="text-center"><a href="{{ path('fos_user_security_login') }}"
+                                              class="btn btn-success my-2"><i class="fas fa-sign-in-alt"></i> {{ 'welcome.connect'|trans({}) }}</a>
                     </p>
                 </div>
                 <div class="col-md-2">
-                    <p class="text-center"><a href="{{ path('fos_user_registration_register') }}" class="btn btn-primary my-2">{{ 'welcome.register'|trans({}) }}</a></p>
+                    <p class="text-center"><a href="{{ path('fos_user_registration_register') }}"
+                                              class="btn btn-primary my-2"><i class="fas fa-user-plus"></i> {{ 'welcome.register'|trans({}) }}</a></p>
                 </div>
-                <div class="col-md-2">
-                    <p class="text-center"><a href="{{ path('contributor_list') }}" class="btn btn-primary my-2">{{ 'welcome.contributor.list'|trans({}) }}</a></p>
-                </div>
-                <div class="col-md-3"></div>
+                <div class="col-md-4"></div>
             </div>
-        </div>
-    </section>
-</main>
+            {#<div class="row">#}
+                {#<div class="col-md-12">#}
+                    {#<p class="text-center"><a href="{{ path('contributor_list') }}"#}
+                                              {#class="btn btn-primary my-2">{{ 'welcome.contributor.list'|trans({}) }}</a>#}
+                    {#</p>#}
+                {#</div>#}
+            {#</div>#}
+        </section>
+    </main>
 {% endblock %}

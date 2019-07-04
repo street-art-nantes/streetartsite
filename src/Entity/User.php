@@ -27,6 +27,26 @@ class User extends BaseUser
     protected $id;
 
     /**
+     * @ORM\Column(name="facebookId", type="string", length=255, nullable=true)
+     */
+    protected $facebookId;
+
+    /**
+     * @ORM\Column(name="facebookAccessToken", type="string", length=255, nullable=true)
+     */
+    protected $facebookAccessToken;
+
+    /**
+     * @ORM\Column(name="instagramId", type="string", length=255, nullable=true)
+     */
+    protected $instagramId;
+
+    /**
+     * @ORM\Column(name="instagramAccessToken", type="string", length=255, nullable=true)
+     */
+    protected $instagramAccessToken;
+
+    /**
      * @ORM\OneToMany(targetEntity="Artwork", mappedBy="contributor")
      */
     private $artworks;
@@ -206,5 +226,85 @@ class User extends BaseUser
     public function getArtworks()
     {
         return $this->artworks;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFacebookId()
+    {
+        return $this->facebookId;
+    }
+
+    /**
+     * @param mixed $facebookId
+     *
+     * @return User
+     */
+    public function setFacebookId($facebookId)
+    {
+        $this->facebookId = $facebookId;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInstagramId()
+    {
+        return $this->instagramId;
+    }
+
+    /**
+     * @param mixed $instagramId
+     *
+     * @return User
+     */
+    public function setInstagramId($instagramId)
+    {
+        $this->instagramId = $instagramId;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFacebookAccessToken()
+    {
+        return $this->facebookAccessToken;
+    }
+
+    /**
+     * @param mixed $facebookAccessToken
+     *
+     * @return User
+     */
+    public function setFacebookAccessToken($facebookAccessToken)
+    {
+        $this->facebookAccessToken = $facebookAccessToken;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInstagramAccessToken()
+    {
+        return $this->instagramAccessToken;
+    }
+
+    /**
+     * @param mixed $instagramAccessToken
+     *
+     * @return User
+     */
+    public function setInstagramAccessToken($instagramAccessToken)
+    {
+        $this->instagramAccessToken = $instagramAccessToken;
+
+        return $this;
     }
 }

@@ -146,3 +146,21 @@ artist_profile:
     requirements:
         id:  "[0-9]+"
         _locale:  '%locale_available%'
+
+hwi_oauth_security:
+    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
+    prefix: /login
+
+hwi_oauth_connect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/connect.xml"
+    prefix: /login
+
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix: /login
+
+facebook_login:
+    path:         /login/check-facebook
+
+instagram_login:
+    path:         /login/check-instagram
