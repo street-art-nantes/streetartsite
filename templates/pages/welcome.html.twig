@@ -18,10 +18,14 @@
                     <div class="col-md-2"></div>
                     <div class="col-md-8">
                         <div class="social-login text-center">
+                            <a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}">
                             <button class="btn facebook-btn social-btn m-4" type="button"><span><i
                                             class="fab fa-facebook-f"></i> {{ 'welcome.facebook'|trans({}) }}</span></button>
+                            </a>
+                            <a href="{{ path('hwi_oauth_service_redirect', {'service': 'instagram' }) }}">
                             <button class="btn instagram-btn social-btn m-4" type="button"><span><i
                                             class="fab fa-instagram"></i> {{ 'welcome.instagram'|trans({}) }}</span></button>
+                            </a>
                         </div>
                     </div>
                     <div class="col-md-2"></div>
