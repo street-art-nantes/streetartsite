@@ -95,8 +95,8 @@
     },
     "extra": {
         "symfony": {
-            "id": "01CBSZ1F4KNWZEHE1RX0SHP077",
-            "allow-contrib": false
+            "allow-contrib": false,
+            "require": "4.3.*"
         }
     }
 }
