@@ -215,6 +215,18 @@
     "jsor/doctrine-postgis": {
         "version": "v1.5.0"
     },
+    "lcobucci/jwt": {
+        "version": "3.3.1"
+    },
+    "lexik/jwt-authentication-bundle": {
+        "version": "2.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "2.5",
+            "ref": "5b2157bcd5778166a5696e42f552ad36529a07a6"
+        }
+    },
     "liip/imagine-bundle": {
         "version": "1.8",
         "recipe": {
@@ -232,6 +244,9 @@
     },
     "myclabs/deep-copy": {
         "version": "1.7.0"
+    },
+    "namshi/jose": {
+        "version": "7.2.3"
     },
     "nelmio/alice": {
         "version": "3.2",
@@ -503,6 +518,12 @@
             "ref": "8a2f7fa50a528f0aad1d7a87ae3730c981b367ce"
         }
     },
+    "symfony/http-client": {
+        "version": "v4.3.4"
+    },
+    "symfony/http-client-contracts": {
+        "version": "v1.1.6"
+    },
     "symfony/http-foundation": {
         "version": "v4.0.8"
     },
@@ -526,6 +547,9 @@
             "version": "1.0",
             "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
         }
+    },
+    "symfony/mime": {
+        "version": "v4.3.4"
     },
     "symfony/monolog-bridge": {
         "version": "v4.0.8"
@@ -560,11 +584,17 @@
     "symfony/polyfill-intl-icu": {
         "version": "v1.7.0"
     },
+    "symfony/polyfill-intl-idn": {
+        "version": "v1.12.0"
+    },
     "symfony/polyfill-mbstring": {
         "version": "v1.7.0"
     },
     "symfony/polyfill-php72": {
         "version": "v1.7.0"
+    },
+    "symfony/polyfill-php73": {
+        "version": "v1.12.0"
     },
     "symfony/process": {
         "version": "v4.0.8"

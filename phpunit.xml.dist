@@ -24,6 +24,12 @@
         <env name="FB_ID" value=""/>
         <env name="FB_SECRET" value=""/>
         <!-- ###- hwi/oauth-bundle ### -->
+
+        <!-- ###+ lexik/jwt-authentication-bundle ### -->
+        <env name="JWT_SECRET_KEY" value="%kernel.project_dir%/config/jwt/private.pem"/>
+        <env name="JWT_PUBLIC_KEY" value="%kernel.project_dir%/config/jwt/public.pem"/>
+        <env name="JWT_PASSPHRASE" value="960a3f3548cb181a208ecbbdcf613c76"/>
+        <!-- ###- lexik/jwt-authentication-bundle ### -->
     </php>
 
     <testsuites>
