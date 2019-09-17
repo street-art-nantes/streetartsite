@@ -4,12 +4,12 @@ namespace App\Controller\API;
 
 use App\Service\ImageKit;
 use Psr\Log\LoggerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Translation\TranslatorInterface;
 
-class ImageUploadController extends Controller
+class ImageUploadController extends AbstractController
 {
     /**
      * @var TranslatorInterface
