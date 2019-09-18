@@ -86,17 +86,19 @@
                     </div>
                 </div>
             {% elseif list is defined %}
-                <div class="row">
-                    <div class="col-12">
-                        <h4>{{ entryElement.title|raw }}</h4>
-                        <p>{{ entryElement.content|raw|nl2br }}</p>
+                {% for entryElement in list %}
+                    <div class="row">
+                        <div class="col-12">
+                            <h4>{{ entryElement.title|raw }}</h4>
+                            <p>{{ entryElement.content|raw|nl2br }}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <hr>
+                    <div class="row">
+                        <div class="col-12">
+                            <hr>
+                        </div>
                     </div>
-                </div>
+                {% endfor %}
             {% endif %}
         </div>
     </section>
