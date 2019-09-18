@@ -67,7 +67,7 @@ class FaqController extends Controller
         }
 
         return $this->render('pages/content.html.twig', [
-            'entries' => $entriesTransform,
+            'list' => $entriesTransform,
             'pageTitle' => $this->translator->trans('title.faq', [], 'Metas'),
             'pageDescription' => $this->translator->trans('description.faq', [], 'Metas'),
         ]);
