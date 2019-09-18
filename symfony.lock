@@ -80,6 +80,18 @@
     "doctrine/doctrine-cache-bundle": {
         "version": "1.3.3"
     },
+    "doctrine/doctrine-fixtures-bundle": {
+        "version": "3.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.0",
+            "ref": "fc52d86631a6dfd9fdf3381d0b7e3df2069e51b3"
+        },
+        "files": [
+            "src/DataFixtures/AppFixtures.php"
+        ]
+    },
     "doctrine/doctrine-migrations-bundle": {
         "version": "1.2",
         "recipe": {
@@ -133,6 +145,9 @@
     },
     "egulias/email-validator": {
         "version": "2.1.4"
+    },
+    "facebook/webdriver": {
+        "version": "1.7.1"
     },
     "fig/link-util": {
         "version": "1.0.0"
@@ -574,6 +589,9 @@
     },
     "symfony/orm-pack": {
         "version": "v1.0.5"
+    },
+    "symfony/panther": {
+        "version": "v0.5.2"
     },
     "symfony/phpunit-bridge": {
         "version": "3.3",
