@@ -3,7 +3,7 @@
 namespace App\Model\MetasSeo;
 
 use App\Entity\Artwork;
-use Symfony\Component\Translation\TranslatorInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class ArtworkMetasSeo implements MetasSeoInterface
 {

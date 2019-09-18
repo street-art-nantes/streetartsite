@@ -10,14 +10,14 @@ use App\Repository\ArtworkRepository;
 use App\Repository\AuthorRepository;
 use App\Repository\PageStatRepository;
 use Psr\Log\LoggerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Translation\TranslatorInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Class ArtistController.
  */
-class ArtistController extends Controller
+class ArtistController extends AbstractController
 {
     /**
      * @var TranslatorInterface
@@ -33,7 +33,7 @@ class ArtistController extends Controller
      * ArtistController constructor.
      *
      * @param TranslatorInterface $translator
-     * @param LoggerInterface     $logger
+     * @param LoggerInterface $logger
      */
     public function __construct(TranslatorInterface $translator, LoggerInterface $logger)
     {
@@ -43,7 +43,7 @@ class ArtistController extends Controller
 
     /**
      * @param Request $request
-     * @param int     $id
+     * @param int $id
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -69,7 +69,7 @@ class ArtistController extends Controller
                 $metas->setAuthor($artist);
 
                 $resultViewsTotal = $pageStatRepository->getTotalPageViewsByArtist($artist);
-                $resultViews = $pageStatRepository->getPageViewsByUrl('/artist-profile/'.$artist->getId());
+                $resultViews = $pageStatRepository->getPageViewsByUrl('/artist-profile/' . $artist->getId());
 
                 $viewsTotal = $resultViewsTotal['sum'] + 1;
                 $views = $resultViews['sum'] + 1;

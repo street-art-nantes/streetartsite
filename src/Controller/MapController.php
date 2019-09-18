@@ -5,9 +5,9 @@ namespace App\Controller;
 use App\Entity\Poi;
 use App\Manager\PoiManager;
 use App\Repository\PoiRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class MapController extends Controller
+class MapController extends AbstractController
 {
     /**
      * @return \Symfony\Component\HttpFoundation\Response

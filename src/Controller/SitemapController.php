@@ -2,14 +2,14 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Translation\TranslatorInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Class SitemapController.
  */
-class SitemapController extends Controller
+class SitemapController extends AbstractController
 {
     /**
      * @var TranslatorInterface
@@ -37,35 +37,35 @@ class SitemapController extends Controller
         // TODO generate or config file
         $routes = [
             [
-                'title' => '<a href="/'.$locale.'/map">'.$this->translator->trans('nav.link.sitemap').'</a>',
+                'title' => '<a href="/' . $locale . '/map">' . $this->translator->trans('nav.link.sitemap') . '</a>',
                 'content' => '',
             ],
             [
-                'title' => '<a href="/'.$locale.'/list">'.$this->translator->trans('header.menu.list').'</a>',
+                'title' => '<a href="/' . $locale . '/list">' . $this->translator->trans('header.menu.list') . '</a>',
                 'content' => '',
             ],
             [
-                'title' => '<a href="/'.$locale.'/artist-list">'.$this->translator->trans('header.menu.artistlist').'</a>',
+                'title' => '<a href="/' . $locale . '/artist-list">' . $this->translator->trans('header.menu.artistlist') . '</a>',
                 'content' => '',
             ],
             [
-                'title' => '<a href="/'.$locale.'/blog">'.$this->translator->trans('header.menu.blog').'</a>',
+                'title' => '<a href="/' . $locale . '/blog">' . $this->translator->trans('header.menu.blog') . '</a>',
                 'content' => '',
             ],
             [
-                'title' => '<a href="/'.$locale.'/faq">'.$this->translator->trans('nav.link.faq').'</a>',
+                'title' => '<a href="/' . $locale . '/faq">' . $this->translator->trans('nav.link.faq') . '</a>',
                 'content' => '',
             ],
             [
-                'title' => '<a href="/'.$locale.'/sitemap">'.$this->translator->trans('nav.link.sitemap').'</a>',
+                'title' => '<a href="/' . $locale . '/sitemap">' . $this->translator->trans('nav.link.sitemap') . '</a>',
                 'content' => '',
             ],
             [
-                'title' => '<a href="/'.$locale.'/legals">'.$this->translator->trans('nav.link.legals').'</a>',
+                'title' => '<a href="/' . $locale . '/legals">' . $this->translator->trans('nav.link.legals') . '</a>',
                 'content' => '',
             ],
             [
-                'title' => '<a href="/'.$locale.'/artwork/new">'.$this->translator->trans('header.menu.submit').'</a>',
+                'title' => '<a href="/' . $locale . '/artwork/new">' . $this->translator->trans('header.menu.submit') . '</a>',
                 'content' => '',
             ],
         ];

@@ -2,7 +2,7 @@
 
 namespace App\Model\MetasSeo;
 
-use Symfony\Component\Translation\TranslatorInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class BlogMetasSeo implements MetasSeoInterface
 {

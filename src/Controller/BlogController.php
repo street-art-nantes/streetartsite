@@ -6,12 +6,12 @@ use App\Model\MetasSeo\BlogMetasSeo;
 use Contentful\Delivery\Client;
 use Contentful\Delivery\Query;
 use Psr\Log\LoggerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Translation\TranslatorInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
-class BlogController extends Controller
+class BlogController extends AbstractController
 {
     /**
      * @var LoggerInterface
@@ -26,7 +26,7 @@ class BlogController extends Controller
     /**
      * BlogController constructor.
      *
-     * @param LoggerInterface     $logger
+     * @param LoggerInterface $logger
      * @param TranslatorInterface $translator
      */
     public function __construct(LoggerInterface $logger, TranslatorInterface $translator)
@@ -37,7 +37,7 @@ class BlogController extends Controller
 
     /**
      * @param Request $request
-     * @param string  $id
+     * @param string $id
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -80,7 +80,7 @@ class BlogController extends Controller
 
         $query = new Query();
         $query->setLocale($localeArray[$request->getLocale()])->setContentType('blogPost')
-        ->orderBy('fields.publishedDate', true);
+            ->orderBy('fields.publishedDate', true);
 
         try {
             $entries = $client->getEntries($query);

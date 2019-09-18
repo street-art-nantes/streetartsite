@@ -9,13 +9,13 @@ use App\Repository\ArtworkRepository;
 use App\Repository\PageStatRepository;
 use App\Repository\UserRepository;
 use Psr\Log\LoggerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Translation\TranslatorInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Class UserController.
  */
-class UserController extends Controller
+class UserController extends AbstractController
 {
     /**
      * @var TranslatorInterface
@@ -31,7 +31,7 @@ class UserController extends Controller
      * UserController constructor.
      *
      * @param TranslatorInterface $translator
-     * @param LoggerInterface     $logger
+     * @param LoggerInterface $logger
      */
     public function __construct(TranslatorInterface $translator, LoggerInterface $logger)
     {
@@ -82,7 +82,7 @@ class UserController extends Controller
                 }
 
                 $resultViewsTotal = $pageStatRepository->getTotalPageViewsByUser($user);
-                $resultViews = $pageStatRepository->getPageViewsByUrl('/public-profile/'.$user->getId());
+                $resultViews = $pageStatRepository->getPageViewsByUrl('/public-profile/' . $user->getId());
 
                 $viewsTotal = $resultViewsTotal['sum'] + 1;
                 $views = $resultViews['sum'] + 1;

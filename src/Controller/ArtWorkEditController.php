@@ -10,15 +10,15 @@ use App\Service\Mailer;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Log\LoggerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Translation\TranslatorInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Class ArtWorkEditController.
  */
-class ArtWorkEditController extends Controller
+class ArtWorkEditController extends AbstractController
 {
     /**
      * @var EntityManagerInterface
@@ -44,9 +44,9 @@ class ArtWorkEditController extends Controller
      * ArtWorkEditController constructor.
      *
      * @param EntityManagerInterface $entityManager
-     * @param LoggerInterface        $logger
-     * @param TranslatorInterface    $translator
-     * @param Mailer                 $mailer
+     * @param LoggerInterface $logger
+     * @param TranslatorInterface $translator
+     * @param Mailer $mailer
      */
     public function __construct(EntityManagerInterface $entityManager, LoggerInterface $logger, TranslatorInterface $translator, Mailer $mailer)
     {
@@ -60,7 +60,7 @@ class ArtWorkEditController extends Controller
      * @Route("/{_locale}/artwork/new", name="app_artwork_new")
      * @Route("/{_locale}/artwork/{id}/edit", name="app_artwork_edit")
      *
-     * @param Request      $request
+     * @param Request $request
      * @param Artwork|null $artwork
      *
      * @return \Symfony\Component\HttpFoundation\Response

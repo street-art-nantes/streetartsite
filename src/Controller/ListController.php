@@ -4,10 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Poi;
 use App\Repository\PoiRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Translation\TranslatorInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
-class ListController extends Controller
+class ListController extends AbstractController
 {
     /**
      * @var TranslatorInterface

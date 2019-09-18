@@ -5,10 +5,10 @@ namespace App\Controller;
 use App\Entity\Poi;
 use App\Repository\PoiRepository;
 use Psr\Log\LoggerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Translation\TranslatorInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
-class SearchController extends Controller
+class SearchController extends AbstractController
 {
     /**
      * @var LoggerInterface
@@ -23,7 +23,7 @@ class SearchController extends Controller
     /**
      * SearchController constructor.
      *
-     * @param LoggerInterface     $logger
+     * @param LoggerInterface $logger
      * @param TranslatorInterface $translator
      */
     public function __construct(LoggerInterface $logger, TranslatorInterface $translator)

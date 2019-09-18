@@ -10,10 +10,10 @@ use App\Model\MetasSeo\ArtworkMetasSeo;
 use App\Repository\PageStatRepository;
 use App\Repository\PoiRepository;
 use Psr\Log\LoggerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Translation\TranslatorInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
-class ArtworkController extends Controller
+class ArtworkController extends AbstractController
 {
     /**
      * @var TranslatorInterface
@@ -29,7 +29,7 @@ class ArtworkController extends Controller
      * ArtworkController constructor.
      *
      * @param TranslatorInterface $translator
-     * @param LoggerInterface     $logger
+     * @param LoggerInterface $logger
      */
     public function __construct(TranslatorInterface $translator, LoggerInterface $logger)
     {
@@ -69,7 +69,7 @@ class ArtworkController extends Controller
                 $metas = new ArtworkMetasSeo($this->translator);
                 $metas->setArtwork($poi->getArtworks()->first());
 
-                $resultViews = $pageStatRepository->getPageViewsByUrl('/artwork/'.$id);
+                $resultViews = $pageStatRepository->getPageViewsByUrl('/artwork/' . $id);
 
                 $views = $resultViews['sum'] + 1;
 
