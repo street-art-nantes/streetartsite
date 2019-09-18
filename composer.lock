@@ -9906,16 +9906,16 @@
         },
         {
             "name": "hautelook/alice-bundle",
-            "version": "v2.3.0",
+            "version": "v2.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hautelook/AliceBundle.git",
-                "reference": "1cbbbf65f19d07497174be1b263468bacaba9422"
+                "reference": "a4d25ba319b551d14082cd7e9916f5ddcd8bc0f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hautelook/AliceBundle/zipball/1cbbbf65f19d07497174be1b263468bacaba9422",
-                "reference": "1cbbbf65f19d07497174be1b263468bacaba9422",
+                "url": "https://api.github.com/repos/hautelook/AliceBundle/zipball/a4d25ba319b551d14082cd7e9916f5ddcd8bc0f2",
+                "reference": "a4d25ba319b551d14082cd7e9916f5ddcd8bc0f2",
                 "shasum": ""
             },
             "require": {
@@ -9933,9 +9933,6 @@
                 "phpspec/prophecy": "^1.7",
                 "phpunit/phpunit": "^7.0",
                 "symfony/phpunit-bridge": "^3.4 || ^4.0"
-            },
-            "suggest": {
-                "theofidry/alice-bundle-extension": "Behat extension for HautelookAliceBundle"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -9973,7 +9970,7 @@
                 "orm",
                 "symfony"
             ],
-            "time": "2018-09-24T18:43:04+00:00"
+            "time": "2019-08-04T18:39:27+00:00"
         },
         {
             "name": "jean85/pretty-package-versions",
