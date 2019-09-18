@@ -85,6 +85,18 @@
                         <p>{{ blog.get('content')|raw|nl2br }}</p>
                     </div>
                 </div>
+            {% elseif list is defined %}
+                <div class="row">
+                    <div class="col-12">
+                        <h4>{{ entryElement.title|raw }}</h4>
+                        <p>{{ entryElement.content|raw|nl2br }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <hr>
+                    </div>
+                </div>
             {% endif %}
         </div>
     </section>
