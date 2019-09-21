@@ -24,7 +24,7 @@ security:
                 success_handler: lexik_jwt_authentication.handler.authentication_success
                 failure_handler: lexik_jwt_authentication.handler.authentication_failure
         api:
-            pattern: ^/api/(?!docs).*
+            pattern: ^/api/.*
             stateless: true
             guard:
                 authenticators:
@@ -67,9 +67,10 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+#        - { path: ^/api/login_check, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/docs, role: ROLE_ADMIN }
+#        - { path: ^/api/docs, role: ROLE_ADMIN }
         - { path: ^/api, role: ROLE_USER }
         - { path: ^/admin/, role: ROLE_ADMIN }
         - { path: '^/[a-z]+/artwork/[0-9]+/edit', role: ROLE_ADMIN }

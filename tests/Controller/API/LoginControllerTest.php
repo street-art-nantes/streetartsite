@@ -4,7 +4,7 @@ namespace App\Tests;
 
 use Symfony\Component\Panther\PantherTestCase;
 
-class E2eTest extends PantherTestCase
+class LoginControllerTest extends PantherTestCase
 {
 //    public function testMyApp(): void
 //    {
@@ -19,14 +19,14 @@ class E2eTest extends PantherTestCase
     public function testLogin(): void
     {
         $client = static::createClient(); // Your app is automatically started using the built-in web server
-        $client->request('POST', 'api/login_check', [
-            'json' => [
-                'username' => 'komlan',
-                'password' => 'azerty',
-            ]
-        ]);
+        $client->request('POST', '/api/login_check', [], [], [
+            'CONTENT_TYPE' => 'application/json',
+        ], json_encode([
+            'username' => 'komlan',
+            'password' => 'azerty',
+        ]));
 
-        var_dump($client->getResponse()->headers);
+        var_dump($client->getResponse()->getContent());
 
         $this->assertResponseStatusCodeSame(200);
 
