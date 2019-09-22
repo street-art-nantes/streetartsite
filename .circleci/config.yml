@@ -24,21 +24,6 @@ workflows:
                 - master
 
 jobs:
-#      # install npm dependencies
-#      - run:
-#          name: Update npm
-#          command: 'sudo npm install -g npm@latest'
-#
-#      - restore_cache:
-#          keys:
-#            - node-v1-{{ checksum "package.json" }}
-#            - node-v1-
-#      - run: npm install
-#      - save_cache:
-#          key: node-v1-{{ checksum "package.json" }}
-#          paths:
-#            - node_modules
-
   phpunit:
     working_directory: ~/app
     docker:
@@ -100,6 +85,21 @@ jobs:
             php bin/console doctrine:query:sql 'CREATE EXTENSION IF NOT EXISTS postgis;'
             php bin/console doctrine:query:sql 'CREATE EXTENSION IF NOT EXISTS postgis_topology;'
             php bin/console doctrine:migration:migrate --no-interaction
+      # install npm dependencies
+      - run:
+          name: Update npm
+          command: 'sudo npm install -g npm@latest'
+
+      - restore_cache:
+          keys:
+            - node-v1-{{ checksum "package.json" }}
+            - node-v1-
+      - run: npm install
+      - save_cache:
+          key: node-v1-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+      - run: npm run build
       - run:
           name: Run tests
           command: |

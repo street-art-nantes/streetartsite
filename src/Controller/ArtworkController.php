@@ -28,7 +28,7 @@ class ArtworkController extends AbstractController
      * ArtworkController constructor.
      *
      * @param TranslatorInterface $translator
-     * @param LoggerInterface $logger
+     * @param LoggerInterface     $logger
      */
     public function __construct(TranslatorInterface $translator, LoggerInterface $logger)
     {
@@ -38,10 +38,11 @@ class ArtworkController extends AbstractController
 
     /**
      * @param PoiManager $poiManager
-     * @param $id
+     * @param int        $id
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function __invoke(PoiManager $poiManager, $id)
+    public function __invoke(PoiManager $poiManager, int $id)
     {
         /** @var PoiRepository $poiRepository */
         $poiRepository = $this->getDoctrine()->getRepository(Poi::class);
@@ -66,7 +67,7 @@ class ArtworkController extends AbstractController
                 $metas = new ArtworkMetasSeo($this->translator);
                 $metas->setArtwork($poi->getArtworks()->first());
 
-                $resultViews = $pageStatRepository->getPageViewsByUrl('/artwork/' . $id);
+                $resultViews = $pageStatRepository->getPageViewsByUrl('/artwork/'.$id);
 
                 $views = $resultViews['sum'] + 1;
 

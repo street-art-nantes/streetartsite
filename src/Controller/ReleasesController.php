@@ -27,7 +27,7 @@ class ReleasesController extends Controller
     /**
      * ReleasesController constructor.
      *
-     * @param LoggerInterface $logger
+     * @param LoggerInterface     $logger
      * @param TranslatorInterface $translator
      */
     public function __construct(LoggerInterface $logger, TranslatorInterface $translator)

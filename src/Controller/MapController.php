@@ -10,6 +10,7 @@ class MapController extends AbstractController
 {
     /**
      * @param PoiManager $poiManager
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function __invoke(PoiManager $poiManager)
