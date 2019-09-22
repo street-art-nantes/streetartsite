@@ -59,9 +59,9 @@ jobs:
           INST_SECRET: ''
           IMAGEKIT_PUBLIC_KEY: ''
           IMAGEKIT_PRIVATE_KEY: ''
-          JWT_SECRET_KEY: '/app/config/jwt/private.pem'
-          JWT_PUBLIC_KEY: '/app/config/jwt/public.pem'
-          JWT_PASSPHRASE: 842c6ca975dd5e67b1faea0020d65129
+          JWT_SECRET_KEY: '%kernel.project_dir%/.circleci/jwt/private.pem'
+          JWT_PUBLIC_KEY: '%kernel.project_dir%/.circleci/jwt/public.pem'
+          JWT_PASSPHRASE: seuleladoseestpoison
 
       # The following example uses the official postgres 9.6 image, you may also use circleci/postgres:9.6
       # which includes a few enhancements and modifications. It is possible to use either image.
