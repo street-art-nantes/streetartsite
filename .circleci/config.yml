@@ -91,18 +91,17 @@ jobs:
           command: .circleci/wait-for-it.sh localhost:5432
       - run:
           name: Run migrations
-          environment:
-            CONTACTS_DB_URL: "postgres://circleci-demo-go@localhost:5432/circle_test?sslmode=disable"
-            CONTACTS_DB_MIGRATIONS: /go/src/github.com/CircleCI-Public/circleci-demo-go/db/migrations
           command: |
-            echo "Hello"
             mkdir -p var/cache var/log
             php bin/console asset:install
 
             php bin/console doctrine:query:sql 'CREATE EXTENSION IF NOT EXISTS postgis;'
             php bin/console doctrine:query:sql 'CREATE EXTENSION IF NOT EXISTS postgis_topology;'
             php bin/console doctrine:migration:migrate --no-interaction
-
+      - run:
+          name: Run tests
+          command: |
+            phpunit
   phpstan:
     working_directory: ~/app
     docker:
