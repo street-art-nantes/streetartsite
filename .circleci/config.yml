@@ -4,22 +4,24 @@ workflows:
   version: 2
   build:
     jobs:
-#      - phpstan
-#      - doctrine-schema-validate
-#      - php-metrics
-#      - php-phpmd
-#      - php-cs-fixer
-      - phpunit
-#      - deploy:
-#          requires:
-#            - phpstan
-#            - doctrine-schema-validate
-#            - php-metrics
-#            - php-cs-fixer
-#          filters:  # using regex filters requires the entire branch to match
-#            branches:
-#              only:  # only branches matching the below regex filters will run
-#                - master
+      - phpstan
+      - doctrine-schema-validate
+      - php-metrics
+      - php-phpmd
+      - php-cs-fixer
+      - phpunit:
+          requires:
+            - phpstan
+            - doctrine-schema-validate
+            - php-metrics
+            - php-cs-fixer
+      - deploy:
+          requires:
+            - phpunit
+          filters:  # using regex filters requires the entire branch to match
+            branches:
+              only:  # only branches matching the below regex filters will run
+                - master
 
 jobs:
 #      # install npm dependencies
