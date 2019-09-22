@@ -101,7 +101,7 @@ jobs:
       - run:
           name: Run tests
           command: |
-            phpunit
+            ./vendor/bin/simple-phpunit
   phpstan:
     working_directory: ~/app
     docker:
