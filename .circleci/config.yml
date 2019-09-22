@@ -4,21 +4,22 @@ workflows:
   version: 2
   build:
     jobs:
-      - phpstan
-      - doctrine-schema-validate
-      - php-metrics
-      - php-phpmd
-      - php-cs-fixer
-      - deploy:
-          requires:
-            - phpstan
-            - doctrine-schema-validate
-            - php-metrics
-            - php-cs-fixer
-          filters:  # using regex filters requires the entire branch to match
-            branches:
-              only:  # only branches matching the below regex filters will run
-                - master
+#      - phpstan
+#      - doctrine-schema-validate
+#      - php-metrics
+#      - php-phpmd
+#      - php-cs-fixer
+      - phpunit
+#      - deploy:
+#          requires:
+#            - phpstan
+#            - doctrine-schema-validate
+#            - php-metrics
+#            - php-cs-fixer
+#          filters:  # using regex filters requires the entire branch to match
+#            branches:
+#              only:  # only branches matching the below regex filters will run
+#                - master
 
 jobs:
 #      # install npm dependencies
@@ -35,6 +36,58 @@ jobs:
 #          key: node-v1-{{ checksum "package.json" }}
 #          paths:
 #            - node_modules
+
+  phpunit:
+    working_directory: ~/app
+    docker:
+      - image: ruby:2.3.1-jessie
+        environment:
+          PG_HOST: localhost
+          PG_USER: ubuntu
+          RAILS_ENV: test
+          RACK_ENV: test
+      # The following example uses the official postgres 9.6 image, you may also use circleci/postgres:9.6
+      # which includes a few enhancements and modifications. It is possible to use either image.
+      - image: mdillon/postgis:10
+        environment:
+          DEBUG: false
+          POSTGRES_USER: streetart
+          POSTGRES_PASSWORD: streetart
+          POSTGRES_DB: streetart
+
+    steps:
+      - checkout
+      - restore_cache:
+         keys:
+           - composer-v1-{{ checksum "composer.lock" }}
+           - composer-v1-
+      - run: composer install --prefer-dist
+      - save_cache:
+           key: composer-v1-{{ checksum "composer.lock" }}
+           paths:
+             - vendor
+      - run:
+          name: Waiting for Postgres to be ready
+          command: |
+            for i in `seq 1 10`;
+            do
+              nc -z localhost 5432 && echo Success && exit 0
+              echo -n .
+              sleep 1
+            done
+            echo Failed waiting for Postgres && exit 1
+      - run:
+          name: Run migrations
+          environment:
+            CONTACTS_DB_URL: "postgres://circleci-demo-go@localhost:5432/circle_test?sslmode=disable"
+            CONTACTS_DB_MIGRATIONS: /go/src/github.com/CircleCI-Public/circleci-demo-go/db/migrations
+          command: |
+            echo "Hello"
+            mkdir -p var/cache var/log
+            php bin/console asset:install
+
+            php bin/console doctrine:query:sql 'CREATE EXTENSION IF NOT EXISTS postgis;'
+            php bin/console doctrine:query:sql 'CREATE EXTENSION IF NOT EXISTS postgis_topology;'
 
   phpstan:
     working_directory: ~/app
