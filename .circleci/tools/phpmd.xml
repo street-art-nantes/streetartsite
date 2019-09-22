@@ -14,6 +14,7 @@
     <rule ref="rulesets/controversial.xml" />
     <rule ref="rulesets/design.xml">
         <exclude name="CouplingBetweenObjects"/>
+        <exclude name="NumberOfChildren" />
     </rule>
     <rule ref="rulesets/unusedcode.xml">
         <exclude name="UnusedLocalVariable"/>
@@ -44,11 +45,6 @@
         <properties>
             <property name="allow-unused-foreach-variables" value="true" />
             <property name="exceptions" value="$input, $options" />
-        </properties>
-    </rule>
-    <rule ref="rulesets/design.xml/NumberOfChildren">
-        <properties>
-            <property name="reportLevel" value="100" />
         </properties>
     </rule>
     <exclude-pattern>/src/Migrations/*</exclude-pattern>
