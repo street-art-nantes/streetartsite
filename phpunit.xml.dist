@@ -31,7 +31,7 @@
         <env name="JWT_PASSPHRASE" value="seuleladoseestpoison"/>
         <!-- ###- lexik/jwt-authentication-bundle ### -->
 
-        <env name="DATABASE_URL" value="postgresql://streetart:streetart@localhost:5432/streetart"/>
+        <env name="DATABASE_URL" value="postgresql://streetart:streetart@localhost:5432/streetart_test"/>
 
         <env name="GOOGLE_ANALYTICS_KEY" value="DataFixtures/google-analytics.json"/>
         <env name="GOOGLE_ANALYTICS_VIEW" value="xxx"/>
