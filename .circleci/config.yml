@@ -88,7 +88,7 @@ jobs:
       # install npm dependencies
       - run:
           name: Update npm
-          command: 'sudo npm install -g npm@latest'
+          command: 'npm install -g npm@latest'
 
       - restore_cache:
           keys:
