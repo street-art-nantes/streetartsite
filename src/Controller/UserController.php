@@ -31,7 +31,7 @@ class UserController extends AbstractController
      * UserController constructor.
      *
      * @param TranslatorInterface $translator
-     * @param LoggerInterface $logger
+     * @param LoggerInterface     $logger
      */
     public function __construct(TranslatorInterface $translator, LoggerInterface $logger)
     {
@@ -82,7 +82,7 @@ class UserController extends AbstractController
                 }
 
                 $resultViewsTotal = $pageStatRepository->getTotalPageViewsByUser($user);
-                $resultViews = $pageStatRepository->getPageViewsByUrl('/public-profile/' . $user->getId());
+                $resultViews = $pageStatRepository->getPageViewsByUrl('/public-profile/'.$user->getId());
 
                 $viewsTotal = $resultViewsTotal['sum'] + 1;
                 $views = $resultViews['sum'] + 1;

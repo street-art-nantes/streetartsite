@@ -10,7 +10,7 @@
     <php>
         <ini name="error_reporting" value="-1" />
         <env name="KERNEL_CLASS" value="App\Kernel" />
-        <env name="APP_ENV" value="test" />
+        <env name="APP_ENV" value="test" force="true"/>
         <env name="APP_DEBUG" value="1" />
         <env name="APP_SECRET" value="s$cretf0rt3st" />
         <env name="SHELL_VERBOSITY" value="-1" />
@@ -28,8 +28,16 @@
         <!-- ###+ lexik/jwt-authentication-bundle ### -->
         <env name="JWT_SECRET_KEY" value="%kernel.project_dir%/config/jwt/private.pem"/>
         <env name="JWT_PUBLIC_KEY" value="%kernel.project_dir%/config/jwt/public.pem"/>
-        <env name="JWT_PASSPHRASE" value="960a3f3548cb181a208ecbbdcf613c76"/>
+        <env name="JWT_PASSPHRASE" value="842c6ca975dd5e67b1faea0020d65129"/>
         <!-- ###- lexik/jwt-authentication-bundle ### -->
+
+        <env name="DATABASE_URL" value="postgresql://streetart:streetart@localhost:5432/streetart"/>
+
+        <env name="GOOGLE_ANALYTICS_KEY" value="DataFixtures/google-analytics.json"/>
+        <env name="GOOGLE_ANALYTICS_VIEW" value="xxx"/>
+
+        <env name="IMAGEKIT_PUBLIC_KEY" value="xxx"/>
+        <env name="IMAGEKIT_PRIVATE_KEY" value="xxx"/>
     </php>
 
     <testsuites>

@@ -42,9 +42,9 @@ class ArtistEditController extends AbstractController
      * ArtWorkEditController constructor.
      *
      * @param EntityManagerInterface $entityManager
-     * @param LoggerInterface $logger
-     * @param TranslatorInterface $translator
-     * @param Mailer $mailer
+     * @param LoggerInterface        $logger
+     * @param TranslatorInterface    $translator
+     * @param Mailer                 $mailer
      */
     public function __construct(EntityManagerInterface $entityManager, LoggerInterface $logger, TranslatorInterface $translator, Mailer $mailer)
     {
@@ -58,7 +58,7 @@ class ArtistEditController extends AbstractController
      * @Route("/{_locale}/artist/new", name="app_artist_new")
      * @Route("/{_locale}/artist/{id}/edit", name="app_artist_edit")
      *
-     * @param Request $request
+     * @param Request     $request
      * @param Author|null $author
      *
      * @return \Symfony\Component\HttpFoundation\Response

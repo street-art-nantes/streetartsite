@@ -18,6 +18,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  *     itemOperations={
  *       "get"={
  *         "normalization_context"={"groups"={"publication"}},
+ *         "access_control"="is_granted('ROLE_ADMIN') or user == object",
  *       }
  *     }
  * )
@@ -34,7 +35,6 @@ class User extends BaseUser
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="IDENTITY")
-     *
      */
     protected $id;
 
@@ -113,6 +113,22 @@ class User extends BaseUser
         $this->artworks = new ArrayCollection();
         $this->createdAt = new \DateTime();
         $this->updatedAt = new \DateTime();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id): void
+    {
+        $this->id = $id;
     }
 
     /**

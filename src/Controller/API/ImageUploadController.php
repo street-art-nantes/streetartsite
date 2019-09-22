@@ -28,9 +28,10 @@ class ImageUploadController extends AbstractController
 
     /**
      * ImageUploadController constructor.
-     * @param ImageKit $imageKit
+     *
+     * @param ImageKit            $imageKit
      * @param TranslatorInterface $translator
-     * @param LoggerInterface $logger
+     * @param LoggerInterface     $logger
      */
     public function __construct(ImageKit $imageKit, TranslatorInterface $translator, LoggerInterface $logger)
     {
@@ -41,8 +42,10 @@ class ImageUploadController extends AbstractController
 
     /**
      * @param Request $request
-     * @return JsonResponse
+     *
      * @throws \GuzzleHttp\Exception\GuzzleException
+     *
+     * @return JsonResponse
      */
     public function __invoke(Request $request)
     {
@@ -63,7 +66,7 @@ class ImageUploadController extends AbstractController
 
         return new JsonResponse([
             'error' => [],
-            'data' => $response
+            'data' => $response,
         ]);
     }
 }

@@ -46,7 +46,6 @@
     },
     "require-dev": {
         "doctrine/data-fixtures": "^1.3",
-        "doctrine/doctrine-fixtures-bundle": "^3.2",
         "friendsofphp/php-cs-fixer": "^2.11",
         "hautelook/alice-bundle": "^2.0",
         "phpstan/phpstan": "^0.10.3",

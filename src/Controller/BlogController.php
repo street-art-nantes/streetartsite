@@ -26,7 +26,7 @@ class BlogController extends AbstractController
     /**
      * BlogController constructor.
      *
-     * @param LoggerInterface $logger
+     * @param LoggerInterface     $logger
      * @param TranslatorInterface $translator
      */
     public function __construct(LoggerInterface $logger, TranslatorInterface $translator)
@@ -37,7 +37,7 @@ class BlogController extends AbstractController
 
     /**
      * @param Request $request
-     * @param string $id
+     * @param string  $id
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */

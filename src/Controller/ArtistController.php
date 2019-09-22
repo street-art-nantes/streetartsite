@@ -33,7 +33,7 @@ class ArtistController extends AbstractController
      * ArtistController constructor.
      *
      * @param TranslatorInterface $translator
-     * @param LoggerInterface $logger
+     * @param LoggerInterface     $logger
      */
     public function __construct(TranslatorInterface $translator, LoggerInterface $logger)
     {
@@ -43,7 +43,7 @@ class ArtistController extends AbstractController
 
     /**
      * @param Request $request
-     * @param int $id
+     * @param int     $id
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -69,7 +69,7 @@ class ArtistController extends AbstractController
                 $metas->setAuthor($artist);
 
                 $resultViewsTotal = $pageStatRepository->getTotalPageViewsByArtist($artist);
-                $resultViews = $pageStatRepository->getPageViewsByUrl('/artist-profile/' . $artist->getId());
+                $resultViews = $pageStatRepository->getPageViewsByUrl('/artist-profile/'.$artist->getId());
 
                 $viewsTotal = $resultViewsTotal['sum'] + 1;
                 $views = $resultViews['sum'] + 1;

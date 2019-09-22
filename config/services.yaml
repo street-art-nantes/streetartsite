@@ -65,3 +65,9 @@ services:
 
     App\Service\ImageKit:
         arguments: [ '%imagekit_public_key%', '%imagekit_private_key%' ]
+
+
+    App\Listener\User\UserGetMeSubscriber:
+        class: App\Listener\User\UserGetMeSubscriber
+        tags:
+            - { name: kernel.event_subscriber }

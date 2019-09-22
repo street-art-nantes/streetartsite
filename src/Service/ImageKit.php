@@ -7,8 +7,7 @@ use GuzzleHttp\Exception\ClientException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
- * Class ImageKit
- * @package App\Service
+ * Class ImageKit.
  */
 class ImageKit
 {
@@ -24,6 +23,7 @@ class ImageKit
 
     /**
      * ImageKit constructor.
+     *
      * @param string $publicKey
      * @param string $privateKey
      */
@@ -36,8 +36,10 @@ class ImageKit
     /**
      * @param UploadedFile $file
      * @param $folder
-     * @return bool
+     *
      * @throws \GuzzleHttp\Exception\GuzzleException
+     *
+     * @return bool
      */
     public function upload(UploadedFile $file, $folder)
     {
@@ -57,13 +59,13 @@ class ImageKit
                         ],
                         [
                             'name' => 'fileName',
-                            'contents' => $file->getClientOriginalName()
+                            'contents' => $file->getClientOriginalName(),
                         ],
                         [
                             'name' => 'folder',
-                            'contents' => $folder
-                        ]
-                    ]
+                            'contents' => $folder,
+                        ],
+                    ],
                 ]
             );
 

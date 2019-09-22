@@ -3,3 +3,17 @@ api_platform:
         paths:
             - '%kernel.project_dir%/src/Entity'
             - '%kernel.project_dir%/config/api_platform/resources'
+    title: Street Artwork
+    version: 0.1
+    swagger:
+        api_keys:
+            apiKey:
+                name: Authorization
+                type: header
+    collection:
+        pagination:
+            # The default number of items per page.
+            items_per_page: 100
+
+            # The maximum number of items per page.
+            maximum_items_per_page: 100
