@@ -36,7 +36,7 @@ class ArtworkMetasSeo implements MetasSeoInterface
     {
         $author = $this->artwork->getAuthor()->first() ? $this->artwork->getAuthor()->first()->getName() : '';
         $title = $this->translator->trans('title.artwork', [
-            '%count%' => \mb_strlen($author),
+            '%count%' => mb_strlen($author),
             '%type%' => ucfirst($this->artwork->getType()),
             '%id%' => $this->artwork->getId(),
             '%title%' => $this->artwork->getTitle(),
@@ -52,7 +52,7 @@ class ArtworkMetasSeo implements MetasSeoInterface
     {
         $author = $this->artwork->getAuthor()->first() ? $this->artwork->getAuthor()->first()->getName() : '';
         $description = $this->translator->trans('description.artwork', [
-            '%count%' => \mb_strlen($author),
+            '%count%' => mb_strlen($author),
             '%type%' => ucfirst($this->artwork->getType()),
             '%id%' => $this->artwork->getId(),
             '%title%' => $this->artwork->getTitle(),

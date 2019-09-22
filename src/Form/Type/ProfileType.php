@@ -62,7 +62,7 @@ class ProfileType extends AbstractType
     }
 
     /**
-     * @return null|string
+     * @return string|null
      */
     public function getParent()
     {
@@ -70,7 +70,7 @@ class ProfileType extends AbstractType
     }
 
     /**
-     * @return null|string
+     * @return string|null
      */
     public function getBlockPrefix()
     {
@@ -78,7 +78,7 @@ class ProfileType extends AbstractType
     }
 
     /**
-     * @return null|string
+     * @return string|null
      */
     public function getName()
     {
