@@ -27,7 +27,7 @@ jobs:
   phpunit:
     working_directory: ~/app
     docker:
-      - image: misterio92/ci-php-node:3
+      - image: misterio92/ci-php-node:3.0
         environment:
           PG_HOST: localhost
           PG_USER: streetart
