@@ -45,7 +45,6 @@ jobs:
           PG_HOST: localhost
           PG_USER: streetart
           APP_ENV: test
-          ENV: test
           APP_SECRET: 960e2558282eece350a7767b4a70116e
           TRUSTED_PROXIES: 127.0.0.1,127.0.0.2
           TRUSTED_HOSTS: localhost,example.com
@@ -99,11 +98,10 @@ jobs:
             php bin/console doctrine:query:sql 'CREATE EXTENSION IF NOT EXISTS postgis;'
             php bin/console doctrine:query:sql 'CREATE EXTENSION IF NOT EXISTS postgis_topology;'
             php bin/console doctrine:migration:migrate --no-interaction
-            php bin/console hautelook:fixtures:load
       - run:
           name: Run tests
           command: |
-            ./vendor/bin/simple-phpunit
+            ENV=test ./vendor/bin/simple-phpunit
   phpstan:
     working_directory: ~/app
     docker:
