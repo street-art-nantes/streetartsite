@@ -21,10 +21,21 @@ class ApplicationAvailabilityTest extends WebTestCase
     {
         yield ['/'];
         yield ['/fr/map'];
-//        yield ['/fr/list'];
+        yield ['/fr/list'];
         yield ['/fr/artist-list'];
         yield ['/fr/blog'];
         yield ['/fr/artwork/new'];
         yield ['/fr/artist/new'];
+        yield ['/fr/releases'];
+        yield ['/fr/login'];
+
+        yield ['/en/map'];
+        yield ['/en/list'];
+        yield ['/en/artist-list'];
+        yield ['/en/blog'];
+        yield ['/en/artwork/new'];
+        yield ['/en/artist/new'];
+        yield ['/en/releases'];
+        yield ['/en/login'];
     }
 }

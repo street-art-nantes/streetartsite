@@ -52,7 +52,7 @@ class ListController extends AbstractController
         $countriesFromPoi = $poiRepository->getAllCountries();
 
         $columnCount = 4;
-        $colPois = array_chunk($pois, ceil(\count($pois) / $columnCount));
+        $colPois = \count($pois) ? array_chunk($pois, ceil(\count($pois) / $columnCount)) : [[], [], []];
 
         return $this->render('pages/list.html.twig', [
             'colPois' => $colPois,
