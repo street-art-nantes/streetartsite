@@ -27,7 +27,7 @@ jobs:
   phpunit:
     working_directory: ~/app
     docker:
-      - image: webdevops/php-dev
+      - image: misterio92/ci-php-node:3
         environment:
           PG_HOST: localhost
           PG_USER: streetart
@@ -86,10 +86,6 @@ jobs:
             php bin/console doctrine:query:sql 'CREATE EXTENSION IF NOT EXISTS postgis_topology;'
             php bin/console doctrine:migration:migrate --no-interaction
       # install npm dependencies
-      - run:
-          name: Update npm
-          command: 'npm install -g npm@latest'
-
       - restore_cache:
           keys:
             - node-v1-{{ checksum "package.json" }}
