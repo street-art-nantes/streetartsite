@@ -9,14 +9,14 @@ workflows:
       - php-metrics
       - php-phpmd
       - php-cs-fixer
-      - phpunit:
+      - phpunit
+      - deploy:
           requires:
             - phpstan
             - doctrine-schema-validate
             - php-metrics
+            - php-phpmd
             - php-cs-fixer
-      - deploy:
-          requires:
             - phpunit
           filters:  # using regex filters requires the entire branch to match
             branches:

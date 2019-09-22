@@ -31,6 +31,7 @@ trait AuthenticationTrait
         );
 
         $data = json_decode($client->getResponse()->getContent(), true);
+        var_dump($client->getResponse()->getContent());
         $client = static::createClient();
         $client->setServerParameter('HTTP_Authorization', sprintf('Bearer %s', $data['token']));
 
