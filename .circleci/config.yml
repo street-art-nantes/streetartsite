@@ -56,7 +56,10 @@ jobs:
 
     steps:
       - checkout
-      - run: source .env.dist
+      - run: |
+          set -o allexport
+          source .env.dist
+          set +o allexport
       - restore_cache:
          keys:
            - composer-v1-{{ checksum "composer.lock" }}
