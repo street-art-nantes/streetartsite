@@ -46,5 +46,10 @@
             <property name="exceptions" value="$input, $options" />
         </properties>
     </rule>
+    <rule ref="rulesets/design.xml/NumberOfChildren">
+        <properties>
+            <property name="reportLevel" value="100" />
+        </properties>
+    </rule>
     <exclude-pattern>/src/Migrations/*</exclude-pattern>
 </ruleset>
