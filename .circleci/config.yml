@@ -53,12 +53,12 @@ jobs:
           CORS_ALLOW_ORIGIN: ^https?://localhost:?[0-9]*$
           GOOGLE_ANALYTICS_KEY: ../streetart-5acc1a17d695.json
           GOOGLE_ANALYTICS_VIEW: 177146240
-          FB_ID:
-          FB_SECRET:
-          INST_ID:
-          INST_SECRET:
-          IMAGEKIT_PUBLIC_KEY:
-          IMAGEKIT_PRIVATE_KEY:
+          FB_ID: ''
+          FB_SECRET: ''
+          INST_ID: ''
+          INST_SECRET: ''
+          IMAGEKIT_PUBLIC_KEY: ''
+          IMAGEKIT_PRIVATE_KEY: ''
           JWT_SECRET_KEY: %kernel.project_dir%/config/jwt/private.pem
           JWT_PUBLIC_KEY: %kernel.project_dir%/config/jwt/public.pem
           JWT_PASSPHRASE: 842c6ca975dd5e67b1faea0020d65129
@@ -71,7 +71,6 @@ jobs:
           POSTGRES_USER: streetart
           POSTGRES_PASSWORD: streetart
           POSTGRES_DB: streetart
-
     steps:
       - checkout
       - run: |
