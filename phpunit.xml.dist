@@ -38,6 +38,8 @@
 
         <env name="IMAGEKIT_PUBLIC_KEY" value="xxx"/>
         <env name="IMAGEKIT_PRIVATE_KEY" value="xxx"/>
+
+        <env name="SYMFONY_DEPRECATIONS_HELPER" value="weak" />
     </php>
 
     <testsuites>
