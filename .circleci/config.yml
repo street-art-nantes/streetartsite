@@ -45,6 +45,24 @@ jobs:
           PG_HOST: localhost
           PG_USER: streetart
           APP_ENV: test
+          APP_SECRET: 960e2558282eece350a7767b4a70116e
+          TRUSTED_PROXIES: 127.0.0.1,127.0.0.2
+          TRUSTED_HOSTS: localhost,example.com
+          DATABASE_URL: postgresql://streetart:streetart@db:5432/streetart
+          MAILER_URL: smtp://mailcatcher:1025
+          CORS_ALLOW_ORIGIN: ^https?://localhost:?[0-9]*$
+          GOOGLE_ANALYTICS_KEY: ../streetart-5acc1a17d695.json
+          GOOGLE_ANALYTICS_VIEW: 177146240
+          FB_ID:
+          FB_SECRET:
+          INST_ID:
+          INST_SECRET:
+          IMAGEKIT_PUBLIC_KEY:
+          IMAGEKIT_PRIVATE_KEY:
+          JWT_SECRET_KEY: %kernel.project_dir%/config/jwt/private.pem
+          JWT_PUBLIC_KEY: %kernel.project_dir%/config/jwt/public.pem
+          JWT_PASSPHRASE: 842c6ca975dd5e67b1faea0020d65129
+
       # The following example uses the official postgres 9.6 image, you may also use circleci/postgres:9.6
       # which includes a few enhancements and modifications. It is possible to use either image.
       - image: mdillon/postgis:10
