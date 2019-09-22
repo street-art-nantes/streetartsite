@@ -56,6 +56,8 @@ jobs:
 
     steps:
       - checkout
+      - run: cp .env.dist .env.test
+      - run: cp .env.dist .env
       - restore_cache:
          keys:
            - composer-v1-{{ checksum "composer.lock" }}
