@@ -9,7 +9,6 @@ use App\Repository\ArtworkRepository;
 use App\Repository\PageStatRepository;
 use App\Repository\UserRepository;
 use Psr\Log\LoggerInterface;
-use App\Controller\AbstractController;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**

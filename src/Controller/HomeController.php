@@ -6,7 +6,6 @@ use App\Entity\Poi;
 use App\Entity\User;
 use App\Repository\PoiRepository;
 use App\Repository\UserRepository;
-use App\Controller\AbstractController;
 
 /**
  * Class HomeController.

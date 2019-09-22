@@ -35,7 +35,8 @@ class ImageKit
 
     /**
      * @param UploadedFile $file
-     * @param string $folder
+     * @param string       $folder
+     *
      * @return bool|mixed
      */
     public function upload(UploadedFile $file, $folder)

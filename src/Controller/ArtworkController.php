@@ -10,7 +10,6 @@ use App\Model\MetasSeo\ArtworkMetasSeo;
 use App\Repository\PageStatRepository;
 use App\Repository\PoiRepository;
 use Psr\Log\LoggerInterface;
-use App\Controller\AbstractController;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class ArtworkController extends AbstractController

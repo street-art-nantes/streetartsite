@@ -2,9 +2,9 @@
 
 namespace App\Controller\API;
 
+use App\Controller\AbstractController;
 use App\Service\ImageKit;
 use Psr\Log\LoggerInterface;
-use App\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -42,6 +42,7 @@ class ImageUploadController extends AbstractController
 
     /**
      * @param Request $request
+     *
      * @return JsonResponse
      */
     public function __invoke(Request $request)

@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Repository\UserRepository;
-use App\Controller\AbstractController;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class ContributorListController extends AbstractController

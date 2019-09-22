@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Entity\Poi;
 use App\Manager\PoiManager;
 use App\Repository\PoiRepository;
-use App\Controller\AbstractController;
 
 class MapController extends AbstractController
 {

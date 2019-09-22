@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Author;
 use App\Repository\AuthorRepository;
-use App\Controller\AbstractController;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class ArtistListController extends AbstractController
