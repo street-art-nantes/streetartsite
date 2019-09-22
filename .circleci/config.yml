@@ -68,9 +68,9 @@ jobs:
             php bin/console doctrine:query:sql 'CREATE EXTENSION IF NOT EXISTS postgis;'
             php bin/console doctrine:query:sql 'CREATE EXTENSION IF NOT EXISTS postgis_topology;'
             php bin/console doctrine:migration:migrate --no-interaction
-      - run:
-          name: Dump env test
-          command: composer dump-env test
+#      - run:
+#          name: Dump env test
+#          command: composer dump-env test
       # install npm dependencies
       - restore_cache:
           keys:
