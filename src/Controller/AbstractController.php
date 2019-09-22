@@ -15,6 +15,6 @@ abstract class AbstractController extends BaseAbstractController
      */
     protected function getUser()
     {
-        return $this->getUser();
+        return parent::getUser();
     }
 }

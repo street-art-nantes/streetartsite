@@ -46,10 +46,6 @@ services:
 
     App\Manager\PoiManager:
         arguments: [ '@doctrine.orm.entity_manager', '@vich_uploader.templating.helper.uploader_helper', '@liip_imagine.service.filter']
-        public: false
-    poi.manager:
-        alias: App\Manager\PoiManager
-        public: true
 
     App\Service\Mailer:
         arguments: [ '@swiftmailer.mailer.default', '@router.default', '@templating.engine.twig', '@assets.packages', '@translator', '@vich_uploader.templating.helper.uploader_helper', '@liip_imagine.service.filter', []]

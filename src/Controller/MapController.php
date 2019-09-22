@@ -9,17 +9,16 @@ use App\Repository\PoiRepository;
 class MapController extends AbstractController
 {
     /**
+     * @param PoiManager $poiManager
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function __invoke()
+    public function __invoke(PoiManager $poiManager)
     {
         /** @var PoiRepository $poiRepository */
         $poiRepository = $this->getDoctrine()->getRepository(Poi::class);
 
         $pois = $poiRepository->getList(1, 10000);
 
-        /** @var PoiManager $poiManager */
-        $poiManager = $this->get('poi.manager');
         /** @var PoiManager $convertedPois */
         $convertedPois = $poiManager->convertPoisForMap($pois);
 

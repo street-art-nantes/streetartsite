@@ -6,11 +6,12 @@ use App\Model\MetasSeo\BlogMetasSeo;
 use Contentful\Delivery\Client;
 use Contentful\Delivery\Query;
 use Psr\Log\LoggerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-class BlogController extends AbstractController
+class BlogController extends Controller
 {
     /**
      * @var LoggerInterface
@@ -25,7 +26,7 @@ class BlogController extends AbstractController
     /**
      * BlogController constructor.
      *
-     * @param LoggerInterface     $logger
+     * @param LoggerInterface $logger
      * @param TranslatorInterface $translator
      */
     public function __construct(LoggerInterface $logger, TranslatorInterface $translator)
@@ -36,7 +37,7 @@ class BlogController extends AbstractController
 
     /**
      * @param Request $request
-     * @param string  $id
+     * @param string $id
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */

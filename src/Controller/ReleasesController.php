@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Contentful\Delivery\Client;
 use Psr\Log\LoggerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -11,7 +12,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 /**
  * Class ReleasesController.
  */
-class ReleasesController extends AbstractController
+class ReleasesController extends Controller
 {
     /**
      * @var LoggerInterface
@@ -26,7 +27,7 @@ class ReleasesController extends AbstractController
     /**
      * ReleasesController constructor.
      *
-     * @param LoggerInterface     $logger
+     * @param LoggerInterface $logger
      * @param TranslatorInterface $translator
      */
     public function __construct(LoggerInterface $logger, TranslatorInterface $translator)
