@@ -35,7 +35,8 @@ class ArtworkMetasSeo implements MetasSeoInterface
     public function getPageTitle()
     {
         $author = $this->artwork->getAuthor()->first() ? $this->artwork->getAuthor()->first()->getName() : '';
-        $title = $this->translator->transChoice('title.artwork', \mb_strlen($author), [
+        $title = $this->translator->trans('title.artwork', [
+            '%count%' => \mb_strlen($author),
             '%type%' => ucfirst($this->artwork->getType()),
             '%id%' => $this->artwork->getId(),
             '%title%' => $this->artwork->getTitle(),
@@ -50,7 +51,8 @@ class ArtworkMetasSeo implements MetasSeoInterface
     public function getPageDescription()
     {
         $author = $this->artwork->getAuthor()->first() ? $this->artwork->getAuthor()->first()->getName() : '';
-        $description = $this->translator->transChoice('description.artwork', \mb_strlen($author), [
+        $description = $this->translator->trans('description.artwork', [
+            '%count%' => \mb_strlen($author),
             '%type%' => ucfirst($this->artwork->getType()),
             '%id%' => $this->artwork->getId(),
             '%title%' => $this->artwork->getTitle(),

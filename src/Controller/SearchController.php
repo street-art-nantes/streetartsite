@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Entity\Poi;
 use App\Repository\PoiRepository;
 use Psr\Log\LoggerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Controller\AbstractController;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class SearchController extends AbstractController

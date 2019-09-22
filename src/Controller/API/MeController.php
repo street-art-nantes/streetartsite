@@ -2,7 +2,8 @@
 
 namespace App\Controller\API;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\User;
+use App\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -19,6 +20,8 @@ class MeController extends AbstractController
     {
         $request->attributes->add(['_resource' => 'User']);
 
-        return $this->forward('Api', ['request' => $request, 'id' => $this->getUser()->getId()]);
+        /** @var User $user */
+        $user = $this->getUser();
+        return $this->forward('Api', ['request' => $request, 'id' => $user->getId()]);
     }
 }

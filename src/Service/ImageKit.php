@@ -35,11 +35,8 @@ class ImageKit
 
     /**
      * @param UploadedFile $file
-     * @param $folder
-     *
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     *
-     * @return bool
+     * @param string $folder
+     * @return bool|mixed
      */
     public function upload(UploadedFile $file, $folder)
     {
