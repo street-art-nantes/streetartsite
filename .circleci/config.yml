@@ -99,7 +99,7 @@ jobs:
       - run:
           name: Run tests
           command: |
-            ENV=test php phpunit.phar
+            ENV=test php phpunit.phar --testdox
   phpstan:
     working_directory: ~/app
     docker:

@@ -40,3 +40,5 @@ public/google9231d26a574cb005.html
 ###> lexik/jwt-authentication-bundle ###
 /config/jwt/*.pem
 ###< lexik/jwt-authentication-bundle ###
+
+.phpunit.result.cache
