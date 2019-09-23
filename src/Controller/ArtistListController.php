@@ -35,7 +35,8 @@ class ArtistListController extends AbstractController
         /** @var AuthorRepository $authorRepository */
         $authorRepository = $this->getDoctrine()->getRepository(Author::class);
 
-        $authors = $authorRepository->getList($page);
+        $itemsPerPage = 500;
+        $authors = $authorRepository->getList($page, $itemsPerPage);
 
         $totalAuthors = $authorRepository->createQueryBuilder('u')
             ->select('count(u.id)')
@@ -45,7 +46,7 @@ class ArtistListController extends AbstractController
         $pagination = [
             'page' => $page,
             'route' => 'artist_list',
-            'pages_count' => ceil($totalAuthors / 100),
+            'pages_count' => ceil($totalAuthors / $itemsPerPage),
             'route_params' => [],
         ];
 
