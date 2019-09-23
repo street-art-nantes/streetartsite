@@ -10,10 +10,9 @@ use App\Model\MetasSeo\ArtworkMetasSeo;
 use App\Repository\PageStatRepository;
 use App\Repository\PoiRepository;
 use Psr\Log\LoggerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Translation\TranslatorInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
-class ArtworkController extends Controller
+class ArtworkController extends AbstractController
 {
     /**
      * @var TranslatorInterface
@@ -38,11 +37,12 @@ class ArtworkController extends Controller
     }
 
     /**
-     * @param int $id
+     * @param PoiManager $poiManager
+     * @param int        $id
      *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function __invoke($id)
+    public function __invoke(PoiManager $poiManager, int $id)
     {
         /** @var PoiRepository $poiRepository */
         $poiRepository = $this->getDoctrine()->getRepository(Poi::class);
@@ -61,8 +61,6 @@ class ArtworkController extends Controller
                 $columnCount = 3;
                 $colPois = array_chunk($poisAround, ceil(\count($poisAround) / $columnCount));
 
-                /** @var PoiManager $poiManager */
-                $poiManager = $this->get('poi.manager');
                 /** @var PoiManager $convertedPois */
                 $convertedPoi = $poiManager->convertPoisForMap([$poi]);
 

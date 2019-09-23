@@ -9,7 +9,7 @@ use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Translation\TranslatorInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class BlogController extends Controller
 {
@@ -80,7 +80,7 @@ class BlogController extends Controller
 
         $query = new Query();
         $query->setLocale($localeArray[$request->getLocale()])->setContentType('blogPost')
-        ->orderBy('fields.publishedDate', true);
+            ->orderBy('fields.publishedDate', true);
 
         try {
             $entries = $client->getEntries($query);

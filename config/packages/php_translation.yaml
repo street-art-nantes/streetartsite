@@ -1,7 +1,7 @@
 translation:
     locales: ["fr", "en"]
     edit_in_place:
-        enabled: false
+        enabled: true
         config_name: app
     configs:
         app:

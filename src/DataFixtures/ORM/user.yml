@@ -1,8 +1,20 @@
 App\Entity\User:
     user_admin:
+        id: 1
         username: komlan
         email: komlan.comeback@streetart.com
         plainPassword: azerty
         enabled: true
+        city: Nantes
         roles:
             ROLE_ADMIN: ROLE_ADMIN
+    user_1:
+        id: 2
+        username: thoma.vuille
+        email: thoma.vuille@streetart.com
+        plainPassword: p4ssWord
+        enabled: true
+        city: Neuchâtel
+        country: Suisse
+        roles:
+            ROLE_ADMIN: ROLE_USER

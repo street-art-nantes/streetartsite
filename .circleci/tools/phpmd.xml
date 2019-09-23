@@ -14,6 +14,7 @@
     <rule ref="rulesets/controversial.xml" />
     <rule ref="rulesets/design.xml">
         <exclude name="CouplingBetweenObjects"/>
+        <exclude name="NumberOfChildren" />
     </rule>
     <rule ref="rulesets/unusedcode.xml">
         <exclude name="UnusedLocalVariable"/>

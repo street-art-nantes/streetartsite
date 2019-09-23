@@ -9,13 +9,12 @@ use App\Repository\ArtworkRepository;
 use App\Repository\PageStatRepository;
 use App\Repository\UserRepository;
 use Psr\Log\LoggerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Translation\TranslatorInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Class UserController.
  */
-class UserController extends Controller
+class UserController extends AbstractController
 {
     /**
      * @var TranslatorInterface

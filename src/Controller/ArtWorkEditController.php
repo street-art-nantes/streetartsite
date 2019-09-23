@@ -10,15 +10,14 @@ use App\Service\Mailer;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Log\LoggerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Translation\TranslatorInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Class ArtWorkEditController.
  */
-class ArtWorkEditController extends Controller
+class ArtWorkEditController extends AbstractController
 {
     /**
      * @var EntityManagerInterface

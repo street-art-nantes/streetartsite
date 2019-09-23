@@ -10,7 +10,7 @@
     <php>
         <ini name="error_reporting" value="-1" />
         <env name="KERNEL_CLASS" value="App\Kernel" />
-        <env name="APP_ENV" value="test" />
+        <env name="APP_ENV" value="test" force="true"/>
         <env name="APP_DEBUG" value="1" />
         <env name="APP_SECRET" value="s$cretf0rt3st" />
         <env name="SHELL_VERBOSITY" value="-1" />
@@ -24,6 +24,22 @@
         <env name="FB_ID" value=""/>
         <env name="FB_SECRET" value=""/>
         <!-- ###- hwi/oauth-bundle ### -->
+
+        <!-- ###+ lexik/jwt-authentication-bundle ### -->
+        <env name="JWT_SECRET_KEY" value="%kernel.project_dir%/.circleci/jwt/private.pem"/>
+        <env name="JWT_PUBLIC_KEY" value="%kernel.project_dir%/.circleci/jwt/public.pem"/>
+        <env name="JWT_PASSPHRASE" value="seuleladoseestpoison"/>
+        <!-- ###- lexik/jwt-authentication-bundle ### -->
+
+        <env name="DATABASE_URL" value="postgresql://streetart:streetart@localhost:5432/streetart_test"/>
+
+        <env name="GOOGLE_ANALYTICS_KEY" value="DataFixtures/google-analytics.json"/>
+        <env name="GOOGLE_ANALYTICS_VIEW" value="xxx"/>
+
+        <env name="IMAGEKIT_PUBLIC_KEY" value="xxx"/>
+        <env name="IMAGEKIT_PRIVATE_KEY" value="xxx"/>
+
+        <env name="SYMFONY_DEPRECATIONS_HELPER" value="weak" />
     </php>
 
     <testsuites>
@@ -41,4 +57,8 @@
     <listeners>
         <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener" />
     </listeners>
+
+    <extensions>
+        <extension class="Symfony\Component\Panther\ServerExtension" />
+    </extensions>
 </phpunit>

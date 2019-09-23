@@ -4,10 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Poi;
 use App\Repository\PoiRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Translation\TranslatorInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
-class ListController extends Controller
+class ListController extends AbstractController
 {
     /**
      * @var TranslatorInterface
@@ -53,7 +52,7 @@ class ListController extends Controller
         $countriesFromPoi = $poiRepository->getAllCountries();
 
         $columnCount = 4;
-        $colPois = array_chunk($pois, ceil(\count($pois) / $columnCount));
+        $colPois = \count($pois) ? array_chunk($pois, ceil(\count($pois) / $columnCount)) : [[], [], []];
 
         return $this->render('pages/list.html.twig', [
             'colPois' => $colPois,

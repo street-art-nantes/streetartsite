@@ -9,33 +9,83 @@ workflows:
       - php-metrics
       - php-phpmd
       - php-cs-fixer
+      - phpunit
       - deploy:
           requires:
             - phpstan
             - doctrine-schema-validate
             - php-metrics
+            - php-phpmd
             - php-cs-fixer
+            - phpunit
           filters:  # using regex filters requires the entire branch to match
             branches:
               only:  # only branches matching the below regex filters will run
                 - master
 
 jobs:
-#      # install npm dependencies
-#      - run:
-#          name: Update npm
-#          command: 'sudo npm install -g npm@latest'
-#
-#      - restore_cache:
-#          keys:
-#            - node-v1-{{ checksum "package.json" }}
-#            - node-v1-
-#      - run: npm install
-#      - save_cache:
-#          key: node-v1-{{ checksum "package.json" }}
-#          paths:
-#            - node_modules
+  phpunit:
+    working_directory: ~/app
+    docker:
+      - image: misterio92/ci-php-node:3.0
+        environment:
+          PG_HOST: localhost
+          PG_USER: streetart
+          APP_ENV: test
 
+      # The following example uses the official postgres 9.6 image, you may also use circleci/postgres:9.6
+      # which includes a few enhancements and modifications. It is possible to use either image.
+      - image: mdillon/postgis:10
+        environment:
+          DEBUG: false
+          POSTGRES_USER: streetart
+          POSTGRES_PASSWORD: streetart
+          POSTGRES_DB: streetart_test
+    steps:
+      - checkout
+      - run: |
+          set -o allexport
+          source .env.dist
+          set +o allexport
+      - restore_cache:
+         keys:
+           - composer-v1-{{ checksum "composer.lock" }}
+           - composer-v1-
+      - run: composer install --prefer-dist
+      - save_cache:
+           key: composer-v1-{{ checksum "composer.lock" }}
+           paths:
+             - vendor
+      - run:
+          name: Waiting for Postgres to be ready
+          command: .circleci/wait-for-it.sh localhost:5432
+      - run:
+          name: Run migrations
+          command: |
+            mkdir -p var/cache var/log
+            php bin/console asset:install
+
+            php bin/console doctrine:query:sql 'CREATE EXTENSION IF NOT EXISTS postgis;'
+            php bin/console doctrine:query:sql 'CREATE EXTENSION IF NOT EXISTS postgis_topology;'
+            php bin/console doctrine:migration:migrate --no-interaction
+#      - run:
+#          name: Dump env test
+#          command: composer dump-env test
+      # install npm dependencies
+      - restore_cache:
+          keys:
+            - node-v1-{{ checksum "package.json" }}
+            - node-v1-
+      - run: npm install
+      - save_cache:
+          key: node-v1-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+      - run: npm run build
+      - run:
+          name: Run tests
+          command: |
+            ENV=test php phpunit.phar --testdox
   phpstan:
     working_directory: ~/app
     docker:

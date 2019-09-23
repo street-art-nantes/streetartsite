@@ -10,14 +10,13 @@ use App\Repository\ArtworkRepository;
 use App\Repository\AuthorRepository;
 use App\Repository\PageStatRepository;
 use Psr\Log\LoggerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Translation\TranslatorInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Class ArtistController.
  */
-class ArtistController extends Controller
+class ArtistController extends AbstractController
 {
     /**
      * @var TranslatorInterface

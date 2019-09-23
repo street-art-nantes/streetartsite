@@ -6,12 +6,11 @@ use App\Entity\Poi;
 use App\Entity\User;
 use App\Repository\PoiRepository;
 use App\Repository\UserRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
  * Class HomeController.
  */
-class HomeController extends Controller
+class HomeController extends AbstractController
 {
     /**
      * @throws \Doctrine\ORM\NonUniqueResultException

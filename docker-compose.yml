@@ -33,8 +33,6 @@ services:
         image: mdillon/postgis:10
         volumes:
             - db-data:/usr/local/var/postgres
-        networks:
-            - backend
         ports:
             - 5432:5432
         environment:

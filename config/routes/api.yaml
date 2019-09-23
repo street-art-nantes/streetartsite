@@ -1,0 +1,12 @@
+api_login_check:
+    path: /api/login_check
+
+api_image_upload:
+    path: /api/image/upload
+    controller: App\Controller\API\ImageUploadController
+    methods: [POST]
+
+api_me:
+    path: /api/user/me
+    methods: [GET]
+    controller: App\Controller\API\MeController

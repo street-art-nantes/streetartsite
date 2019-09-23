@@ -90,7 +90,7 @@ class Poi
     }
 
     /**
-     * @return null|string
+     * @return string|null
      */
     public function getCountry(): ?string
     {
@@ -110,7 +110,7 @@ class Poi
     }
 
     /**
-     * @return null|string
+     * @return string|null
      */
     public function getCity(): ?string
     {
@@ -130,7 +130,7 @@ class Poi
     }
 
     /**
-     * @return null|string
+     * @return string|null
      */
     public function getAddress(): ?string
     {

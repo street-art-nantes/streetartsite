@@ -4,12 +4,14 @@
     "require": {
         "php": "^7.1.3",
         "ext-iconv": "*",
-        "api-platform/api-pack": "^1.1",
+        "api-platform/api-pack": "^1.2",
         "contentful/contentful-bundle": "^3.0",
         "easycorp/easyadmin-bundle": "^1.17",
+        "fabpot/goutte": "^3.2",
         "friendsofsymfony/user-bundle": "^2.1",
         "hwi/oauth-bundle": "^0.6.3",
         "jsor/doctrine-postgis": "^1.5",
+        "lexik/jwt-authentication-bundle": "^2.6",
         "liip/imagine-bundle": "^2.0",
         "mediafigaro/google-analytics-api-symfony": "^1.22",
         "php-http/guzzle6-adapter": "1.1.1",
@@ -25,13 +27,16 @@
         "symfony/flex": "^1.1",
         "symfony/form": "^4.0",
         "symfony/framework-bundle": "^4.0",
+        "symfony/http-client": "^4.0",
         "symfony/lts": "^4@dev",
+        "symfony/mime": "^4.0",
         "symfony/monolog-bundle": "^3.2",
         "symfony/orm-pack": "*",
         "symfony/process": "^4.0",
         "symfony/security-bundle": "^4.0",
         "symfony/serializer-pack": "*",
         "symfony/swiftmailer-bundle": "^3.1",
+        "symfony/templating": "4.3.*",
         "symfony/twig-bundle": "^4.0",
         "symfony/validator": "^4.0",
         "symfony/web-link": "^4.0",
@@ -49,6 +54,7 @@
         "symfony/debug-pack": "*",
         "symfony/dotenv": "^4.0",
         "symfony/maker-bundle": "^1.0",
+        "symfony/panther": "^0.5.2",
         "symfony/phpunit-bridge": "^4.0",
         "symfony/profiler-pack": "*",
         "symfony/web-server-bundle": "^4.0"
@@ -92,8 +98,8 @@
     },
     "extra": {
         "symfony": {
-            "id": "01CBSZ1F4KNWZEHE1RX0SHP077",
-            "allow-contrib": false
+            "allow-contrib": false,
+            "require": "4.3.*"
         }
     }
 }

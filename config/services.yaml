@@ -8,6 +8,8 @@ parameters:
         en: en-US
     google_analytics_json_key: '%kernel.root_dir%/%env(GOOGLE_ANALYTICS_KEY)%'
     google_analytics_view_id: '%env(GOOGLE_ANALYTICS_VIEW)%'
+    imagekit_public_key: '%env(IMAGEKIT_PUBLIC_KEY)%'
+    imagekit_private_key: '%env(IMAGEKIT_PRIVATE_KEY)%'
 
 services:
     # default configuration for services in *this* file
@@ -44,10 +46,6 @@ services:
 
     App\Manager\PoiManager:
         arguments: [ '@doctrine.orm.entity_manager', '@vich_uploader.templating.helper.uploader_helper', '@liip_imagine.service.filter']
-        public: false
-    poi.manager:
-        alias: App\Manager\PoiManager
-        public: true
 
     App\Service\Mailer:
         arguments: [ '@swiftmailer.mailer.default', '@router.default', '@templating.engine.twig', '@assets.packages', '@translator', '@vich_uploader.templating.helper.uploader_helper', '@liip_imagine.service.filter', []]
@@ -60,3 +58,12 @@ services:
     my_user_provider:
         class: App\Security\Provider\UserProvider
         arguments: ['@fos_user.user_manager', {facebook: facebookId, instagram: instagramId}, '@security.password_encoder', '@security.token_storage', '@translator', '@session']
+
+    App\Service\ImageKit:
+        arguments: [ '%imagekit_public_key%', '%imagekit_private_key%' ]
+
+
+    App\Listener\User\UserGetMeSubscriber:
+        class: App\Listener\User\UserGetMeSubscriber
+        tags:
+            - { name: kernel.event_subscriber }
