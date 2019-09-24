@@ -17,7 +17,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  *     collectionOperations={"get"},
  *     itemOperations={
  *       "get"={
- *         "normalization_context"={"groups"={"publication"}},
+ *         "normalization_context"={"groups"={"user:read"}},
  *         "access_control"="is_granted('ROLE_ADMIN') or user == object",
  *       }
  *     }
@@ -65,7 +65,7 @@ class User extends BaseUser
 
     /**
      * @ORM\Column(name="city", type="string", length=255, nullable=true)
-     * @Groups("publication")
+     * @Groups("user:read")
      */
     protected $city;
 
@@ -82,6 +82,7 @@ class User extends BaseUser
 
     /**
      * @ORM\Column(name="description", type="text", nullable=true)
+     * @Groups("user:read")
      */
     protected $description;
 

@@ -1,33 +1,33 @@
 version: '3.6'
 
 services:
-
-    web:
-        image: nginx:latest
-        ports:
-            - 80:80
-            - 443:443
-        networks:
-            - backend
-        depends_on:
-            - php
-        volumes:
-            - .:/app:delegated
-            - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf
-            - ./docker/streetartwork.com.crt:/etc/nginx/ssl/streetartwork.com.crt
-            - ./docker/streetartwork.com.key:/etc/nginx/ssl/streetartwork.com.key
-
-    php:
-        build:
-            context: .
-            dockerfile: docker/Dockerfile-php.dev.conf
-        command: /app/docker/start-php.dev.sh
-        networks:
-            - backend
-        depends_on:
-            - db
-        volumes:
-            - .:/app:delegated
+#
+#    web:
+#        image: nginx:latest
+#        ports:
+#            - 80:80
+#            - 443:443
+#        networks:
+#            - backend
+#        depends_on:
+#            - php
+#        volumes:
+#            - .:/app:delegated
+#            - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf
+#            - ./docker/streetartwork.com.crt:/etc/nginx/ssl/streetartwork.com.crt
+#            - ./docker/streetartwork.com.key:/etc/nginx/ssl/streetartwork.com.key
+#
+#    php:
+#        build:
+#            context: .
+#            dockerfile: docker/Dockerfile-php.dev.conf
+#        command: /app/docker/start-php.dev.sh
+#        networks:
+#            - backend
+#        depends_on:
+#            - db
+#        volumes:
+#            - .:/app:delegated
 
     db:
         image: mdillon/postgis:10

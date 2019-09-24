@@ -2,12 +2,28 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Serializer\Annotation\MaxDepth;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
+ * @ApiResource(
+ *     normalizationContext={"groups"={"artwork:read"}, "enable_max_depth"="true"},
+ *     denormalizationContext={"groups"= {"artwork:write"}},
+ *     collectionOperations={
+ *       "get",
+ *       "post"
+ *     },
+ *     itemOperations={
+ *       "get"
+ *     }
+ * )
+ *
+ *
  * @ORM\Entity(repositoryClass="App\Repository\ArtworkRepository")
  */
 class Artwork
@@ -23,11 +39,13 @@ class Artwork
      * @ORM\Id()
      * @ORM\GeneratedValue(strategy="IDENTITY")
      * @ORM\Column(type="integer")
+     * @Groups({"artwork:read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"artwork:read", "artwork:write"})
      */
     private $title;
 
@@ -43,23 +61,28 @@ class Artwork
 
     /**
      * @ORM\Column(type="array", nullable=true)
+     * @Groups({"artwork:read", "artwork:write"})
      */
     private $tags;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"artwork:read", "artwork:write"})
      * @Assert\NotBlank()
      */
     private $type;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Poi", inversedBy="artworks", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="Poi", inversedBy="artworks", cascade={"persist", "remove"}, fetch="EAGER")
+     * @Groups({"artwork:read", "artwork:write"})
      * @Assert\Valid()
+     * @MaxDepth(1)
      */
     private $poi;
 
     /**
      * @ORM\OneToMany(targetEntity="Document", mappedBy="artwork", cascade={"persist", "remove"})
+     * @Groups({"artwork:read", "artwork:write"})
      * @Assert\Valid()
      * @Assert\Count(min="1")
      */
@@ -75,12 +98,14 @@ class Artwork
      * @var User
      *
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="artworks")
+     * @Groups({"artwork:read"})
      * @Assert\Valid()
      */
     private $contributor;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"artwork:read"})
      */
     private $instaLink;
 
@@ -93,6 +118,7 @@ class Artwork
         $this->author = new ArrayCollection();
         $this->createdAt = new \DateTime();
         $this->updatedAt = new \DateTime();
+        $this->enabled = false;
     }
 
     /**

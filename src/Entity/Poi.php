@@ -2,12 +2,16 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Serializer\Annotation\MaxDepth;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
+ * @ApiResource()
+ *
  * @ORM\Entity(repositoryClass="App\Repository\PoiRepository")
  */
 class Poi
@@ -21,7 +25,7 @@ class Poi
 
     /**
      * @ORM\Column(type="decimal", precision=8, scale=6, nullable=true)
-     * @Groups({"poi_read"})
+     * @Groups({"artwork:read", "artwork:write"})
      * @Assert\NotBlank()
      * @Assert\Regex("/^(\+|-)?(?:90(?:(?:\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\.[0-9]{1,6})?))$/")
      */
@@ -29,7 +33,7 @@ class Poi
 
     /**
      * @ORM\Column(type="decimal", precision=9, scale=6, nullable=true)
-     * @Groups({"poi_read"})
+     * @Groups({"artwork:read", "artwork:write"})
      * @Assert\NotBlank()
      * @Assert\Regex("/^(\+|-)?(?:180(?:(?:\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\.[0-9]{1,6})?))$/")
      */
@@ -42,33 +46,34 @@ class Poi
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"poi_read"})
+     * @Groups({"artwork:read", "artwork:write"})
      * @Assert\NotBlank()
      */
     private $country;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"poi_read"})
+     * @Groups({"artwork:read", "artwork:write"})
      * @Assert\NotBlank()
      */
     private $city;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"poi_read"})
+     * @Groups({"artwork:read", "artwork:write"})
      * @Assert\NotBlank()
      */
     private $address;
 
     /**
      * @ORM\Column(type="boolean")
-     * @Groups({"poi_read"})
+     * @Groups({"artwork:read", "artwork:write"})
      */
     private $highlight;
 
     /**
      * @ORM\OneToMany(targetEntity="Artwork", mappedBy="poi")
+     * @MaxDepth(1)
      */
     private $artworks;
 

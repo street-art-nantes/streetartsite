@@ -102,7 +102,7 @@ class PoiManager
             $artwork = $poi->getArtworks()->first();
             /** @var Document $document */
             $document = $artwork->getDocuments()->first();
-            $imgUrl = $this->filterService->getUrlOfFilteredImage($this->helper->asset($document, 'imageFile'), 'thumb_small');
+            $imgUrl = $document->getImageURI() ?? $this->filterService->getUrlOfFilteredImage($this->helper->asset($document, 'imageFile'), 'thumb_small');
             $convertedPois[] = [
                 'id' => $poi->getId(),
                 'timestamp' => $artwork->getCreatedAt()->getTimestamp(),

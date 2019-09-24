@@ -71,4 +71,12 @@ class LoginControllerTest extends PantherTestCase
 
         $this->assertResponseStatusCodeSame(403);
     }
+
+    public function testRetrieveUserWithoutLoggedInAccessDenied(): void
+    {
+        $client = $this->createClient();
+        $client->request('GET', '/api/users/1.json');
+
+        $this->assertResponseStatusCodeSame(401);
+    }
 }
