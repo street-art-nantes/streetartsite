@@ -1,0 +1,94 @@
+App\Entity\Artwork:
+    artwork_1:
+        poi: '@poi_canada_1'
+        enabled: true
+        type: 'graffiti'
+    artwork_2:
+        poi: '@poi_nantes_1'
+        enabled: true
+        type: 'graffiti'
+    artwork_3:
+        poi: '@poi_nantes_2'
+        enabled: true
+        type: 'graffiti'
+    artwork_4:
+        poi: '@poi_nantes_3'
+        enabled: true
+        type: 'graffiti'
+    artwork_5:
+        poi: '@poi_nantes_4'
+        enabled: true
+        type: 'graffiti'
+    artwork_6:
+        poi: '@poi_nantes_5'
+        enabled: true
+        type: 'graffiti'
+
+App\Entity\Document:
+    document_1:
+        artwork: '@artwork_1'
+        imageURI: 'https://lorempixel.com/600/300'
+    document_2:
+        artwork: '@artwork_2'
+        imageURI: 'https://lorempixel.com/600/300'
+    document_3:
+        artwork: '@artwork_3'
+        imageURI: 'https://lorempixel.com/600/300'
+    document_4:
+        artwork: '@artwork_4'
+        imageURI: 'https://lorempixel.com/600/300'
+    document_5:
+        artwork: '@artwork_5'
+        imageURI: 'https://lorempixel.com/600/300'
+    document_6:
+        artwork: '@artwork_6'
+        imageURI: 'https://lorempixel.com/600/300'
+
+App\Entity\Poi:
+    poi_canada_1:
+        latitude: 45.527245
+        longitude: -73.601608
+        country: Canada
+        city: Montréal
+        address: 5769 Boul St-Laurent, Montréal, QC H2T 1S9, Canada
+        highlight: true
+
+    poi_nantes_1:
+        latitude: 47.202555
+        longitude: -1.575391
+        country: France
+        city: Nantes
+        address: Quai Marquis d'Aiguillon, 44100 Nantes, France
+        highlight: true
+
+    poi_nantes_2:
+        latitude: 47.202721
+        longitude: -1.575273
+        country: France
+        city: Nantes
+        address: Quai Marquis d'Aiguillon, 44100 Nantes, France
+        highlight: true
+
+    poi_nantes_3:
+        latitude: 47.202858
+        longitude: -1.575186
+        country: France
+        city: Nantes
+        address: Quai Marquis d'Aiguillon, 44100 Nantes, France
+        highlight: true
+
+    poi_nantes_4:
+        latitude: 47.203057
+        longitude: -1.575052
+        country: France
+        city: Nantes
+        address: Quai Marquis d'Aiguillon, 44100 Nantes, France
+        highlight: true
+
+    poi_nantes_5:
+        latitude: 47.202962
+        longitude: -1.575121
+        country: France
+        city: Nantes
+        address: Quai Marquis d'Aiguillon, 44100 Nantes, France
+        highlight: true

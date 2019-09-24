@@ -2,13 +2,16 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
+ * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\DocumentRepository")
  * @Vich\Uploadable
  */
@@ -20,6 +23,7 @@ class Document
      * @ORM\Id()
      * @ORM\GeneratedValue(strategy="IDENTITY")
      * @ORM\Column(type="integer")
+     * @Groups({"artwork:read", "artwork:write"})
      */
     private $id;
 
@@ -36,11 +40,20 @@ class Document
     private $imageFile;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      *
      * @var string
      */
     private $imageName;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     * @Groups({"artwork:read", "artwork:write"})
+     *
+     * @var string|null
+     */
+    private $imageURI;
 
     /**
      * @ORM\ManyToOne(targetEntity="Artwork", inversedBy="documents")
@@ -53,6 +66,7 @@ class Document
     public function __construct()
     {
         $this->createdAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
     }
 
     /**
@@ -125,6 +139,26 @@ class Document
     public function setArtwork($artwork)
     {
         $this->artwork = $artwork;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getImageURI(): ?string
+    {
+        return $this->imageURI;
+    }
+
+    /**
+     * @param string|null $imageURI
+     *
+     * @return Document
+     */
+    public function setImageURI(?string $imageURI): self
+    {
+        $this->imageURI = $imageURI;
 
         return $this;
     }
