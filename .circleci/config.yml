@@ -43,12 +43,11 @@ jobs:
           POSTGRES_DB: streetart_test
     steps:
       - checkout
-      - run: echo $IMAGEKIT_PRIVATE_KEY
+      - run: echo "IMAGEKIT_PRIVATE_KEY=$IMAGEKIT_PRIVATE_KEY" >> .env.dist
       - run: |
           set -o allexport
           source .env.dist
           set +o allexport
-      - run: echo $IMAGEKIT_PRIVATE_KEY
       - restore_cache:
          keys:
            - composer-v1-{{ checksum "composer.lock" }}
