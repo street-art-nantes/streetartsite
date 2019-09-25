@@ -4,19 +4,19 @@ workflows:
   version: 2
   build:
     jobs:
-      - phpstan
-      - doctrine-schema-validate
-      - php-metrics
-      - php-phpmd
-      - php-cs-fixer
+#      - phpstan
+#      - doctrine-schema-validate
+#      - php-metrics
+#      - php-phpmd
+#      - php-cs-fixer
       - phpunit
       - deploy:
           requires:
-            - phpstan
-            - doctrine-schema-validate
-            - php-metrics
-            - php-phpmd
-            - php-cs-fixer
+#            - phpstan
+#            - doctrine-schema-validate
+#            - php-metrics
+#            - php-phpmd
+#            - php-cs-fixer
             - phpunit
           filters:  # using regex filters requires the entire branch to match
             branches:
@@ -43,10 +43,12 @@ jobs:
           POSTGRES_DB: streetart_test
     steps:
       - checkout
+      - run: echo $IMAGEKIT_PRIVATE_KEY
       - run: |
           set -o allexport
           source .env.dist
           set +o allexport
+      - run: echo $IMAGEKIT_PRIVATE_KEY
       - restore_cache:
          keys:
            - composer-v1-{{ checksum "composer.lock" }}
