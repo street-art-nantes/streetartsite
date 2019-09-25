@@ -26,7 +26,9 @@ class ImagePostControllerTest extends PantherTestCase
     {
         // Create new image
         $clientUser = $this->createAuthenticatedClient('thoma.vuille', 'p4ssWord');
-        $imageFile = new UploadedFile('../../Resources/arbres-herons.jpg', 'photo-test.jpg', 'image/jpeg', 123);
+        $container = self::$container;
+
+        $imageFile = new UploadedFile($container->getParameter('kernel.project_dir') . '/tests/Resources/arbres-herons.jpg', 'photo-test.jpg', 'image/jpeg', 123);
 
         $clientUser->request('POST',
             '/api/images',
@@ -42,8 +44,6 @@ class ImagePostControllerTest extends PantherTestCase
 
         // Remove file in imagekit
         $client = new \GuzzleHttp\Client();
-
-        $container = self::$container;
 
         $response = $client->request(
             'DELETE',
