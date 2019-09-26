@@ -2,8 +2,8 @@ api_login_check:
     path: /api/login_check
 
 api_image_upload:
-    path: /api/image/upload
-    controller: App\Controller\API\ImageUploadController
+    path: /api/images
+    controller: App\Controller\API\ImagePostController
     methods: [POST]
 
 api_me:

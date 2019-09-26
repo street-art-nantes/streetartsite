@@ -8,7 +8,6 @@ parameters:
         en: en-US
     google_analytics_json_key: '%kernel.root_dir%/%env(GOOGLE_ANALYTICS_KEY)%'
     google_analytics_view_id: '%env(GOOGLE_ANALYTICS_VIEW)%'
-    imagekit_public_key: '%env(IMAGEKIT_PUBLIC_KEY)%'
     imagekit_private_key: '%env(IMAGEKIT_PRIVATE_KEY)%'
 
 services:
@@ -60,8 +59,7 @@ services:
         arguments: ['@fos_user.user_manager', {facebook: facebookId, instagram: instagramId}, '@security.password_encoder', '@security.token_storage', '@translator', '@session']
 
     App\Service\ImageKit:
-        arguments: [ '%imagekit_public_key%', '%imagekit_private_key%' ]
-
+        arguments: [ '%kernel.environment%', '%imagekit_private_key%' ]
 
     App\Listener\User\UserGetMeSubscriber:
         class: App\Listener\User\UserGetMeSubscriber

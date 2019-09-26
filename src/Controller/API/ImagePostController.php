@@ -7,9 +7,10 @@ use App\Service\ImageKit;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-class ImageUploadController extends AbstractController
+class ImagePostController extends AbstractController
 {
     /**
      * @var TranslatorInterface
@@ -27,7 +28,7 @@ class ImageUploadController extends AbstractController
     private $imageKit;
 
     /**
-     * ImageUploadController constructor.
+     * ImagePostController constructor.
      *
      * @param ImageKit            $imageKit
      * @param TranslatorInterface $translator
@@ -62,9 +63,12 @@ class ImageUploadController extends AbstractController
             $errors[] = $exception->getMessage();
         }
 
-        return new JsonResponse([
-            'error' => [],
-            'data' => $response,
-        ]);
+        if (!empty($errors)) {
+            return new JsonResponse([
+                'error' => $errors,
+            ], Response::HTTP_BAD_REQUEST);
+        }
+
+        return new JsonResponse($response);
     }
 }

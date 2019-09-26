@@ -14,22 +14,21 @@ class ImageKit
     /**
      * @var string
      */
-    private $publicKey;
+    private $privateKey;
 
     /**
      * @var string
      */
-    private $privateKey;
+    private $env;
 
     /**
      * ImageKit constructor.
      *
-     * @param string $publicKey
      * @param string $privateKey
      */
-    public function __construct(string $publicKey, string $privateKey)
+    public function __construct(string $env, string $privateKey)
     {
-        $this->publicKey = $publicKey;
+        $this->env = $env;
         $this->privateKey = $privateKey;
     }
 
@@ -42,6 +41,8 @@ class ImageKit
     public function upload(UploadedFile $file, $folder)
     {
         $client = new Client();
+
+        var_dump($this->privateKey);
 
         try {
             $response = $client->request(
@@ -61,7 +62,7 @@ class ImageKit
                         ],
                         [
                             'name' => 'folder',
-                            'contents' => $folder,
+                            'contents' => $folder.'_'.$this->env,
                         ],
                     ],
                 ]

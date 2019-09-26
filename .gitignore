@@ -1,6 +1,8 @@
 
 ###> symfony/framework-bundle ###
 /.env
+/.env.test
+.env.test
 /public/bundles/
 /public/img/
 /var/
