@@ -44,6 +44,7 @@ jobs:
     steps:
       - checkout
       - run: echo "IMAGEKIT_PRIVATE_KEY=$IMAGEKIT_PRIVATE_KEY" >> .env.dist
+      - run: cp .env.dist .env.test
       - run: |
           set -o allexport
           source .env.dist

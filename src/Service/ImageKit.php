@@ -2,7 +2,6 @@
 
 namespace App\Service;
 
-use App\Kernel;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -63,7 +62,7 @@ class ImageKit
                         ],
                         [
                             'name' => 'folder',
-                            'contents' => $folder . '_' . $this->env,
+                            'contents' => $folder.'_'.$this->env,
                         ],
                     ],
                 ]

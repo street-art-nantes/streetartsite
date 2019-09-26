@@ -5,12 +5,10 @@ namespace App\Tests;
 use App\Test\Traits\AuthenticationTrait;
 use Hautelook\AliceBundle\PhpUnit\ReloadDatabaseTrait;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Symfony\Component\Panther\Client;
 use Symfony\Component\Panther\PantherTestCase;
 
 /**
- * Class ImagePostControllerTest
- * @package App\Tests
+ * Class ImagePostControllerTest.
  */
 class ImagePostControllerTest extends PantherTestCase
 {
@@ -28,7 +26,7 @@ class ImagePostControllerTest extends PantherTestCase
         $clientUser = $this->createAuthenticatedClient('thoma.vuille', 'p4ssWord');
         $container = self::$container;
 
-        $imageFile = new UploadedFile($container->getParameter('kernel.project_dir') . '/tests/Resources/arbres-herons.jpg', 'photo-test.jpg', 'image/jpeg', 123);
+        $imageFile = new UploadedFile($container->getParameter('kernel.project_dir').'/tests/Resources/arbres-herons.jpg', 'photo-test.jpg', 'image/jpeg', 123);
 
         $clientUser->request('POST',
             '/api/images',
@@ -47,12 +45,12 @@ class ImagePostControllerTest extends PantherTestCase
 
         $response = $client->request(
             'DELETE',
-            'https://api.imagekit.io/v1/files/' . $fileId,
+            'https://api.imagekit.io/v1/files/'.$fileId,
             [
-                'auth' => [$container->getParameter('imagekit_private_key'), '']
+                'auth' => [$container->getParameter('imagekit_private_key'), ''],
             ]
         );
 
-        $this->assertEquals(204, $response->getStatusCode());
+        $this->assertSame(204, $response->getStatusCode());
     }
 }

@@ -29,9 +29,10 @@ class ImagePostController extends AbstractController
 
     /**
      * ImagePostController constructor.
-     * @param ImageKit $imageKit
+     *
+     * @param ImageKit            $imageKit
      * @param TranslatorInterface $translator
-     * @param LoggerInterface $logger
+     * @param LoggerInterface     $logger
      */
     public function __construct(ImageKit $imageKit, TranslatorInterface $translator, LoggerInterface $logger)
     {
@@ -66,8 +67,8 @@ class ImagePostController extends AbstractController
             return new JsonResponse([
                 'error' => $errors,
             ], Response::HTTP_BAD_REQUEST);
-        } else {
-            return new JsonResponse($response);
         }
+
+        return new JsonResponse($response);
     }
 }
