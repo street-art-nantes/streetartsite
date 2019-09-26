@@ -28,6 +28,7 @@ class ApplicationAvailabilityTest extends WebTestCase
         yield ['/fr/artist/new'];
         yield ['/fr/releases'];
         yield ['/fr/login'];
+        yield ['/fr/faq'];
 
         yield ['/en/map'];
         yield ['/en/list'];
@@ -37,5 +38,6 @@ class ApplicationAvailabilityTest extends WebTestCase
         yield ['/en/artist/new'];
         yield ['/en/releases'];
         yield ['/en/login'];
+        yield ['/en/faq'];
     }
 }

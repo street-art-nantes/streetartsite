@@ -5,13 +5,14 @@ namespace App\Controller;
 use Contentful\Delivery\Client;
 use Contentful\Delivery\Query;
 use Psr\Log\LoggerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Class FaqController.
  */
-class FaqController extends AbstractController
+class FaqController extends Controller
 {
     /**
      * @var LoggerInterface
@@ -26,7 +27,7 @@ class FaqController extends AbstractController
     /**
      * FaqController constructor.
      *
-     * @param LoggerInterface     $logger
+     * @param LoggerInterface $logger
      * @param TranslatorInterface $translator
      */
     public function __construct(LoggerInterface $logger, TranslatorInterface $translator)
