@@ -7,6 +7,7 @@ use App\Service\Mailer;
 use FOS\UserBundle\Event\FilterUserResponseEvent;
 use FOS\UserBundle\FOSUserEvents;
 use Nexy\Slack\Client;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class RegistrationSuccessListener implements EventSubscriberInterface
@@ -22,15 +23,22 @@ class RegistrationSuccessListener implements EventSubscriberInterface
     private $slackClient;
 
     /**
+     * @var LoggerInterface
+     */
+    private $logger;
+
+    /**
      * RegistrationSuccessListener constructor.
      *
-     * @param Mailer $mailer
-     * @param Client $slackClient
+     * @param Mailer          $mailer
+     * @param Client          $slackClient
+     * @param LoggerInterface $logger
      */
-    public function __construct(Mailer $mailer, Client $slackClient)
+    public function __construct(Mailer $mailer, Client $slackClient, LoggerInterface $logger)
     {
         $this->mailer = $mailer;
         $this->slackClient = $slackClient;
+        $this->logger = $logger;
     }
 
     /**
@@ -65,12 +73,15 @@ class RegistrationSuccessListener implements EventSubscriberInterface
 
             $this->slackClient->sendMessage($message);
         } catch (\Exception $e) {
+            $this->logger->error($e->getMessage());
         } catch (\Http\Client\Exception $e) {
+            $this->logger->error($e->getMessage());
         }
 
         try {
             $this->mailer->sendWelcomeEmailMessage($user);
         } catch (\Exception $e) {
+            $this->logger->error($e->getMessage());
         }
     }
 }
