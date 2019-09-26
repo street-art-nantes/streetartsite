@@ -105,8 +105,9 @@
                                     {% set first = true %}
                                     {% for document in artwork.documents %}
                                         <div class="carousel-item {% if first %}active{% endif %}">
-                                            <a href="{{ vich_uploader_asset(document, 'imageFile') }}" target="_blank">
-                                                <img src="{{ vich_uploader_asset(document, 'imageFile') }}" alt="{{ artwork.title }}" width="100%" class="card-artwork-img d-block w-100"/>
+                                            {% set imageFile = getDocumentImage(document) %}
+                                            <a href="{{ imageFile }}" target="_blank">
+                                                <img src="{{ imageFile }}" alt="{{ artwork.title }}" width="100%" class="card-artwork-img d-block w-100"/>
                                             </a>
                                         </div>
                                         {% set first = false %}
@@ -131,18 +132,19 @@
                         <h4>{{ 'artwork.neighbour'|trans({}) }}</h4>
                     </div>
                 </div>
+
                 <div class="row">
                     {% for pois in poisAround %}
                         <div class="col-12 col-sm-4">
-                            {% for poiEl in pois %}
-                                {% set artwork = poiEl.artworks.first %}
+                            {% for poi in pois %}
+                                {% set artwork = poi.artworks.first %}
                                 {% set document = artwork.documents.first %}
 
-                                <a href="{{ path('artwork', {'id': poiEl.id}) }}">
+                                <a href="{{ path('artwork', {'id': poi.id}) }}">
                                     {% include "components/card-artwork.twig" with {
-                                        imgSrc: document.imageURI ? document.imageURI : vich_uploader_asset(document, 'imageFile'),
+                                        imgSrc: getDocumentImage(document, 'thumb_small'),
                                         title: artwork.title,
-                                        textLeft: poiEl.city ~ ', ' ~ poiEl.country,
+                                        textLeft: poi.city ~ ', ' ~ poi.country,
                                         textRight: artwork.createdAt|date("d/m/Y"),
                                     } %}
                                 </a>

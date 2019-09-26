@@ -65,3 +65,7 @@ services:
         class: App\Listener\User\UserGetMeSubscriber
         tags:
             - { name: kernel.event_subscriber }
+
+    App\Twig\AppExtension:
+        tags:
+            - { name: twig.extension }
