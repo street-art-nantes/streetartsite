@@ -36,7 +36,7 @@ class ArtworkPostControllerTest extends PantherTestCase
         return $this->authenticatedClient;
     }
 
-    public function testPostArtwork(): void
+    public function testStandardPostArtwork(): void
     {
         $client = $this->getAuthenticatedClient();
         $client->request('POST', '/api/artworks.json', [],
@@ -55,7 +55,13 @@ class ArtworkPostControllerTest extends PantherTestCase
                 ],
                 'documents' => [
                     [
-                        'imageURL' => 'https://lorempixel.com/art/300/400',
+                        'imageURL' => 'https://lorempixel.com/cats/300/400',
+                    ],
+                    [
+                        'imageURL' => 'https://lorempixel.com/sports/300/400',
+                    ],
+                    [
+                        'imageURL' => 'https://lorempixel.com/animals/300/400',
                     ],
                 ],
             ])

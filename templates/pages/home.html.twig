@@ -100,7 +100,7 @@
 
                                 <a href="{{ path('artwork', {'id': poi.id}) }}">
                                     {% include "components/card-artwork.twig" with {
-                                        imgSrc: document.imageURI ? document.imageURI : vich_uploader_asset(document, 'imageFile'),
+                                        imgSrc: getDocumentImage(document, 'thumb_small'),
                                         title: artwork.title,
                                         textLeft: poi.city ~ ', ' ~ poi.country,
                                         textRight: artwork.createdAt|date("d/m/Y"),

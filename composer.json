@@ -42,6 +42,7 @@
         "symfony/web-link": "^4.0",
         "symfony/webpack-encore-pack": "*",
         "symfony/yaml": "^4.0",
+        "twig/extensions": "^1.5",
         "vich/uploader-bundle": "^1.8"
     },
     "require-dev": {
