@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c8596cff6cc05bfc48ce406397d47a48",
+    "content-hash": "4e2e6797317a5b4d289481c39a849c27",
     "packages": [
         {
             "name": "api-platform/api-pack",
@@ -3549,6 +3549,121 @@
                 "crossdomain"
             ],
             "time": "2017-12-11T18:41:54+00:00"
+        },
+        {
+            "name": "nexylan/slack",
+            "version": "v2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nexylan/slack.git",
+                "reference": "a19fe1b4339b8f4f267922db5975b70458d6f4be"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nexylan/slack/zipball/a19fe1b4339b8f4f267922db5975b70458d6f4be",
+                "reference": "a19fe1b4339b8f4f267922db5975b70458d6f4be",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": "^7.1",
+                "php-http/client-common": "^1.9 || ^2.0",
+                "php-http/client-implementation": "^1.0",
+                "php-http/discovery": "^1.3",
+                "symfony/options-resolver": "^3.4 || ^4.0"
+            },
+            "require-dev": {
+                "guzzlehttp/psr7": "^1.4",
+                "mockery/mockery": "^1.0",
+                "php-http/message": "^1.6",
+                "php-http/mock-client": "^1.2"
+            },
+            "suggest": {
+                "nexylan/slack-bundle": "Required for Symfony bundle support"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Nexy\\Slack\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "maknz",
+                    "email": "github@mak.geek.nz"
+                },
+                {
+                    "name": "Sullivan SENECHAL",
+                    "email": "soullivaneuh@gmail.com"
+                }
+            ],
+            "description": "A simple PHP package for sending messages to Slack, with a focus on ease of use and elegant syntax.",
+            "keywords": [
+                "slack",
+                "webhook"
+            ],
+            "time": "2019-07-04T12:17:00+00:00"
+        },
+        {
+            "name": "nexylan/slack-bundle",
+            "version": "v2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nexylan/slack-bundle.git",
+                "reference": "9270c31917687ef35f5f9de9b031d34b62d14df9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nexylan/slack-bundle/zipball/9270c31917687ef35f5f9de9b031d34b62d14df9",
+                "reference": "9270c31917687ef35f5f9de9b031d34b62d14df9",
+                "shasum": ""
+            },
+            "require": {
+                "nexylan/slack": "^2.2",
+                "php": "^7.1",
+                "php-http/httplug-bundle": "^1.8",
+                "symfony/http-kernel": "^3.4 || ^4.0"
+            },
+            "require-dev": {
+                "matthiasnoback/symfony-dependency-injection-test": "^2.3",
+                "php-http/mock-client": "^1.1",
+                "phpunit/phpunit": "^6.5"
+            },
+            "suggest": {
+                "eightpoints/guzzle-bundle": "Make a custom Guzzle instance for Slack with ease"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Nexy\\SlackBundle\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sullivan SENECHAL",
+                    "email": "soullivaneuh@gmail.com"
+                }
+            ],
+            "description": "Symfony bundle integration of nexylan/slack library",
+            "time": "2019-08-12T14:29:54+00:00"
         },
         {
             "name": "nikic/php-parser",

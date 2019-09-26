@@ -31,4 +31,5 @@ return [
     Http\HttplugBundle\HttplugBundle::class => ['all' => true],
     Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle::class => ['all' => true],
     Sentry\SentryBundle\SentryBundle::class => ['all' => true],
+    Nexy\SlackBundle\NexySlackBundle::class => ['all' => true],
 ];
