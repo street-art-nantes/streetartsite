@@ -3,7 +3,6 @@
 namespace App\Twig;
 
 use App\Entity\Document;
-use Imagine\Image\ImagineInterface;
 use Liip\ImagineBundle\Imagine\Cache\CacheManager;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
@@ -25,7 +24,6 @@ class AppExtension extends AbstractExtension
     {
         $this->uploaderHelper = $uploaderHelper;
         $this->imagineCacheManager = $imagineCacheManager;
-
     }
 
     public function getFunctions()
