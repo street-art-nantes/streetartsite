@@ -36,7 +36,6 @@ class ImagePostControllerTest extends PantherTestCase
 
         $this->assertResponseStatusCodeSame(200);
         $data = json_decode($clientUser->getResponse()->getContent(), true);
-        var_dump($data);
 
         $fileId = $data['fileId'];
 
