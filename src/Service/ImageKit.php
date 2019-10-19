@@ -42,8 +42,6 @@ class ImageKit
     {
         $client = new Client();
 
-        var_dump($this->privateKey);
-
         try {
             $response = $client->request(
                 'POST',
