@@ -87,6 +87,12 @@ class User extends BaseUser
     protected $description;
 
     /**
+     * @ORM\Column(name="language", type="text")
+     * @Groups("user:read")
+     */
+    protected $language;
+
+    /**
      * @Vich\UploadableField(mapping="user_avatar", fileNameProperty="avatarName")
      * @Assert\File(
      *     maxSize = "2M",
@@ -114,6 +120,7 @@ class User extends BaseUser
         $this->artworks = new ArrayCollection();
         $this->createdAt = new \DateTime();
         $this->updatedAt = new \DateTime();
+        $this->language = 'en';
     }
 
     /**
@@ -337,4 +344,23 @@ class User extends BaseUser
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getLanguage()
+    {
+        return $this->language;
+    }
+
+    /**
+     * @param mixed $language
+     * @return User
+     */
+    public function setLanguage($language)
+    {
+        $this->language = $language;
+        return $this;
+    }
+
 }
