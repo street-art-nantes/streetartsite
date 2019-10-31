@@ -5,7 +5,6 @@ namespace App\Service;
 use App\Entity\Artwork;
 use App\Entity\Author;
 use App\Entity\User;
-use FOS\UserBundle\Model\UserInterface;
 use Liip\ImagineBundle\Service\FilterService;
 use Swift_Mailer as BaseMailer;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
@@ -64,7 +63,7 @@ class Mailer
      * @param UrlGeneratorInterface $router
      * @param EngineInterface       $templating
      * @param AssetPackages         $assetPackages
-     * @param Translator   $translator
+     * @param Translator            $translator
      * @param UploaderHelper        $helper
      * @param FilterService         $filterService
      * @param array                 $parameters
