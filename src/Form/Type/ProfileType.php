@@ -44,7 +44,7 @@ class ProfileType extends AbstractType
             ChoiceType::class,
             [
                 'label' => 'form.language',
-                'choices'  => [
+                'choices' => [
                     'language.english' => 'en',
                     'language.french' => 'fr',
                 ],

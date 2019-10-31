@@ -355,12 +355,13 @@ class User extends BaseUser
 
     /**
      * @param mixed $language
+     *
      * @return User
      */
     public function setLanguage($language)
     {
         $this->language = $language;
+
         return $this;
     }
-
 }

@@ -47,7 +47,7 @@ services:
         arguments: [ '@doctrine.orm.entity_manager', '@vich_uploader.templating.helper.uploader_helper', '@liip_imagine.service.filter']
 
     App\Service\Mailer:
-        arguments: [ '@swiftmailer.mailer.default', '@router.default', '@templating.engine.twig', '@assets.packages', '@translator', '@vich_uploader.templating.helper.uploader_helper', '@liip_imagine.service.filter', []]
+        arguments: [ '@swiftmailer.mailer.default', '@router.default', '@templating.engine.twig', '@assets.packages', '@translator.default', '@vich_uploader.templating.helper.uploader_helper', '@liip_imagine.service.filter', []]
         public: true
         autowire: true
         autoconfigure: false
