@@ -224,7 +224,7 @@
     </unit>
     <unit id="9uLIsJG" name="artwork.flash.danger.error">
       <notes>
-        <note category="file-source" priority="1">src/Controller/ArtWorkEditController.php:116</note>
+        <note category="file-source" priority="1">src/Controller/ArtWorkEditController.php:115</note>
       </notes>
       <segment>
         <source>artwork.flash.danger.error</source>
@@ -274,7 +274,7 @@
     <unit id="ownf56y" name="header.menu.submit">
       <notes>
         <note category="file-source" priority="1">templates/layout/header.html.twig:34</note>
-        <note category="file-source" priority="1">src/Controller/SitemapController.php:68</note>
+        <note category="file-source" priority="1">src/Controller/SitemapController.php:67</note>
       </notes>
       <segment>
         <source>header.menu.submit</source>
@@ -294,7 +294,7 @@
     <unit id="REXtE1v" name="header.menu.list">
       <notes>
         <note category="file-source" priority="1">templates/layout/header.html.twig:21</note>
-        <note category="file-source" priority="1">src/Controller/SitemapController.php:44</note>
+        <note category="file-source" priority="1">src/Controller/SitemapController.php:43</note>
       </notes>
       <segment>
         <source>header.menu.list</source>
@@ -322,7 +322,7 @@
     <unit id="RIrQkXh" name="nav.link.faq">
       <notes>
         <note category="file-source" priority="1">templates/layout/footer.html.twig:16</note>
-        <note category="file-source" priority="1">src/Controller/SitemapController.php:56</note>
+        <note category="file-source" priority="1">src/Controller/SitemapController.php:55</note>
       </notes>
       <segment>
         <source>nav.link.faq</source>
@@ -332,7 +332,7 @@
     <unit id="a6EN0Ik" name="nav.link.legals">
       <notes>
         <note category="file-source" priority="1">templates/layout/footer.html.twig:19</note>
-        <note category="file-source" priority="1">src/Controller/SitemapController.php:64</note>
+        <note category="file-source" priority="1">src/Controller/SitemapController.php:63</note>
       </notes>
       <segment>
         <source>nav.link.legals</source>
@@ -342,8 +342,8 @@
     <unit id="57ZrJh1" name="nav.link.sitemap">
       <notes>
         <note category="file-source" priority="1">templates/layout/footer.html.twig:22</note>
-        <note category="file-source" priority="1">src/Controller/SitemapController.php:40</note>
-        <note category="file-source" priority="1">src/Controller/SitemapController.php:60</note>
+        <note category="file-source" priority="1">src/Controller/SitemapController.php:39</note>
+        <note category="file-source" priority="1">src/Controller/SitemapController.php:59</note>
       </notes>
       <segment>
         <source>nav.link.sitemap</source>
@@ -434,7 +434,7 @@
     </unit>
     <unit id="MoE907k" name="artwork.neighbour">
       <notes>
-        <note category="file-source" priority="1">templates/pages/artwork.html.twig:131</note>
+        <note category="file-source" priority="1">templates/pages/artwork.html.twig:132</note>
       </notes>
       <segment>
         <source>artwork.neighbour</source>
@@ -639,7 +639,7 @@
     </unit>
     <unit id="Yr35g2M" name="welcome.connect">
       <notes>
-        <note category="file-source" priority="1">templates/pages/welcome.html.twig:39</note>
+        <note category="file-source" priority="1">templates/pages/welcome.html.twig:43</note>
       </notes>
       <segment>
         <source>welcome.connect</source>
@@ -648,7 +648,7 @@
     </unit>
     <unit id="7WELECE" name="welcome.register">
       <notes>
-        <note category="file-source" priority="1">templates/pages/welcome.html.twig:44</note>
+        <note category="file-source" priority="1">templates/pages/welcome.html.twig:48</note>
       </notes>
       <segment>
         <source>welcome.register</source>
@@ -743,7 +743,7 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     </unit>
     <unit id="WpUieoQ" name="form.website">
       <notes>
-        <note category="file-source" priority="1">src/Form/Type/ProfileType.php:44</note>
+        <note category="file-source" priority="1">src/Form/Type/ProfileType.php:57</note>
         <note category="file-source" priority="1">src/Form/Type/RegistrationType.php:44</note>
       </notes>
       <segment>
@@ -753,7 +753,7 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     </unit>
     <unit id="h2JZhLm" name="form.description">
       <notes>
-        <note category="file-source" priority="1">src/Form/Type/ProfileType.php:51</note>
+        <note category="file-source" priority="1">src/Form/Type/ProfileType.php:64</note>
         <note category="file-source" priority="1">src/Form/Type/RegistrationType.php:51</note>
       </notes>
       <segment>
@@ -763,7 +763,7 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     </unit>
     <unit id="5FHHzyW" name="form.avatar">
       <notes>
-        <note category="file-source" priority="1">src/Form/Type/ProfileType.php:56</note>
+        <note category="file-source" priority="1">src/Form/Type/ProfileType.php:69</note>
         <note category="file-source" priority="1">src/Form/Type/RegistrationType.php:56</note>
       </notes>
       <segment>
@@ -856,7 +856,7 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     <unit id="h2Lb0U9" name="header.menu.artistlist">
       <notes>
         <note category="file-source" priority="1">templates/layout/header.html.twig:25</note>
-        <note category="file-source" priority="1">src/Controller/SitemapController.php:48</note>
+        <note category="file-source" priority="1">src/Controller/SitemapController.php:47</note>
       </notes>
       <segment>
         <source>header.menu.artistlist</source>
@@ -892,7 +892,7 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     </unit>
     <unit id="lqxFkoi" name="artist.flash.notice.notfound">
       <notes>
-        <note category="file-source" priority="1">src/Controller/ArtistController.php:92</note>
+        <note category="file-source" priority="1">src/Controller/ArtistController.php:91</note>
       </notes>
       <segment>
         <source>artist.flash.notice.notfound</source>
@@ -934,7 +934,7 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
       <notes>
         <note category="file-source" priority="1">templates/layout/header.html.twig:29</note>
         <note category="file-source" priority="1">templates/pages/content.html.twig:76</note>
-        <note category="file-source" priority="1">src/Controller/SitemapController.php:52</note>
+        <note category="file-source" priority="1">src/Controller/SitemapController.php:51</note>
       </notes>
       <segment>
         <source>header.menu.blog</source>
@@ -962,7 +962,7 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     </unit>
     <unit id="8I5mm_t" name="artwork.flash.notice.notfound">
       <notes>
-        <note category="file-source" priority="1">src/Controller/ArtworkController.php:89</note>
+        <note category="file-source" priority="1">src/Controller/ArtworkController.php:87</note>
       </notes>
       <segment>
         <source>artwork.flash.notice.notfound</source>
@@ -971,7 +971,7 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     </unit>
     <unit id="pVVhPMK" name="user.flash.notice.notfound">
       <notes>
-        <note category="file-source" priority="1">src/Controller/UserController.php:107</note>
+        <note category="file-source" priority="1">src/Controller/UserController.php:106</note>
       </notes>
       <segment>
         <source>user.flash.notice.notfound</source>
@@ -1206,7 +1206,7 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     </unit>
     <unit id="2m5dyeL" name="artist.flash.danger.error">
       <notes>
-        <note category="file-source" priority="1">src/Controller/ArtistEditController.php:102</note>
+        <note category="file-source" priority="1">src/Controller/ArtistEditController.php:101</note>
       </notes>
       <segment>
         <source>artist.flash.danger.error</source>
@@ -1353,7 +1353,7 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     </unit>
     <unit id="ZuwP116" name="welcome.facebook">
       <notes>
-        <note category="file-source" priority="1">templates/pages/welcome.html.twig:22</note>
+        <note category="file-source" priority="1">templates/pages/welcome.html.twig:23</note>
       </notes>
       <segment>
         <source>welcome.facebook</source>
@@ -1362,7 +1362,7 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     </unit>
     <unit id="4WhY53P" name="welcome.instagram">
       <notes>
-        <note category="file-source" priority="1">templates/pages/welcome.html.twig:24</note>
+        <note category="file-source" priority="1">templates/pages/welcome.html.twig:27</note>
       </notes>
       <segment>
         <source>welcome.instagram</source>
@@ -1371,8 +1371,7 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     </unit>
     <unit id="YoXcIqM" name="welcome.connectionor">
       <notes>
-        <note category="file-source" priority="1">templates/pages/welcome.html.twig:32</note>
-        <note category="state" priority="1">new</note>
+        <note category="file-source" priority="1">templates/pages/welcome.html.twig:36</note>
       </notes>
       <segment>
         <source>welcome.connectionor</source>
@@ -1382,7 +1381,6 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     <unit id="GFlflaS" name="popup.title">
       <notes>
         <note category="file-source" priority="1">templates/popup/facebook-instagram.twig:5</note>
-        <note category="state" priority="1">new</note>
       </notes>
       <segment>
         <source>popup.title</source>
@@ -1391,8 +1389,7 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     </unit>
     <unit id="fThqjqD" name="popup.followus">
       <notes>
-        <note category="file-source" priority="1">templates/popup/facebook-instagram.twig:12</note>
-        <note category="state" priority="1">new</note>
+        <note category="file-source" priority="1">templates/popup/facebook-instagram.twig:13</note>
       </notes>
       <segment>
         <source>popup.followus</source>
@@ -1401,8 +1398,7 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     </unit>
     <unit id="FL11tyG" name="popup.goodbye">
       <notes>
-        <note category="file-source" priority="1">templates/popup/facebook-instagram.twig:23</note>
-        <note category="state" priority="1">new</note>
+        <note category="file-source" priority="1">templates/popup/facebook-instagram.twig:25</note>
       </notes>
       <segment>
         <source>popup.goodbye</source>
@@ -1411,12 +1407,41 @@ Ou bien nous contacter à cette adresse (<a href="mailto:contact@street-artwork.
     </unit>
     <unit id="EoxH1_w" name="popup.register">
       <notes>
-        <note category="file-source" priority="1">templates/popup/facebook-instagram.twig:25</note>
-        <note category="state" priority="1">new</note>
+        <note category="file-source" priority="1">templates/popup/facebook-instagram.twig:27</note>
       </notes>
       <segment>
         <source>popup.register</source>
         <target>Créer mon compte pour partager mes trouvailles :)</target>
+      </segment>
+    </unit>
+    <unit id="rMCnZt." name="language.english">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/ProfileType.php:47</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>language.english</source>
+        <target>Anglais</target>
+      </segment>
+    </unit>
+    <unit id="jx5Oess" name="language.french">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/ProfileType.php:47</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>language.french</source>
+        <target>Français</target>
+      </segment>
+    </unit>
+    <unit id="9TwEtVB" name="form.language">
+      <notes>
+        <note category="file-source" priority="1">src/Form/Type/ProfileType.php:45</note>
+        <note category="state" priority="1">new</note>
+      </notes>
+      <segment>
+        <source>form.language</source>
+        <target>Langue</target>
       </segment>
     </unit>
   </file>

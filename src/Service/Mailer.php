@@ -4,14 +4,14 @@ namespace App\Service;
 
 use App\Entity\Artwork;
 use App\Entity\Author;
-use FOS\UserBundle\Model\UserInterface;
+use App\Entity\User;
 use Liip\ImagineBundle\Service\FilterService;
 use Swift_Mailer as BaseMailer;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\Asset\Packages as AssetPackages;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Symfony\Contracts\Translation\TranslatorInterface;
+use Symfony\Component\Translation\Translator;
 use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
 
 class Mailer
@@ -37,7 +37,7 @@ class Mailer
     protected $assetPackages;
 
     /**
-     * @var TranslatorInterface
+     * @var Translator
      */
     protected $translator;
 
@@ -63,13 +63,13 @@ class Mailer
      * @param UrlGeneratorInterface $router
      * @param EngineInterface       $templating
      * @param AssetPackages         $assetPackages
-     * @param TranslatorInterface   $translator
+     * @param Translator            $translator
      * @param UploaderHelper        $helper
      * @param FilterService         $filterService
      * @param array                 $parameters
      */
     public function __construct(BaseMailer $baseMailer, UrlGeneratorInterface $router, EngineInterface $templating,
-                                AssetPackages $assetPackages, TranslatorInterface $translator, UploaderHelper $helper,
+                                AssetPackages $assetPackages, Translator $translator, UploaderHelper $helper,
                                 FilterService $filterService, array $parameters)
     {
         $this->baseMailer = $baseMailer;
@@ -83,9 +83,9 @@ class Mailer
     }
 
     /**
-     * @param UserInterface $user
+     * @param User $user
      */
-    public function sendWelcomeEmailMessage(UserInterface $user)
+    public function sendWelcomeEmailMessage(User $user)
     {
         $template = 'email/welcome.twig';
         $urlAccount = $this->router->generate('public_profile', ['id' => $user->getId()], 0);
@@ -110,10 +110,10 @@ class Mailer
     }
 
     /**
-     * @param Request       $request
-     * @param UserInterface $user
+     * @param Request $request
+     * @param User    $user
      */
-    public function sendSubmissionEmailMessage(Request $request, UserInterface $user)
+    public function sendSubmissionEmailMessage(Request $request, User $user)
     {
         $template = 'email/submission.twig';
         $urlForm = $this->router->generate('app_artwork_new', [], 0);
@@ -135,10 +135,10 @@ class Mailer
     }
 
     /**
-     * @param Request       $request
-     * @param UserInterface $user
+     * @param Request $request
+     * @param User    $user
      */
-    public function sendArtistSubmissionEmailMessage(Request $request, UserInterface $user)
+    public function sendArtistSubmissionEmailMessage(Request $request, User $user)
     {
         $template = 'email/artist_submission.twig';
         $urlForm = $this->router->generate('app_artist_new', [], 0);
@@ -160,71 +160,80 @@ class Mailer
     }
 
     /**
-     * @param Artwork       $artwork
-     * @param UserInterface $user
+     * @param Artwork $artwork
+     * @param User    $user
      */
-    public function sendValidationEmailMessage(Artwork $artwork, UserInterface $user)
+    public function sendValidationEmailMessage(Artwork $artwork, User $user)
     {
-        $template = 'email/validation.twig';
-        $urlForm = $this->router->generate('app_artwork_new', [], 0);
-        $urlArtwork = $this->router->generate('artwork', ['id' => $artwork->getPoi()->getId()], 0);
-        $document = $artwork->getDocuments()->first();
-        $urlImgArtwork = $this->filterService->getUrlOfFilteredImage($this->helper->asset($document, 'imageFile'), 'thumb_small');
-        $urlHeaderLogo = $this->assetPackages->getUrl('assets/img/email-logo.png');
-        $rendered = $this->templating->render($template, [
-            'user' => $user,
-            'urlForm' => $urlForm,
-            'urlHeaderLogo' => $urlHeaderLogo,
-            'artwork' => $artwork,
-            'urlArtwork' => $urlArtwork,
-            'imgArtwork' => $urlImgArtwork,
-        ]);
-        $subject = $this->translator->trans('validation.subject', ['%username%' => $user->getUsername()], 'TransactionalEmail');
-        $this->sendEmailMessage($rendered,
-            ['contact@street-artwork.com' => 'street-artwork.com'],
-            [$user->getEmail() => $user->getUsername()],
-            $user,
-            $subject);
-    }
-
-    /**
-     * @param Author        $artist
-     * @param UserInterface $user
-     */
-    public function sendArtistValidationEmailMessage(Author $artist, UserInterface $user)
-    {
-        $template = 'email/artist_validation.twig';
-        $urlForm = $this->router->generate('app_artist_new', [], 0);
-        $urlArtist = $this->router->generate('artist_profile', ['id' => $artist->getId()], 0);
-        $urlImgArtist = '';
-        if ($artist->getAvatarName()) {
-            $urlImgArtist = $this->filterService->getUrlOfFilteredImage($this->helper->asset($artist, 'avatarFile'), 'thumb_small');
+        if ($artwork->isEnabled()) {
+            $language = $user->getLanguage();
+            $this->translator->setLocale($language);
+            $template = 'email/validation.twig';
+            $urlForm = $this->router->generate('app_artwork_new', ['_locale' => $language], 0);
+            $urlArtwork = $this->router->generate('artwork', ['id' => $artwork->getPoi()->getId(), '_locale' => $language], 0);
+            $document = $artwork->getDocuments()->first();
+            $urlImgArtwork = $this->filterService->getUrlOfFilteredImage($this->helper->asset($document, 'imageFile'), 'thumb_small');
+            $urlHeaderLogo = $this->assetPackages->getUrl('assets/img/email-logo.png');
+            $rendered = $this->templating->render($template, [
+                'user' => $user,
+                'urlForm' => $urlForm,
+                'urlHeaderLogo' => $urlHeaderLogo,
+                'artwork' => $artwork,
+                'urlArtwork' => $urlArtwork,
+                'imgArtwork' => $urlImgArtwork,
+                '_locale' => $language,
+            ]);
+            $subject = $this->translator->trans('validation.subject', ['%username%' => $user->getUsername()], 'TransactionalEmail');
+            $this->sendEmailMessage($rendered,
+                ['contact@street-artwork.com' => 'street-artwork.com'],
+                [$user->getEmail() => $user->getUsername()],
+                $user,
+                $subject);
         }
-        $urlHeaderLogo = $this->assetPackages->getUrl('assets/img/email-logo.png');
-        $rendered = $this->templating->render($template, [
-            'user' => $user,
-            'urlForm' => $urlForm,
-            'urlHeaderLogo' => $urlHeaderLogo,
-            'artist' => $artist,
-            'urlArtist' => $urlArtist,
-            'imgArtist' => $urlImgArtist,
-        ]);
-        $subject = $this->translator->trans('artist_validation.subject', ['%username%' => $user->getUsername()], 'TransactionalEmail');
-        $this->sendEmailMessage($rendered,
-            ['contact@street-artwork.com' => 'street-artwork.com'],
-            [$user->getEmail() => $user->getUsername()],
-            $user,
-            $subject);
     }
 
     /**
-     * @param string        $renderedTemplate
-     * @param mixed         $fromEmail
-     * @param mixed         $toEmail
-     * @param UserInterface $user
-     * @param string        $subject
+     * @param Author $artist
+     * @param User   $user
      */
-    protected function sendEmailMessage($renderedTemplate, $fromEmail, $toEmail, UserInterface $user, $subject)
+    public function sendArtistValidationEmailMessage(Author $artist, User $user)
+    {
+        if ($artist->isEnabled()) {
+            $language = $user->getLanguage();
+            $this->translator->setLocale($language);
+            $template = 'email/artist_validation.twig';
+            $urlForm = $this->router->generate('app_artist_new', ['_locale' => $language], 0);
+            $urlArtist = $this->router->generate('artist_profile', ['id' => $artist->getId(), '_locale' => $language], 0);
+            $urlImgArtist = '';
+            if ($artist->getAvatarName()) {
+                $urlImgArtist = $this->filterService->getUrlOfFilteredImage($this->helper->asset($artist, 'avatarFile'), 'thumb_small');
+            }
+            $urlHeaderLogo = $this->assetPackages->getUrl('assets/img/email-logo.png');
+            $rendered = $this->templating->render($template, [
+                'user' => $user,
+                'urlForm' => $urlForm,
+                'urlHeaderLogo' => $urlHeaderLogo,
+                'artist' => $artist,
+                'urlArtist' => $urlArtist,
+                'imgArtist' => $urlImgArtist,
+            ]);
+            $subject = $this->translator->trans('artist_validation.subject', ['%username%' => $user->getUsername()], 'TransactionalEmail');
+            $this->sendEmailMessage($rendered,
+                ['contact@street-artwork.com' => 'street-artwork.com'],
+                [$user->getEmail() => $user->getUsername()],
+                $user,
+                $subject);
+        }
+    }
+
+    /**
+     * @param string $renderedTemplate
+     * @param mixed  $fromEmail
+     * @param mixed  $toEmail
+     * @param User   $user
+     * @param string $subject
+     */
+    protected function sendEmailMessage($renderedTemplate, $fromEmail, $toEmail, User $user, $subject)
     {
         $message = (new \Swift_Message())
             ->setSubject($subject)
