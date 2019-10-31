@@ -87,7 +87,7 @@ class User extends BaseUser
     protected $description;
 
     /**
-     * @ORM\Column(name="language", type="text")
+     * @ORM\Column(name="language", type="text", options={"default" : "en"})
      * @Groups("user:read")
      */
     protected $language;
