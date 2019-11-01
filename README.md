@@ -65,3 +65,16 @@ Go to `http://localhost:1080`
 Show API documentation
 
 Go to `http://localhost/api`
+
+
+Before merging 
+---
+
+``` bash
+./vendor/bin/phpstan analyse --level 2 -c .circleci/tools/phpstan.neon src
+```
+
+``` bash
+.circleci/tools/php-cs-fixer.sh
+```
+

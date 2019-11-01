@@ -55,13 +55,13 @@ class ArtworkPostControllerTest extends PantherTestCase
                 ],
                 'documents' => [
                     [
-                        'imageURL' => 'https://lorempixel.com/cats/300/400',
+                        'imageKitData' => '{"filePath":"/cats/300/400","size":403460,"fileId":"5dbbfa98bffedf289db0d59a","url":"https://lorempixel.com/cats/300/400","name":"8E73BA22-5561-4064-8A3B-F0D7AAD5EC7A_2_uQ6zEnT.jpg","fileType":"image","thumbnailUrl":"https://lorempixel.com/cats/300/400","width":1120,"height":840}',
                     ],
                     [
-                        'imageURL' => 'https://lorempixel.com/sports/300/400',
+                        'imageKitData' => '{"filePath":"/cats/300/400","size":403460,"fileId":"5dbbfa98bffedf289db0d59a","url":"https://lorempixel.com/cats/300/400","name":"8E73BA22-5561-4064-8A3B-F0D7AAD5EC7A_2_uQ6zEnT.jpg","fileType":"image","thumbnailUrl":"https://lorempixel.com/cats/300/400","width":1120,"height":840}',
                     ],
                     [
-                        'imageURL' => 'https://lorempixel.com/animals/300/400',
+                        'imageKitData' => '{"filePath":"/cats/300/400","size":403460,"fileId":"5dbbfa98bffedf289db0d59a","url":"https://lorempixel.com/cats/300/400","name":"8E73BA22-5561-4064-8A3B-F0D7AAD5EC7A_2_uQ6zEnT.jpg","fileType":"image","thumbnailUrl":"https://lorempixel.com/cats/300/400","width":1120,"height":840}',
                     ],
                 ],
             ])
@@ -75,8 +75,16 @@ class ArtworkPostControllerTest extends PantherTestCase
 
         $client->request('GET', '/api/artworks/'.$artworkId.'.json');
         $data = json_decode($client->getResponse()->getContent(), true);
+        var_dump($data);
         $this->assertResponseStatusCodeSame(200);
         $this->assertSame('Fresque Haguenau', $data['title']);
         $this->assertSame('graffiti', $data['type']);
+        $this->assertCount(3, $data['documents']);
+
+        foreach ($data['documents'] as $document) {
+            $this->assertArrayHasKey('id', $document);
+            $this->assertArrayHasKey('imageKitData', $document);
+            $this->assertArrayHasKey('imageURI', $document);
+        }
     }
 }

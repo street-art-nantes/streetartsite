@@ -15,6 +15,7 @@
     <rule ref="rulesets/design.xml">
         <exclude name="CouplingBetweenObjects"/>
         <exclude name="NumberOfChildren" />
+        <exclude name="EmptyCatchBlock" />
     </rule>
     <rule ref="rulesets/unusedcode.xml">
         <exclude name="UnusedLocalVariable"/>
