@@ -27,22 +27,22 @@ App\Entity\Artwork:
 App\Entity\Document:
     document_1:
         artwork: '@artwork_1'
-        imageURI: 'https://lorempixel.com/600/300'
+        imageKitData: '{"filePath":"/cats/300/400","size":403460,"fileId":"5dbbfa98bffedf289db0d59a","url":"https://lorempixel.com/cats/300/400","name":"8E73BA22-5561-4064-8A3B-F0D7AAD5EC7A_2_uQ6zEnT.jpg","fileType":"image","thumbnailUrl":"https://lorempixel.com/cats/300/400","width":1120,"height":840}'
     document_2:
         artwork: '@artwork_2'
-        imageURI: 'https://lorempixel.com/600/300'
+        imageKitData: '{"filePath":"/cats/300/400","size":403460,"fileId":"5dbbfa98bffedf289db0d59a","url":"https://lorempixel.com/cats/300/400","name":"8E73BA22-5561-4064-8A3B-F0D7AAD5EC7A_2_uQ6zEnT.jpg","fileType":"image","thumbnailUrl":"https://lorempixel.com/cats/300/400","width":1120,"height":840}'
     document_3:
         artwork: '@artwork_3'
-        imageURI: 'https://lorempixel.com/600/300'
+        imageKitData: '{"filePath":"/cats/300/400","size":403460,"fileId":"5dbbfa98bffedf289db0d59a","url":"https://lorempixel.com/cats/300/400","name":"8E73BA22-5561-4064-8A3B-F0D7AAD5EC7A_2_uQ6zEnT.jpg","fileType":"image","thumbnailUrl":"https://lorempixel.com/cats/300/400","width":1120,"height":840}'
     document_4:
         artwork: '@artwork_4'
-        imageURI: 'https://lorempixel.com/600/300'
+        imageKitData: '{"filePath":"/cats/300/400","size":403460,"fileId":"5dbbfa98bffedf289db0d59a","url":"https://lorempixel.com/cats/300/400","name":"8E73BA22-5561-4064-8A3B-F0D7AAD5EC7A_2_uQ6zEnT.jpg","fileType":"image","thumbnailUrl":"https://lorempixel.com/cats/300/400","width":1120,"height":840}'
     document_5:
         artwork: '@artwork_5'
-        imageURI: 'https://lorempixel.com/600/300'
+        imageKitData: '{"filePath":"/cats/300/400","size":403460,"fileId":"5dbbfa98bffedf289db0d59a","url":"https://lorempixel.com/cats/300/400","name":"8E73BA22-5561-4064-8A3B-F0D7AAD5EC7A_2_uQ6zEnT.jpg","fileType":"image","thumbnailUrl":"https://lorempixel.com/cats/300/400","width":1120,"height":840}'
     document_6:
         artwork: '@artwork_6'
-        imageURI: 'https://lorempixel.com/600/300'
+        imageKitData: '{"filePath":"/cats/300/400","size":403460,"fileId":"5dbbfa98bffedf289db0d59a","url":"https://lorempixel.com/cats/300/400","name":"8E73BA22-5561-4064-8A3B-F0D7AAD5EC7A_2_uQ6zEnT.jpg","fileType":"image","thumbnailUrl":"https://lorempixel.com/cats/300/400","width":1120,"height":840}'
 
 App\Entity\Poi:
     poi_canada_1:

@@ -56,6 +56,15 @@ class Document
     private $imageURI;
 
     /**
+     * @ORM\Column(type="json", nullable=true)
+     *
+     * @Groups({"artwork:write"})
+     *
+     * @var string|null
+     */
+    private $imageKitData;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Artwork", inversedBy="documents")
      */
     private $artwork;
@@ -144,14 +153,6 @@ class Document
     }
 
     /**
-     * @return string|null
-     */
-    public function getImageURI(): ?string
-    {
-        return $this->imageURI;
-    }
-
-    /**
      * @param string|null $imageURI
      *
      * @return Document
@@ -159,6 +160,49 @@ class Document
     public function setImageURI(?string $imageURI): self
     {
         $this->imageURI = $imageURI;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     * @Groups({"artwork:read"})
+     */
+    public function getImageURI(): ?string
+    {
+        if ($this->imageURI) {
+            return $this->imageURI;
+        }
+
+        $imageURI = '';
+        try {
+            $data = $this->getImageKitData();
+            if (isset($data['url'])) {
+                $imageURI = $data['url'];
+            }
+        } catch (\Exception $e) {
+        }
+
+        return $imageURI;
+    }
+
+    /**
+     * @return array|null
+     * @Groups({"artwork:read"})
+     */
+    public function getImageKitData(): ?array
+    {
+        return json_decode($this->imageKitData, true);
+    }
+
+    /**
+     * @param string|null $imageKitData
+     *
+     * @return Document
+     */
+    public function setImageKitData(?string $imageKitData): self
+    {
+        $this->imageKitData = $imageKitData;
 
         return $this;
     }
