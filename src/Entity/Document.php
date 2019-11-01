@@ -174,7 +174,7 @@ class Document
             return $this->imageURI;
         }
 
-        $imageURI = '';
+        $imageURI = null;
         try {
             $data = $this->getImageKitData();
             if (isset($data['url'])) {
