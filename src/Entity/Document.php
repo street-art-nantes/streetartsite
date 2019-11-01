@@ -153,12 +153,14 @@ class Document
     }
 
     /**
-     * @param null|string $imageURI
+     * @param string|null $imageURI
+     *
      * @return Document
      */
-    public function setImageURI(?string $imageURI): Document
+    public function setImageURI(?string $imageURI): self
     {
         $this->imageURI = $imageURI;
+
         return $this;
     }
 
