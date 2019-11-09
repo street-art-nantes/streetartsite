@@ -19,6 +19,11 @@ class Document
 {
     use TimestampableEntity;
 
+    const IMAGEKIT_ALIAS_SMALL = 'tr:n-small_thumb';
+    const IMAGEKIT_ALIAS_MEDIUM = 'tr:n-medium_thumb';
+    const IMAGEKIT_ALIAS_LARGE = 'tr:n-large_thumb';
+    const IMAGEKIT_ALIAS_MACRO = 'tr:n-media_library_thumbnail';
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -168,7 +173,7 @@ class Document
      * @return string|null
      * @Groups({"artwork:read"})
      */
-    public function getImageURI(): ?string
+    public function getImageURI(string $alias = null): ?string
     {
         if ($this->imageURI) {
             return $this->imageURI;
@@ -177,13 +182,40 @@ class Document
         $imageURI = null;
         try {
             $data = $this->getImageKitData();
-            if (isset($data['url'])) {
+
+            if ($alias && isset($data['thumbnailUrl'])) {
+                $imageURI = str_replace(self::IMAGEKIT_ALIAS_MACRO, $alias, $data['thumbnailUrl']);
+            } elseif (isset($data['url'])) {
                 $imageURI = $data['url'];
             }
         } catch (\Exception $e) {
         }
 
         return $imageURI;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getImageURIMedium(): ?string
+    {
+        return $this->getImageURI(self::IMAGEKIT_ALIAS_MEDIUM);
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getImageURILarge(): ?string
+    {
+        return $this->getImageURI(self::IMAGEKIT_ALIAS_LARGE);
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getImageURISmall(): ?string
+    {
+        return $this->getImageURI(self::IMAGEKIT_ALIAS_SMALL);
     }
 
     /**

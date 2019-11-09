@@ -36,7 +36,7 @@ class AppExtension extends AbstractExtension
     public function getDocumentImage(Document $document, $filter = null)
     {
         if ($document->getImageURI()) {
-            return $document->getImageURI();
+            return 'thumb_small' === $filter ? $document->getImageURIMedium() : $document->getImageURILarge();
         }
 
         $imageFile = $this->uploaderHelper->asset($document, 'imageFile');

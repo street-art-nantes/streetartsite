@@ -102,7 +102,8 @@ class PoiManager
             $artwork = $poi->getArtworks()->first();
             /** @var Document $document */
             $document = $artwork->getDocuments()->first();
-            $imgUrl = $document->getImageURI() ?? $this->filterService->getUrlOfFilteredImage($this->helper->asset($document, 'imageFile'), 'thumb_small');
+            $imgUrl = $document->getImageURIMedium() ?? $this->filterService->getUrlOfFilteredImage($this->helper->asset($document, 'imageFile'), 'thumb_small');
+            $iconUrl = $document->getImageURISmall() ?? $this->filterService->getUrlOfFilteredImage($this->helper->asset($document, 'imageFile'), 'thumb_small');
             $convertedPois[] = [
                 'id' => $poi->getId(),
                 'timestamp' => $artwork->getCreatedAt()->getTimestamp(),
@@ -110,7 +111,7 @@ class PoiManager
                 'lng' => $poi->getLongitude(),
                 'imgUrl' => $imgUrl,
                 'caption' => $artwork->getTitle() ? $artwork->getTitle() : '',
-                'iconUrl' => $imgUrl,
+                'iconUrl' => $iconUrl,
                 'thumbnail' => $imgUrl,
                 'artworkUrl' => $this->router->generate(
                     'artwork',
