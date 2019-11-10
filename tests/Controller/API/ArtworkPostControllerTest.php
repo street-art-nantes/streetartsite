@@ -80,6 +80,7 @@ class ArtworkPostControllerTest extends PantherTestCase
         $this->assertSame('Fresque Haguenau', $data['title']);
         $this->assertSame('graffiti', $data['type']);
         $this->assertCount(3, $data['documents']);
+        $this->assertNotNull($data['contributor']);
 
         foreach ($data['documents'] as $document) {
             $this->assertArrayHasKey('id', $document);
