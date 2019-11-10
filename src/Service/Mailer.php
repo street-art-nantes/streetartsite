@@ -172,7 +172,7 @@ class Mailer
             $urlForm = $this->router->generate('app_artwork_new', ['_locale' => $language], 0);
             $urlArtwork = $this->router->generate('artwork', ['id' => $artwork->getPoi()->getId(), '_locale' => $language], 0);
             $document = $artwork->getDocuments()->first();
-            $urlImgArtwork = $this->filterService->getUrlOfFilteredImage($this->helper->asset($document, 'imageFile'), 'thumb_small');
+            $urlImgArtwork = $document->getImageURIMedium() ?? $this->filterService->getUrlOfFilteredImage($this->helper->asset($document, 'imageFile'), 'thumb_small');
             $urlHeaderLogo = $this->assetPackages->getUrl('assets/img/email-logo.png');
             $rendered = $this->templating->render($template, [
                 'user' => $user,
