@@ -3,26 +3,32 @@ App\Entity\Artwork:
         poi: '@poi_canada_1'
         enabled: true
         type: 'graffiti'
+        contributor: '@user_1'
     artwork_2:
         poi: '@poi_nantes_1'
         enabled: true
         type: 'graffiti'
+        contributor: '@user_1'
     artwork_3:
         poi: '@poi_nantes_2'
         enabled: true
         type: 'graffiti'
+        contributor: '@user_1'
     artwork_4:
         poi: '@poi_nantes_3'
         enabled: true
         type: 'graffiti'
+        contributor: '@user_1'
     artwork_5:
         poi: '@poi_nantes_4'
         enabled: true
         type: 'graffiti'
+        contributor: '@user_1'
     artwork_6:
         poi: '@poi_nantes_5'
         enabled: true
         type: 'graffiti'
+        contributor: '@user_1'
 
 App\Entity\Document:
     document_1:

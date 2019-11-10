@@ -69,3 +69,8 @@ services:
     App\Twig\AppExtension:
         tags:
             - { name: twig.extension }
+
+    App\Listener\ArtworkContributorListener:
+        class: App\Listener\ArtworkContributorListener
+        tags:
+            - { name: doctrine.event_subscriber }
