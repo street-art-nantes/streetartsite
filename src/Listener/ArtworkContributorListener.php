@@ -32,7 +32,7 @@ class ArtworkContributorListener implements EventSubscriber
      */
     public function getSubscribedEvents()
     {
-        return ['prePersist', 'preUpdate'];
+        return ['prePersist'];
     }
 
     /**
@@ -46,23 +46,5 @@ class ArtworkContributorListener implements EventSubscriber
         }
 
         $entity->setContributor($this->security->getUser());
-    }
-
-    /**
-     * @param LifecycleEventArgs $args
-     */
-    public function preUpdate(LifecycleEventArgs $args)
-    {
-        $entity = $args->getEntity();
-        if (!$entity instanceof Artwork) {
-            return;
-        }
-
-        $entity->setContributor($this->security->getUser());
-
-        // necessary to force the update to see the change
-        $manager = $args->getEntityManager();
-        $meta = $manager->getClassMetadata(\get_class($entity));
-        $manager->getUnitOfWork()->recomputeSingleEntityChangeSet($meta, $entity);
     }
 }
