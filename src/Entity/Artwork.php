@@ -311,7 +311,7 @@ class Artwork
      */
     public function __toString()
     {
-        return $this->id . ' - ' . $this->title . ' - ' . $this->type;
+        return $this->id.' - '.$this->title.' - '.$this->type;
     }
 
     /**
