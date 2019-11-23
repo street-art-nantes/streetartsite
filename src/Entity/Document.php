@@ -196,6 +196,7 @@ class Document
 
     /**
      * @return string|null
+     * @Groups({"artwork:read"})
      */
     public function getImageURIMedium(): ?string
     {
@@ -204,6 +205,7 @@ class Document
 
     /**
      * @return string|null
+     * @Groups({"artwork:read"})
      */
     public function getImageURILarge(): ?string
     {
@@ -212,6 +214,7 @@ class Document
 
     /**
      * @return string|null
+     * @Groups({"artwork:read"})
      */
     public function getImageURISmall(): ?string
     {
