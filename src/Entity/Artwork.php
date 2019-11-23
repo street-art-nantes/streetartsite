@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\BooleanFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
@@ -25,6 +27,12 @@ use Symfony\Component\Validator\Constraints as Assert;
  *     }
  * )
  * @ApiFilter(SearchFilter::class, properties={"contributor.id": "exact"})
+ * @ApiFilter(BooleanFilter::class, properties={"enabled"})
+ * @ApiFilter(OrderFilter::class, properties={
+ *     "id", "title", "createdAt"
+ * }, arguments={
+ *     "orderParameterName"="order"
+ * })
  *
  * @ORM\Entity(repositoryClass="App\Repository\ArtworkRepository")
  */
@@ -303,7 +311,7 @@ class Artwork
      */
     public function __toString()
     {
-        return $this->id.' - '.$this->title.' - '.$this->type;
+        return $this->id . ' - ' . $this->title . ' - ' . $this->type;
     }
 
     /**
