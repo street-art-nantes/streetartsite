@@ -18,3 +18,14 @@ App\Entity\User:
         country: Suisse
         roles:
             ROLE_ADMIN: ROLE_USER
+
+    user_2:
+        id: 3
+        username: julien.petit
+        email: julien.petit@streetart.com
+        plainPassword: p4ssWord
+        enabled: true
+        city: Nantes
+        country: France
+        roles:
+            ROLE_ADMIN: ROLE_USER

@@ -8,9 +8,9 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Panther\PantherTestCase;
 
 /**
- * Class ImagePostControllerTest.
+ * Class PostImageControllerTest.
  */
-class ImagePostControllerTest extends PantherTestCase
+class PostImageControllerTest extends PantherTestCase
 {
     use ReloadDatabaseTrait;
     use AuthenticationTrait;

@@ -7,9 +7,9 @@ use Hautelook\AliceBundle\PhpUnit\ReloadDatabaseTrait;
 use Symfony\Component\Panther\PantherTestCase;
 
 /**
- * Class ArtworkPostControllerTest.
+ * Class PostArtworkControllerTest.
  */
-class ArtworkPostControllerTest extends PantherTestCase
+class PostArtworkControllerTest extends PantherTestCase
 {
     use ReloadDatabaseTrait;
     use AuthenticationTrait;

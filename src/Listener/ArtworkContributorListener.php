@@ -45,6 +45,9 @@ class ArtworkContributorListener implements EventSubscriber
             return;
         }
 
-        $entity->setContributor($this->security->getUser());
+        $currentUser = $this->security->getUser();
+        if ($currentUser) {
+            $entity->setContributor($currentUser);
+        }
     }
 }
