@@ -4,6 +4,7 @@ App\Entity\Artwork:
         enabled: true
         type: 'graffiti'
         contributor: '@user_1'
+        title: 'Hello Canada.'
     artwork_2:
         poi: '@poi_nantes_1'
         enabled: true
@@ -13,22 +14,22 @@ App\Entity\Artwork:
         poi: '@poi_nantes_2'
         enabled: true
         type: 'graffiti'
-        contributor: '@user_1'
+        contributor: '@user_2'
     artwork_4:
         poi: '@poi_nantes_3'
         enabled: true
         type: 'graffiti'
-        contributor: '@user_1'
+        contributor: '@user_2'
     artwork_5:
         poi: '@poi_nantes_4'
         enabled: true
         type: 'graffiti'
-        contributor: '@user_1'
+        contributor: '@user_2'
     artwork_6:
         poi: '@poi_nantes_5'
         enabled: true
         type: 'graffiti'
-        contributor: '@user_1'
+        contributor: '@user_2'
 
 App\Entity\Document:
     document_1:
