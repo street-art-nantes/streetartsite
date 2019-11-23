@@ -61,6 +61,7 @@ class Artwork
 
     /**
      * @ORM\Column(type="boolean")
+     * @Groups({"artwork:read"})
      */
     private $enabled;
 
