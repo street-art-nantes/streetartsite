@@ -55,16 +55,16 @@ class DocumentNormalizer implements NormalizerInterface, CacheableSupportsMethod
     public function normalize($object, $format = null, array $context = []): array
     {
         $document = $this->normalizer->normalize($object, $format, $context);
-
-        if ($document['imageKitData']) {
-            return $document;
-        }
-
-        $imageFile = $this->uploaderHelper->asset($document, 'imageFile');
-
-        $document['imageURILarge'] = $this->imagineCacheManager->getBrowserPath($imageFile, 'thumb_small');
-        $document['imageURIMedium'] = $this->imagineCacheManager->getBrowserPath($imageFile, 'thumb_small');
-        $document['imageURISmall'] = $this->imagineCacheManager->getBrowserPath($imageFile, 'thumb_smallmedium');
+//        // TODO get class instead array
+//        if ($document['imageKitData']) {
+//            return $document;
+//        }
+//
+//        $imageFile = $this->uploaderHelper->asset($document, 'imageFile');
+//
+//        $document['imageURILarge'] = $this->imagineCacheManager->getBrowserPath($imageFile, 'thumb_small');
+//        $document['imageURIMedium'] = $this->imagineCacheManager->getBrowserPath($imageFile, 'thumb_small');
+//        $document['imageURISmall'] = $this->imagineCacheManager->getBrowserPath($imageFile, 'thumb_smallmedium');
 
         return $document;
     }

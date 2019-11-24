@@ -75,6 +75,21 @@ class Document
     private $artwork;
 
     /**
+     * @var string
+     */
+    private $imageURISmall;
+
+    /**
+     * @var string
+     */
+    private $imageURIMedium;
+
+    /**
+     * @var string
+     */
+    private $imageURILarge;
+
+    /**
      * Document constructor.
      */
     public function __construct()
@@ -200,7 +215,7 @@ class Document
      */
     public function getImageURIMedium(): ?string
     {
-        return $this->getImageURI(self::IMAGEKIT_ALIAS_MEDIUM);
+        return $this->imageURIMedium ?? $this->getImageURI(self::IMAGEKIT_ALIAS_MEDIUM);
     }
 
     /**
@@ -209,7 +224,7 @@ class Document
      */
     public function getImageURILarge(): ?string
     {
-        return $this->getImageURI(self::IMAGEKIT_ALIAS_LARGE);
+        return $this->imageURILarge ?? $this->getImageURI(self::IMAGEKIT_ALIAS_LARGE);
     }
 
     /**
@@ -218,7 +233,43 @@ class Document
      */
     public function getImageURISmall(): ?string
     {
-        return $this->getImageURI(self::IMAGEKIT_ALIAS_SMALL);
+        return $this->imageURISmall ?? $this->getImageURI(self::IMAGEKIT_ALIAS_SMALL);
+    }
+
+    /**
+     * @param string $imageURISmall
+     *
+     * @return Document
+     */
+    public function setImageURISmall(string $imageURISmall): self
+    {
+        $this->imageURISmall = $imageURISmall;
+
+        return $this;
+    }
+
+    /**
+     * @param string $imageURIMedium
+     *
+     * @return Document
+     */
+    public function setImageURIMedium(string $imageURIMedium): self
+    {
+        $this->imageURIMedium = $imageURIMedium;
+
+        return $this;
+    }
+
+    /**
+     * @param string $imageURILarge
+     *
+     * @return Document
+     */
+    public function setImageURILarge(string $imageURILarge): self
+    {
+        $this->imageURILarge = $imageURILarge;
+
+        return $this;
     }
 
     /**
