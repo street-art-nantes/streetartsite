@@ -7,6 +7,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\BooleanFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use App\Filter\RegionFilter;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
@@ -26,6 +27,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *       "get"
  *     }
  * )
+ * @ApiFilter(RegionFilter::class, properties={"bounds"})
  * @ApiFilter(SearchFilter::class, properties={"contributor.id": "exact"})
  * @ApiFilter(BooleanFilter::class, properties={"enabled"})
  * @ApiFilter(OrderFilter::class, properties={
