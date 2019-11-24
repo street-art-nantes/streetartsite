@@ -4,15 +4,19 @@ namespace App\EventSubscriber;
 
 use ApiPlatform\Core\EventListener\EventPriorities;
 use ApiPlatform\Core\Util\RequestAttributesExtractor;
-use App\Entity\Document;
+use App\Entity\Artwork;
 use Liip\ImagineBundle\Imagine\Cache\CacheManager;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\ViewEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Vich\UploaderBundle\Storage\StorageInterface;
+use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
 
-final class DocumentEventSubscriber implements EventSubscriberInterface
+/**
+ * Class ArtworkEventSubscriber.
+ */
+final class ArtworkEventSubscriber implements EventSubscriberInterface
 {
     /**
      * @var StorageInterface
@@ -25,14 +29,21 @@ final class DocumentEventSubscriber implements EventSubscriberInterface
     private $imagineCacheManager;
 
     /**
+     * @var UploaderHelper
+     */
+    private $uploaderHelper;
+
+    /**
      * DocumentEventSubscriber constructor.
      *
      * @param StorageInterface $storage
      * @param CacheManager     $imagineCacheManager
+     * @param UploaderHelper   $uploaderHelper
      */
-    public function __construct(StorageInterface $storage, CacheManager $imagineCacheManager)
+    public function __construct(StorageInterface $storage, CacheManager $imagineCacheManager, UploaderHelper $uploaderHelper)
     {
         $this->storage = $storage;
+        $this->uploaderHelper = $uploaderHelper;
         $this->imagineCacheManager = $imagineCacheManager;
     }
 
@@ -58,29 +69,32 @@ final class DocumentEventSubscriber implements EventSubscriberInterface
             return;
         }
 
-        if (!($attributes = RequestAttributesExtractor::extractAttributes($request)) || !is_a($attributes['resource_class'], Document::class, true)) {
+        if (!($attributes = RequestAttributesExtractor::extractAttributes($request)) || !is_a($attributes['resource_class'], Artwork::class, true)) {
             return;
         }
 
-        $mediaObjects = $controllerResult;
+        $artworkObjects = $controllerResult;
 
-        if (!is_iterable($mediaObjects)) {
-            $mediaObjects = [$mediaObjects];
+        if (!is_iterable($artworkObjects)) {
+            $artworkObjects = [$artworkObjects];
         }
 
-        foreach ($mediaObjects as $mediaObject) {
-            if (!$mediaObject instanceof Document) {
+        foreach ($artworkObjects as $artworkObject) {
+            if (!$artworkObject instanceof Artwork) {
                 continue;
             }
 
-            if ($mediaObject->getImageKitData()) {
-                continue;
-            }
+            foreach ($artworkObject->getDocuments() as $document) {
+                if ($document->getImageKitData()) {
+                    continue;
+                }
 
-            $uri = $this->storage->resolveUri($mediaObject, 'file');
-            $mediaObject->setImageURISmall($this->imagineCacheManager->getBrowserPath($uri, 'thumb_smallmedium'));
-            $mediaObject->setImageURIMedium($this->imagineCacheManager->getBrowserPath($uri, 'thumb_small'));
-            $mediaObject->setImageURILarge($this->imagineCacheManager->getBrowserPath($uri, 'thumb_small'));
+                $uri = $this->storage->resolveUri($document, 'imageFile');
+
+                $document->setImageURISmall($this->imagineCacheManager->getBrowserPath($uri, 'thumb_smallmedium'));
+                $document->setImageURIMedium($this->imagineCacheManager->getBrowserPath($uri, 'thumb_small'));
+                $document->setImageURILarge($this->imagineCacheManager->getBrowserPath($uri, 'thumb_large'));
+            }
         }
     }
 }
