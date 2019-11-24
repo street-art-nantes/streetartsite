@@ -51,3 +51,5 @@ doctrine:
                 ST_Point:             Jsor\Doctrine\PostGIS\Functions\ST_Point
                 ST_SetSRID:           Jsor\Doctrine\PostGIS\Functions\ST_SetSRID
                 ST_AsEWKT:            Jsor\Doctrine\PostGIS\Functions\ST_AsEWKT
+                ST_MakeEnvelope:      Jsor\Doctrine\PostGIS\Functions\ST_MakeEnvelope
+                ST_Intersects:        Jsor\Doctrine\PostGIS\Functions\ST_Intersects

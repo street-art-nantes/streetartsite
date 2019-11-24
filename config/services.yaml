@@ -43,6 +43,8 @@ services:
         arguments: [ '@doctrine', '@request_stack', '@?logger', { region: ~ } ]
         tags: [ 'api_platform.filter' ]
 
+    App\Filter\RegionFilter:
+
     App\Manager\PoiManager:
         arguments: [ '@doctrine.orm.entity_manager', '@vich_uploader.templating.helper.uploader_helper', '@liip_imagine.service.filter']
 
